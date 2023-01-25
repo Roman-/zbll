@@ -1,8 +1,12 @@
 <script setup>
+import MainZbllGrid from "@/components/MainZbllGrid.vue";
 </script>
 
 <template>
-  <h1>Select zblls</h1>
+  <div class="m-1">
+    <p>{{$t("select.select_intro")}}:</p>
+  </div>
+  <MainZbllGrid/>
 </template>
 
 <style scoped>

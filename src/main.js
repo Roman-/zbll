@@ -20,7 +20,6 @@ const i18n = createI18n({
   locale: 'en', // console.log("nav", navigator.language);
   fallbackLocale: 'en',
   messages: locale_from_file,
-  globalInjection: true
 })
 
 createApp(App)
