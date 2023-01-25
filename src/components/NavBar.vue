@@ -1,12 +1,8 @@
 <script setup>
 import {useLocaleStore} from "@/stores/locale_store";
-import {useI18n} from "vue-i18n";
 const toggleLocale = ()=>{
   useLocaleStore().toggle();
-
-  i18n.locale = 'ru';
 }
-// console.log("l", i);
 
 </script>
 
@@ -18,7 +14,7 @@ const toggleLocale = ()=>{
           {{$t("nav.select")}}
         </button>
         <span class="mx-2">
-          {{$tc("nav.cases_selected", 0)}} {{$t("nav.selected")}}
+          {{$t("nav.cases_selected", 0)}} {{$t("nav.selected")}}
         </span>
       </div>
       <div class="col-auto">

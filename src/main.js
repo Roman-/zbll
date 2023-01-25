@@ -16,9 +16,11 @@ import "@/assets/bootstrap_themes/darkly.min.css"
 import { createI18n } from 'vue-i18n'
 import locale_from_file from '@/assets/locale.json'
 const i18n = createI18n({
-  locale: 'en',
+  legacy: false,
+  locale: 'en', // console.log("nav", navigator.language);
   fallbackLocale: 'en',
-  messages: locale_from_file
+  messages: locale_from_file,
+  globalInjection: true
 })
 
 createApp(App)
