@@ -7,17 +7,17 @@ import router from './router'
 // Pinia
 import { createPinia } from 'pinia'
 
-// bootstrap & icons
+// bootstrap, icons and theme
 import "bootstrap"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import "@/assets/bootstrap_themes/darkly.min.css"
+// the .min.css file for specific Bootstrap theme will be loaded and applied in App.vue
 
 // i18n
 import { createI18n } from 'vue-i18n'
 import locale_from_file from '@/assets/locale.json'
 const i18n = createI18n({
   legacy: false,
-  locale: 'en', // console.log("nav", navigator.language);
+  locale: 'en', // console.log(navigator.language);
   fallbackLocale: 'en',
   messages: locale_from_file,
 })

@@ -1,8 +1,10 @@
 <script setup>
 import {useLocaleStore} from "@/stores/locale_store";
+import {useThemeStore} from "@/stores/ThemeStore";
 const toggleLocale = ()=>{
   useLocaleStore().toggle();
 }
+const themeStore = useThemeStore();
 
 </script>
 
@@ -21,8 +23,8 @@ const toggleLocale = ()=>{
         <button class="btn btn-link" @click="toggleLocale">
           <i class="bi-translate text-info font_bigger"/>
         </button>
-        <button class="btn btn-link text-info">
-          <i class="bi-moon font_bigger"/>
+        <button class="btn btn-link text-info" @click="themeStore.toggleDayNight()">
+          <i class="bi-moon font_bigger" :class="themeStore.icon"/>
         </button>
       </div>
     </div>

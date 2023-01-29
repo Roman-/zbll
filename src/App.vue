@@ -1,6 +1,10 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBar from "@/components/NavBar.vue";
+
+import {useThemeStore} from "@/stores/ThemeStore";
+useThemeStore().applyCurrentTheme();
+
 </script>
 
 <template>
