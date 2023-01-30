@@ -7,7 +7,7 @@ import {setLocaleAndReload, supportedLocales, addTranslationUrl} from "@/locale"
 <template>
   <div class="dropdown d-inline">
     <button class="btn btn-link dropdown-toggle text-info"
-            :title="$t('language')"
+            :title="$t('nav.language')"
             type="button"
             id="dropdownLang"
             data-bs-toggle="dropdown"

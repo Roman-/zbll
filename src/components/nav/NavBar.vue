@@ -1,7 +1,6 @@
 <script setup>
-import {useThemeStore} from "@/stores/ThemeStore";
 import LangDropdown from "@/components/nav/LangDropdown.vue";
-const themeStore = useThemeStore();
+import ThemeSwitcher from "@/components/nav/ThemeSwitcher.vue";
 
 </script>
 
@@ -18,16 +17,11 @@ const themeStore = useThemeStore();
       </div>
       <div class="col-auto">
         <LangDropdown/>
-        <button class="btn btn-link text-info" @click="themeStore.toggleDayNight()">
-          <i class="bi-moon font_bigger" :class="themeStore.icon"/>
-        </button>
+        <ThemeSwitcher/>
       </div>
     </div>
   </nav>
 </template>
 
 <style scoped>
-/deep/ .font_bigger {
-  font-size: 1.5rem;
-}
 </style>

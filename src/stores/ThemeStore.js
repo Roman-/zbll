@@ -14,18 +14,23 @@ import {computed, ref} from 'vue'
 import { defineStore } from 'pinia'
 
 const localStorageThemeKey = "template-theme";
+
+// light themes: cerulean, cosmo, flatly, litera, lux, materia, minty, morph, quartz, sandstone, sketchy, zephyr
+const lightThemeName = "flatly";
+// dark themes: cyborg, darkly, slate, solar, superhero
+const darkThemeName = "darkly";
 const getInitialTheme = ()=>{
   if (!localStorage || !localStorage.getItem(localStorageThemeKey)) {
-    return 'flatly';
+    return lightThemeName;
   }
   return localStorage.getItem(localStorageThemeKey);
 }
 
 const biIconByTheme = (name) => {
   switch (name) {
-    case 'darkly':
+    case darkThemeName:
       return "bi-moon";
-    case 'flatly':
+    case lightThemeName:
     default:
       return "bi-sun";
   }
@@ -47,7 +52,7 @@ export const useThemeStore = defineStore('theme', () => {
     document.getElementById("bootstrap_stylesheet").href = getThemeCssUrl(name.value);
   }
   function toggleDayNight() {
-    name.value = (name.value === 'flatly') ? 'darkly' : 'flatly';
+    name.value = (name.value === lightThemeName) ? darkThemeName : lightThemeName;
     applyCurrentTheme();
     if (localStorage) {
       localStorage.setItem(localStorageThemeKey, name.value);

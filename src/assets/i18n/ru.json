@@ -1,7 +1,8 @@
 {
   "ru": {
-    "language": "Язык",
     "nav": {
+      "language": "Язык",
+      "toggle_night_mode": "Тёмная/светлая тема",
       "select": "выбрать",
       "selected": "выбрано",
       "cases selected": "0 ситуаций | 1 ситуация | {count} ситуаций"

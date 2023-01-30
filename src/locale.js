@@ -27,7 +27,6 @@ const getUserLocale = ()=>{
 }
 
 const userLocale = getUserLocale();
-console.log("userLocale", userLocale);
 
 document.querySelector("html")
   .setAttribute("lang", userLocale);

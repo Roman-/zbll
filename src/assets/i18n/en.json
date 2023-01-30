@@ -1,7 +1,8 @@
 {
   "en": {
-    "language": "Language",
     "nav": {
+      "language": "Language",
+      "toggle_night_mode": "Toggle night mode",
       "select": "select",
       "selected": "selected",
       "cases selected": "no cases | one case | {count} cases"
