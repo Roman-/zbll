@@ -1,9 +1,39 @@
-import {ref} from 'vue'
+/*
+* Dynamically change themes downloaded from https://bootswatch.com/.
+* Usage: in main.js, do:
+*  import "bootstrap"
+*
+* And then in App.vue, do:
+*  import {useThemeStore} from "@/stores/ThemeStore";
+*  useThemeStore().applyCurrentTheme();
+*
+* Then, whenever you want to change theme, do this:
+* useThemeStore().toggleDayNight();
+*/
+import {computed, ref} from 'vue'
 import { defineStore } from 'pinia'
 
+const localStorageThemeKey = "template-theme";
+const getInitialTheme = ()=>{
+  if (!localStorage || !localStorage.getItem(localStorageThemeKey)) {
+    return 'flatly';
+  }
+  return localStorage.getItem(localStorageThemeKey);
+}
+
+const biIconByTheme = (name) => {
+  switch (name) {
+    case 'darkly':
+      return "bi-moon";
+    case 'flatly':
+    default:
+      return "bi-sun";
+  }
+}
+
 export const useThemeStore = defineStore('theme', () => {
-  const name = ref('flatly')
-  const icon = ref("bi-sun");
+  const name = ref(getInitialTheme())
+  const icon = computed(()=>biIconByTheme(name.value));
   function applyCurrentTheme() {
     const link_id = "bootstrap_stylesheet";
     // find link with id="bootstrap_stylesheet"; if not found, create one
@@ -13,14 +43,15 @@ export const useThemeStore = defineStore('theme', () => {
       link.id = link_id;
       link.rel = 'stylesheet';
       document.head.appendChild(link);
-      console.log("create");
     }
     document.getElementById("bootstrap_stylesheet").href = getThemeCssUrl(name.value);
   }
   function toggleDayNight() {
     name.value = (name.value === 'flatly') ? 'darkly' : 'flatly';
-    icon.value = (name.value === 'flatly') ? "bi-sun" : "bi-moon";
     applyCurrentTheme();
+    if (localStorage) {
+      localStorage.setItem(localStorageThemeKey, name.value);
+    }
   }
 
   const getThemeCssUrl = (name) => {

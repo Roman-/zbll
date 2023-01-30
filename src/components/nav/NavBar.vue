@@ -1,9 +1,6 @@
 <script setup>
-import {useLocaleStore} from "@/stores/locale_store";
 import {useThemeStore} from "@/stores/ThemeStore";
-const toggleLocale = ()=>{
-  useLocaleStore().toggle();
-}
+import LangDropdown from "@/components/nav/LangDropdown.vue";
 const themeStore = useThemeStore();
 
 </script>
@@ -16,13 +13,11 @@ const themeStore = useThemeStore();
           {{$t("nav.select")}}
         </button>
         <span class="mx-2">
-          {{$t("nav.cases_selected", 0)}} {{$t("nav.selected")}}
+          {{$t("nav.cases selected", 0)}} {{$t("nav.selected")}}
         </span>
       </div>
       <div class="col-auto">
-        <button class="btn btn-link" @click="toggleLocale">
-          <i class="bi-translate text-info font_bigger"/>
-        </button>
+        <LangDropdown/>
         <button class="btn btn-link text-info" @click="themeStore.toggleDayNight()">
           <i class="bi-moon font_bigger" :class="themeStore.icon"/>
         </button>
@@ -32,7 +27,7 @@ const themeStore = useThemeStore();
 </template>
 
 <style scoped>
-.font_bigger {
+/deep/ .font_bigger {
   font-size: 1.5rem;
 }
 </style>

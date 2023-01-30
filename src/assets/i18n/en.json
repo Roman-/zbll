@@ -1,0 +1,16 @@
+{
+  "en": {
+    "language": "Language",
+    "nav": {
+      "select": "select",
+      "selected": "selected",
+      "cases selected": "no cases | one case | {count} cases"
+    },
+    "select": {
+      "select_intro": "Select cases to practise"
+    },
+    "about": {
+      "text": "Text in English"
+    }
+  }
+}
