@@ -1,7 +1,8 @@
 <script setup>
 
 import {useSelectedStore} from "@/stores/SelectedStore";
-import {countZbllsInOll} from "@/helpers/cases_count";
+import {countZbllsInOll, numZbllsInOllSelected} from "@/helpers/cases_count";
+import {computed, ref, watch} from "vue";
 
 const props = defineProps(['name', 'coll_map'])
 const getOllImg = (name) => {
@@ -9,9 +10,19 @@ const getOllImg = (name) => {
 }
 const oll = props.name; // H, L, Pi etc
 const selectStore = useSelectedStore();
-const num_cases_selected = selectStore.numZbllsInOllSelected(oll);
-const total_zblls_in_oll = countZbllsInOll(oll);
+const num_cases_selected = ref(numZbllsInOllSelected(selectStore.map, oll)); // TODO try replacing with computed()
+watch(selectStore.map, (newSelectMap) => {
+  num_cases_selected.value = numZbllsInOllSelected(newSelectMap, oll);
+})
 
+const total_zblls_in_oll = countZbllsInOll(oll); // is const
+const onCardClicked = () => {
+  if (num_cases_selected.value === 0) {
+    selectStore.addOll(oll);
+  } else {
+    selectStore.removeOll(oll);
+  }
+}
 
 </script>
 
@@ -28,7 +39,7 @@ const total_zblls_in_oll = countZbllsInOll(oll);
         ({{num_cases_selected}}/{{total_zblls_in_oll}})
       </span>
     </div>
-    <div class="m-1">
+    <div class="m-1" @click="onCardClicked">
       <img class="oll" :src="getOllImg(oll)" :alt="oll">
     </div>
   </div>

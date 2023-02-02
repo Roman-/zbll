@@ -1,6 +1,6 @@
 import {computed, reactive, ref} from 'vue'
 import { defineStore } from 'pinia'
-import zbll from "@/assets/zbll_map.json"
+import zbll_map from "@/assets/zbll_map.json"
 
 export const useSelectedStore = defineStore('selected', () => {
   const map = reactive({})
@@ -12,8 +12,8 @@ export const useSelectedStore = defineStore('selected', () => {
   // add ALL cases from this oll
   function addOll(oll) {
     map[oll] = {};
-    for (let coll in zbll) {
-      console.log("coll = ", coll);
+    for (let coll in zbll_map[oll]) {
+      console.log("adding coll = ", coll);
       addColl(oll, coll);
     }
   }
@@ -22,9 +22,9 @@ export const useSelectedStore = defineStore('selected', () => {
     if (!map.hasOwnProperty(oll)) {
       map[oll] = {};
     }
-    map[oll][coll] = [];
-    for (zbll in zbll[oll][coll]) {
-      map[oll][coll].push(zbll);
+    map[oll][coll] = new Set();
+    for (let zbll in zbll_map[oll][coll]) {
+      map[oll][coll].add(zbll);
     }
   }
 
@@ -62,28 +62,5 @@ export const useSelectedStore = defineStore('selected', () => {
     }
   }
 
-  function isZbllSelected(oll, coll, zbll) {
-    return map.hasOwnProperty(oll) && map[oll].hasOwnProperty(coll) && map[oll][coll].has(zbll);
-  }
-
-  function numZbllsInCollSelected(oll, coll) {
-    if (!map.hasOwnProperty(oll) || !map[oll].hasOwnProperty(coll)) {
-      return 0;
-    }
-    return map[oll][coll].size;
-  }
-
-  function numZbllsInOllSelected(oll) {
-    if (!map.hasOwnProperty(oll)) {
-      return 0;
-    }
-    let result = 0;
-    for (let coll in map[oll]) {
-      result += numZbllsInCollSelected(map[oll][coll]);
-    }
-    return result;
-  }
-
-  return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll,
-    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected }
+  return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll}
 });
