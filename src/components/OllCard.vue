@@ -1,13 +1,18 @@
 <script setup>
 
+import {useSelectedStore} from "@/stores/SelectedStore";
+import {countZbllsInOll} from "@/helpers/cases_count";
+
 const props = defineProps(['name', 'coll_map'])
-// const expanded = ref(0);
-const selected_colls = 0; // TODO from pinia
-const total_zblls_in_oll = 100;
 const getOllImg = (name) => {
   return new URL(`../assets/svg/${name}.svg`, import.meta.url).href
 }
-const name = props.name; // H, L, Pi etc
+const oll = props.name; // H, L, Pi etc
+const selectStore = useSelectedStore();
+const num_cases_selected = selectStore.numZbllsInOllSelected(oll);
+const total_zblls_in_oll = countZbllsInOll(oll);
+
+
 </script>
 
 <template>
@@ -15,24 +20,24 @@ const name = props.name; // H, L, Pi etc
     <div
         class="header bg-primary bg-opacity-25 p-1 clickable"
         data-bs-toggle="collapse"
-        :data-bs-target="`#collapsed-colls-${name}`">
+        :data-bs-target="`#collapsed-colls-${oll}`">
       <strong class="text-center">
         {{props.name}}
       </strong>
       <span>
-        ({{selected_colls}}/{{total_zblls_in_oll}})
+        ({{num_cases_selected}}/{{total_zblls_in_oll}})
       </span>
     </div>
     <div class="m-1">
-      <img class="oll" :src="getOllImg(name)" :alt="name">
+      <img class="oll" :src="getOllImg(oll)" :alt="oll">
     </div>
   </div>
   <div
       class="bg-dark text-center collapse multi-collapse"
-      :id="`collapsed-colls-${name}`">
+      :id="`collapsed-colls-${oll}`">
     subcard<br/>
-    {{name}}<br/>
-    {{name}}<br/>
+    {{ oll }}<br/>
+    {{ oll }}<br/>
     subcard<br/>
   </div>
 </template>
