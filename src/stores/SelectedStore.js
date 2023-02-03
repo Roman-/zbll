@@ -13,7 +13,6 @@ export const useSelectedStore = defineStore('selected', () => {
   function addOll(oll) {
     map[oll] = {};
     for (let coll in zbll_map[oll]) {
-      console.log("adding coll = ", coll);
       addColl(oll, coll);
     }
   }

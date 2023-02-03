@@ -3,13 +3,14 @@
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInOll, numZbllsInOllSelected} from "@/helpers/cases_count";
 import {computed, ref, watch} from "vue";
+import {getOllImg} from "@/helpers/cube_images";
+import CollCard from "@/components/CollCard.vue";
 
-const props = defineProps(['name', 'coll_map'])
-const getOllImg = (name) => {
-  return new URL(`../assets/svg/${name}.svg`, import.meta.url).href
-}
-const oll = props.name; // H, L, Pi etc
+const props = defineProps(['oll', 'oll_map'])
+const oll = props.oll; // H, L, Pi etc
+const oll_map = props.oll_map;
 const selectStore = useSelectedStore();
+
 const num_cases_selected = ref(numZbllsInOllSelected(selectStore.map, oll)); // TODO try replacing with computed()
 watch(selectStore.map, (newSelectMap) => {
   num_cases_selected.value = numZbllsInOllSelected(newSelectMap, oll);
@@ -24,38 +25,42 @@ const onCardClicked = () => {
   }
 }
 
+const card_bg_class = computed(() => {
+  return (num_cases_selected.value === 0) ? "no_cases_selected" :
+      (total_zblls_in_oll === num_cases_selected.value)
+          ? "all_cases_selected"
+          : "some_cases_selected";
+})
+
 </script>
 
 <template>
-  <div class="bg-light border border-dark">
+  <div class="border border-dark" :class="card_bg_class">
     <div
-        class="header bg-primary bg-opacity-25 p-1 clickable"
+        class="header p-1 clickable border-bottom border-secondary"
         data-bs-toggle="collapse"
         :data-bs-target="`#collapsed-colls-${oll}`">
       <strong class="text-center">
-        {{props.name}}
+        {{props.oll}}
       </strong>
       <span>
         ({{num_cases_selected}}/{{total_zblls_in_oll}})
       </span>
     </div>
-    <div class="m-1" @click="onCardClicked">
-      <img class="oll" :src="getOllImg(oll)" :alt="oll">
+    <div class="clickable m-1" @click="onCardClicked">
+      <img class="cube_card_img" :src="getOllImg(oll)" :alt="oll">
     </div>
   </div>
   <div
       class="bg-dark text-center collapse multi-collapse"
       :id="`collapsed-colls-${oll}`">
-    subcard<br/>
-    {{ oll }}<br/>
-    {{ oll }}<br/>
-    subcard<br/>
+    <CollCard v-for="(zbll_map, coll) in oll_map"
+              :oll="oll"
+              :coll="coll"
+              :zbll_map="zbll_map"
+    />
   </div>
 </template>
 
 <style scoped>
-img.oll {
-  width: 100%;
-  max-width: 300px;
-}
 </style>
