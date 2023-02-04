@@ -4,18 +4,21 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
 import {computed, ref, watch} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
+import {useZbllModalStore} from "@/stores/ZbllModalStore";
 
 const props = defineProps(['oll', 'coll', 'zbll_map'])
 const oll = props.oll; // H, L, Pi etc
-const coll = props.coll;
+const coll = props.coll; // BFFB, FRFL etc.
 const zbll_map = props.zbll_map;
 const selectStore = useSelectedStore();
+const zbllModalStore = useZbllModalStore()
 
-const num_cases_selected = ref(numZbllsInCollSelected(selectStore.map, oll, coll)); // TODO try replacing with computed()
+// const num_cases_selected = computed(() => numZbllsInCollSelected(selectStore.map, oll, coll)); // TODO why this doesn't work
+const num_cases_selected = ref(numZbllsInCollSelected(selectStore.map, oll, coll));
 watch(selectStore.map, () => {
   num_cases_selected.value = numZbllsInCollSelected(selectStore.map, oll, coll);
 })
-const total_zblls_in_coll = countZbllsInColl(oll, coll); // is const
+const total_zblls_in_coll = countZbllsInColl(oll, coll);
 
 const onCardClicked = () => {
   if (num_cases_selected.value === 0) {
@@ -32,8 +35,9 @@ const card_bg_class = computed(() => {
           : "some_cases_selected";
 })
 
-const showZbllsModal = () => {
-  console.log("showZbllsModal!");
+const setZbllsModalValues = () => {
+  zbllModalStore.oll = oll;
+  zbllModalStore.coll = coll;
 }
 
 </script>
@@ -41,7 +45,10 @@ const showZbllsModal = () => {
 <template>
   <div class="border border-dark" :class="card_bg_class">
     <div
-        class="header p-1 clickable border-bottom border-secondary" @click="showZbllsModal">
+        class="header p-1 clickable border-bottom border-secondary"
+        data-bs-toggle="modal" data-bs-target="#zbllsModal"
+        @click="setZbllsModalValues"
+    >
       <strong class="text-center">
         {{props.coll}}
       </strong>

@@ -1,6 +1,7 @@
 <script setup>
 import OllCard from "@/components/OllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
+import ZbllsModal from "@/components/nav/ZbllsModal.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import zbll_map from "@/assets/zbll_map.json"
         <OllCard :oll="oll" :oll_map="oll_map"/>
       </div>
     </div>
+  <ZbllsModal/>
 </template>
 
 <style scoped>
