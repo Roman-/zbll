@@ -1,5 +1,5 @@
 /*
- * Used to set Oll/Coll
+ * Using store to create ZBLL modal once, and set its values (oll/coll) from the store.
 */
 import {ref} from 'vue'
 import { defineStore } from 'pinia'

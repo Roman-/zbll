@@ -31,6 +31,8 @@ export const useSelectedStore = defineStore('selected', () => {
   function removeColl(oll, coll) {
     if (map.hasOwnProperty(oll)) {
       delete map[oll][coll];
+    } else {
+      return;
     }
     // check of map[oll] is empty; if so, delete oll
     if (Object.keys(map[oll]).length === 0) {
@@ -45,7 +47,6 @@ export const useSelectedStore = defineStore('selected', () => {
     if (!map[oll].hasOwnProperty(coll)) {
       map[oll][coll] = new Set();
     }
-    console.log("map[oll][coll].add(zbll);" + zbll);
     map[oll][coll].add(zbll);
   }
 
