@@ -1,12 +1,11 @@
 <script setup>
 import {useZbllModalStore} from "@/stores/ZbllModalStore";
-import {computed, ref, watch} from "vue";
+import {computed} from "vue";
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
 import {useSelectedStore} from "@/stores/SelectedStore";
 
 const zbllModalStore = useZbllModalStore();
 const selectStore = useSelectedStore();
-// TODO map changes does not affect computed!
 const modalTitle = computed(() => {
   return zbllModalStore.oll + " • " + zbllModalStore.coll
       + " (" + numZbllsInCollSelected(selectStore.map, zbllModalStore.oll, zbllModalStore.coll)
@@ -26,8 +25,9 @@ const modalTitle = computed(() => {
           {{zbllModalStore.oll}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary">All</button>
+          <button type="button" class="btn btn-secondary">None</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
         </div>
       </div>
     </div>

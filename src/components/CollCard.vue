@@ -2,7 +2,7 @@
 
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
-import {computed, ref, watch} from "vue";
+import {computed} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
 import {useZbllModalStore} from "@/stores/ZbllModalStore";
 
@@ -13,11 +13,7 @@ const zbll_map = props.zbll_map;
 const selectStore = useSelectedStore();
 const zbllModalStore = useZbllModalStore()
 
-// const num_cases_selected = computed(() => numZbllsInCollSelected(selectStore.map, oll, coll)); // TODO why this doesn't work
-const num_cases_selected = ref(numZbllsInCollSelected(selectStore.map, oll, coll));
-watch(selectStore.map, () => {
-  num_cases_selected.value = numZbllsInCollSelected(selectStore.map, oll, coll);
-})
+const num_cases_selected = computed();
 const total_zblls_in_coll = countZbllsInColl(oll, coll);
 
 const onCardClicked = () => {

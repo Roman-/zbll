@@ -2,19 +2,15 @@
 
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInOll, numZbllsInOllSelected} from "@/helpers/cases_count";
-import {computed, ref, watch} from "vue";
+import {computed} from "vue";
 import {getOllImg} from "@/helpers/cube_images";
 import CollCard from "@/components/CollCard.vue";
 
 const props = defineProps(['oll', 'oll_map'])
-const oll = props.oll; // H, L, Pi etc
-const oll_map = props.oll_map;
+const {oll, oll_map} = props;
 const selectStore = useSelectedStore();
 
-const num_cases_selected = ref(numZbllsInOllSelected(selectStore.map, oll)); // TODO try replacing with computed()
-watch(selectStore.map, (newSelectMap) => {
-  num_cases_selected.value = numZbllsInOllSelected(newSelectMap, oll);
-})
+const num_cases_selected = computed(() => numZbllsInOllSelected(selectStore.map, oll));
 
 const total_zblls_in_oll = countZbllsInOll(oll); // is const
 const onCardClicked = () => {
