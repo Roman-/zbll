@@ -45,6 +45,7 @@ export const useSelectedStore = defineStore('selected', () => {
     if (!map[oll].hasOwnProperty(coll)) {
       map[oll][coll] = new Set();
     }
+    console.log("map[oll][coll].add(zbll);" + zbll);
     map[oll][coll].add(zbll);
   }
 

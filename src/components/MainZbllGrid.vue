@@ -1,7 +1,7 @@
 <script setup>
 import OllCard from "@/components/OllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
-import ZbllsModal from "@/components/nav/ZbllsModal.vue";
+import ZbllsModal from "@/components/ZbllsModal.vue";
 </script>
 
 <template>

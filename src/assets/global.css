@@ -11,7 +11,6 @@ img.cube_card_img {
 }
 
 .no_cases_selected {
-    /*background-color: var(--bs-light)*/
 }
 .some_cases_selected {
     color: var(--bs-black);

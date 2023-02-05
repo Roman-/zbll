@@ -6,10 +6,8 @@ import {computed} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
 import {useZbllModalStore} from "@/stores/ZbllModalStore";
 
-const props = defineProps(['oll', 'coll', 'zbll_map'])
-const oll = props.oll; // H, L, Pi etc
-const coll = props.coll; // BFFB, FRFL etc.
-const zbll_map = props.zbll_map;
+const props = defineProps(['oll', 'coll'])
+const {oll, coll}  = props; // H, L, Pi etc
 const selectStore = useSelectedStore();
 const zbllModalStore = useZbllModalStore()
 

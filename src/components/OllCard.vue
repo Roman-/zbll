@@ -48,7 +48,7 @@ const card_bg_class = computed(() => {
     </div>
   </div>
   <div
-      class="bg-dark text-center collapse multi-collapse"
+      class="text-center collapse multi-collapse"
       :id="`collapsed-colls-${oll}`">
     <CollCard v-for="(zbll_map, coll) in oll_map"
               :oll="oll"
