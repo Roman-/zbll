@@ -13,7 +13,7 @@ const zbll_map = props.zbll_map;
 const selectStore = useSelectedStore();
 const zbllModalStore = useZbllModalStore()
 
-const num_cases_selected = computed();
+const num_cases_selected = computed(() => numZbllsInCollSelected(selectStore.map, oll, coll));
 const total_zblls_in_coll = countZbllsInColl(oll, coll);
 
 const onCardClicked = () => {

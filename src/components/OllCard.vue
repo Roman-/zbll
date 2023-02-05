@@ -43,7 +43,7 @@ const card_bg_class = computed(() => {
         ({{num_cases_selected}}/{{total_zblls_in_oll}})
       </span>
     </div>
-    <div class="clickable m-1" @click="onCardClicked">
+    <div class="clickable m-1 text-center" @click="onCardClicked">
       <img class="cube_card_img" :src="getOllImg(oll)" :alt="oll">
     </div>
   </div>
