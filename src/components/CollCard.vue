@@ -2,14 +2,13 @@
 
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
-import {useZbllModalStore} from "@/stores/ZbllModalStore";
+import ZbllsModal from "@/components/ZbllsModal.vue";
 
 const props = defineProps(['oll', 'coll'])
 const {oll, coll}  = props; // H, L, Pi etc
 const selectStore = useSelectedStore();
-const zbllModalStore = useZbllModalStore()
 
 const num_cases_selected = computed(() => numZbllsInCollSelected(selectStore.map, oll, coll));
 const total_zblls_in_coll = countZbllsInColl(oll, coll);
@@ -22,6 +21,8 @@ const onCardClicked = () => {
   }
 }
 
+const modalCloseCallback = () => { modalShown.value=false }
+
 const card_bg_class = computed(() => {
   return (num_cases_selected.value === 0) ? "no_cases_selected" :
       (total_zblls_in_coll === num_cases_selected.value)
@@ -29,19 +30,14 @@ const card_bg_class = computed(() => {
           : "some_cases_selected";
 })
 
-const setZbllsModalValues = () => {
-  zbllModalStore.oll = oll;
-  zbllModalStore.coll = coll;
-}
-
+const modalShown = ref(false);
 </script>
 
 <template>
   <div class="border border-dark" :class="card_bg_class">
     <div
         class="header p-1 clickable border-bottom border-secondary"
-        data-bs-toggle="modal" data-bs-target="#zbllsModal"
-        @click="setZbllsModalValues"
+        @click="modalShown=true"
     >
       <strong class="text-center">
         {{props.coll}}
@@ -54,6 +50,7 @@ const setZbllsModalValues = () => {
       <img class="cube_card_img" :src="getCollImg(oll, coll)" :alt="coll">
     </div>
   </div>
+  <ZbllsModal v-if="modalShown" :oll="oll" :coll="coll" :closeCallback="modalCloseCallback"/>
 </template>
 
 <style scoped>

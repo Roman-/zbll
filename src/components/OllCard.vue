@@ -53,7 +53,6 @@ const card_bg_class = computed(() => {
     <CollCard v-for="(zbll_map, coll) in oll_map"
               :oll="oll"
               :coll="coll"
-              :zbll_map="zbll_map"
     />
   </div>
 </template>
