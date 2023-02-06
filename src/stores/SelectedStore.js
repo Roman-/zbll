@@ -2,8 +2,10 @@ import {reactive, watch} from 'vue'
 import { defineStore } from 'pinia'
 import zbll_map from "@/assets/zbll_map.json"
 
+const localStoreKey = "currentZbllMap";
+
 export const useSelectedStore = defineStore('selected', () => {
-  const map = reactive({})
+  const map = reactive(JSON.parse(localStorage.getItem(localStoreKey) || "{}"))
 
   // null means ALL cases in group
   function removeOll(oll) {
@@ -64,7 +66,7 @@ export const useSelectedStore = defineStore('selected', () => {
   }
 
   watch(map, () => {
-    // console.log("map changed: " + JSON.stringify(map));
+    localStorage.setItem(localStoreKey, JSON.stringify(map));
   })
 
   return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll}
