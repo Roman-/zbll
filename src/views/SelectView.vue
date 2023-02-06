@@ -1,5 +1,5 @@
 <script setup>
-import MainZbllGrid from "@/components/MainZbllGrid.vue";
+import MainZbllGrid from "@/components/select_view/MainZbllGrid.vue";
 </script>
 
 <template>

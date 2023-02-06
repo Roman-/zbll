@@ -1,5 +1,5 @@
 <script setup>
-import OllCard from "@/components/OllCard.vue";
+import OllCard from "@/components/select_view/OllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
 </script>
 

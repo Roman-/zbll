@@ -4,7 +4,7 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
 import {computed, ref} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
-import ZbllsModal from "@/components/ZbllsModal.vue";
+import ZbllsModal from "@/components/select_view/ZbllsModal.vue";
 
 const props = defineProps(['oll', 'coll'])
 const {oll, coll}  = props; // H, L, Pi etc

@@ -3,7 +3,7 @@ import {computed, onMounted, ref} from "vue";
 import { Modal } from 'bootstrap'
 import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
 import {useSelectedStore} from "@/stores/SelectedStore";
-import ZbllCard from "@/components/ZbllCard.vue";
+import ZbllCard from "@/components/select_view/ZbllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
 
 const props = defineProps(['oll', 'coll', 'closeCallback']);

@@ -4,7 +4,7 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {countZbllsInOll, numZbllsInOllSelected} from "@/helpers/cases_count";
 import {computed} from "vue";
 import {getOllImg} from "@/helpers/cube_images";
-import CollCard from "@/components/CollCard.vue";
+import CollCard from "@/components/select_view/CollCard.vue";
 
 const props = defineProps(['oll', 'oll_map'])
 const {oll, oll_map} = props;
