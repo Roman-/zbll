@@ -18,7 +18,7 @@ export const useSelectedStore = defineStore('selected', () => {
   }
 
   function addColl(oll, coll) {
-    if (!map.hasOwnProperty(oll)) {
+    if (!(oll in map)) {
       map[oll] = {};
     }
     map[oll][coll] = new Set();
@@ -29,7 +29,7 @@ export const useSelectedStore = defineStore('selected', () => {
 
   // remove all coll cases
   function removeColl(oll, coll) {
-    if (map.hasOwnProperty(oll)) {
+    if (oll in  map) {
       delete map[oll][coll];
     } else {
       return;
@@ -41,17 +41,17 @@ export const useSelectedStore = defineStore('selected', () => {
   }
 
   function addZbll(oll, coll, zbll) {
-    if (!map.hasOwnProperty(oll)) {
+    if (!(oll in map)) {
       map[oll] = {};
     }
-    if (!map[oll].hasOwnProperty(coll)) {
+    if (!(coll in map[oll])) {
       map[oll][coll] = new Set();
     }
     map[oll][coll].add(zbll);
   }
 
   function removeZbll(oll, coll, zbll) {
-    if (!map.hasOwnProperty(oll) || !map[oll].hasOwnProperty(coll)) {
+    if (!(oll in map) || !(coll in map[oll])) {
       return;
     }
     map[oll][coll].delete(zbll); // delete from set
