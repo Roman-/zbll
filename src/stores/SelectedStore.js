@@ -20,9 +20,7 @@ export const useSelectedStore = defineStore('selected', () => {
   }
 
   function addColl(oll, coll) {
-    if (!(oll in map)) {
-      map[oll] = {};
-    }
+    map[oll] = map[oll] || {};
     map[oll][coll] = [];
     for (let zbll in zbll_map[oll][coll]) {
       map[oll][coll].push(zbll);
@@ -31,38 +29,27 @@ export const useSelectedStore = defineStore('selected', () => {
 
   // remove all coll cases
   function removeColl(oll, coll) {
-    if (oll in  map) {
-      delete map[oll][coll];
-    } else {
+    if (!map[oll])
       return;
-    }
-    // check of map[oll] is empty; if so, delete oll
-    if (Object.keys(map[oll]).length === 0) {
+    delete map[oll][coll];
+    if (!Object.keys(map[oll]).length) // if map[oll] becomes empty, delete it
       delete map[oll];
-    }
   }
 
   function addZbll(oll, coll, zbll) {
-    if (!(oll in map)) {
-      map[oll] = {};
-    }
-    if (!(coll in map[oll])) {
-      map[oll][coll] = [];
-    }
+    map[oll] = map[oll] || {};
+    map[oll][coll] = map[oll][coll] || [];
     map[oll][coll].push(zbll);
   }
 
   function removeZbll(oll, coll, zbll) {
-    if (!(oll in map) || !(coll in map[oll])) {
+    if (!map[oll] || !map[oll][coll])
       return;
-    }
-    map[oll][coll] = map[oll][coll].filter((item) => item !== zbll);
-    if (map[oll][coll].length === 0) {
+    map[oll][coll] = map[oll][coll].filter((item) => item !== zbll); // delete zbll from array
+    if (!map[oll][coll].length)
       delete map[oll][coll];
-    }
-    if (Object.keys(map[oll]).length === 0) {
+    if (!Object.keys(map[oll]).length)
       delete map[oll];
-    }
   }
 
   watch(map, () => {

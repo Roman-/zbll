@@ -15,17 +15,17 @@ export const countZbllsInColl = (oll, coll)=>{
 }
 
 export const isZbllSelected = (select_map, oll, coll, zbll) => {
-  return oll in select_map
-    && coll in select_map[oll]
+  return select_map[oll]
+    && select_map[oll][coll]
     && select_map[oll][coll].includes(zbll);
 }
 
 export const numZbllsInCollSelected = (select_map, oll, coll) => {
-  return (oll in select_map && coll in select_map[oll]) ? select_map[oll][coll].length : 0;
+  return (select_map[oll] && select_map[oll][coll]) ? select_map[oll][coll].length : 0;
 }
 
 export const numZbllsInOllSelected = (select_map, oll) => {
-  if (!(oll in select_map)) {
+  if (!select_map[oll]) {
     return 0;
   }
   let result = 0;
