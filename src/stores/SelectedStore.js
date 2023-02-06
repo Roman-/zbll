@@ -1,4 +1,4 @@
-import {computed, reactive, ref} from 'vue'
+import {reactive, watch} from 'vue'
 import { defineStore } from 'pinia'
 import zbll_map from "@/assets/zbll_map.json"
 
@@ -21,9 +21,9 @@ export const useSelectedStore = defineStore('selected', () => {
     if (!(oll in map)) {
       map[oll] = {};
     }
-    map[oll][coll] = new Set();
+    map[oll][coll] = [];
     for (let zbll in zbll_map[oll][coll]) {
-      map[oll][coll].add(zbll);
+      map[oll][coll].push(zbll);
     }
   }
 
@@ -45,23 +45,27 @@ export const useSelectedStore = defineStore('selected', () => {
       map[oll] = {};
     }
     if (!(coll in map[oll])) {
-      map[oll][coll] = new Set();
+      map[oll][coll] = [];
     }
-    map[oll][coll].add(zbll);
+    map[oll][coll].push(zbll);
   }
 
   function removeZbll(oll, coll, zbll) {
     if (!(oll in map) || !(coll in map[oll])) {
       return;
     }
-    map[oll][coll].delete(zbll); // delete from set
-    if (map[oll][coll].size === 0) {
+    map[oll][coll] = map[oll][coll].filter((item) => item !== zbll);
+    if (map[oll][coll].length === 0) {
       delete map[oll][coll];
     }
     if (Object.keys(map[oll]).length === 0) {
       delete map[oll];
     }
   }
+
+  watch(map, () => {
+    // console.log("map changed: " + JSON.stringify(map));
+  })
 
   return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll}
 });
