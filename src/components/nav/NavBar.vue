@@ -1,6 +1,8 @@
 <script setup>
 import LangDropdown from "@/components/nav/LangDropdown.vue";
 import ThemeSwitcher from "@/components/nav/ThemeSwitcher.vue";
+import {useSelectedStore} from "@/stores/SelectedStore";
+const selectedStore = useSelectedStore();
 
 </script>
 
@@ -12,7 +14,7 @@ import ThemeSwitcher from "@/components/nav/ThemeSwitcher.vue";
           {{$t("nav.select")}}
         </button>
         <span class="mx-2">
-          {{$t("nav.cases selected", 0)}} {{$t("nav.selected")}}
+          {{$t("nav.cases selected", selectedStore.totalZbllsSelected())}} {{$t("nav.selected")}}
         </span>
       </div>
       <div class="col-auto">

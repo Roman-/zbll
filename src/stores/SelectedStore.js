@@ -65,11 +65,18 @@ export const useSelectedStore = defineStore('selected', () => {
       ? Object.values(map[oll]).reduce((sum, zbllsArray) => sum + zbllsArray.length, 0)
       : 0
 
+  const totalZbllsSelected = () => {
+    let sum = 0
+    for (let oll in map)
+      sum += numZbllsInOllSelected(oll);
+    return sum;
+  }
+
 
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map,
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
-    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected }
+    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected }
 });

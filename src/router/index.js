@@ -7,7 +7,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/select',
       name: 'select',
       component: SelectView
     },
@@ -15,6 +15,10 @@ const router = createRouter({
       path: '/timer',
       name: 'timer',
       component: TimerView
+    },
+    {
+      path: '/',
+      redirect: '/timer',
     },
     {
       path: '/about',
