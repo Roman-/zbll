@@ -1,18 +1,19 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import { Modal } from 'bootstrap'
-import {countZbllsInColl} from "@/helpers/cases_count";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import ZbllCard from "@/components/select_view/ZbllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
+import {useZbllStore} from "@/stores/ZbllStore";
 
 const props = defineProps(['oll', 'coll', 'closeCallback']);
 const {oll, coll, closeCallback} = props;
 const selectStore = useSelectedStore();
+const zbllStore = useZbllStore()
 const modalTitle = computed(() => {
   return oll + " • " + coll
       + " (" + selectStore.numZbllsInCollSelected(oll, coll)
-      + "/" + countZbllsInColl(oll, coll) + ")";
+      + "/" + zbllStore.countZbllsInColl(oll, coll) + ")";
 });
 
 const zbllsModal = ref(null)
