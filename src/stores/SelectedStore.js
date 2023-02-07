@@ -72,7 +72,6 @@ export const useSelectedStore = defineStore('selected', () => {
     return sum;
   }
 
-
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map,

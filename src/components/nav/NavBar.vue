@@ -7,7 +7,7 @@ const selectedStore = useSelectedStore();
 </script>
 
 <template>
-  <nav class="navbar sticky-top bg-secondary bg-opacity-25">
+  <nav class="navbar bg-secondary bg-opacity-25">
     <div class="row w-100 align-items-center">
       <div class="col-auto me-auto">
         <button class="mx-2 btn btn-primary">
