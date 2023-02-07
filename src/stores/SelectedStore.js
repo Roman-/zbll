@@ -52,9 +52,7 @@ export const useSelectedStore = defineStore('selected', () => {
       delete map[oll];
   }
 
-  watch(map, () => {
-    localStorage.setItem(localStoreKey, JSON.stringify(map));
-  })
+  watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll}
 });
