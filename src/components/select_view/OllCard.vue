@@ -1,7 +1,7 @@
 <script setup>
 
 import {useSelectedStore} from "@/stores/SelectedStore";
-import {countZbllsInOll, numZbllsInOllSelected} from "@/helpers/cases_count";
+import {countZbllsInOll} from "@/helpers/cases_count";
 import {computed} from "vue";
 import {getOllImg} from "@/helpers/cube_images";
 import CollCard from "@/components/select_view/CollCard.vue";
@@ -10,7 +10,7 @@ const props = defineProps(['oll', 'oll_map'])
 const {oll, oll_map} = props;
 const selectStore = useSelectedStore();
 
-const num_cases_selected = computed(() => numZbllsInOllSelected(selectStore.map, oll));
+const num_cases_selected = computed(() => selectStore.numZbllsInOllSelected(oll));
 
 const total_zblls_in_oll = countZbllsInOll(oll); // is const
 const onCardClicked = () => {

@@ -1,7 +1,7 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import { Modal } from 'bootstrap'
-import {countZbllsInColl, numZbllsInCollSelected} from "@/helpers/cases_count";
+import {countZbllsInColl} from "@/helpers/cases_count";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import ZbllCard from "@/components/select_view/ZbllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
@@ -11,12 +11,13 @@ const {oll, coll, closeCallback} = props;
 const selectStore = useSelectedStore();
 const modalTitle = computed(() => {
   return oll + " • " + coll
-      + " (" + numZbllsInCollSelected(selectStore.map, oll, coll)
+      + " (" + selectStore.numZbllsInCollSelected(oll, coll)
       + "/" + countZbllsInColl(oll, coll) + ")";
 });
 
 const zbllsModal = ref(null)
 
+// when the component is mounted (via v-if), show this modal right away and destroy (via callback) on close
 onMounted(() => {
   const m = new Modal(zbllsModal.value);
   m.show();

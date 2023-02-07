@@ -1,7 +1,6 @@
 <script setup>
 
 import {useSelectedStore} from "@/stores/SelectedStore";
-import {isZbllSelected} from "@/helpers/cases_count";
 import {computed} from "vue";
 import {getZbllImg} from "@/helpers/cube_images";
 
@@ -9,7 +8,7 @@ const props = defineProps(['oll', 'coll', 'zbll']);
 const {oll, coll, zbll} = props
 const selectStore = useSelectedStore();
 
-const is_selected = computed(() => isZbllSelected(selectStore.map, oll, coll, zbll));
+const is_selected = computed(() => selectStore.isZbllSelected(oll, coll, zbll));
 
 const onCardClicked = () => {
   if (is_selected.value) {

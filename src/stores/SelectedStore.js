@@ -42,7 +42,7 @@ export const useSelectedStore = defineStore('selected', () => {
     map[oll][coll].push(zbll);
   }
 
-  function removeZbll(oll, coll, zbll) {
+  const removeZbll = (oll, coll, zbll) => {
     if (!map[oll] || !map[oll][coll])
       return;
     map[oll][coll] = map[oll][coll].filter((item) => item !== zbll); // delete zbll from array
@@ -52,7 +52,24 @@ export const useSelectedStore = defineStore('selected', () => {
       delete map[oll];
   }
 
+  const isZbllSelected = (oll, coll, zbll) =>
+    map[oll]
+    && map[oll][coll]
+    && map[oll][coll].includes(zbll);
+
+  const numZbllsInCollSelected = (oll, coll) =>
+    (map[oll] && map[oll][coll]) ? map[oll][coll].length : 0;
+
+  const numZbllsInOllSelected =
+    (oll) => map[oll]
+      ? Object.values(map[oll]).reduce((sum, zbllsArray) => sum + zbllsArray.length, 0)
+      : 0
+
+
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
-  return { map, removeOll, addOll, addColl, removeColl, addZbll, removeZbll}
+  return { map,
+    addOll, addColl, addZbll,
+    removeOll, removeColl, removeZbll,
+    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected }
 });
