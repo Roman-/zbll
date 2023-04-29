@@ -1,6 +1,8 @@
 <script setup>
 import Scramble from "@/components/timer/Scramble.vue";
 import Timer from "@/components/timer/Timer.vue";
+import CubePictureCard from "@/components/timer/CubePictureCard.vue";
+import StatsCard from "@/components/timer/StatsCard.vue";
 </script>
 
 <template>
@@ -12,28 +14,20 @@ import Timer from "@/components/timer/Timer.vue";
     </div>
 
     <div class="row flex-grow-1 bg-gradient">
-      <div class="col-8">
+      <div class="col-9">
         <Timer/>
       </div>
-      <div class="col-4">
+
+      <div class="col-3 side_panel">
+
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Stats</h5>
-                <p class="card-text">Some stats here</p>
-              </div>
-            </div>
+            <StatsCard/>
           </div>
         </div>
-        <div class="row">
+        <div class="row my-3">
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">History</h5>
-                <p class="card-text">Some history here</p>
-              </div>
-            </div>
+            <CubePictureCard/>
           </div>
         </div>
       </div>
