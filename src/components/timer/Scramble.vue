@@ -11,7 +11,7 @@ sessionStore.reset(selectedStore.getAllSelectedCases)
 
 <template>
   <h3 class="border-bottom border-secondary m-1">
-    <span class="text-secondary">scramble: </span>
+    <span class="text-secondary">Scramble: </span>
     <span>{{sessionStore.currentScramble}}</span>
   </h3>
 </template>

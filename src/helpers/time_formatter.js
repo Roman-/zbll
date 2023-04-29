@@ -1,6 +1,6 @@
 export const msToHumanReadable = ms => {
-  if (!Number.isFinite(ms)) {
-    return "-";
+  if (!Number.isFinite(ms) || ms < 0) {
+    return "0.00";
   }
 
   const milliseconds = Math.floor(ms % 1000 / 10);
@@ -12,7 +12,7 @@ export const msToHumanReadable = ms => {
 
   const hoursString = hours === 0 ? "" : pad(hours) + ":";
   const minutesString = minutes === 0 ? "" : pad(minutes) + ":";
-  const secondsString = pad(seconds);
+  const secondsString = (ms >= 1000 * 60) ? pad(seconds) : seconds;
   const millisecondsString = pad(milliseconds);
 
   return hoursString + minutesString + secondsString + "." + millisecondsString;

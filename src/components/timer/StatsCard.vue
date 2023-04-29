@@ -1,4 +1,9 @@
 <script setup>
+import {useSessionStore} from "@/stores/SessionStore";
+import {computed} from "vue";
+
+const sessionStore = useSessionStore()
+const numResults = computed(() => sessionStore.stats().length)
 </script>
 
 <template>
@@ -10,7 +15,7 @@
       </h5>
       <hr>
       <p class="card-text">
-        7 solves<br>
+        {{numResults}} solves<br>
         Best: 1.99<br>
         Worst: 4.12
       </p>

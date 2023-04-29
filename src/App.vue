@@ -1,10 +1,42 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import {RouterView} from 'vue-router'
 import NavBar from "@/components/nav/NavBar.vue";
 import "@/assets/global.css"
-
 import {useThemeStore} from "@/stores/ThemeStore";
+import {TimerState, useSessionStore} from "@/stores/SessionStore";
+
 useThemeStore().applyCurrentTheme();
+const sessionStore = useSessionStore()
+
+// global key events listener
+const onKeyDown = (event) => {
+  if (event.key === " ") {
+    event.preventDefault()
+    if (sessionStore.timerState === TimerState.STOPPING) {
+      return;
+    } else if (sessionStore.timerState === TimerState.RUNNING) {
+      sessionStore.stopTimer()
+      console.log("timer stop");
+    } else if (sessionStore.timerState === TimerState.NOT_RUNNING) {
+      sessionStore.timerState = TimerState.READY
+      console.log("timer ready");
+    }
+  }
+}
+const onKeyUp = (event) => {
+  event.preventDefault()
+  if (event.key === " ") {
+    if (sessionStore.timerState === TimerState.STOPPING) {
+      sessionStore.timerState = TimerState.NOT_RUNNING
+    } else if (sessionStore.timerState === TimerState.READY) {
+      console.log("timer start");
+      sessionStore.startTimer()
+    }
+  }
+}
+
+window.addEventListener('keydown', onKeyDown);
+window.addEventListener('keyup', onKeyUp);
 
 </script>
 
