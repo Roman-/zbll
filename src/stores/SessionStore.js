@@ -32,6 +32,19 @@ export const useSessionStore = defineStore('session', () => {
 
     const stats = () => store.value.stats
 
+    const deleteResult = i => {
+        console.log("delete result #" + i);
+        store.value.stats.splice(i, 1)
+        console.log("now, len = " + store.value.stats.length);
+        console.log("max(i-1, 0) = " + Math.max(i-1, 0));
+        for (let j = Math.max(i-1, 0); j < store.value.stats.length; j++) {
+            console.log("setting store.stats[" + j + "] to " + j);
+            store.value.stats[j].i = j
+        }
+        observingResult.value = Math.max(0, stats().length - 1)
+        console.log("stats: ", stats());
+    }
+
     // Date object when timer was started
     const timerStarted = ref(0)
 
@@ -73,6 +86,6 @@ export const useSessionStore = defineStore('session', () => {
 
     const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
 
-    return {reset, stats, observingResult, timerStarted, timerState, startTimer, stopTimer,
+    return {reset, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
         recapMode, currentScramble}
 });

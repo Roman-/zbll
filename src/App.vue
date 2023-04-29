@@ -9,7 +9,7 @@ useThemeStore().applyCurrentTheme();
 const sessionStore = useSessionStore()
 
 // global key events listener
-const onKeyDown = (event) => {
+const onGlobalKeyDown = (event) => {
   if (event.key === " ") {
     event.preventDefault()
     if (sessionStore.timerState === TimerState.STOPPING) {
@@ -21,9 +21,14 @@ const onKeyDown = (event) => {
       sessionStore.timerState = TimerState.READY
       console.log("timer ready");
     }
+  } else if (event.key === "Delete") {
+    event.preventDefault()
+    if (sessionStore.stats().length > 0 && confirm("Delete last result?")) {
+      sessionStore.deleteResult(sessionStore.stats().length - 1)
+    }
   }
 }
-const onKeyUp = (event) => {
+const onGlobalKeyUp = (event) => {
   event.preventDefault()
   if (event.key === " ") {
     if (sessionStore.timerState === TimerState.STOPPING) {
@@ -35,8 +40,8 @@ const onKeyUp = (event) => {
   }
 }
 
-window.addEventListener('keydown', onKeyDown);
-window.addEventListener('keyup', onKeyUp);
+window.addEventListener('keydown', onGlobalKeyDown);
+window.addEventListener('keyup', onGlobalKeyUp);
 
 </script>
 

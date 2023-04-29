@@ -5,6 +5,13 @@ import {msToHumanReadable} from "@/helpers/time_formatter";
 
 const sessionStore = useSessionStore()
 const result = computed(() => sessionStore.stats()[sessionStore.observingResult])
+
+const onDeleteBtnClicked = () => {
+  if (confirm("You sure you wanna delete this result?")) {
+    sessionStore.deleteResult(sessionStore.observingResult)
+  }
+}
+
 </script>
 
 <template>
@@ -13,7 +20,7 @@ const result = computed(() => sessionStore.stats()[sessionStore.observingResult]
       <h5>
         Result #{{result["i"]+1}}
         <span class="badge bg-primary">{{msToHumanReadable(result["ms"])}}</span>
-        <button class="btn btn-sm btn-outline-danger mx-1">delete</button>
+        <button class="btn btn-sm btn-outline-danger mx-1" @click="onDeleteBtnClicked">delete</button>
       </h5>
       <hr>
       <p class="card-text">Case: {{result["oll"]}}-{{result["coll"]}} {{result["zbll"]}}</p>
