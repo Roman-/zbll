@@ -10,30 +10,45 @@ const sessionStore = useSessionStore()
 
 // global key events listener
 const onGlobalKeyDown = (event) => {
-  if (event.key === " ") {
+  if (sessionStore.timerState === TimerState.RUNNING) {
+    sessionStore.stopTimer()
+    return;
+  }
+  if (event.key === "ArrowLeft") {
+    event.preventDefault()
+    sessionStore.observingResult = Math.max(0, sessionStore.observingResult - 1)
+  } else if (event.key === "ArrowRight") {
+    event.preventDefault()
+    sessionStore.observingResult = Math.min(sessionStore.stats().length - 1, sessionStore.observingResult + 1)
+  } else if (event.key === "Home") {
+    event.preventDefault()
+    sessionStore.observingResult = 0
+  } else if (event.key === "End") {
+    event.preventDefault()
+    sessionStore.observingResult = sessionStore.stats().length - 1
+  } else if (event.key === " ") {
     event.preventDefault()
     if (sessionStore.timerState === TimerState.STOPPING) {
       return;
-    } else if (sessionStore.timerState === TimerState.RUNNING) {
-      sessionStore.stopTimer()
-      console.log("timer stop");
     } else if (sessionStore.timerState === TimerState.NOT_RUNNING) {
       sessionStore.timerState = TimerState.READY
-      console.log("timer ready");
     }
   } else if (event.key === "Delete") {
     event.preventDefault()
-    if (sessionStore.stats().length > 0 && confirm("Delete last result?")) {
-      sessionStore.deleteResult(sessionStore.stats().length - 1)
+    // TODO delete observable instead, with confirmation through dialog
+    if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
+      sessionStore.deleteResult(sessionStore.observingResult)
     }
   }
 }
 const onGlobalKeyUp = (event) => {
-  event.preventDefault()
+  if (sessionStore.timerState === TimerState.STOPPING) {
+    sessionStore.timerState = TimerState.NOT_RUNNING
+    return;
+  }
   if (event.key === " ") {
-    if (sessionStore.timerState === TimerState.STOPPING) {
-      sessionStore.timerState = TimerState.NOT_RUNNING
-    } else if (sessionStore.timerState === TimerState.READY) {
+    event.preventDefault()
+    if (sessionStore.timerState === TimerState.READY) {
       console.log("timer start");
       sessionStore.startTimer()
     }
@@ -50,7 +65,7 @@ window.addEventListener('keyup', onGlobalKeyUp);
     <div class="row">
       <NavBar/>
     </div>
-    <div class="row flex-grow-1 bg-gradient p-0">
+    <div class="row flex-grow-1 p-0">
       <RouterView/>
     </div>
   </div>

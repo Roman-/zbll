@@ -31,7 +31,7 @@ const statClicked = i => sessionStore.observingResult = i
       </h5>
       <hr>
       <span v-for="stat in sessionStore.stats()">
-        <span @click="statClicked(stat['i'])" class="clickable stat">{{msToHumanReadable(stat["ms"])}}</span>{{stat["i"] === sessionStore.stats().length-1 ? "" : ", "}}
+        <span @click="statClicked(stat['i'])" class="clickable stat" :class="sessionStore.observingResult === stat['i'] ? 'text-info' : ''">{{msToHumanReadable(stat["ms"])}}</span>{{stat["i"] === sessionStore.stats().length-1 ? "" : ", "}}
       </span>
       <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState === TimerState.NOT_RUNNING">
         Hold spacebar to start the timer

@@ -15,12 +15,12 @@ const sessionStore = useSessionStore()
 <template>
   <div class="d-flex flex-column">
     <div class="row no-gutters">
-      <div class="col-12 bg-gradient">
+      <div class="col-12">
         <Scramble/>
       </div>
     </div>
 
-    <div class="row flex-grow-1 bg-gradient">
+    <div class="row flex-grow-1">
       <div class="col-9">
         <Timer/>
       </div>
