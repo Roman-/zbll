@@ -3,6 +3,20 @@ import Scramble from "@/components/timer/Scramble.vue";
 import Timer from "@/components/timer/Timer.vue";
 import CubePictureCard from "@/components/timer/CubePictureCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
+
+// if no cases selected, redirect to "select" view
+import {useSelectedStore} from "@/stores/SelectedStore";
+import {useSessionStore} from "@/stores/SessionStore";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+const selectedStore = useSelectedStore()
+const sessionStore = useSessionStore()
+
+// if (selectedStore.totalZbllsSelected() === 0) {
+//   router.push("select")
+// }
+
 </script>
 
 <template>

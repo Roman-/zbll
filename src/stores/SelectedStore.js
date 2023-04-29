@@ -1,4 +1,4 @@
-import {reactive, watch} from 'vue'
+import {computed, reactive, watch} from 'vue'
 import { defineStore } from 'pinia'
 import zbll_map from "@/assets/zbll_map.json"
 
@@ -72,10 +72,30 @@ export const useSelectedStore = defineStore('selected', () => {
     return sum;
   }
 
+  const getAllSelectedCases = computed(() => {
+    let arr = [];
+    for (let oll in zbll_map) {
+      for (let coll in zbll_map[oll]) {
+        for (let zbll in zbll_map[oll][coll]) {
+          if (isZbllSelected(oll, coll, zbll)) {
+            arr.push({
+              "oll": oll,
+              "coll": coll,
+              "zbll": zbll,
+              "scrambles": zbll_map[oll][coll][zbll]
+            });
+          }
+        }
+      }
+    }
+    return arr;
+  })
+
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map,
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
-    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected }
+    isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected,
+    getAllSelectedCases }
 });
