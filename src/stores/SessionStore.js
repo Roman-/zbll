@@ -17,6 +17,8 @@ export const useSessionStore = defineStore('session', () => {
 
     const timerState = ref(TimerState.NOT_RUNNING)
 
+    const observingResult = ref(0)
+
     const store = ref({
         // contains result from SelectedStore.getAllSelectedCases().
         "allCases": [],
@@ -24,7 +26,7 @@ export const useSessionStore = defineStore('session', () => {
         // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
         "current": {},
 
-        // array of objects: {oll, coll, zbll, scramble, ms}
+        // array of objects: {i=index, oll, coll, zbll, scramble, ms}
         "stats": []
     })
 
@@ -46,6 +48,7 @@ export const useSessionStore = defineStore('session', () => {
         store.value.allCases = allCasesSelected;
         store.value.stats = [];
         store.value.current = getRandomCase();
+        observingResult.value = 0
     }
 
     const startTimer = () => {
@@ -54,7 +57,9 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     const stopTimer = () => {
+        const index = store.value.stats.length
         store.value.stats.push({
+            "i": index,
             "oll" : store.value.current["oll"],
             "coll" : store.value.current["coll"],
             "zbll" : store.value.current["zbll"],
@@ -63,10 +68,11 @@ export const useSessionStore = defineStore('session', () => {
         })
         store.value.current = getRandomCase();
         timerState.value = TimerState.STOPPING;
+        observingResult.value = index
     }
 
     const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
 
-    return {reset, stats, timerStarted, timerState, startTimer, stopTimer,
+    return {reset, stats, observingResult, timerStarted, timerState, startTimer, stopTimer,
         recapMode, currentScramble}
 });

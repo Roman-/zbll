@@ -1,17 +1,13 @@
 <script setup>
 import Scramble from "@/components/timer/Scramble.vue";
 import Timer from "@/components/timer/Timer.vue";
-import CubePictureCard from "@/components/timer/CubePictureCard.vue";
+import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
 
-// if no cases selected, redirect to "select" view
-import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
-import {msToHumanReadable} from "@/helpers/time_formatter";
 
 const router = useRouter();
-const selectedStore = useSelectedStore()
 const sessionStore = useSessionStore()
 
 </script>
@@ -31,14 +27,14 @@ const sessionStore = useSessionStore()
 
       <div class="col-3 side_panel">
 
-        <div class="row">
+        <div class="row my-2">
           <div class="col-12">
             <StatsCard/>
           </div>
         </div>
-        <div class="row my-3">
+        <div class="row my-2">
           <div class="col-12">
-            <CubePictureCard/>
+            <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
           </div>
         </div>
       </div>
