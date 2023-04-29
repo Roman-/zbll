@@ -8,14 +8,11 @@ import StatsCard from "@/components/timer/StatsCard.vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
+import {msToHumanReadable} from "@/helpers/time_formatter";
 
 const router = useRouter();
 const selectedStore = useSelectedStore()
 const sessionStore = useSessionStore()
-
-// if (selectedStore.totalZbllsSelected() === 0) {
-//   router.push("select")
-// }
 
 </script>
 

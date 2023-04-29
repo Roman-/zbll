@@ -18,7 +18,6 @@ const onSwitchViewClicked = () => {
   router.push(isSelectView() ? "timer" : "select");
 }
 
-
 </script>
 
 <template>

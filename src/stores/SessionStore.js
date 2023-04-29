@@ -15,9 +15,12 @@ export const useSessionStore = defineStore('session', () => {
         // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
         "current": {},
 
-        // array of objects: (TODO)
+        // array of objects: {oll, coll, zbll, scramble, ms}
         "stats": []
     })
+
+    // Date object when timer was started
+    const timerStarted = ref(0)
 
     const getRandomCase = () => {
         if (store.value.allCases.length === 0) {
@@ -34,7 +37,7 @@ export const useSessionStore = defineStore('session', () => {
         store.value.current = getRandomCase();
     }
 
-    const currentScramble = computed(() => store.value.current.maskedScramble ?? "select some cases above");
+    const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
 
-    return {reset, recapMode, currentScramble}
+    return {reset, timerStarted, recapMode, currentScramble}
 });
