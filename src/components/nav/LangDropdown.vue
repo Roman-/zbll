@@ -8,6 +8,8 @@ import {setLocaleAndReload, supportedLocales, addTranslationUrl} from "@/locale"
   <div class="dropdown d-inline">
     <button class="btn btn-link dropdown-toggle text-info"
             :title="$t('nav.language')"
+            tabindex="-1"
+            @keydown.space.prevent=""
             type="button"
             id="dropdownLang"
             data-bs-toggle="dropdown"

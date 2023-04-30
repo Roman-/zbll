@@ -30,8 +30,8 @@ const onDeleteBtnClicked = () => {
           </div>
           <div class="col-auto">
             <button
+                tabindex="-1" @keydown.space.prevent=""
                 class="btn btn-sm btn-outline-danger mx-1"
-                tabindex="-1"
                 @click="onDeleteBtnClicked">
               delete
             </button>

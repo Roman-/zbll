@@ -46,6 +46,7 @@ const onSwitchViewClicked = () => {
         <LangDropdown v-if="settingsStore.showLangIcon"/>
         <button
             class="btn btn-link"
+            tabindex="-1" @keydown.space.prevent=""
             :class="settingsBtnClass"
             @click="settingsStore.showSettings = !settingsStore.showSettings"
             :title="$t('nav.settings')">

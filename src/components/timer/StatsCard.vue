@@ -28,7 +28,7 @@ const statClicked = i => sessionStore.observingResult = i
           <div class="col-auto">
             <button
                 class="btn btn-sm btn-outline-danger mx-1"
-                tabindex="-1"
+                tabindex="-1" @keydown.space.prevent=""
                 @click="onClearBtnClick"
                 v-if="sessionStore.stats().length > 0">
               clear
