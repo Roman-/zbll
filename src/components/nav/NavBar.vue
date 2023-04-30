@@ -34,6 +34,7 @@ const onSwitchViewClicked = () => {
             tabindex="-1"
             :disabled="btnDisabled"
             @click="onSwitchViewClicked"
+            @keydown.space.prevent=""
             class="mx-2 btn btn-primary">
           {{ btnText }}
         </button>

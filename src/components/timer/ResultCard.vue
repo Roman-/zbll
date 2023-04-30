@@ -4,7 +4,12 @@ import {useSessionStore} from "@/stores/SessionStore";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 
 const sessionStore = useSessionStore()
-const result = computed(() => sessionStore.stats()[sessionStore.observingResult])
+const result = computed(() => {
+  return sessionStore.stats().length > sessionStore.observingResult
+      ? sessionStore.stats()[sessionStore.observingResult]
+      : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", "scramble": "scramble", "ms": 0}
+  }
+)
 
 const onDeleteBtnClicked = () => {
   if (confirm("You sure you wanna delete this result?")) {

@@ -5,7 +5,6 @@ import {useSessionStore} from "@/stores/SessionStore";
 
 const selectedStore = useSelectedStore()
 const sessionStore = useSessionStore()
-sessionStore.reset(selectedStore.getAllSelectedCases)
 
 </script>
 

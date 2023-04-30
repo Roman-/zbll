@@ -52,7 +52,12 @@ export const useSessionStore = defineStore('session', () => {
         return c;
     }
 
+    const setSelectedCases = (allCasesSelected) => {
+        store.value.allCases = allCasesSelected;
+        store.value.current = getRandomCase();
+    }
     const reset = (allCasesSelected) => {
+        console.log("reset: allCasesSelected.len = ", allCasesSelected.length);
         store.value.allCases = allCasesSelected;
         store.value.stats = [];
         store.value.current = getRandomCase();
@@ -81,6 +86,6 @@ export const useSessionStore = defineStore('session', () => {
 
     const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
 
-    return {reset, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
+    return {reset, setSelectedCases, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
         recapMode, currentScramble}
 });

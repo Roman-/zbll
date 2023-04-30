@@ -4,16 +4,76 @@ import Timer from "@/components/timer/Timer.vue";
 import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
 
-import {useSessionStore} from "@/stores/SessionStore";
+import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
 import Settings from "@/components/Settings.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
-import {computed} from "vue";
+import {computed, onMounted, onUnmounted} from "vue";
+import {useSelectedStore} from "@/stores/SelectedStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
 const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" :  "align-self-center")
+const selectedStore = useSelectedStore()
+
+// global key events listener
+const onGlobalKeyDown = (event) => {
+  if (sessionStore.timerState === TimerState.RUNNING) {
+    sessionStore.stopTimer()
+    return;
+  }
+  if (event.key === "ArrowLeft") {
+    event.preventDefault()
+    sessionStore.observingResult = Math.max(0, sessionStore.observingResult - 1)
+  } else if (event.key === "ArrowRight") {
+    event.preventDefault()
+    sessionStore.observingResult = Math.min(sessionStore.stats().length - 1, sessionStore.observingResult + 1)
+  } else if (event.key === "Home") {
+    event.preventDefault()
+    sessionStore.observingResult = 0
+  } else if (event.key === "End") {
+    event.preventDefault()
+    sessionStore.observingResult = sessionStore.stats().length - 1
+  } else if (event.key === " ") {
+    event.preventDefault()
+    if (sessionStore.timerState === TimerState.STOPPING) {
+      return;
+    } else if (sessionStore.timerState === TimerState.NOT_RUNNING) {
+      sessionStore.timerState = TimerState.READY
+    }
+  } else if (event.key === "Delete") {
+    event.preventDefault()
+    if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
+      sessionStore.deleteResult(sessionStore.observingResult)
+    }
+  }
+}
+const onGlobalKeyUp = (event) => {
+  if (sessionStore.timerState === TimerState.STOPPING) {
+    sessionStore.timerState = TimerState.NOT_RUNNING
+    return;
+  }
+  if (event.key === " ") {
+    event.preventDefault()
+    if (sessionStore.timerState === TimerState.READY) {
+      sessionStore.startTimer()
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onGlobalKeyDown);
+  window.addEventListener('keyup', onGlobalKeyUp);
+  sessionStore.setSelectedCases(selectedStore.getAllSelectedCases)
+  sessionStore.timerState = TimerState.NOT_RUNNING
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onGlobalKeyDown);
+  window.removeEventListener('keyup', onGlobalKeyUp);
+  sessionStore.timerState = TimerState.NOT_RUNNING
+});
 
 </script>
 
