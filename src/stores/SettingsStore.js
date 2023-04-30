@@ -18,12 +18,12 @@ const initialShowLangIcon = () => localStorage.getItem(showLangIconKey) === 'tru
 export const useSettingsStore = defineStore('settings', () => {
   const showSettings = ref(false)
   const resetDefaults = () => {
-    pictureView.value = initialPictureView()
-    timerUpdate.value = initialTimerUpdate()
-    timerPrecision.value = initialTimerPrecision()
-    timerFont.value = initialTimerFont()
-    scrambleFont.value = initialScrambleFont()
-    showLangIcon.value = initialShowLangIcon()
+    pictureView.value = "top"
+    timerUpdate.value = "on"
+    timerPrecision.value = "2"
+    timerFont.value = "Roboto Mono"
+    scrambleFont.value = "Roboto Mono"
+    showLangIcon.value = true
   }
 
   const pictureView = ref(initialPictureView())

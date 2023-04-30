@@ -14,7 +14,7 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 const router = useRouter();
 const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
-const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" :  "align-self-center")
+const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" : "align-self-center")
 const selectStore = useSelectedStore()
 
 // global key events listener
@@ -44,8 +44,14 @@ const onGlobalKeyDown = (event) => {
     }
   } else if (event.key === "Delete") {
     event.preventDefault()
-    if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
-      sessionStore.deleteResult(sessionStore.observingResult)
+    if (event.shiftKey) {
+      if (confirm("Clear session?")) {
+        sessionStore.reset()
+      }
+    } else { // no shift key -  delete single result
+      if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
+        sessionStore.deleteResult(sessionStore.observingResult)
+      }
     }
   }
 }
@@ -66,6 +72,7 @@ onMounted(() => {
   window.addEventListener('keydown', onGlobalKeyDown);
   window.addEventListener('keyup', onGlobalKeyUp);
   sessionStore.timerState = TimerState.NOT_RUNNING
+  sessionStore.observingResult = Math.max(sessionStore.stats().length - 1, 0)
 });
 
 onUnmounted(() => {

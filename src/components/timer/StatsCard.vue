@@ -30,6 +30,7 @@ const statClicked = i => sessionStore.observingResult = i
                 class="btn btn-sm btn-outline-danger mx-1"
                 tabindex="-1" @keydown.space.prevent=""
                 @click="onClearBtnClick"
+                title="Clear session (Shift+Delete)"
                 v-if="sessionStore.stats().length > 0">
               clear
             </button>

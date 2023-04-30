@@ -2,7 +2,11 @@ import zbll_map from "@/assets/zbll_map.json"
 import {defineStore} from 'pinia'
 import {computed, ref} from "vue";
 import {random_element} from "@/helpers/helpers";
-import {mask_scramble} from "@/helpers/scramble_utils";
+import {mask_scramble} from "@/helpers/scramble_utils"
+
+const statsKey = 'zbll_stats_array';
+const initialStats = JSON.parse(localStorage.getItem(statsKey)) || []
+console.log("initialStats", initialStats);
 
 export const TimerState = Object.freeze({
     NOT_RUNNING: 0,
@@ -20,15 +24,15 @@ export const useSessionStore = defineStore('session', () => {
     const observingResult = ref(0)
 
     const store = ref({
-        // contains result from SelectedStore.allSelectedCases().
-        "allCases": [],
+    // contains result from SelectedStore.allSelectedCases().
+    "allCases": [],
 
-        // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
-        "current": {},
+    // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
+    "current": {},
 
-        // array of objects: {i=index, oll, coll, zbll, scramble, ms}
-        "stats": []
-    })
+    // array of objects: {i=index, oll, coll, zbll, scramble, ms}
+    "stats": initialStats
+})
 
     const stats = () => store.value.stats
 
@@ -81,6 +85,8 @@ export const useSessionStore = defineStore('session', () => {
         store.value.current = getRandomCase();
         timerState.value = TimerState.STOPPING;
         observingResult.value = index
+        localStorage.setItem(statsKey, JSON.stringify(store.value.stats))
+        console.log("saved to local storage");
     }
 
     const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
