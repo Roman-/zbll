@@ -6,9 +6,12 @@ import StatsCard from "@/components/timer/StatsCard.vue";
 
 import {useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
+import Settings from "@/components/Settings.vue";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
+const settingsStore = useSettingsStore()
 
 </script>
 
@@ -23,6 +26,7 @@ const sessionStore = useSessionStore()
     <div class="row flex-grow-1">
       <div class="col-8 align-self-center">
         <Timer/>
+        <Settings v-if="settingsStore.showSettings"/>
       </div>
 
       <div class="col-4 side_panel align-items-start">

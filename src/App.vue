@@ -4,6 +4,8 @@ import NavBar from "@/components/nav/NavBar.vue";
 import "@/assets/global.css"
 import {useThemeStore} from "@/stores/ThemeStore";
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
+// import 'bootstrap-select/dist/css/bootstrap-select.min.css';
+
 
 useThemeStore().applyCurrentTheme();
 const sessionStore = useSessionStore()
@@ -35,7 +37,6 @@ const onGlobalKeyDown = (event) => {
     }
   } else if (event.key === "Delete") {
     event.preventDefault()
-    // TODO delete observable instead, with confirmation through dialog
     if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
       sessionStore.deleteResult(sessionStore.observingResult)
     }

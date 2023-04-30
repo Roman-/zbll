@@ -13,32 +13,49 @@
 import {computed, ref} from 'vue'
 import { defineStore } from 'pinia'
 
-const localStorageThemeKey = "template-theme";
+// local storage keys
+const isDarkKey = "zbll_theme.is_dark";
+const darkNameKey = "zbll_theme.dark_name";
+const lightNameKey = "zbll_theme.light_name";
 
-// light themes: cerulean, cosmo, flatly, litera, lux, materia, minty, morph, quartz, sandstone, sketchy, zephyr
-const lightThemeName = "flatly";
-// dark themes: cyborg, darkly, slate, solar, superhero
-const darkThemeName = "darkly";
-const getInitialTheme = ()=>{
-  if (!localStorage || !localStorage.getItem(localStorageThemeKey)) {
-    return lightThemeName;
-  }
-  return localStorage.getItem(localStorageThemeKey);
+// defaults
+const defaultIsDark = false;
+const defaultLightName = "flatly";
+const defaultDarkName = "darkly";
+
+export const lightThemesSet = ["cerulean", "cosmo", "flatly", "litera", "lux", "materia", "minty", "morph", "quartz", "sandstone", "sketchy", "zephyr"];
+export const darkThemesSet = ["cyborg", "darkly", "slate", "solar", "superhero"];
+const isAvailable = (themeName, isDark) => {
+  return (isDark ? darkThemesSet : lightThemesSet).includes(themeName);
 }
 
-const biIconByTheme = (name) => {
-  switch (name) {
-    case darkThemeName:
-      return "bi-moon";
-    case lightThemeName:
-    default:
-      return "bi-sun";
+const getInitialIsDark = ()=>{
+  if (!localStorage || !localStorage.getItem(isDarkKey)) {
+    return defaultIsDark;
   }
+  return localStorage.getItem(isDarkKey) === "true";
+}
+
+const getInitialThemeName = (isDark) => {
+  const key = isDark ? darkNameKey : lightNameKey;
+  const defaultName = isDark ? defaultDarkName : defaultLightName;
+  if (!localStorage || !localStorage.getItem(key)) {
+    return defaultName;
+  }
+  const loadedName = localStorage.getItem(key);
+  return isAvailable(loadedName, isDark) ? loadedName : defaultName;
+}
+
+const biIconByTheme = (isDark) => {
+  return isDark ? "bi-moon" : "bi-sun";
 }
 
 export const useThemeStore = defineStore('theme', () => {
-  const name = ref(getInitialTheme())
-  const icon = computed(()=>biIconByTheme(name.value));
+  const isDark = ref(getInitialIsDark())
+  const lightThemeName = ref(getInitialThemeName(false));
+  const darkThemeName = ref(getInitialThemeName(true));
+  const name = computed(()=> isDark.value ? darkThemeName.value : lightThemeName.value);
+  const icon = computed(()=>biIconByTheme(isDark.value));
   function applyCurrentTheme() {
     const link_id = "bootstrap_stylesheet";
     // find link with id="bootstrap_stylesheet"; if not found, create one
@@ -51,17 +68,29 @@ export const useThemeStore = defineStore('theme', () => {
     }
     document.getElementById("bootstrap_stylesheet").href = getThemeCssUrl(name.value);
   }
+
   function toggleDayNight() {
-    name.value = (name.value === lightThemeName) ? darkThemeName : lightThemeName;
+    isDark.value = !isDark.value;
     applyCurrentTheme();
     if (localStorage) {
-      localStorage.setItem(localStorageThemeKey, name.value);
+      localStorage.setItem(isDarkKey, ""+isDark.value);
     }
   }
+  function setThemeName(name, isDark) {
+    if (!isAvailable(name, isDark)) {
+      return console.error("setThemeName("+isDark+"): " + name + " not available in themes set");
+    }
+    (isDark ? darkThemeName : lightThemeName).value = name;
+    applyCurrentTheme();
+    localStorage.setItem(isDark ? darkNameKey : lightNameKey, name);
+  }
+
+  function setDarkTheme(name){ setThemeName(name, true) }
+  function setLightTheme(name){ setThemeName(name, false); }
 
   const getThemeCssUrl = (name) => {
     return new URL(`../assets/bootstrap_themes/${name}.min.css`, import.meta.url).href
   }
 
-  return { name, icon, toggleDayNight, applyCurrentTheme }
+  return { isDark, lightThemeName, darkThemeName, icon, toggleDayNight, applyCurrentTheme, setDarkTheme, setLightTheme}
 });

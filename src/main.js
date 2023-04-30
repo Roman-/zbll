@@ -10,6 +10,7 @@ import { createPinia } from 'pinia'
 // bootstrap, icons and theme
 import "bootstrap"
 import "bootstrap-icons/font/bootstrap-icons.css"
+// import 'bootstrap-select/dist/js/bootstrap-select.min';
 // the .min.css file for specific Bootstrap theme will be loaded and applied in App.vue
 
 // i18n
