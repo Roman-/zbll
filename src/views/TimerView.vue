@@ -21,11 +21,11 @@ const sessionStore = useSessionStore()
     </div>
 
     <div class="row flex-grow-1">
-      <div class="col-9">
+      <div class="col-8 align-self-center">
         <Timer/>
       </div>
 
-      <div class="col-3 side_panel">
+      <div class="col-4 side_panel align-items-start">
 
         <div class="row my-2">
           <div class="col-12">
@@ -39,6 +39,13 @@ const sessionStore = useSessionStore()
         </div>
       </div>
     </div>
+
+    <div class="row no-gutters">
+      <div class="col-12">
+        and this is footer
+      </div>
+    </div>
+
   </div>
 
 

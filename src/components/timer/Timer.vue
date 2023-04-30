@@ -20,14 +20,14 @@ watchEffect(() => {
 
 const timerLabel = computed(() => {
   if (sessionStore.timerState === TimerState.READY) {
-    return "0.00";
+    return msToHumanReadable(0)
   }
   if (sessionStore.timerState === TimerState.NOT_RUNNING
       || sessionStore.timerState === TimerState.STOPPING) {
     const n = sessionStore.stats().length;
     return n === 0 ? "ready" : msToHumanReadable(sessionStore.stats()[n-1]["ms"])
   }
-  return msToHumanReadable(currentTime.value - sessionStore.timerStarted);
+  return msToHumanReadable(currentTime.value - sessionStore.timerStarted)
 })
 
 const classByState = computed(() => {
