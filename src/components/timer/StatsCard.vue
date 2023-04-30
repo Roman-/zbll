@@ -9,7 +9,7 @@ const selectStore = useSelectedStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm("You sure you wanna clear the session? This will delete all times")) {
-    sessionStore.reset(selectStore.getAllSelectedCases)
+    sessionStore.reset()
   }
 }
 

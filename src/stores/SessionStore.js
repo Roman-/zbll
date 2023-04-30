@@ -20,7 +20,7 @@ export const useSessionStore = defineStore('session', () => {
     const observingResult = ref(0)
 
     const store = ref({
-        // contains result from SelectedStore.getAllSelectedCases().
+        // contains result from SelectedStore.allSelectedCases().
         "allCases": [],
 
         // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
@@ -53,12 +53,11 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     const setSelectedCases = (allCasesSelected) => {
+        console.log("setSelectedCases: new len =", allCasesSelected.length);
         store.value.allCases = allCasesSelected;
         store.value.current = getRandomCase();
     }
-    const reset = (allCasesSelected) => {
-        console.log("reset: allCasesSelected.len = ", allCasesSelected.length);
-        store.value.allCases = allCasesSelected;
+    const reset = () => {
         store.value.stats = [];
         store.value.current = getRandomCase();
         observingResult.value = 0

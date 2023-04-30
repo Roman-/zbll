@@ -72,7 +72,7 @@ export const useSelectedStore = defineStore('selected', () => {
     return sum;
   }
 
-  const getAllSelectedCases = computed(() => {
+  const allSelectedCases = computed(() => {
     let arr = [];
     for (let oll in zbll_map) {
       for (let coll in zbll_map[oll]) {
@@ -97,5 +97,5 @@ export const useSelectedStore = defineStore('selected', () => {
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected,
-    getAllSelectedCases }
+    allSelectedCases }
 });

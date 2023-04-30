@@ -15,7 +15,7 @@ const router = useRouter();
 const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
 const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" :  "align-self-center")
-const selectedStore = useSelectedStore()
+const selectStore = useSelectedStore()
 
 // global key events listener
 const onGlobalKeyDown = (event) => {
@@ -65,7 +65,6 @@ const onGlobalKeyUp = (event) => {
 onMounted(() => {
   window.addEventListener('keydown', onGlobalKeyDown);
   window.addEventListener('keyup', onGlobalKeyUp);
-  sessionStore.setSelectedCases(selectedStore.getAllSelectedCases)
   sessionStore.timerState = TimerState.NOT_RUNNING
 });
 
