@@ -50,7 +50,6 @@ const onGlobalKeyUp = (event) => {
   if (event.key === " ") {
     event.preventDefault()
     if (sessionStore.timerState === TimerState.READY) {
-      console.log("timer start");
       sessionStore.startTimer()
     }
   }

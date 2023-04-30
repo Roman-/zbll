@@ -7,7 +7,9 @@ const settingsStore = useSettingsStore()
 </script>
 
 <template>
-  <Settings v-if="settingsStore.showSettings"/>
+  <div v-if="settingsStore.showSettings" class="m-2">
+    <Settings/>
+  </div>
   <MainZbllGrid/>
 </template>
 
