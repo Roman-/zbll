@@ -1,17 +1,21 @@
 <script setup>
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
-import {computed} from "vue";
+import {computed, ref, watch} from "vue";
 import {msToHumanReadable} from "@/helpers/time_formatter";
-import {useSelectedStore} from "@/stores/SelectedStore";
 
 const sessionStore = useSessionStore()
-const selectStore = useSelectedStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm("You sure you wanna clear the session? This will delete all times")) {
     sessionStore.reset()
   }
 }
+
+const statsContainer = ref(null);
+const scrollStats = () => statsContainer.value.scrollTop = statsContainer.value.scrollHeight
+const scrollStatsLater = () => setTimeout(() => scrollStats(), 10)
+watch(numResults, scrollStatsLater);
+scrollStatsLater()
 
 const statClicked = i => sessionStore.observingResult = i
 
@@ -38,14 +42,17 @@ const statClicked = i => sessionStore.observingResult = i
         </div>
       </h5>
       <hr>
-      <span v-for="stat in sessionStore.stats()">
-        <span @click="statClicked(stat['i'])" class="clickable stat"
-              :class="sessionStore.observingResult === stat['i'] ? 'text-info' : ''">{{
-            msToHumanReadable(stat["ms"])
-          }}</span>{{ stat["i"] === sessionStore.stats().length - 1 ? "" : ", " }}
-      </span>
-      <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState === TimerState.NOT_RUNNING">
-        Hold spacebar to start the timer
+      <div class="stats-container" ref="statsContainer">
+        <span v-for="(stat, index) in sessionStore.stats()" :key="index">
+          <span
+              @click="statClicked(stat['i'])" class="clickable stat"
+              :class="sessionStore.observingResult === stat['i'] ? 'text-info' : ''">
+            {{ msToHumanReadable(stat["ms"]) }}
+          </span>{{ stat["i"] === sessionStore.stats().length - 1 ? "" : ", " }}
+        </span>
+        <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState !== TimerState.RUNNING">
+          Hold spacebar to start the timer
+        </div>
       </div>
     </div>
   </div>
@@ -58,5 +65,9 @@ const statClicked = i => sessionStore.observingResult = i
 
 .stat:hover {
   color: var(--bs-info)
+}
+.stats-container {
+  max-height: 200px;
+  overflow-y: auto;
 }
 </style>
