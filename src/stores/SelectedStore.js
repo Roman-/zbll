@@ -53,9 +53,9 @@ export const useSelectedStore = defineStore('selected', () => {
   }
 
   const isZbllSelected = (oll, coll, zbll) =>
-    map[oll]
-    && map[oll][coll]
-    && map[oll][coll].includes(zbll);
+      !!(map[oll]
+      && map[oll][coll]
+      && map[oll][coll].includes(zbll));
 
   const numZbllsInCollSelected = (oll, coll) =>
     (map[oll] && map[oll][coll]) ? map[oll][coll].length : 0;

@@ -57,7 +57,6 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     const setSelectedCases = (allCasesSelected) => {
-        console.log("setSelectedCases: new len =", allCasesSelected.length);
         store.value.allCases = allCasesSelected;
         store.value.current = getRandomCase();
     }
@@ -86,10 +85,10 @@ export const useSessionStore = defineStore('session', () => {
         timerState.value = TimerState.STOPPING;
         observingResult.value = index
         localStorage.setItem(statsKey, JSON.stringify(store.value.stats))
-        console.log("saved to local storage");
     }
 
-    const currentScramble = computed(() => store.value.current["maskedScramble"] ?? "(no scramble available)");
+    // may be undefined
+    const currentScramble = computed(() => store.value.current["maskedScramble"]);
 
     return {reset, setSelectedCases, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
         recapMode, currentScramble}

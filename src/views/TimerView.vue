@@ -39,7 +39,7 @@ const onGlobalKeyDown = (event) => {
     event.preventDefault()
     if (sessionStore.timerState === TimerState.STOPPING) {
       return;
-    } else if (sessionStore.timerState === TimerState.NOT_RUNNING) {
+    } else if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
       sessionStore.timerState = TimerState.READY
     }
   } else if (event.key === "Delete") {
