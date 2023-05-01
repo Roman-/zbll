@@ -2,7 +2,7 @@ import zbll_map from "@/assets/zbll_map.json"
 import {defineStore} from 'pinia'
 import {computed, ref} from "vue";
 import {random_element} from "@/helpers/helpers";
-import {mask_scramble} from "@/helpers/scramble_utils"
+import {makeScramble} from "@/helpers/scramble_utils"
 
 const statsKey = 'zbll_stats_array';
 const initialStats = JSON.parse(localStorage.getItem(statsKey)) || []
@@ -27,7 +27,7 @@ export const useSessionStore = defineStore('session', () => {
     // contains result from SelectedStore.allSelectedCases().
     "allCases": [],
 
-    // contains object: {oll, coll, zbll, scrambles: [array of strings], maskedScramble: "…", recapped: false}
+    // contains object: {oll, coll, zbll, algs: [array of strings], maskedScramble: "…", recapped: false}
     "current": null,
 
     // array of objects: {i=index, oll, coll, zbll, scramble, ms}
@@ -52,7 +52,7 @@ export const useSessionStore = defineStore('session', () => {
             return null;
         }
         let c = random_element(store.value.allCases)
-        c["maskedScramble"] = mask_scramble(random_element(c.scrambles));
+        c["maskedScramble"] = makeScramble(random_element(c.algs));
         return c;
     }
 
