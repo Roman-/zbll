@@ -1,4 +1,3 @@
-import zbll_map from "@/assets/zbll_map.json"
 import {defineStore} from 'pinia'
 import {computed, ref} from "vue";
 import {random_element} from "@/helpers/helpers";
@@ -27,17 +26,18 @@ export const useSessionStore = defineStore('session', () => {
     // contains result from SelectedStore.allSelectedCases().
     "allCases": [],
 
-    // contains object: {oll, coll, zbll, algs: [array of strings], maskedScramble: "…", recapped: false}
+    // contains object from allCases: {oll, coll, zbll, algs: [array of strings], scramble: "…", recapped: false, count: num}
     "current": null,
 
     // array of objects: {i=index, oll, coll, zbll, scramble, ms}
-    "stats": initialStats
+    "stats": initialStats,
 })
 
     const stats = () => store.value.stats
 
     const deleteResult = i => {
         store.value.stats.splice(i, 1)
+        // rebuild indexes
         for (let j = Math.max(i-1, 0); j < store.value.stats.length; j++) {
             store.value.stats[j].i = j
         }
@@ -47,12 +47,25 @@ export const useSessionStore = defineStore('session', () => {
     // Date object when timer was started
     const timerStarted = ref(0)
 
+    const casesWithZeroCount = computed(() => {
+        return store.value.allCases.filter(c => c["count"] === 0);
+    });
+
     const getRandomCase = () => {
         if (store.value.allCases.length === 0) {
             return null;
         }
-        let c = random_element(store.value.allCases)
-        c["maskedScramble"] = makeScramble(random_element(c.algs));
+        let c = {};
+        if (recapMode.value) {
+            if (casesWithZeroCount.value.length === 0) {
+                recapMode.value = false
+                return getRandomCase() // recursively return random case with no recap mode
+            }
+            c = random_element(casesWithZeroCount.value)
+        } else {
+            c = random_element(store.value.allCases) // TODO 0.2 probability, return least counted case
+        }
+        c["scramble"] = makeScramble(random_element(c.algs));
         return c;
     }
 
@@ -75,14 +88,17 @@ export const useSessionStore = defineStore('session', () => {
     const stopTimer = () => {
         const index = store.value.stats.length
         if (store.value.current !== null) {
+            const key = store.value.current["key"]
             store.value.stats.push({
                 "i": index,
                 "oll": store.value.current["oll"],
                 "coll": store.value.current["coll"],
                 "zbll": store.value.current["zbll"],
-                "scramble": store.value.current["maskedScramble"],
+                "key": key,
+                "scramble": store.value.current["scramble"],
                 "ms": Date.now() - timerStarted.value
             })
+            store.value.current["count"]++;
         }
         store.value.current = getRandomCase();
         timerState.value = TimerState.STOPPING;
@@ -91,7 +107,7 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     // may be undefined
-    const currentScramble = computed(() => store.value.current ? store.value.current["maskedScramble"] : null);
+    const currentScramble = computed(() => store.value.current ? store.value.current["scramble"] : null);
 
     return {reset, setSelectedCases, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
         recapMode, currentScramble}

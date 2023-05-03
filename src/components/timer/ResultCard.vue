@@ -53,25 +53,27 @@ watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
         </div>
       </h5>
       <hr>
-      <p class="card-text">Case: {{ result["oll"] }}-{{ result["coll"] }} {{ result["zbll"] }}</p>
+      <p class="card-text">Case: {{ result["key"] }}</p>
       <p class="card-text">Scramble: {{ result["scramble"] }}</p>
       <div>
+<!--
         <img
             src="https://bestsiteever.ru/visualcube/visualcube.php?fmt=svg&bg=t&stage=ll&view=plan&alg=F%20U2%20F2%20L%20F%20L2%20B%27%20R%27%20U2%20R%20B%20L"
             alt="Cube image"/>
+-->
       </div>
       <div class="form-check">
-        <input
-            tabindex="-1" @keydown.space.prevent=""
-            class="form-check-input"
-            type="checkbox"
-            id="flexCheckDefault"
-            v-model="isSelectedCheckboxValue"
-        >
         <label
             class="form-check-label"
             for="flexCheckDefault"
         >
+          <input
+              tabindex="-1" @keydown.space.prevent=""
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              v-model="isSelectedCheckboxValue"
+          >
           Selected
         </label>
       </div>

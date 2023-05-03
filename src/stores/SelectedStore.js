@@ -82,7 +82,9 @@ export const useSelectedStore = defineStore('selected', () => {
               "oll": oll,
               "coll": coll,
               "zbll": zbll,
-              "algs": zbll_map[oll][coll][zbll]
+              "algs": zbll_map[oll][coll][zbll],
+              "key": `${oll} ${coll} ${zbll}`,
+              "count": 0,
             });
           }
         }
