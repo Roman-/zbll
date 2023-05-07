@@ -5,11 +5,13 @@ import {useZbllStore} from "@/stores/ZbllStore";
 import {computed, ref} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
 import ZbllsModal from "@/components/select_view/ZbllsModal.vue";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
 const props = defineProps(['oll', 'coll'])
 const {oll, coll}  = props; // H, L, Pi etc
 const selectStore = useSelectedStore();
 const zbllStore = useZbllStore();
+const settingsStore = useSettingsStore();
 
 const num_cases_selected = computed(() => selectStore.numZbllsInCollSelected(oll, coll));
 const total_zblls_in_coll = zbllStore.countZbllsInColl(oll, coll);
@@ -48,7 +50,7 @@ const modalShown = ref(false);
       </span>
     </div>
     <div class="clickable m-1" @click="onCardClicked">
-      <img class="cube_card_img" :src="getCollImg(oll, coll)" :alt="coll">
+      <img class="cube_card_img" :src="getCollImg(oll, coll, settingsStore.pictureView)" :alt="coll">
     </div>
   </div>
   <ZbllsModal v-if="modalShown" :oll="oll" :coll="coll" :closeCallback="modalCloseCallback"/>

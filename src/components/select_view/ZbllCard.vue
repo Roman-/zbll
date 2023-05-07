@@ -3,10 +3,12 @@
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {computed} from "vue";
 import {getZbllImg} from "@/helpers/cube_images";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
 const props = defineProps(['oll', 'coll', 'zbll']);
 const {oll, coll, zbll} = props
 const selectStore = useSelectedStore();
+const settingsStore = useSettingsStore()
 
 const is_selected = computed(() => selectStore.isZbllSelected(oll, coll, zbll));
 
@@ -32,7 +34,7 @@ const card_bg_class = computed(() => {
       </strong>
     </div>
     <div class="m-1 text-center">
-      <img class="cube_card_img" :src="getZbllImg(oll, coll, zbll)" :alt="zbll">
+      <img class="cube_card_img" :src="getZbllImg(oll, coll, zbll, settingsStore.pictureView)" :alt="zbll">
     </div>
   </div>
 </template>

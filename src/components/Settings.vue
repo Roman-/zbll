@@ -21,7 +21,7 @@ const onResetBtnClicked = () => {
       <div class="mb-3">
         <label for="pictureView" class="form-label">ZBLL Pictures View</label>
         <select class="selectpicker" id="pictureView" v-model="settingsStore.pictureView">
-          <option value="side">Side</option>
+          <option value="3D">3D</option>
           <option value="top">Top</option>
         </select>
       </div>
