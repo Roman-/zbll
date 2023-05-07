@@ -2,7 +2,7 @@
 
 import {useZbllStore} from "@/stores/ZbllStore";
 import {useSelectedStore} from "@/stores/SelectedStore";
-import {computed} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {getOllImg} from "@/helpers/cube_images";
 import CollCard from "@/components/select_view/CollCard.vue";
 
@@ -29,20 +29,30 @@ const card_bg_class = computed(() => {
           : "some_cases_selected";
 })
 
+const ollCardRef = ref(null)
+const isCollapsed = ref(true)
+onMounted(() => {
+  ollCardRef.value.addEventListener('show.bs.collapse', () => isCollapsed.value = false);
+  ollCardRef.value.addEventListener('hide.bs.collapse', () => isCollapsed.value = true);
+})
+
 </script>
 
 <template>
   <div class="border border-dark rounded-1" :class="card_bg_class">
     <div
-        class="header p-1 clickable border-bottom border-secondary"
+        class="header p-1 clickable border-bottom border-secondary d-flex justify-content-between align-items-center"
         data-bs-toggle="collapse"
         :data-bs-target="`#collapsed-colls-${oll}`">
-      <strong class="text-center">
-        {{props.oll}}
-      </strong>
-      <span>
-        ({{num_cases_selected}}/{{total_zblls_in_oll}})
-      </span>
+      <div>
+        <strong class="text-center">
+          {{props.oll}}
+        </strong>
+        <span>
+          ({{num_cases_selected}}/{{total_zblls_in_oll}})
+        </span>
+      </div>
+      <i class="bi bi-caret-down text-secondary caret" :class="isCollapsed ? '' : 'upside_down'"></i>
     </div>
     <div class="clickable m-1 text-center" @click="onCardClicked">
       <img class="cube_card_img" :src="getOllImg(oll)" :alt="oll">
@@ -50,6 +60,7 @@ const card_bg_class = computed(() => {
   </div>
   <div
       class="text-center collapse multi-collapse"
+      ref="ollCardRef"
       :id="`collapsed-colls-${oll}`">
     <CollCard v-for="(zbll_map, coll) in oll_map"
               :oll="oll"
@@ -59,4 +70,10 @@ const card_bg_class = computed(() => {
 </template>
 
 <style scoped>
+.caret{
+  transition: transform 0.2s
+}
+.upside_down{
+  transform: rotate(180deg);
+}
 </style>
