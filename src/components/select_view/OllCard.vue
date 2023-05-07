@@ -32,7 +32,7 @@ const card_bg_class = computed(() => {
 </script>
 
 <template>
-  <div class="border border-dark" :class="card_bg_class">
+  <div class="border border-dark rounded-1" :class="card_bg_class">
     <div
         class="header p-1 clickable border-bottom border-secondary"
         data-bs-toggle="collapse"

@@ -6,8 +6,10 @@ import {useRouter, useRoute} from "vue-router";
 import {computed} from "vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import "animate.css"
+import {useSessionStore} from "@/stores/SessionStore";
 
 const selectedStore = useSelectedStore();
+const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
 const router = useRouter();
 const route = useRoute()
@@ -36,6 +38,9 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
         </span>
         <span class="mx-2">
           {{ $t("nav.cases selected", selectedStore.totalZbllsSelected()) }} {{ $t("nav.selected") }}
+        </span>
+        <span class="mx-2" v-if="sessionStore.recapMode">
+          {{ sessionStore.casesWithZeroCount.length }} to recap
         </span>
       </div>
       <div class="col-auto">

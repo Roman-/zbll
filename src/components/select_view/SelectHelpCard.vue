@@ -2,13 +2,20 @@
 import {computed, ref, watch} from "vue";
 import {useRouter} from "vue-router";
 import {useSelectedStore} from "@/stores/SelectedStore";
+import {useSessionStore} from "@/stores/SessionStore";
 const router = useRouter();
 
 const selectedStore = useSelectedStore();
+const sessionStore = useSessionStore()
 const btnDisabled = computed(() => selectedStore.totalZbllsSelected() === 0)
 
+const startPractice = () => {
+  sessionStore.recapMode = false
+  router.push('timer')
+}
+
 const startRecap = () => {
-  // …
+  sessionStore.recapMode = true
   router.push('timer')
 }
 
@@ -19,19 +26,21 @@ const startRecap = () => {
     <div class="card-body">
       <h5 class="mb-0">
         <button
+            class="form-control my-1 btn btn-primary"
             tabindex="-1"
             :disabled="btnDisabled"
-            @click="router.push('timer')"
+            @click="startPractice"
             @keydown.space.prevent=""
-            class="form-control my-1 btn btn-primary">
+        >
           practice
         </button>
         <button
+            class="form-control my-1 btn btn-outline-primary"
             tabindex="-1"
             :disabled="btnDisabled"
             @click="startRecap"
             @keydown.space.prevent=""
-            class="form-control my-1 btn btn-outline-primary">
+        >
           recap
         </button>
       </h5>
