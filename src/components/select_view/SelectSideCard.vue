@@ -3,11 +3,15 @@ import {computed, ref, watch} from "vue";
 import {useRouter} from "vue-router";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSessionStore} from "@/stores/SessionStore";
+import Presets from "@/components/presets/Presets.vue";
+import BasicInfo from "@/components/select_view/BasicInfo.vue";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
 const router = useRouter();
 
 const selectedStore = useSelectedStore();
 const sessionStore = useSessionStore()
+const settings = useSettingsStore()
 const btnDisabled = computed(() => selectedStore.totalZbllsSelected() === 0)
 
 const startPractice = () => {
@@ -48,23 +52,11 @@ const startRecap = () => {
         </button>
       </h5>
       <hr>
-      <div class="stats-container" ref="statsContainer">
-        <ul class="no_bullet">
-          <li>🖱️ Click on the picture to select / deselect all cases in the group</li>
-          <li>🔽 Click on the item header to expand / collapse the group</li>
-          <li>🟢 Green color means all cases in the group are selected; 🟡 yellow - some cases are selected; ⚪ white - no
-            cases selected
-          </li>
-          <li>✅ When you're ready, click "Practice"</li>
-        </ul>
-      </div>
+      <BasicInfo v-if="settings.showHowTo"/>
+      <Presets/>
     </div>
   </div>
 </template>
 
 <style scoped>
-ul.no_bullet {
-  list-style-type: none;
-  padding: 0;
-}
 </style>
