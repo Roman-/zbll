@@ -50,7 +50,7 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
             tabindex="-1" @keydown.space.prevent=""
             :class="settingsBtnClass"
             @click="settingsStore.showSettings = !settingsStore.showSettings"
-            :title="$t('nav.settings')">
+            title="Settings">
           <i class="bi-wrench font_bigger"/>
         </button>
         <ThemeSwitcher/>

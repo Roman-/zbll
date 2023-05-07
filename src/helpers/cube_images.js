@@ -14,7 +14,6 @@ export const getZbllImg = (oll, coll, zbll) => {
 
 /// @returns VisualCube picture URL for scramble
 export const scrambleToVcUrl = (scramble, view) => {
-  console.log("scrambleToVcUrl", scramble, view);
   const viewOption = (view === "top") ? 'view=plan' : 'r=y35x-30';
   return `https://bestsiteever.ru/visualcube/visualcube.php?fmt=svg&bg=t&stage=ll&${viewOption}&alg=${encodeURIComponent(scramble).replace(/'/g, '%27')}`;
 };
