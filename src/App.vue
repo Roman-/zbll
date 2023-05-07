@@ -27,9 +27,7 @@ sessionStore.setSelectedCases(selectStore.allSelectedCases)
     <div class="row">
       <NavBar/>
     </div>
-    <div class="row flex-grow-1 p-0">
-      <RouterView/>
-    </div>
+    <RouterView/>
   </div>
 </template>
 
