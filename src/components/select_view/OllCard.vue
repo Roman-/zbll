@@ -63,6 +63,7 @@ onMounted(() => {
       ref="ollCardRef"
       :id="`collapsed-colls-${oll}`">
     <CollCard v-for="(zbll_map, coll) in oll_map"
+              :key="oll"
               :oll="oll"
               :coll="coll"
     />

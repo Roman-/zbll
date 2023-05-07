@@ -3,9 +3,12 @@ import {computed, ref, watch} from "vue";
 import {useSessionStore} from "@/stores/SessionStore";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSelectedStore} from "@/stores/SelectedStore";
+import {useSettingsStore} from "@/stores/SettingsStore";
+import {scrambleToVcUrl, preloadImage} from "@/helpers/cube_images";
 
 const sessionStore = useSessionStore()
 const selectedStore = useSelectedStore()
+const settingsStore = useSettingsStore()
 const isValid = computed(() => sessionStore.stats().length > sessionStore.observingResult)
 const result = computed(() => {
       return isValid.value
@@ -29,6 +32,10 @@ watch(isSelectedCheckboxValue, (doSelect) => {
   }
 })
 watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
+
+const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], settingsStore.pictureView))
+watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settingsStore.pictureView))
+
 
 </script>
 
@@ -56,11 +63,9 @@ watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
       <p class="card-text">Case: {{ result["key"] }}</p>
       <p class="card-text">Scramble: {{ result["scramble"] }}</p>
       <div>
-<!--
         <img
-            src="https://bestsiteever.ru/visualcube/visualcube.php?fmt=svg&bg=t&stage=ll&view=plan&alg=F%20U2%20F2%20L%20F%20L2%20B%27%20R%27%20U2%20R%20B%20L"
-            alt="Cube image"/>
--->
+            :src="currentImgSrc"
+            :alt="result['key']"/>
       </div>
       <div class="form-check">
         <label
