@@ -12,11 +12,11 @@ const settingsStore = useSettingsStore()
     <Settings/>
   </div>
   <div class="row gy-0 justify-content-start align-items-start">
-    <div class="col-lg-auto col-sm-12 m-0">
-      <MainZbllGrid/>
-    </div>
     <div class="col">
       <SelectHelpCard/>
+    </div>
+    <div class="col-lg-auto col-sm-12 m-0">
+      <MainZbllGrid/>
     </div>
   </div>
 </template>
