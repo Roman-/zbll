@@ -5,6 +5,7 @@ import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import {scrambleToVcUrl, preloadImage} from "@/helpers/cube_images";
+import {formatZbllKey} from "@/helpers/helpers";
 
 const sessionStore = useSessionStore()
 const selectedStore = useSelectedStore()
@@ -60,7 +61,7 @@ watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.curren
         </div>
       </h5>
       <hr>
-      <p class="card-text">Case: {{ result["key"] }}</p>
+      <p class="card-text">Case: {{ formatZbllKey(result["key"]) }}</p>
       <p class="card-text">Scramble: {{ result["scramble"] }}</p>
       <div>
         <img

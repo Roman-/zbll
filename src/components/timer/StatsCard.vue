@@ -1,6 +1,6 @@
 <script setup>
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
-import {computed, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 
 const sessionStore = useSessionStore()
@@ -14,8 +14,10 @@ const onClearBtnClick = () => {
 const statsContainer = ref(null);
 const scrollStats = () => statsContainer.value.scrollTop = statsContainer.value.scrollHeight
 const scrollStatsLater = () => setTimeout(() => scrollStats(), 10)
-watch(numResults, scrollStatsLater);
-scrollStatsLater()
+onMounted(() => {
+  watch(numResults, scrollStatsLater);
+  scrollStatsLater()
+})
 
 const statClicked = i => sessionStore.observingResult = i
 

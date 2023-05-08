@@ -1,6 +1,6 @@
 <script setup>
 import {usePresetsStore} from "@/stores/PresetStore";
-import {computed, onMounted, ref} from "vue";
+import {computed, ref} from "vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
 
 const presets = usePresetsStore()
@@ -9,12 +9,21 @@ const selected = useSelectedStore()
 const currentPresetName = ref("")
 
 const saveCurrentPreset = () => {
+  const index = Object.keys(presets.map).indexOf(currentPresetName.value);
   presets.set(currentPresetName.value, selected.allSelectedCases)
+
+  if (index >= 0) {
+    const spanElement = document.querySelectorAll(".presetName")[index];
+    spanElement.classList.add("bg-success");
+    setTimeout(() => spanElement.classList.remove("bg-success"), 500)
+  }
 }
 const applyPreset = (name) => {
   selected.loadMap(presets.get(name))
   currentPresetName.value = name
 }
+
+const saveButton = ref(null)
 
 const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.value) ? "Edit preset" : "New preset")
 </script>
@@ -24,7 +33,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
     <h5>Presets</h5>
 
     <div v-for="name in Object.keys(presets.map)" :key="name" class="d-flex align-items-center mb-2">
-      <span class="me-2">{{ name }}</span>
+      <span class="me-2 presetName rounded-1">{{ name }}</span>
       <button class="btn btn-sm btn-outline-success me-1" type="button" @click="applyPreset(name)">
         <i class="bi bi-check-circle"></i>
       </button>
@@ -41,11 +50,14 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
       <input
           type="text"
           @keydown.self.enter="saveCurrentPreset"
-          v-model.trim="currentPresetName" placeholder="" class="form-control" maxlength="20"/>
+          v-model.trim="currentPresetName"
+          placeholder="to learn"
+          class="form-control styled"
+          maxlength="20"/>
       <button
           class="btn btn-primary"
           type="button"
-          id="saveButton"
+          ref="saveButton"
           @click="saveCurrentPreset"
           :disabled="currentPresetName.length === 0">
         Save
@@ -55,4 +67,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
 </template>
 
 <style scoped>
+.presetName {
+  transition: background-color 0.1s ease;
+}
 </style>

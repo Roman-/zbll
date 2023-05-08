@@ -11,3 +11,9 @@ export const shuffle = arr => {
     return arr;
 }
 
+// "H RLFF OsA" -> "H-RLFF O/A"
+export const formatZbllKey = key => {
+    const [oll, coll, zbll] = key.split(' ');
+    return `${oll}-${coll} ${zbll.replace('s', '/')}`;
+}
+
