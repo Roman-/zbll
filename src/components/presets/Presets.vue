@@ -10,7 +10,7 @@ const currentPresetName = ref("")
 
 const saveCurrentPreset = () => {
   const index = Object.keys(presets.map).indexOf(currentPresetName.value);
-  presets.set(currentPresetName.value, selected.allSelectedCases)
+  presets.setPreset(currentPresetName.value, selected.allSelectedCases)
 
   if (index >= 0) {
     const spanElement = document.querySelectorAll(".presetName")[index];
@@ -19,7 +19,7 @@ const saveCurrentPreset = () => {
   }
 }
 const applyPreset = (name) => {
-  selected.loadMap(presets.get(name))
+  selected.applyFromPreset(presets.getCases(name))
   currentPresetName.value = name
 }
 
@@ -40,7 +40,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
       <button class="btn btn-sm btn-outline-danger"
               type="button"
               :disabled="name === 'starred'"
-              @click="presets.remove(name)">
+              @click="presets.deletePreset(name)">
         <i class="bi bi-trash"></i>
       </button>
     </div>
