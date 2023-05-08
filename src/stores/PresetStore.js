@@ -50,7 +50,6 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   const removeFromPreset = (presetName, theCase) => {
-    console.log("removeFromPreset(" + presetName + ", " + theCase + ")", )
     map[presetName].delete(theCase)
   }
 

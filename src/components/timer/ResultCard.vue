@@ -40,7 +40,7 @@ const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], s
 watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settingsStore.pictureView))
 
 const isBookmarked = computed(() => presets.hasCase("starred", result.value.key))
-const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill" : "bi-star")
+const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
 const starClicked = () => {
   if (isBookmarked.value) {
     presets.removeFromPreset("starred", result.value.key)
@@ -74,7 +74,7 @@ const starClicked = () => {
       <hr>
       <p class="card-text">
         Case: {{ formatZbllKey(result["key"]) }}
-        <i class="bi clickable" :class="bookmarkIconClass" @click="starClicked"></i>
+        <i class="bi clickable px-1" :class="bookmarkIconClass" @click="starClicked"></i>
       </p>
       <p class="card-text">Scramble: {{ result["scramble"] }}</p>
       <div>
@@ -85,15 +85,13 @@ const starClicked = () => {
       <div class="form-check">
         <label
             class="form-check-label"
-            for="flexCheckDefault"
-        >
+            for="flexCheckDefault">
           <input
               tabindex="-1" @keydown.space.prevent=""
-              class="form-check-input"
+              class="form-check-input styled"
               type="checkbox"
               id="flexCheckDefault"
-              v-model="isSelectedCheckboxValue"
-          >
+              v-model="isSelectedCheckboxValue">
           Selected
         </label>
       </div>
