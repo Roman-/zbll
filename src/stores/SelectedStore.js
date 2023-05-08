@@ -7,11 +7,24 @@ const localStoreKey = "currentZbllMap";
 export const useSelectedStore = defineStore('selected', () => {
   const map = reactive(JSON.parse(localStorage.getItem(localStoreKey) || "{}"))
 
-  // null means ALL cases in group
+  const loadMap = selectedCases => {
+    removeAllCases()
+    for (let c of selectedCases) {
+      let [oll, coll, zbll] = c.key.split(" ");
+      addZbll(oll, coll, zbll);
+    }
+  }
+
+  function removeAllCases() {
+    for (let oll in zbll_map) {
+      delete map[oll];
+    }
+  }
+
   function removeOll(oll) {
     delete map[oll];
   }
-  // add ALL cases from this oll
+
   function addOll(oll) {
     map[oll] = {};
     for (let coll in zbll_map[oll]) {
@@ -99,5 +112,5 @@ export const useSelectedStore = defineStore('selected', () => {
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected,
-    allSelectedCases }
+    allSelectedCases, loadMap }
 });
