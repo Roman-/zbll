@@ -21,5 +21,10 @@ img.cube_card_img {
     background-color: var(--bs-warning);
 }
 .all_cases_selected {
-    background-color: var(--bs-success)
+    color: var(--bs-black);
+    background-color: var(--bs-success);
+}
+.styled {
+    background-color: var(--bs-body-bg) !important;
+    color: var(--bs-body-color) !important;
 }
