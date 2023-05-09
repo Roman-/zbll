@@ -5,8 +5,10 @@ import ThemesSelect from "@/components/ThemesSelect.vue";
 const settingsStore = useSettingsStore()
 
 const onResetBtnClicked = () => {
-  if (confirm("Are you sure you want to reset all settings to default?"))
+  if (confirm("You sure?")) {
     settingsStore.resetDefaults()
+    settingsStore.showSettings = false
+  }
 }
 
 </script>
@@ -56,19 +58,23 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="DarkTheme" class="form-label">Timer Precision</label>
+        <label for="DarkTheme" class="form-label">Dark theme</label>
         <ThemesSelect selectId="DarkTheme" is-dark="true"/>
       </div>
 
       <div class="mb-2">
-        <label for="LightTheme" class="form-label">Timer Precision</label>
+        <label for="LightTheme" class="form-label">Light theme</label>
         <ThemesSelect selectId="LightTheme" is-dark="false"/>
       </div>
 
       <!-- Add your ScrambleFontSettings and TimerFontSettings components here -->
 
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="showLangIcon" v-model="settingsStore.showLangIcon">
+        <input
+            v-model="settingsStore.showLangIcon"
+            tabindex="-1" @keydown.space.prevent=""
+            type="checkbox"
+            class="form-check-input" id="showLangIcon" >
         <label class="form-check-label" for="showLangIcon">Show language button</label>
       </div>
     </form>
