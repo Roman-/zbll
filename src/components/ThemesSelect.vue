@@ -14,11 +14,14 @@ watch(selectedTheme, ()=>{
   console.log("selectedTheme changed: ", name);
   isDark ? themeStore.setDarkTheme(name) : themeStore.setLightTheme(name);
 })
-
 </script>
 
 <template>
-  <select :id="selectId" class="mx-2" v-model="selectedTheme" :disabled="isDark !== themeStore.isDark">
+  <select
+      v-model="selectedTheme"
+      :id="selectId"
+      class="mx-2" tabindex="-1" @keydown.space.prevent=""
+      :disabled="isDark !== themeStore.isDark">
     <option :value="t" v-for="t in themes">
       {{t}}
     </option>

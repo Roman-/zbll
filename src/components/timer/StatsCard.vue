@@ -2,8 +2,10 @@
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {computed, onMounted, ref, watch} from "vue";
 import {msToHumanReadable} from "@/helpers/time_formatter";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
 const sessionStore = useSessionStore()
+const settings = useSettingsStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm("You sure you wanna clear the session? This will delete all times")) {
@@ -49,7 +51,7 @@ const statClicked = i => sessionStore.observingResult = i
           <span
               @click="statClicked(stat['i'])" class="clickable stat"
               :class="sessionStore.observingResult === stat['i'] ? 'text-info' : ''">
-            {{ msToHumanReadable(stat["ms"]) }}
+            {{ msToHumanReadable(stat["ms"], settings.timerPrecision) }}
           </span>{{ stat["i"] === sessionStore.stats().length - 1 ? "" : ", " }}
         </span>
         <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState !== TimerState.RUNNING">

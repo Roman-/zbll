@@ -11,7 +11,7 @@ const showHowToKey = 'zbll_showHowTo';
 
 const initialPictureView = () => localStorage.getItem(pictureViewKey) ?? "top"
 const initialTimerUpdate = () => localStorage.getItem(timerUpdateKey) ?? "on"
-const initialTimerPrecision = () => localStorage.getItem(timerPrecisionKey) ?? "2"
+const initialTimerPrecision = () => parseInt(localStorage.getItem(timerPrecisionKey)) ?? 2
 const initialTimerFont = () => localStorage.getItem(timerFontKey) ?? "Roboto Mono"
 const initialScrambleFont = () => localStorage.getItem(scrambleFontKey) ?? "Roboto Mono"
 const initialShowLangIcon = () => localStorage.getItem(showLangIconKey) !== 'false' ?? true
@@ -22,7 +22,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const resetDefaults = () => {
     pictureView.value = "top"
     timerUpdate.value = "on"
-    timerPrecision.value = "2"
+    timerPrecision.value = 2
     timerFont.value = "Roboto Mono"
     scrambleFont.value = "Roboto Mono"
     showLangIcon.value = true

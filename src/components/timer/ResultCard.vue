@@ -10,7 +10,7 @@ import {usePresetsStore, starredName} from "@/stores/PresetStore";
 
 const sessionStore = useSessionStore()
 const selectedStore = useSelectedStore()
-const settingsStore = useSettingsStore()
+const settings = useSettingsStore()
 const presets = usePresetsStore()
 const isValid = computed(() => sessionStore.stats().length > sessionStore.observingResult)
 const result = computed(() => {
@@ -36,8 +36,8 @@ watch(isSelectedCheckboxValue, (doSelect) => {
 })
 watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
 
-const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], settingsStore.pictureView))
-watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settingsStore.pictureView))
+const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], settings.pictureView))
+watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settings.pictureView))
 
 const isBookmarked = computed(() => presets.hasCase(starredName, result.value.key))
 const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
@@ -58,7 +58,7 @@ const starClicked = () => {
         <div class="row align-items-center">
           <div class="col">
             Result #{{ result["i"] + 1 }}
-            <span class="badge bg-primary">{{ msToHumanReadable(result["ms"]) }}</span>
+            <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
           </div>
           <div class="col-auto">
             <button

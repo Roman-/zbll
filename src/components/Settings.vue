@@ -20,7 +20,13 @@ const onResetBtnClicked = () => {
     <form>
       <div class="mb-2">
         <label for="pictureView" class="form-label">ZBLL Pictures View</label>
-        <select class="mx-2" id="pictureView" v-model="settingsStore.pictureView">
+        <select
+            v-model="settingsStore.pictureView"
+            class="mx-2"
+            tabindex="-1"
+            @keydown.space.prevent=""
+            id="pictureView">
+
           <option value="3D">3D</option>
           <option value="top">Top</option>
         </select>
@@ -28,15 +34,22 @@ const onResetBtnClicked = () => {
 
       <div class="mb-2">
         <label for="timerUpdate" class="form-label">Timer Update</label>
-        <select class="mx-2" id="timerUpdate" v-model="settingsStore.timerUpdate">
+        <select
+            v-model="settingsStore.timerUpdate"
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            id="timerUpdate">
           <option value="on">On</option>
+          <option value="seconds">Seconds only</option>
           <option value="off">Off</option>
         </select>
       </div>
 
       <div class="mb-2">
         <label for="timerPrecision" class="form-label">Timer Precision</label>
-        <select class="mx-2" id="timerPrecision" v-model="settingsStore.timerPrecision">
+        <select
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            v-model.number="settingsStore.timerPrecision" id="timerPrecision">
+          <option value="1">1/10</option>
           <option value="2">1/100</option>
           <option value="3">1/1000</option>
         </select>
