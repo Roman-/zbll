@@ -1,6 +1,6 @@
 <script setup>
 import {useSettingsStore} from "@/stores/SettingsStore";
-import ThemeSettings from "@/components/ThemeSettings.vue";
+import ThemesSelect from "@/components/ThemesSelect.vue";
 
 const settingsStore = useSettingsStore()
 
@@ -18,31 +18,39 @@ const onResetBtnClicked = () => {
     <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">Reset</button>
     <hr>
     <form>
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="pictureView" class="form-label">ZBLL Pictures View</label>
-        <select class="selectpicker" id="pictureView" v-model="settingsStore.pictureView">
+        <select class="mx-2" id="pictureView" v-model="settingsStore.pictureView">
           <option value="3D">3D</option>
           <option value="top">Top</option>
         </select>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="timerUpdate" class="form-label">Timer Update</label>
-        <select class="selectpicker" id="timerUpdate" v-model="settingsStore.timerUpdate">
+        <select class="mx-2" id="timerUpdate" v-model="settingsStore.timerUpdate">
           <option value="on">On</option>
           <option value="off">Off</option>
         </select>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="timerPrecision" class="form-label">Timer Precision</label>
-        <select class="selectpicker" id="timerPrecision" v-model="settingsStore.timerPrecision">
+        <select class="mx-2" id="timerPrecision" v-model="settingsStore.timerPrecision">
           <option value="2">1/100</option>
           <option value="3">1/1000</option>
         </select>
       </div>
 
-      <ThemeSettings/>
+      <div class="mb-2">
+        <label for="DarkTheme" class="form-label">Timer Precision</label>
+        <ThemesSelect selectId="DarkTheme" is-dark="true"/>
+      </div>
+
+      <div class="mb-2">
+        <label for="LightTheme" class="form-label">Timer Precision</label>
+        <ThemesSelect selectId="LightTheme" is-dark="false"/>
+      </div>
 
       <!-- Add your ScrambleFontSettings and TimerFontSettings components here -->
 

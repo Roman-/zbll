@@ -4,11 +4,11 @@ import {ref, watch} from "vue";
 const themeStore = useThemeStore();
 
 // this is work-in-progress
-const props = defineProps(["isDark"]);
+const props = defineProps(["isDark", "selectId"]);
 const isDark = props.isDark === "true";
+const selectId = props.selectId
 const themes = isDark ? darkThemesSet : lightThemesSet;
 const selectedTheme = ref(isDark ? themeStore.darkThemeName : themeStore.lightThemeName);
-console.log("selectedTheme", selectedTheme.value);
 watch(selectedTheme, ()=>{
   const name = selectedTheme.value;
   console.log("selectedTheme changed: ", name);
@@ -18,8 +18,7 @@ watch(selectedTheme, ()=>{
 </script>
 
 <template>
-  <!--  v-model = name of dark theme -->
-  <select class="selectpicker" v-model="selectedTheme" :disabled="isDark !== themeStore.isDark">
+  <select :id="selectId" class="mx-2" v-model="selectedTheme" :disabled="isDark !== themeStore.isDark">
     <option :value="t" v-for="t in themes">
       {{t}}
     </option>
