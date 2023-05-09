@@ -2,11 +2,9 @@ import {defineStore} from 'pinia'
 import {computed, ref} from "vue";
 import {random_element} from "@/helpers/helpers";
 import {makeScramble} from "@/helpers/scramble_utils"
-import {preloadImage} from "@/helpers/cube_images";
 
 const statsKey = 'zbll_stats_array';
 const initialStats = JSON.parse(localStorage.getItem(statsKey)) || []
-console.log("initialStats", initialStats);
 
 export const TimerState = Object.freeze({
     NOT_RUNNING: 0,

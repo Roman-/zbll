@@ -22,14 +22,22 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
   <div class="container">
     <h5>Presets</h5>
 
-    <div v-for="name in Object.keys(presets.map)" :key="name" class="d-flex align-items-center mb-2">
+    <div
+        v-for="name in Object.keys(presets.map)"
+        :key="name"
+        class="d-flex align-items-center mb-2"
+    >
       <span
           class="me-2 rounded-1 presetName px-1"
           :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'is_current' : ''"
           >
         {{ name }} ({{presets.getCases(name).size}})</span>
-      <button class="btn btn-sm btn-outline-success me-1" type="button" @click="applyPreset(name)">
-        <i class="bi bi-check-circle"></i>
+      <button
+          type="button"
+          class="btn btn-sm btn-outline-success me-1"
+          :disabled="areSetsEqual(presets.getCases(name), selected.asKeySet)"
+          @click="applyPreset(name)">
+        <i class="bi bi-download"></i>
       </button>
       <button class="btn btn-sm btn-outline-danger"
               type="button"
@@ -52,7 +60,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
           class="btn btn-primary"
           type="button"
           @click="saveCurrentPreset"
-          :disabled="currentPresetName.length === 0">
+          :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), selected.asKeySet)">
         Save
       </button>
     </div>
