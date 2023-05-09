@@ -30,7 +30,7 @@ const card_bg_class = computed(() => {
   <div class="border border-dark clickable" @click="onCardClicked" :class="card_bg_class">
     <div class="header p-1 border-bottom border-secondary text-center" @click="onCardClicked">
       <strong>
-        {{zbll}}
+        {{ zbll.replace('s', '/') }}
       </strong>
     </div>
     <div class="m-1 text-center">

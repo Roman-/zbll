@@ -25,7 +25,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
     <div v-for="name in Object.keys(presets.map)" :key="name" class="d-flex align-items-center mb-2">
       <span
           class="me-2 rounded-1 presetName px-1"
-          :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'bg-primary' : ''"
+          :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'is_current' : ''"
           >
         {{ name }} ({{presets.getCases(name).size}})</span>
       <button class="btn btn-sm btn-outline-success me-1" type="button" @click="applyPreset(name)">
@@ -60,4 +60,8 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
 </template>
 
 <style scoped>
+.is_current {
+  background-color: var(--bs-primary);
+  color: white;
+}
 </style>
