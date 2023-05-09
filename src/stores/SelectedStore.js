@@ -106,11 +106,13 @@ export const useSelectedStore = defineStore('selected', () => {
     return arr;
   })
 
+  const asKeySet = computed(() => new Set(allSelectedCases.value.map(item => item.key)))
+
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map,
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected,
-    allSelectedCases, applyFromPreset }
+    allSelectedCases, applyFromPreset, asKeySet }
 });

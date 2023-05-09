@@ -6,7 +6,7 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import {scrambleToVcUrl, preloadImage} from "@/helpers/cube_images";
 import {formatZbllKey} from "@/helpers/helpers";
-import {usePresetsStore} from "@/stores/PresetStore";
+import {usePresetsStore, starredName} from "@/stores/PresetStore";
 
 const sessionStore = useSessionStore()
 const selectedStore = useSelectedStore()
@@ -39,13 +39,13 @@ watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
 const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], settingsStore.pictureView))
 watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settingsStore.pictureView))
 
-const isBookmarked = computed(() => presets.hasCase("starred", result.value.key))
+const isBookmarked = computed(() => presets.hasCase(starredName, result.value.key))
 const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
 const starClicked = () => {
   if (isBookmarked.value) {
-    presets.removeFromPreset("starred", result.value.key)
+    presets.removeFromPreset(starredName, result.value.key)
   } else {
-    presets.addToPreset("starred", result.value.key)
+    presets.addToPreset(starredName, result.value.key)
   }
 }
 

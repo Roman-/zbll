@@ -2,10 +2,11 @@ import {computed, reactive, watch} from 'vue'
 import { defineStore } from 'pinia'
 
 const localStoreKey = "zbll_presets_arrays";
+export const starredName = "⭐" // do not make it locale-based!
 
 const loadFromLocalStorage = () => {
   // load as map {name -> array}, return as map {name -> Set}
-  const loadedMap = JSON.parse(localStorage.getItem(localStoreKey) ?? "{\"starred\": []}")
+  const loadedMap = JSON.parse(localStorage.getItem(localStoreKey) ?? `{"${starredName}": []}`)
   const result = {}
   for (const name in loadedMap) {
     result[name] = new Set(loadedMap[name])
@@ -22,13 +23,12 @@ const saveToLocalStorage = (map) => {
 }
 
 export const usePresetsStore = defineStore('presets', () => {
-
   // {name: [array of cases], name: [other array], …}
   const map = reactive(loadFromLocalStorage())
 
   // set (save) preset. Use selectedStore.allSelectedCases() as second argument
-  const setPreset = (name, selectedCases) => {
-    map[name] = new Set(selectedCases.map(theCase => theCase.key))
+  const setPreset = (name, keySet) => {
+    map[name] = keySet
   }
 
   // returns set of keys by preset name
@@ -55,5 +55,5 @@ export const usePresetsStore = defineStore('presets', () => {
 
   watch(map, () => saveToLocalStorage(map))
 
-  return { map, setPreset, getCases, deletePreset, hasCase, addToPreset, removeFromPreset}
+  return { map, setPreset, getCases, deletePreset, hasCase, addToPreset, removeFromPreset, starredName }
 });

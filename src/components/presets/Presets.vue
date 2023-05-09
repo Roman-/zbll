@@ -1,29 +1,19 @@
 <script setup>
-import {usePresetsStore} from "@/stores/PresetStore";
+import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import {computed, ref} from "vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
+import {areSetsEqual} from "@/helpers/helpers";
 
 const presets = usePresetsStore()
 const selected = useSelectedStore()
 
 const currentPresetName = ref("")
 
-const saveCurrentPreset = () => {
-  const index = Object.keys(presets.map).indexOf(currentPresetName.value);
-  presets.setPreset(currentPresetName.value, selected.allSelectedCases)
-
-  if (index >= 0) {
-    const spanElement = document.querySelectorAll(".presetName")[index];
-    spanElement.classList.add("bg-success");
-    setTimeout(() => spanElement.classList.remove("bg-success"), 500)
-  }
-}
+const saveCurrentPreset = () => presets.setPreset(currentPresetName.value, selected.asKeySet)
 const applyPreset = (name) => {
   selected.applyFromPreset(presets.getCases(name))
   currentPresetName.value = name
 }
-
-const saveButton = ref(null)
 
 const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.value) ? "Edit preset" : "New preset")
 </script>
@@ -33,13 +23,17 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
     <h5>Presets</h5>
 
     <div v-for="name in Object.keys(presets.map)" :key="name" class="d-flex align-items-center mb-2">
-      <span class="me-2 presetName rounded-1">{{ name }} ({{presets.map[name].size}})</span>
+      <span
+          class="me-2 rounded-1 presetName px-1"
+          :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'bg-primary' : ''"
+          >
+        {{ name }} ({{presets.getCases(name).size}})</span>
       <button class="btn btn-sm btn-outline-success me-1" type="button" @click="applyPreset(name)">
         <i class="bi bi-check-circle"></i>
       </button>
       <button class="btn btn-sm btn-outline-danger"
               type="button"
-              :disabled="name === 'starred'"
+              v-if="name !== starredName"
               @click="presets.deletePreset(name)">
         <i class="bi bi-trash"></i>
       </button>
@@ -57,7 +51,6 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
       <button
           class="btn btn-primary"
           type="button"
-          ref="saveButton"
           @click="saveCurrentPreset"
           :disabled="currentPresetName.length === 0">
         Save
@@ -67,7 +60,4 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
 </template>
 
 <style scoped>
-.presetName {
-  transition: background-color 0.1s ease;
-}
 </style>

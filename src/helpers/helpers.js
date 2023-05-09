@@ -17,3 +17,6 @@ export const formatZbllKey = key => {
     return `${oll}-${coll} ${zbll.replace('s', '/')}`;
 }
 
+export function areSetsEqual(setA, setB) {
+    return setA.size === setB.size && [...setA].every(item => setB.has(item));
+}
