@@ -1,11 +1,11 @@
 <script setup>
 
-import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSessionStore} from "@/stores/SessionStore";
 import {computed} from "vue";
+import {useSettingsStore} from "@/stores/SettingsStore";
 
-const selectedStore = useSelectedStore()
 const sessionStore = useSessionStore()
+const settingsStore = useSettingsStore()
 const scramble = computed(() => sessionStore.currentScramble ?? "(no scramble available)")
 
 </script>
@@ -13,7 +13,10 @@ const scramble = computed(() => sessionStore.currentScramble ?? "(no scramble av
 <template>
   <h3 class="border-bottom border-secondary m-1">
     <span class="text-secondary">Scramble: </span>
-    <span>{{scramble}}</span>
+    <span
+        :style="{ fontSize: settingsStore.scrambleFontSize + 'px' }"
+    >
+      {{ scramble }}</span>
   </h3>
 </template>
 

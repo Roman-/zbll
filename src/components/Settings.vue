@@ -1,5 +1,5 @@
 <script setup>
-import {useSettingsStore} from "@/stores/SettingsStore";
+import {useSettingsStore, fontsList} from "@/stores/SettingsStore";
 import ThemesSelect from "@/components/ThemesSelect.vue";
 
 const settingsStore = useSettingsStore()
@@ -20,13 +20,43 @@ const onResetBtnClicked = () => {
     <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">Reset</button>
     <hr>
     <form>
+
+      <div class="mb-2">
+        <label for="scrambleFontSize" class="form-label">Scramble size</label>
+        <input
+            type="number"
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            v-model.number="settingsStore.scrambleFontSize" id="scrambleFontSize"/>
+      </div>
+
+      <div class="mb-2">
+        <label for="timerFontSize" class="form-label">Timer size</label>
+        <input
+            type="number"
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            v-model.number="settingsStore.timerFontSize" id="timerFontSize"/>
+      </div>
+
+      <div class="mb-2">
+        <label for="timerFont" class="form-label">Timer font</label>
+        <select
+            v-model="settingsStore.timerFont"
+            class="mx-2"
+            tabindex="-1" @keydown.space.prevent=""
+            id="timerFont">
+          <option
+              v-for="font in fontsList" :value="font"
+              :style="{ fontFamily: font, fontWeight : 700 }"
+          >{{font}}</option>
+        </select>
+      </div>
+
       <div class="mb-2">
         <label for="pictureView" class="form-label">ZBLL Pictures View</label>
         <select
             v-model="settingsStore.pictureView"
             class="mx-2"
-            tabindex="-1"
-            @keydown.space.prevent=""
+            tabindex="-1" @keydown.space.prevent=""
             id="pictureView">
 
           <option value="3D">3D</option>
@@ -67,14 +97,12 @@ const onResetBtnClicked = () => {
         <ThemesSelect selectId="LightTheme" is-dark="false"/>
       </div>
 
-      <!-- Add your ScrambleFontSettings and TimerFontSettings components here -->
-
       <div class="mb-3 form-check">
         <input
             v-model="settingsStore.showLangIcon"
             tabindex="-1" @keydown.space.prevent=""
             type="checkbox"
-            class="form-check-input" id="showLangIcon" >
+            class="form-check-input" id="showLangIcon">
         <label class="form-check-label" for="showLangIcon">Show language button</label>
       </div>
     </form>
