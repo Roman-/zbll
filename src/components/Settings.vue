@@ -25,6 +25,7 @@ const onResetBtnClicked = () => {
         <label for="scrambleFontSize" class="form-label">Scramble size</label>
         <input
             type="number"
+            min="1" max="999" maxlength="3"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settingsStore.scrambleFontSize" id="scrambleFontSize"/>
       </div>
@@ -33,6 +34,7 @@ const onResetBtnClicked = () => {
         <label for="timerFontSize" class="form-label">Timer size</label>
         <input
             type="number"
+            min="1" max="999" maxlength="3"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settingsStore.timerFontSize" id="timerFontSize"/>
       </div>
