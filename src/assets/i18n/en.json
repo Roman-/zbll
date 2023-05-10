@@ -1,11 +1,14 @@
 {
   "en": {
     "nav": {
-      "language": "Language",
-      "toggle_night_mode": "Toggle night mode",
+      "zbll_trainer": "ZBLL Trainer",
       "select": "select",
+      "n_cases": "no cases | one case | {count} cases",
       "selected": "selected",
-      "cases selected": "no cases | one case | {count} cases"
+      "to recap": "to recap",
+      "language": "Language",
+      "settings": "Settings",
+      "toggle_night_mode": "Toggle night mode"
     },
     "select": {
       "select_intro": "Select cases to practise"
