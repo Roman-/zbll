@@ -20,6 +20,7 @@ const startPractice = () => {
 }
 
 const startRecap = () => {
+  sessionStore.setSelectedCases(selectedStore.allSelectedCases)
   sessionStore.recapMode = true
   router.push('timer')
 }

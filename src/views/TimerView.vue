@@ -46,7 +46,7 @@ const onGlobalKeyDown = (event) => {
     event.preventDefault()
     if (event.shiftKey) {
       if (confirm("Clear session?")) {
-        sessionStore.reset()
+        sessionStore.reset(selectStore.allSelectedCases)
       }
     } else { // no shift key -  delete single result
       if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {

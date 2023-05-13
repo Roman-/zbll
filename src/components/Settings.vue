@@ -15,9 +15,11 @@ const onResetBtnClicked = () => {
 
 <template>
   <div class="container border border-2 border-primary rounded-3 p-3">
-    <span class="h2">Settings</span>
-    <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">Done</button>
-    <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">Reset</button>
+    <div class="d-flex align-items-center mb-3">
+      <span class="h2 flex-grow-1">Settings</span>
+      <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">Reset</button>
+      <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">Done</button>
+    </div>
     <hr>
     <form>
 
@@ -25,7 +27,7 @@ const onResetBtnClicked = () => {
         <label for="scrambleFontSize" class="form-label">Scramble size</label>
         <input
             type="number"
-            min="1" max="999" maxlength="3"
+            min="1" max="999" maxlength="3" size="5"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settingsStore.scrambleFontSize" id="scrambleFontSize"/>
       </div>
@@ -34,7 +36,7 @@ const onResetBtnClicked = () => {
         <label for="timerFontSize" class="form-label">Timer size</label>
         <input
             type="number"
-            min="1" max="999" maxlength="3"
+            min="1" max="999" maxlength="3" size="5"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settingsStore.timerFontSize" id="timerFontSize"/>
       </div>
@@ -49,7 +51,8 @@ const onResetBtnClicked = () => {
           <option
               v-for="font in fontsList" :value="font"
               :style="{ fontFamily: font, fontWeight : 700 }"
-          >{{font}}</option>
+          >{{ font }}
+          </option>
         </select>
       </div>
 

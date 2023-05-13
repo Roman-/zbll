@@ -68,15 +68,15 @@ export const useSessionStore = defineStore('session', () => {
         return c;
     }
 
-    const setSelectedCases = (allCasesSelected) => {
+    const setSelectedCases = allCasesSelected => {
         recapMode.value = false // unfortunately, resetting store.value.allCases will reset cases count
         store.value.allCases = allCasesSelected;
         store.value.current = getRandomCase();
         timerState.value = TimerState.NOT_RUNNING; // prevent from changing cases while timer is running
     }
-    const reset = () => {
-        recapMode.value = false
+    const reset = allCasesSelected => {
         store.value.stats = [];
+        setSelectedCases(allCasesSelected)
         store.value.current = getRandomCase();
         observingResult.value = 0
     }

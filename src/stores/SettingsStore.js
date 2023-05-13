@@ -18,7 +18,7 @@ const initialTimerUpdate = () => localStorage.getItem(timerUpdateKey) ?? "on"
 const initialTimerPrecision = () => parseInt(localStorage.getItem(timerPrecisionKey) ?? "2")
 const initialTimerFont = () => localStorage.getItem(timerFontKey) ?? "Roboto Mono"
 const initialScrambleFontSize = () => parseInt(localStorage.getItem(scrambleFonSizeKey) ?? "28")
-const initialTimerFontSize = () => parseInt(localStorage.getItem(timerFontSizeKey) ?? "52")
+const initialTimerFontSize = () => parseInt(localStorage.getItem(timerFontSizeKey) ?? "64")
 const initialShowLangIcon = () => localStorage.getItem(showLangIconKey) !== 'false' ?? true
 const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ?? true
 
@@ -30,7 +30,7 @@ export const useSettingsStore = defineStore('settings', () => {
     timerPrecision.value = 2
     timerFont.value = "Roboto Mono"
     scrambleFontSize.value = 28
-    timerFontSize.value = 52
+    timerFontSize.value = 64
     showLangIcon.value = true
     showHowTo.value = true
   }

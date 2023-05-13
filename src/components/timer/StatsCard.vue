@@ -3,13 +3,16 @@ import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {computed, onMounted, ref, watch} from "vue";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSettingsStore} from "@/stores/SettingsStore";
+import {useSelectedStore} from "@/stores/SelectedStore";
 
 const sessionStore = useSessionStore()
 const settings = useSettingsStore()
+const selectStore = useSelectedStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm("You sure you wanna clear the session? This will delete all times")) {
-    sessionStore.reset()
+    sessionStore.reset(selectStore.allSelectedCases)
+
   }
 }
 
