@@ -18,7 +18,7 @@ const router = createRouter({
     },
     {
       path: '/',
-      redirect: '/timer',
+      redirect: '/select',
     },
     {
       path: '/about',

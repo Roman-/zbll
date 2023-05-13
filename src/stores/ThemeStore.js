@@ -20,8 +20,8 @@ const lightNameKey = "zbll_theme.light_name";
 
 // defaults
 const defaultIsDark = false;
-const defaultLightName = "flatly";
-const defaultDarkName = "darkly";
+export const defaultLightName = "flatly";
+export const defaultDarkName = "darkly";
 
 export const lightThemesSet = ["cerulean", "cosmo", "flatly", "litera", "lux", "materia", "minty", "morph", "quartz", "sandstone", "sketchy", "zephyr"];
 export const darkThemesSet = ["cyborg", "darkly", "slate", "solar", "superhero"];

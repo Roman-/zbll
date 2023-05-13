@@ -1,13 +1,16 @@
 <script setup>
 import {useSettingsStore, fontsList} from "@/stores/SettingsStore";
 import ThemesSelect from "@/components/ThemesSelect.vue";
-
+import {defaultDarkName, defaultLightName, useThemeStore} from "@/stores/ThemeStore";
+const themeStore = useThemeStore();
 const settingsStore = useSettingsStore()
 
 const onResetBtnClicked = () => {
   if (confirm("You sure?")) {
     settingsStore.resetDefaults()
     settingsStore.showSettings = false
+    themeStore.setLightTheme(defaultLightName)
+    themeStore.setDarkTheme(defaultDarkName)
   }
 }
 

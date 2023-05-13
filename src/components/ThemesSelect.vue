@@ -11,7 +11,6 @@ const themes = isDark ? darkThemesSet : lightThemesSet;
 const selectedTheme = ref(isDark ? themeStore.darkThemeName : themeStore.lightThemeName);
 watch(selectedTheme, ()=>{
   const name = selectedTheme.value;
-  console.log("selectedTheme changed: ", name);
   isDark ? themeStore.setDarkTheme(name) : themeStore.setLightTheme(name);
 })
 </script>
