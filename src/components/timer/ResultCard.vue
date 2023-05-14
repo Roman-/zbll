@@ -57,14 +57,14 @@ const starClicked = () => {
       <h5 class="mb-0">
         <div class="row align-items-center">
           <div class="col">
-            Result #{{ result["i"] + 1 }}
+            {{$t("result_card.result_no", result["i"] + 1)}}
             <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
           </div>
           <div class="col-auto">
             <button
                 tabindex="-1" @keydown.space.prevent=""
                 class="btn btn-sm btn-outline-danger mx-1"
-                title="delete"
+                :title="$t('result_card.delete_btn')"
                 @click="onDeleteBtnClicked">
               <i class="bi bi-trash"></i>
             </button>
@@ -73,10 +73,14 @@ const starClicked = () => {
       </h5>
       <hr>
       <p class="card-text">
-        Case: {{ formatZbllKey(result["key"]) }}
-        <i class="bi clickable px-1" :class="bookmarkIconClass" @click="starClicked"></i>
+        {{$t("result_card.case")}} {{ formatZbllKey(result["key"]) }}
+        <i
+            class="bi clickable px-1"
+            :title="$t('result_card.add_to_starred')"
+            :class="bookmarkIconClass"
+            @click="starClicked"/>
       </p>
-      <p class="card-text">Scramble: {{ result["scramble"] }}</p>
+      <p class="card-text">{{$t("result_card.scramble")}} {{ result["scramble"] }}</p>
       <div>
         <img
             :src="currentImgSrc"
@@ -92,7 +96,7 @@ const starClicked = () => {
               type="checkbox"
               id="flexCheckDefault"
               v-model="isSelectedCheckboxValue">
-          Selected
+          {{$t("result_card.selected")}}
         </label>
       </div>
     </div>

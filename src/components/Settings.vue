@@ -6,7 +6,7 @@ const themeStore = useThemeStore();
 const settingsStore = useSettingsStore()
 
 const onResetBtnClicked = () => {
-  if (confirm("You sure?")) {
+  if (confirm($t("settings.are_you_sure_to_reset"))) {
     settingsStore.resetDefaults()
     settingsStore.showSettings = false
     themeStore.setLightTheme(defaultLightName)
@@ -20,14 +20,14 @@ const onResetBtnClicked = () => {
   <div class="container border border-2 border-primary rounded-3 p-3">
     <div class="d-flex align-items-center mb-3">
       <span class="h2 flex-grow-1">Settings</span>
-      <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">Reset</button>
-      <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">Done</button>
+      <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">{{$t("settings.reset_btn")}}</button>
+      <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">{{$t("settings.done_btn")}}</button>
     </div>
     <hr>
     <form>
 
       <div class="mb-2">
-        <label for="scrambleFontSize" class="form-label">Scramble size</label>
+        <label for="scrambleFontSize" class="form-label">{{$t("settings.scramble_size")}}</label>
         <input
             type="number"
             min="1" max="999" maxlength="3" size="5"
@@ -36,7 +36,7 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="timerFontSize" class="form-label">Timer size</label>
+        <label for="timerFontSize" class="form-label">{{$t("settings.timer_size")}}</label>
         <input
             type="number"
             min="1" max="999" maxlength="3" size="5"
@@ -45,7 +45,7 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="timerFont" class="form-label">Timer font</label>
+        <label for="timerFont" class="form-label">{{$t("settings.timer_font")}}</label>
         <select
             v-model="settingsStore.timerFont"
             class="mx-2"
@@ -60,32 +60,32 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="pictureView" class="form-label">ZBLL Pictures View</label>
+        <label for="pictureView" class="form-label">{{$t("settings.zbll_pictures_view")}}</label>
         <select
             v-model="settingsStore.pictureView"
             class="mx-2"
             tabindex="-1" @keydown.space.prevent=""
             id="pictureView">
 
-          <option value="3D">3D</option>
-          <option value="top">Top</option>
+          <option value="3D">{{$t("settings.zbll_pictures_side")}}</option>
+          <option value="top">{{$t("settings.zbll_pictures_top")}}</option>
         </select>
       </div>
 
       <div class="mb-2">
-        <label for="timerUpdate" class="form-label">Timer Update</label>
+        <label for="timerUpdate" class="form-label">{{$t("settings.timer_update")}}</label>
         <select
             v-model="settingsStore.timerUpdate"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             id="timerUpdate">
-          <option value="on">On</option>
-          <option value="seconds">Seconds only</option>
-          <option value="off">Off</option>
+          <option value="on">{{$t("settings.timer_update_on")}}</option>
+          <option value="seconds">{{$t("settings.timer_update_seconds")}}</option>
+          <option value="off">{{$t("settings.timer_update_off")}}</option>
         </select>
       </div>
 
       <div class="mb-2">
-        <label for="timerPrecision" class="form-label">Timer Precision</label>
+        <label for="timerPrecision" class="form-label">{{$t("settings.timer_precision")}}</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settingsStore.timerPrecision" id="timerPrecision">
@@ -96,12 +96,12 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="DarkTheme" class="form-label">Dark theme</label>
+        <label for="DarkTheme" class="form-label">{{$t("settings.dark_theme")}}</label>
         <ThemesSelect selectId="DarkTheme" is-dark="true"/>
       </div>
 
       <div class="mb-2">
-        <label for="LightTheme" class="form-label">Light theme</label>
+        <label for="LightTheme" class="form-label">{{$t("settings.light_theme")}}</label>
         <ThemesSelect selectId="LightTheme" is-dark="false"/>
       </div>
 
@@ -111,7 +111,7 @@ const onResetBtnClicked = () => {
             tabindex="-1" @keydown.space.prevent=""
             type="checkbox"
             class="form-check-input" id="showLangIcon">
-        <label class="form-check-label" for="showLangIcon">Show language button</label>
+        <label class="form-check-label" for="showLangIcon">{{$t("settings.show_lang_button")}}</label>
       </div>
     </form>
   </div>

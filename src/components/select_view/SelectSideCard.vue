@@ -39,7 +39,7 @@ const startRecap = () => {
             @click="startPractice"
             @keydown.space.prevent=""
         >
-          practice
+          {{$t("select.practice")}}
         </button>
         <button
             class="form-control my-1 btn btn-outline-primary"
@@ -49,7 +49,7 @@ const startRecap = () => {
             @click="startRecap"
             @keydown.space.prevent=""
         >
-          recap
+          {{$t("select.recap")}}
         </button>
       </h5>
       <hr>

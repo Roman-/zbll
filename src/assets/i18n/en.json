@@ -2,19 +2,81 @@
   "en": {
     "nav": {
       "zbll_trainer": "ZBLL Trainer",
-      "select": "select",
-      "n_cases": "no cases | one case | {count} cases",
-      "selected": "selected",
-      "to recap": "to recap",
+      "select_btn": "select",
+      "n_cases": "no cases selected | one case selected | {count} cases selected",
+      "n_to_recap": "{count} to recap",
       "language": "Language",
       "settings": "Settings",
       "toggle_night_mode": "Toggle night mode"
     },
     "select": {
-      "select_intro": "Select cases to practise"
+      "select_intro": "Select cases to practise",
+      "practice": "practice",
+      "recap": "recap"
     },
     "about": {
       "text": "Text in English"
+    },
+    "presets": {
+      "presets": "Presets",
+      "new_preset": "New preset",
+      "name_example": "to learn",
+      "save_btn": "Save",
+      "apply_btn": "Apply",
+      "delete_btn": "Delete"
+    },
+    "howto": {
+      "how_to_use": "How to use",
+      "dismiss_label": "dismiss",
+      "howto_1": "\uD83D\uDDB1️ Click on the picture to select / deselect all cases in the group",
+      "howto_2": "\uD83D\uDD3D Click on the item header to expand / collapse the group",
+      "howto_3": "\uD83D\uDFE2 Green color means all cases in the group are selected; \uD83D\uDFE1 yellow - some cases are selected; ⚪ white - no cases selected",
+      "howto_4": "✅ When you're ready, click \"Practice\""
+    },
+    "zbll_select_card": {
+      "all": "All",
+      "none": "None",
+      "done": "Done"
+    },
+    "settings": {
+      "settings_title": "Settings",
+      "reset_btn": "Reset",
+      "done_btn": "Done",
+      "scramble_size": "Scramble size",
+      "timer_size": "Timer size",
+      "timer_font": "Timer font",
+      "zbll_pictures_view": "ZBLL pictures view",
+      "zbll_pictures_top": "Top",
+      "zbll_pictures_side": "Side",
+      "timer_update": "Timer update",
+      "timer_update_on": "On",
+      "timer_update_off": "Off",
+      "timer_update_seconds": "Seconds only",
+      "timer_precision": "Timer precision",
+      "dark_theme": "Dark theme",
+      "light_theme": "Light theme",
+      "show_lang_button": "Show language button",
+      "are_you_sure_to_reset": "Are you sure?"
+    },
+    "in_timer": {
+      "scramble": "Scramble:",
+      "ready": "ready",
+      "running": "running"
+    },
+    "stats_card": {
+      "stats_title": "Stats:",
+      "n_solves": "no solves | one solve | {count} solves",
+      "clear_btn": "clear",
+      "clear_btn_hint": "Clear session",
+      "hold_spacebar_hint": "Hold spacebar to start the timer"
+    },
+    "result_card": {
+      "result_no": "Result #{count}",
+      "delete_btn": "Delete",
+      "case": "Case:",
+      "scramble": "Scramble:",
+      "selected": "Selected",
+      "add_to_starred": "Add to starred preset"
     }
   }
 }

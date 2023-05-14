@@ -4,7 +4,7 @@ import en from '@/assets/i18n/en.json'
 import ru from '@/assets/i18n/ru.json'
 export const supportedLocales = [
   { code: "en", messages: en,  name: "English", emoji: "🇬🇧" },
-  { code: "ru", messages: ru,  name: "Русский", emoji: "🇷🇺" }
+  // { code: "ru", messages: ru,  name: "Русский", emoji: "🇷🇺" }
 ]
 const defaultLocale = 'en';
 export const addTranslationUrl = "https://add_translation_example_url.com";

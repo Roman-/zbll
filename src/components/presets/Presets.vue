@@ -20,7 +20,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
 
 <template>
   <div class="container">
-    <h5>Presets</h5>
+    <h5>{{$t("presets.presets")}}</h5>
 
     <div
         v-if="Object.keys(presets.map).length > 1 || presets.getCases(starredName).size > 0"
@@ -37,12 +37,14 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
           type="button"
           class="btn btn-sm btn-outline-success me-1"
           :disabled="areSetsEqual(presets.getCases(name), selected.asKeySet)"
+          :title="$t('presets.apply_btn')"
           @click="applyPreset(name)">
         <i class="bi bi-download"></i>
       </button>
       <button class="btn btn-sm btn-outline-danger"
               type="button"
               v-if="name !== starredName"
+              :title="$t('presets.delete_btn')"
               @click="presets.deletePreset(name)">
         <i class="bi bi-trash"></i>
       </button>
@@ -54,7 +56,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
           type="text"
           @keydown.self.enter="saveCurrentPreset"
           v-model.trim="currentPresetName"
-          placeholder="to learn"
+          :placeholder="$t('presets.name_example')"
           class="form-control styled"
           maxlength="20"/>
       <button
@@ -62,7 +64,7 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
           type="button"
           @click="saveCurrentPreset"
           :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), selected.asKeySet)">
-        Save
+        {{$t("presets.save_btn")}}
       </button>
     </div>
   </div>

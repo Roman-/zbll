@@ -34,14 +34,14 @@ const statClicked = i => sessionStore.observingResult = i
       <h5 class="mb-0">
         <div class="row align-items-center">
           <div class="col">
-            Stats: {{ numResults }} solves
+            {{$t("stats_card.stats_title")}} {{ $t("stats_card.n_solves", numResults) }}
           </div>
           <div class="col-auto">
             <button
                 class="btn btn-sm btn-outline-danger mx-1"
                 tabindex="-1" @keydown.space.prevent=""
                 @click="onClearBtnClick"
-                title="Clear session (Shift+Delete)"
+                :title="$t('stats_card.clear_btn_hint') + ' (Shift+Delete)'"
                 v-if="sessionStore.stats().length > 0">
               clear
             </button>
@@ -58,7 +58,7 @@ const statClicked = i => sessionStore.observingResult = i
           </span>{{ stat["i"] === sessionStore.stats().length - 1 ? "" : ", " }}
         </span>
         <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState !== TimerState.RUNNING">
-          Hold spacebar to start the timer
+          {{$t("stats_card.hold_spacebar_hint")}}
         </div>
       </div>
     </div>

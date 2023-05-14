@@ -8,19 +8,17 @@ const settings = useSettingsStore()
 
 <template>
   <div class="stats-container" ref="statsContainer">
-    <h5>How to use
+    <h5>{{$t("howto.how_to_use")}}
       <button class="btn btn-link py-0 px-2"
               @click="settings.showHowTo = false">
-        dismiss
+        {{$t("howto.dismiss_label")}}
       </button>
     </h5>
     <ul class="no_bullet">
-      <li>🖱️ Click on the picture to select / deselect all cases in the group</li>
-      <li>🔽 Click on the item header to expand / collapse the group</li>
-      <li>🟢 Green color means all cases in the group are selected; 🟡 yellow - some cases are selected; ⚪ white - no
-        cases selected
-      </li>
-      <li>✅ When you're ready, click "Practice"</li>
+      <li>{{$t("howto.howto_1")}}</li>
+      <li>{{$t("howto.howto_2")}}</li>
+      <li>{{$t("howto.howto_3")}}</li>
+      <li>{{$t("howto.howto_4")}}</li>
     </ul>
   </div>
 </template>

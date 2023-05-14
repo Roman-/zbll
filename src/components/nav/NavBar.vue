@@ -37,10 +37,10 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
           {{ $t("nav.zbll_trainer") }}
         </span>
         <span class="mx-2">
-          {{ $t("nav.n_cases", selectedStore.totalZbllsSelected()) }} {{ $t("nav.selected") }}
+          {{ $t("nav.n_cases", selectedStore.totalZbllsSelected()) }}
         </span>
         <span class="mx-2" v-if="sessionStore.recapMode">
-          {{ $t("nav.n_cases", sessionStore.casesWithZeroCount.length) }} {{ $t("nav.to recap") }}
+          {{ $t("nav.n_to_recap", sessionStore.casesWithZeroCount.length) }}
         </span>
       </div>
       <div class="col-auto">
@@ -50,7 +50,7 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
             tabindex="-1" @keydown.space.prevent=""
             :class="settingsBtnClass"
             @click="settingsStore.showSettings = !settingsStore.showSettings"
-            :title="$t('Settings')">
+            :title="$t('nav.settings')">
           <i class="bi-wrench font_bigger"/>
         </button>
         <ThemeSwitcher/>
