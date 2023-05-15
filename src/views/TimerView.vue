@@ -3,6 +3,8 @@ import Scramble from "@/components/timer/Scramble.vue";
 import Timer from "@/components/timer/Timer.vue";
 import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
@@ -45,11 +47,11 @@ const onGlobalKeyDown = (event) => {
   } else if (event.key === "Delete") {
     event.preventDefault()
     if (event.shiftKey) {
-      if (confirm("Clear session?")) {
+      if (confirm(t("stats_card.are_you_sure_to_clean"))) {
         sessionStore.reset(selectStore.allSelectedCases)
       }
     } else { // no shift key -  delete single result
-      if (sessionStore.stats().length > sessionStore.observingResult && confirm("Delete selected result?")) {
+      if (sessionStore.stats().length > sessionStore.observingResult && confirm(t("result_card.are_you_sure_to_delete"))) {
         sessionStore.deleteResult(sessionStore.observingResult)
       }
     }

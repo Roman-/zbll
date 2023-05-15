@@ -5,8 +5,11 @@ import {defaultDarkName, defaultLightName, useThemeStore} from "@/stores/ThemeSt
 const themeStore = useThemeStore();
 const settingsStore = useSettingsStore()
 
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const onResetBtnClicked = () => {
-  if (confirm($t("settings.are_you_sure_to_reset"))) {
+  if (confirm(t("settings.are_you_sure_to_reset"))) {
     settingsStore.resetDefaults()
     settingsStore.showSettings = false
     themeStore.setLightTheme(defaultLightName)

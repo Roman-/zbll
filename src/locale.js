@@ -6,14 +6,14 @@ export const supportedLocales = [
   { code: "en", messages: en,  name: "English", emoji: "🇬🇧" },
   // { code: "ru", messages: ru,  name: "Русский", emoji: "🇷🇺" }
 ]
+const localStorageKey = "zbll_locale"
 const defaultLocale = 'en';
 export const addTranslationUrl = "https://add_translation_example_url.com";
-
 
 const getUserLocale = ()=>{
   if (localStorage) {
     // try to get from local storage
-    const loadedData = localStorage.getItem('locale');
+    const loadedData = localStorage.getItem(localStorageKey);
     if (typeof loadedData === "string" && loadedData.length === 2) {
       return loadedData;
     }
@@ -44,7 +44,7 @@ export const setLocaleAndReload = (code) => {
     console.error("setLocaleAndReload(", code, "). Supported: ", supportedLocales);
     return;
   }
-  localStorage.setItem('locale', code);
+  localStorage.setItem(localStorageKey, code);
   location.reload();
 }
 

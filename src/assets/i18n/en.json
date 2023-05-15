@@ -68,7 +68,8 @@
       "n_solves": "no solves | one solve | {count} solves",
       "clear_btn": "clear",
       "clear_btn_hint": "Clear session",
-      "hold_spacebar_hint": "Hold spacebar to start the timer"
+      "hold_spacebar_hint": "Hold spacebar to start the timer",
+      "are_you_sure_to_clean": "Clear session?"
     },
     "result_card": {
       "result_no": "Result #{count}",
@@ -76,7 +77,8 @@
       "case": "Case:",
       "scramble": "Scramble:",
       "selected": "Selected",
-      "add_to_starred": "Add to starred preset"
+      "add_to_starred": "Add to starred preset",
+      "are_you_sure_to_delete": "Delete this result?"
     }
   }
 }

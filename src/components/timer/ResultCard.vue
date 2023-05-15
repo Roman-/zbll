@@ -7,6 +7,8 @@ import {useSettingsStore} from "@/stores/SettingsStore";
 import {scrambleToVcUrl, preloadImage} from "@/helpers/cube_images";
 import {formatZbllKey} from "@/helpers/helpers";
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const sessionStore = useSessionStore()
 const selectedStore = useSelectedStore()
@@ -21,7 +23,7 @@ const result = computed(() => {
 )
 
 const onDeleteBtnClicked = () => {
-  if (confirm("You sure you wanna delete this result?")) {
+  if (confirm(t("result_card.are_you_sure_to_delete"))) {
     sessionStore.deleteResult(sessionStore.observingResult)
   }
 }
