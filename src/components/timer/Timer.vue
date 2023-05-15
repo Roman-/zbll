@@ -3,6 +3,8 @@ import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {computed, ref, watchEffect} from "vue";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSettingsStore} from "@/stores/SettingsStore";
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const sessionStore = useSessionStore()
 const currentTime = ref(Date.now())
@@ -25,12 +27,12 @@ const timerLabel = computed(() => {
     return msToHumanReadable(0, settings.timerPrecision, true)
   }
   if (sessionStore.timerState === TimerState.NOT_RUNNING || sessionStore.timerState === TimerState.STOPPING) {
-    const n = sessionStore.stats().length;
-    return n === 0 ? "ready" : msToHumanReadable(sessionStore.stats()[n-1]["ms"], settings.timerPrecision, true)
+    const n = sessionStore.stats().length
+    return n === 0 ? t("timer.ready") : msToHumanReadable(sessionStore.stats()[n-1]["ms"], settings.timerPrecision, true)
   }
   // running
   if (settings.timerUpdate === "off") {
-    return "running";
+    return t("timer.running")
   }
   const showMs = (settings.timerUpdate === "on")
   return msToHumanReadable(currentTime.value - sessionStore.timerStarted, settings.timerPrecision, showMs)

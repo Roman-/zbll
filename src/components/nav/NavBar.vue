@@ -31,7 +31,7 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
             @keydown.space.prevent=""
             @click="router.push('select')"
             class="mx-2 btn btn-primary">
-          select
+          {{$t("nav.select_btn")}}
         </button>
         <span v-else class="mx-3 logoText">
           {{ $t("nav.zbll_trainer") }}

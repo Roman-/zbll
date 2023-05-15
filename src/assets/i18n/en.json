@@ -58,7 +58,8 @@
       "show_lang_button": "Show language button",
       "are_you_sure_to_reset": "Are you sure?"
     },
-    "in_timer": {
+    "timer": {
+      "no_scramble": "no scramble available",
       "scramble": "Scramble:",
       "ready": "ready",
       "running": "running"
