@@ -7,20 +7,15 @@ const settings = useSettingsStore()
 </script>
 
 <template>
-  <div class="stats-container" ref="statsContainer">
-    <h5>{{$t("howto.how_to_use")}}
-      <button class="btn btn-link py-0 px-2"
-              @click="settings.showHowTo = false">
-        {{$t("howto.dismiss_label")}}
-      </button>
-    </h5>
     <ul class="no_bullet">
       <li>{{$t("howto.howto_1")}}</li>
       <li>{{$t("howto.howto_2")}}</li>
       <li>{{$t("howto.howto_3")}}</li>
       <li>{{$t("howto.howto_4")}}</li>
     </ul>
-  </div>
+    <button class="btn btn-link p-0" @click="settings.showHowTo = false">
+      {{$t("howto.dismiss_label")}}
+    </button>
 </template>
 
 <style scoped>

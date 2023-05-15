@@ -1,17 +1,14 @@
 <script setup>
-import {computed, ref, watch} from "vue";
+import {computed} from "vue";
 import {useRouter} from "vue-router";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSessionStore} from "@/stores/SessionStore";
-import Presets from "@/components/presets/Presets.vue";
-import BasicInfo from "@/components/select_view/BasicInfo.vue";
-import {useSettingsStore} from "@/stores/SettingsStore";
+import SideAccordion from "@/components/select_view/SideAccordion.vue";
 
 const router = useRouter();
 
 const selectedStore = useSelectedStore();
 const sessionStore = useSessionStore()
-const settings = useSettingsStore()
 const btnDisabled = computed(() => selectedStore.totalZbllsSelected() === 0)
 
 const startPractice = () => {
@@ -30,7 +27,6 @@ const startRecap = () => {
 <template>
   <div class="card mt-1">
     <div class="card-body">
-      <h5 class="mb-0">
         <button
             class="form-control my-1 btn btn-primary"
             tabindex="-1"
@@ -51,10 +47,9 @@ const startRecap = () => {
         >
           {{$t("select.recap")}}
         </button>
-      </h5>
-      <hr>
-      <BasicInfo v-if="settings.showHowTo"/>
-      <Presets/>
+
+      <SideAccordion/>
+
     </div>
   </div>
 </template>

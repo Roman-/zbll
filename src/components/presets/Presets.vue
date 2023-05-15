@@ -19,55 +19,51 @@ const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.v
 </script>
 
 <template>
-  <div class="container">
-    <h5>{{$t("presets.presets")}}</h5>
-
-    <div
-        v-if="Object.keys(presets.map).length > 1 || presets.getCases(starredName).size > 0"
-        v-for="name in Object.keys(presets.map)"
-        :key="name"
-        class="d-flex align-items-center mb-2"
-    >
+  <div class="input-group input-group mb-2">
+    <span class="input-group-text">{{ prefixText }}</span>
+    <input
+        type="text"
+        @keydown.self.enter="saveCurrentPreset"
+        v-model.trim="currentPresetName"
+        :placeholder="$t('presets.name_example')"
+        class="form-control styled"
+        maxlength="20"/>
+    <button
+        class="btn btn-primary"
+        type="button"
+        @click="saveCurrentPreset"
+        :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), selected.asKeySet)">
+      {{ $t("presets.save_btn") }}
+    </button>
+  </div>
+  <div
+      v-if="Object.keys(presets.map).length > 1 || presets.getCases(starredName).size > 0"
+      v-for="name in Object.keys(presets.map)"
+      :key="name"
+      class="d-flex align-items-center mb-2"
+  >
       <span
           class="me-2 rounded-1 presetName px-1"
           :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'is_current' : ''"
-          >
-        {{ name }} ({{presets.getCases(name).size}})</span>
-      <button
-          type="button"
-          class="btn btn-sm btn-outline-success me-1"
-          :disabled="areSetsEqual(presets.getCases(name), selected.asKeySet)"
-          :title="$t('presets.apply_btn')"
-          @click="applyPreset(name)">
-        <i class="bi bi-download"></i>
-      </button>
-      <button class="btn btn-sm btn-outline-danger"
-              type="button"
-              v-if="name !== starredName"
-              :title="$t('presets.delete_btn')"
-              @click="presets.deletePreset(name)">
-        <i class="bi bi-trash"></i>
-      </button>
-    </div>
-
-    <div class="input-group input-group-sm">
-      <span class="input-group-text">{{ prefixText }}</span>
-      <input
-          type="text"
-          @keydown.self.enter="saveCurrentPreset"
-          v-model.trim="currentPresetName"
-          :placeholder="$t('presets.name_example')"
-          class="form-control styled"
-          maxlength="20"/>
-      <button
-          class="btn btn-primary"
-          type="button"
-          @click="saveCurrentPreset"
-          :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), selected.asKeySet)">
-        {{$t("presets.save_btn")}}
-      </button>
-    </div>
+      >
+        {{ name }} ({{ presets.getCases(name).size }})</span>
+    <button
+        type="button"
+        class="btn btn-sm btn-outline-success me-1"
+        :disabled="areSetsEqual(presets.getCases(name), selected.asKeySet)"
+        :title="$t('presets.apply_btn')"
+        @click="applyPreset(name)">
+      <i class="bi bi-download"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-danger"
+            type="button"
+            v-if="name !== starredName"
+            :title="$t('presets.delete_btn')"
+            @click="presets.deletePreset(name)">
+      <i class="bi bi-trash"></i>
+    </button>
   </div>
+
 </template>
 
 <style scoped>
