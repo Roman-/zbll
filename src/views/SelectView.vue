@@ -3,8 +3,20 @@ import MainZbllGrid from "@/components/select_view/MainZbllGrid.vue";
 import SelectSideCard from "@/components/select_view/SelectSideCard.vue";
 import Settings from "@/components/Settings.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
+import {useRouter} from "vue-router";
+import {onMounted} from "vue";
 
+const router = useRouter();
 const settingsStore = useSettingsStore()
+onMounted(() => {
+  window.addEventListener('keydown', event => {
+    if (event.key === "t" && event.altKey) {
+      event.preventDefault()
+      router.push('timer')
+    }
+  })
+})
+
 </script>
 
 <template>

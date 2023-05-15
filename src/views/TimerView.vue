@@ -3,8 +3,9 @@ import Scramble from "@/components/timer/Scramble.vue";
 import Timer from "@/components/timer/Timer.vue";
 import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
 
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
@@ -20,7 +21,19 @@ const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-s
 const selectStore = useSelectedStore()
 
 // global key events listener
-const onGlobalKeyDown = (event) => {
+const onGlobalKeyDown = event => {
+  const confirmClearSession = () => {
+    if (confirm(t("stats_card.are_you_sure_to_clean"))) {
+      sessionStore.reset(selectStore.allSelectedCases)
+    }
+  }
+  const deleteSingleResult = () => {
+    if (sessionStore.stats().length > sessionStore.observingResult
+        && confirm(t("result_card.are_you_sure_to_delete"))) {
+      sessionStore.deleteResult(sessionStore.observingResult)
+    }
+  }
+
   if (sessionStore.timerState === TimerState.RUNNING) {
     sessionStore.stopTimer()
     return;
@@ -38,23 +51,23 @@ const onGlobalKeyDown = (event) => {
     event.preventDefault()
     sessionStore.observingResult = sessionStore.stats().length - 1
   } else if (event.key === " ") {
-    event.preventDefault()
-    if (sessionStore.timerState === TimerState.STOPPING) {
-      return;
-    } else if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
+    if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
       sessionStore.timerState = TimerState.READY
     }
   } else if (event.key === "Delete") {
     event.preventDefault()
     if (event.shiftKey) {
-      if (confirm(t("stats_card.are_you_sure_to_clean"))) {
-        sessionStore.reset(selectStore.allSelectedCases)
-      }
+      confirmClearSession();
     } else { // no shift key -  delete single result
-      if (sessionStore.stats().length > sessionStore.observingResult && confirm(t("result_card.are_you_sure_to_delete"))) {
-        sessionStore.deleteResult(sessionStore.observingResult)
-      }
+      deleteSingleResult()
     }
+  } else if (event.key === "t" && event.altKey) {
+    event.preventDefault()
+    router.push('select')
+  } else if (event.key === "d" && event.altKey) {
+    confirmClearSession();
+  } else if (event.key === "z" && event.altKey) {
+    deleteSingleResult()
   }
 }
 const onGlobalKeyUp = (event) => {
