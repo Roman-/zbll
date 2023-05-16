@@ -3,6 +3,7 @@ import Presets from "@/components/presets/Presets.vue";
 import BasicInfo from "@/components/select_view/BasicInfo.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import Hotkeys from "@/components/select_view/Hotkeys.vue";
+import Contact from "@/components/select_view/Contact.vue";
 const settings = useSettingsStore()
 </script>
 
@@ -43,6 +44,19 @@ const settings = useSettingsStore()
       <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#sideMenu">
         <div class="accordion-body">
           <Hotkeys/>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+          {{ $t("contact.contact") }}
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#sideMenu">
+        <div class="accordion-body">
+          <Contact/>
         </div>
       </div>
     </div>

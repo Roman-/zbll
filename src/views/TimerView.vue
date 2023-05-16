@@ -128,11 +128,13 @@ onUnmounted(() => {
         </div>
       </div>
 
+<!--
       <div class="row no-gutters">
         <div class="col-12">
           and this is footer
         </div>
       </div>
+-->
     </div>
   </div>
 

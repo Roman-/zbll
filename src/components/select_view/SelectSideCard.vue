@@ -30,7 +30,7 @@ const startRecap = () => {
         <button
             class="form-control my-1 btn btn-primary"
             tabindex="-1"
-            title="practice selected cases randomly"
+            :title="$t('select.practice_btn_title') + '(Alt+T)'"
             :disabled="btnDisabled"
             @click="startPractice"
             @keydown.space.prevent=""
@@ -40,7 +40,7 @@ const startRecap = () => {
         <button
             class="form-control my-1 btn btn-outline-primary"
             tabindex="-1"
-            title="go through each of the selected cases once"
+            :title="$t('select.recap_btn_title') + '(Alt+R)'"
             :disabled="btnDisabled"
             @click="startRecap"
             @keydown.space.prevent=""

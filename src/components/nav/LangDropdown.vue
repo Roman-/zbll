@@ -24,7 +24,7 @@ import {setLocaleAndReload, supportedLocales, addTranslationUrl} from "@/locale"
       </li>
       <li>
         <a class="dropdown-item" :href="addTranslationUrl" target="_blank">
-          ➕ Add translation
+          ➕ {{$t("nav.add_translation")}}
         </a>
       </li>
     </ul>

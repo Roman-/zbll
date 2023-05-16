@@ -6,11 +6,14 @@
       "n_cases": "no cases selected | one case selected | {count} cases selected",
       "n_to_recap": "{count} to recap",
       "language": "Language",
+      "add_translation": "Add translation",
       "settings": "Settings",
       "toggle_night_mode": "Toggle night mode"
     },
     "select": {
       "select_intro": "Select cases to practise",
+      "practice_btn_title": "Practice cases randomly",
+      "recap_btn_title": "Go through each case once",
       "practice": "practice",
       "recap": "recap"
     },
@@ -90,6 +93,12 @@
       "recap": "Recap all selected cases",
       "add_to_starred": "Add selected case to starred preset",
       "navigate": "Navigate to prev/next/first/last result in stats"
+    },
+    "contact": {
+      "contact": "Contact",
+      "reach_out": "Reach out to me",
+      "get_the_code": "Get the code",
+      "support": "Support the project"
     }
   }
 }
