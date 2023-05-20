@@ -44,7 +44,7 @@ const settingsBtnClass = computed(() => settingsStore.showSettings
         </span>
       </div>
       <div class="col-auto">
-        <LangDropdown v-if="settingsStore.showLangIcon"/>
+        <LangDropdown/>
         <button
             class="btn btn-link"
             tabindex="-1" @keydown.space.prevent=""

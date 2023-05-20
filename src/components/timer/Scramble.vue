@@ -14,7 +14,7 @@ const scramble = computed(() => sessionStore.currentScramble ?? t("timer.no_scra
 
 <template>
   <h3 class="border-bottom border-secondary m-1">
-    <span class="text-secondary">Scramble: </span>
+    <span class="text-secondary">{{$t("timer.scramble") + ' '}} </span>
     <span
         :style="{ fontSize: settingsStore.scrambleFontSize + 'px' }"
     >

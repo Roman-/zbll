@@ -20,9 +20,9 @@ const onResetBtnClicked = () => {
 </script>
 
 <template>
-  <div class="container border border-2 border-primary rounded-3 p-3">
+  <div class="container border border-2 border-primary rounded-3 p-3 mx-2">
     <div class="d-flex align-items-center mb-3">
-      <span class="h2 flex-grow-1">Settings</span>
+      <span class="h2 flex-grow-1">{{$t("settings.settings_title")}}</span>
       <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">{{$t("settings.reset_btn")}}</button>
       <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">{{$t("settings.done_btn")}}</button>
     </div>
@@ -108,14 +108,6 @@ const onResetBtnClicked = () => {
         <ThemesSelect selectId="LightTheme" is-dark="false"/>
       </div>
 
-      <div class="mb-3 form-check">
-        <input
-            v-model="settingsStore.showLangIcon"
-            tabindex="-1" @keydown.space.prevent=""
-            type="checkbox"
-            class="form-check-input" id="showLangIcon">
-        <label class="form-check-label" for="showLangIcon">{{$t("settings.show_lang_button")}}</label>
-      </div>
     </form>
   </div>
 </template>

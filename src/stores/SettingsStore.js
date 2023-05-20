@@ -10,7 +10,6 @@ const timerPrecisionKey = 'zbll_timerPrecision';
 const timerFontKey = 'zbll_timerFont';
 const scrambleFonSizeKey = 'zbll_scrambleFontSize';
 const timerFontSizeKey = 'zbll_timerFontSize';
-const showLangIconKey = 'zbll_showLangIcon';
 const showHowToKey = 'zbll_showHowTo';
 
 const initialPictureView = () => localStorage.getItem(pictureViewKey) ?? "top"
@@ -19,7 +18,6 @@ const initialTimerPrecision = () => parseInt(localStorage.getItem(timerPrecision
 const initialTimerFont = () => localStorage.getItem(timerFontKey) ?? "Roboto Mono"
 const initialScrambleFontSize = () => parseInt(localStorage.getItem(scrambleFonSizeKey) ?? "28")
 const initialTimerFontSize = () => parseInt(localStorage.getItem(timerFontSizeKey) ?? "64")
-const initialShowLangIcon = () => localStorage.getItem(showLangIconKey) !== 'false' ?? true
 const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ?? true
 
 export const useSettingsStore = defineStore('settings', () => {
@@ -31,7 +29,6 @@ export const useSettingsStore = defineStore('settings', () => {
     timerFont.value = "Roboto Mono"
     scrambleFontSize.value = 28
     timerFontSize.value = 64
-    showLangIcon.value = true
     showHowTo.value = true
   }
 
@@ -41,7 +38,6 @@ export const useSettingsStore = defineStore('settings', () => {
   const timerFont = ref(initialTimerFont())
   const scrambleFontSize = ref(initialScrambleFontSize())
   const timerFontSize = ref(initialTimerFontSize())
-  const showLangIcon = ref(initialShowLangIcon())
   const showHowTo = ref(initialShowHowTo())
 
   watch(pictureView, () => localStorage.setItem(pictureViewKey, pictureView.value))
@@ -50,10 +46,8 @@ export const useSettingsStore = defineStore('settings', () => {
   watch(timerFont, () => localStorage.setItem(timerFontKey, timerFont.value))
   watch(scrambleFontSize, () => localStorage.setItem(scrambleFonSizeKey, `${scrambleFontSize.value}`))
   watch(timerFontSize, () => localStorage.setItem(timerFontSizeKey, `${timerFontSize.value}`))
-  watch(showLangIcon, () => localStorage.setItem(showLangIconKey, showLangIcon.value))
   watch(showHowTo, () => localStorage.setItem(showHowToKey, showHowTo.value))
 
   return {showSettings, resetDefaults, pictureView, timerUpdate, timerPrecision,
-    timerFont, scrambleFontSize, timerFontSize,
-    showLangIcon, showHowTo}
+    timerFont, scrambleFontSize, timerFontSize, showHowTo}
 });
