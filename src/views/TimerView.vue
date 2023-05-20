@@ -148,7 +148,7 @@ const onTimerTouchEnd = event => {
           </div>
         </div>
 
-        <div class="col-lg-4 col-6 side_panel align-items-start">
+        <div class="col-lg-4 col-6 align-items-start">
           <div class="row my-2">
             <div class="col-12">
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
@@ -166,7 +166,4 @@ const onTimerTouchEnd = event => {
 </template>
 
 <style scoped>
-.side_panel {
-  /*min-width: 200px;*/
-}
 </style>

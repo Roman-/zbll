@@ -58,7 +58,7 @@ const starClicked = () => {
       <h5 class="mb-0">
         <div class="row align-items-center">
           <div class="col">
-            <span class="d-lg-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}} &nbsp;</span>
+            <span class="d-sm-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}} &nbsp;</span>
             <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
           </div>
           <div class="col-auto">
@@ -74,7 +74,7 @@ const starClicked = () => {
       </h5>
       <hr>
       <p class="card-text">
-        <span class="d-lg-inline-block d-none">{{$t("result_card.case")}}</span>
+        <span class="d-sm-inline-block d-none">{{$t("result_card.case")}}</span>
         {{ formatZbllKey(result["key"]) }}
         <i
             class="bi clickable px-1"
@@ -83,11 +83,12 @@ const starClicked = () => {
             @click="starClicked"/>
       </p>
       <p class="card-text">
-        <span class="d-lg-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
+        <span class="d-sm-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
 
         {{ result["scramble"] }}</p>
       <div>
         <img
+            class="py-0 my-0"
             :src="currentImgSrc"
             :alt="result['key']"/>
       </div>

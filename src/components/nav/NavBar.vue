@@ -22,7 +22,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
 </script>
 
 <template>
-  <nav class="navbar bg-secondary bg-opacity-25">
+  <nav class="navbar bg-secondary bg-opacity-25 py-sm-3 py-1">
     <div class="row w-100 align-items-center">
       <div class="col-auto me-auto">
         <button
@@ -31,8 +31,8 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             @keydown.space.prevent=""
             @click="router.push('select')"
             class="mx-2 btn btn-primary">
-          <span class="d-none d-lg-inline-block">{{$t("nav.select_btn")}}</span>
-          <i class="bi bi-card-checklist d-inline-block d-lg-none">
+          <span class="d-none d-sm-inline-block">{{$t("nav.select_btn")}}</span>
+          <i class="bi bi-card-checklist d-inline-block d-sm-none">
             &nbsp;
             {{sessionStore.recapMode
               ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
@@ -43,16 +43,16 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             v-if="isTimerView()"
             @click="displayStore.showStatistics = !displayStore.showStatistics"
             :class="displayStore.showStatistics ? 'btn-primary' : 'btn-outline-primary'"
-            class="mx-2 btn d-inline-block d-lg-none m-0">
+            class="mx-2 btn d-inline-block d-sm-none m-0">
           <i class="bi bi-list-columns"></i>
         </button>
         <span v-else class="mx-3 logoText">
           {{ $t("nav.zbll_trainer") }}
         </span>
-        <span class="mx-2 d-none d-lg-inline-block">
+        <span class="mx-2 d-none d-sm-inline-block">
           {{ $t("nav.n_cases", selectedStore.totalZbllsSelected()) }}
         </span>
-        <span class="mx-2 d-none d-lg-inline-block" v-if="sessionStore.recapMode">
+        <span class="mx-2 d-none d-sm-inline-block" v-if="sessionStore.recapMode">
           {{ $t("nav.n_to_recap", sessionStore.casesWithZeroCount.length) }}
         </span>
       </div>
