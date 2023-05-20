@@ -58,9 +58,7 @@ const starClicked = () => {
       <h5 class="mb-0">
         <div class="row align-items-center">
           <div class="col">
-            <span class="d-lg-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}}</span>
-            <span class="d-inline-block d-lg-none">{{'#' + (result["i"] + 1)}}</span>
-            &nbsp;
+            <span class="d-lg-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}} &nbsp;</span>
             <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
           </div>
           <div class="col-auto">

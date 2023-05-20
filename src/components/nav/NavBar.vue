@@ -5,7 +5,6 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {useDisplayStore} from "@/stores/DisplayStore";
 import {useRouter, useRoute} from "vue-router";
 import {computed} from "vue";
-import {useSettingsStore} from "@/stores/SettingsStore";
 import "animate.css"
 import {useSessionStore} from "@/stores/SessionStore";
 
@@ -44,7 +43,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             v-if="isTimerView()"
             @click="displayStore.showStatistics = !displayStore.showStatistics"
             :class="displayStore.showStatistics ? 'btn-primary' : 'btn-outline-primary'"
-            class="mx-2 btn d-inline-block d-lg-none">
+            class="mx-2 btn d-inline-block d-lg-none m-0">
           <i class="bi bi-list-columns"></i>
         </button>
         <span v-else class="mx-3 logoText">
@@ -57,7 +56,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
           {{ $t("nav.n_to_recap", sessionStore.casesWithZeroCount.length) }}
         </span>
       </div>
-      <div class="col-auto">
+      <div class="col d-flex justify-content-end p-0">
         <LangDropdown/>
         <button
             class="btn btn-link"

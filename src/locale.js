@@ -39,7 +39,7 @@ export const supportedLocales = [
 ]
 const localStorageKey = "zbll_locale"
 const defaultLocale = 'en';
-export const addTranslationUrl = "https://add_translation_example_url.com";
+export const addTranslationUrl = "https://docs.google.com/forms/d/1rhjD0q8zQRkH6i7QiAmNGEd5W-8tyJoOK-Q2UFQx5Jc/";
 
 const getUserLocale = ()=>{
   if (localStorage) {
