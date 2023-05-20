@@ -14,11 +14,8 @@
       "select_intro": "Select cases to practise",
       "practice_btn_title": "Practice cases randomly",
       "recap_btn_title": "Go through each case once",
-      "practice": "practice",
-      "recap": "recap"
-    },
-    "about": {
-      "text": "Text in English"
+      "practice": "start",
+      "recap": "recap each case once"
     },
     "presets": {
       "presets": "Presets",
@@ -92,7 +89,7 @@
       "delete_current_result": "Delete current result",
       "clear_session": "Clear session",
       "select_deselect": "Select/deselect current case",
-      "recap": "Recap all selected cases",
+      "recap": "Start recap all selected cases",
       "add_to_starred": "Add selected case to starred preset",
       "navigate": "Navigate to prev/next/first/last result in stats"
     },
