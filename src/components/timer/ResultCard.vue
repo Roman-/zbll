@@ -72,8 +72,8 @@ const starClicked = () => {
           </div>
         </div>
       </h5>
-      <hr>
-      <p class="card-text">
+      <hr class="my-2 my-sm-3">
+      <p class="card-text my-0 my-sm-1">
         <span class="d-sm-inline-block d-none">{{$t("result_card.case")}}</span>
         {{ formatZbllKey(result["key"]) }}
         <i
@@ -82,13 +82,12 @@ const starClicked = () => {
             :class="bookmarkIconClass"
             @click="starClicked"/>
       </p>
-      <p class="card-text">
+      <p class="card-text my-0 my-sm-1">
         <span class="d-sm-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
 
         {{ result["scramble"] }}</p>
       <div>
         <img
-            class="py-0 my-0"
             :src="currentImgSrc"
             :alt="result['key']"/>
       </div>

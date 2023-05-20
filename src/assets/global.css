@@ -28,7 +28,6 @@ img.cube_card_img {
     background-color: var(--bs-body-bg) !important;
     color: var(--bs-body-color) !important;
 }
-/*checkbox*/
 input[type="checkbox"].styled:checked {
     background-color: var(--bs-dark) !important;
 }

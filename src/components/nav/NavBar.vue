@@ -22,7 +22,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
 </script>
 
 <template>
-  <nav class="navbar bg-secondary bg-opacity-25 py-sm-3 py-1">
+  <nav class="navbar bg-secondary bg-opacity-25 py-lg-3 py-1">
     <div class="row w-100 align-items-center">
       <div class="col-auto me-auto">
         <button
