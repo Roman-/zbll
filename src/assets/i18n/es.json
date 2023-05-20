@@ -1,0 +1,103 @@
+{
+  "es": {
+    "nav": {
+      "zbll_trainer": "Entrenador de ZBLL",
+      "select_btn": "seleccionar",
+      "n_cases": "no hay casos seleccionados | un caso seleccionado | {count} casos seleccionados",
+      "n_to_recap": "{count} para repasar",
+      "language": "Idioma",
+      "add_translation": "Agregar traducción",
+      "settings": "Configuración",
+      "toggle_night_mode": "Alternar modo nocturno"
+    },
+    "select": {
+      "select_intro": "Selecciona casos para practicar",
+      "practice_btn_title": "Practicar casos al azar",
+      "recap_btn_title": "Repasar cada caso una vez",
+      "practice": "comenzar",
+      "recap": "repasar cada caso una vez"
+    },
+    "presets": {
+      "presets": "Preajustes",
+      "new_preset": "Nuevo preajuste",
+      "name_example": "para aprender",
+      "save_btn": "Guardar",
+      "apply_btn": "Aplicar",
+      "delete_btn": "Eliminar"
+    },
+    "howto": {
+      "how_to_use": "Cómo usar",
+      "dismiss_label": "cerrar esta sección",
+      "howto_1": "\uD83D\uDDB1️ Haz clic en la imagen para seleccionar / deseleccionar todos los casos del grupo",
+      "howto_2": "\uD83D\uDD3D Haz clic en el encabezado del elemento para expandir / contraer el grupo",
+      "howto_3": "\uD83D\uDFE2 El color verde significa que todos los casos del grupo están seleccionados; \uD83D\uDFE1 amarillo: se seleccionan algunos casos; ⚪ blanco: no se selecciona ningún caso",
+      "howto_4": "✅ Cuando se seleccionan los casos, haz clic en \"comenzar\""
+    },
+    "zbll_select_card": {
+      "all": "Todos",
+      "none": "Ninguno",
+      "done": "Hecho"
+    },
+    "settings": {
+      "settings_title": "Configuración",
+      "reset_btn": "Restablecer",
+      "done_btn": "Hecho",
+      "scramble_size": "Tamaño de la mezcla",
+      "timer_size": "Tamaño del temporizador",
+      "timer_font": "Fuente del temporizador",
+      "zbll_pictures_view": "Vista de imágenes de ZBLL",
+      "zbll_pictures_top": "Superior",
+      "zbll_pictures_side": "Lateral",
+      "timer_update": "Actualización del temporizador",
+      "timer_update_on": "Activado",
+      "timer_update_off": "Desactivado",
+      "timer_update_seconds": "Solo segundos",
+      "timer_precision": "Precisión del temporizador",
+      "dark_theme": "Tema oscuro",
+      "light_theme": "Tema claro",
+      "show_lang_button": "Mostrar botón de idioma",
+      "are_you_sure_to_reset": "¿Estás seguro?"
+    },
+    "timer": {
+      "no_scramble": "no hay mezcla disponible",
+      "scramble": "Mezcla:",
+      "ready": "listo",
+      "running": "en ejecución"
+    },
+    "stats_card": {
+      "stats_title": "Estadísticas:",
+      "n_solves": "no hay resoluciones | una resolución | {count} resoluciones",
+      "clear_btn": "borrar",
+      "clear_btn_hint": "Borrar sesión",
+      "hold_spacebar_hint": "Mantén presionada la barra espaciadora para iniciar el temporizador",
+      "are_you_sure_to_clean": "¿Borrar sesión?"
+    },
+    "result_card": {
+      "result_no": "Resultado #{count}",
+      "delete_btn": "Eliminar",
+      "case": "Caso:",
+      "scramble": "Mezcla:",
+      "selected": "Seleccionado",
+      "add_to_starred": "Agregar a preajuste favorito",
+      "selected_title": "Seleccionar / deseleccionar caso",
+      "are_you_sure_to_delete": "¿Eliminar este resultado?"
+    },
+    "hotkeys": {
+      "hotkeys": "Atajos de teclado",
+      "or": "o",
+      "toggle_timer_select": "Alternar vista de temporizador / selección",
+      "delete_current_result": "Eliminar resultado actual",
+      "clear_session": "Borrar sesión",
+      "select_deselect": "Seleccionar / deseleccionar caso actual",
+      "recap": "Comenzar a repasar todos los casos seleccionados",
+      "add_to_starred": "Agregar caso seleccionado a preajuste favorito",
+      "navigate": "Navegar al resultado anterior / siguiente / primero / último en estadísticas"
+    },
+    "contact": {
+      "contact": "Contacto",
+      "reach_out": "Comunícate con el desarrollador",
+      "get_the_code": "Obtener el código fuente",
+      "support": "Apoya el proyecto"
+    }
+  }
+}

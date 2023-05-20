@@ -1,17 +1,17 @@
 {
-  "en": {
+  "ru": {
     "nav": {
-      "zbll_trainer": "ZBLL Trainer",
+      "zbll_trainer": "Тренажер ZBLL",
       "select_btn": "выбрать",
-      "n_cases": "ситуации не выбраны | одна ситуация выбрана | {count} ситуаций выбрано",
-      "n_to_recap": "{count} повторить",
+      "n_cases": "не выбрано ситуаций | выбрана одна ситуация | выбрано {count} ситуаций",
+      "n_to_recap": "повторить: {count}",
       "language": "Язык",
       "add_translation": "Добавить перевод",
       "settings": "Настройки",
-      "toggle_night_mode": "Ночная/дневная тема"
+      "toggle_night_mode": "Светлая/тёмная тема"
     },
     "select": {
-      "select_intro": "Выбрать ситуации для тренировки",
+      "select_intro": "Выберите ситуации для тренировки",
       "practice_btn_title": "Тренироваться в случайном порядке",
       "recap_btn_title": "Повторить каждую ситуацию один раз",
       "practice": "начать",
@@ -20,84 +20,84 @@
     "presets": {
       "presets": "Шаблоны",
       "new_preset": "Новый шаблон",
-      "name_example": "изучаю",
+      "name_example": "для изучения",
       "save_btn": "Сохранить",
       "apply_btn": "Применить",
       "delete_btn": "Удалить"
     },
     "howto": {
-      "how_to_use": "How to use",
-      "dismiss_label": "dismiss this section",
-      "howto_1": "\uD83D\uDDB1️ Click on the picture to select / deselect all cases in the group",
-      "howto_2": "\uD83D\uDD3D Click on the item header to expand / collapse the group",
-      "howto_3": "\uD83D\uDFE2 Green color means all cases in the group are selected; \uD83D\uDFE1 yellow - some cases are selected; ⚪ white - no cases selected",
-      "howto_4": "✅ When you're ready, click \"Practice\""
+      "how_to_use": "Как пользоваться",
+      "dismiss_label": "скрыть этот раздел",
+      "howto_1": "\uD83D\uDDB1️ Нажмите на изображение, чтобы выбрать все ситуации в группе",
+      "howto_2": "\uD83D\uDD3D Нажмите на заголовок, чтобы развернуть/свернуть группу",
+      "howto_3": "\uD83D\uDFE2 Зеленый цвет означает, что все ситуации в группе выбраны; \uD83D\uDFE1 желтый - выбраны некоторые ситуации; ⚪ белый - не выбрано ни одной ситуации",
+      "howto_4": "✅ Когда ситуации выбраны, нажмите \"начать\""
     },
     "zbll_select_card": {
-      "all": "All",
-      "none": "None",
-      "done": "Done"
+      "all": "Все",
+      "none": "Ничего",
+      "done": "Готово"
     },
     "settings": {
-      "settings_title": "Settings",
-      "reset_btn": "Reset",
-      "done_btn": "Done",
-      "scramble_size": "Scramble size",
-      "timer_size": "Timer size",
-      "timer_font": "Timer font",
-      "zbll_pictures_view": "ZBLL pictures view",
-      "zbll_pictures_top": "Top",
-      "zbll_pictures_side": "Side",
-      "timer_update": "Timer update",
-      "timer_update_on": "On",
-      "timer_update_off": "Off",
-      "timer_update_seconds": "Seconds only",
-      "timer_precision": "Timer precision",
-      "dark_theme": "Dark theme",
-      "light_theme": "Light theme",
-      "show_lang_button": "Show language button",
-      "are_you_sure_to_reset": "Are you sure?"
+      "settings_title": "Настройки",
+      "reset_btn": "Сбросить",
+      "done_btn": "Готово",
+      "scramble_size": "Размер скрамбла",
+      "timer_size": "Размер таймера",
+      "timer_font": "Шрифт таймера",
+      "zbll_pictures_view": "Вид изображений ZBLL",
+      "zbll_pictures_top": "Сверху",
+      "zbll_pictures_side": "Сбоку",
+      "timer_update": "Обновление таймера",
+      "timer_update_on": "Включено",
+      "timer_update_off": "Выключено",
+      "timer_update_seconds": "Только секунды",
+      "timer_precision": "Точность таймера",
+      "dark_theme": "Темная тема",
+      "light_theme": "Светлая тема",
+      "show_lang_button": "Показать кнопку языка",
+      "are_you_sure_to_reset": "Вы уверены?"
     },
     "timer": {
-      "no_scramble": "no scramble available",
-      "scramble": "Scramble:",
-      "ready": "ready",
-      "running": "running"
+      "no_scramble": "нет доступного скрамбла",
+      "scramble": "Скрамбл:",
+      "ready": "готов",
+      "running": "запущен"
     },
     "stats_card": {
-      "stats_title": "Stats:",
-      "n_solves": "no solves | one solve | {count} solves",
-      "clear_btn": "clear",
-      "clear_btn_hint": "Clear session",
-      "hold_spacebar_hint": "Hold spacebar to start the timer",
-      "are_you_sure_to_clean": "Clear session?"
+      "stats_title": "Статистика:",
+      "n_solves": "нет результатов | один результат | {count} результатов",
+      "clear_btn": "очистить",
+      "clear_btn_hint": "Очистить сессию",
+      "hold_spacebar_hint": "Зажмите пробел, чтобы запустить таймер",
+      "are_you_sure_to_clean": "Очистить сессию?"
     },
     "result_card": {
-      "result_no": "Result #{count}",
-      "delete_btn": "Delete",
-      "case": "Case:",
-      "scramble": "Scramble:",
-      "selected": "Selected",
-      "add_to_starred": "Add to starred preset",
-      "selected_title": "Select/deselect case",
-      "are_you_sure_to_delete": "Delete this result?"
+      "result_no": "Результат #{count}",
+      "delete_btn": "Удалить",
+      "case": "Ситуация:",
+      "scramble": "Скрамбл:",
+      "selected": "Выбрано",
+      "add_to_starred": "Добавить в избранное",
+      "selected_title": "Выбрать/снять выбор с ситуации",
+      "are_you_sure_to_delete": "Удалить результат?"
     },
     "hotkeys": {
-      "hotkeys": "Hotkeys",
-      "or": "or",
-      "toggle_timer_select": "Toggle Timer/Select view",
-      "delete_current_result": "Delete current result",
-      "clear_session": "Clear session",
-      "select_deselect": "Select/deselect current case",
-      "recap": "Start recap all selected cases",
-      "add_to_starred": "Add selected case to starred preset",
-      "navigate": "Navigate to prev/next/first/last result in stats"
+      "hotkeys": "Горячие клавиши",
+      "or": "или",
+      "toggle_timer_select": "Перейти в экран таймера/выбора ситуаций",
+      "delete_current_result": "Удалить текущий результат",
+      "clear_session": "Очистить сессию",
+      "select_deselect": "Выбрать/снять выбор с текущей ситуации",
+      "recap": "Начать повторение всех выбранных ситуаций",
+      "add_to_starred": "Добавить выбранную ситуацию в избранное",
+      "navigate": "Перейти к предыдущему/следующему/первому/последнему результату в статистике"
     },
     "contact": {
-      "contact": "Contact",
-      "reach_out": "Reach out to me",
-      "get_the_code": "Get the code",
-      "support": "Support the project"
+      "contact": "Контакты",
+      "reach_out": "Связаться с разработчиком",
+      "get_the_code": "Исходники",
+      "support": "Поддержать проект"
     }
   }
 }

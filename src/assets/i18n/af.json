@@ -1,0 +1,103 @@
+{
+  "af": {
+    "nav": {
+      "zbll_trainer": "ZBLL Oefenprogram",
+      "select_btn": "kies",
+      "n_cases": "geen gevalle gekies | een geval gekies | {count} gevalle gekies",
+      "n_to_recap": "{count} om te herhaal",
+      "language": "Taal",
+      "add_translation": "Voeg vertaling by",
+      "settings": "Instellings",
+      "toggle_night_mode": "Skakel na nagmodus"
+    },
+    "select": {
+      "select_intro": "Kies gevalle om te oefen",
+      "practice_btn_title": "Oefen gevalle lukraak",
+      "recap_btn_title": "Gaan deur elke geval een keer",
+      "practice": "begin",
+      "recap": "herhaal elke geval een keer"
+    },
+    "presets": {
+      "presets": "Voorafstellinge",
+      "new_preset": "Nuwe voorafstelling",
+      "name_example": "om te leer",
+      "save_btn": "Stoor",
+      "apply_btn": "Pas toe",
+      "delete_btn": "Vee uit"
+    },
+    "howto": {
+      "how_to_use": "Hoe om te gebruik",
+      "dismiss_label": "verwerp hierdie gedeelte",
+      "howto_1": "\uD83D\uDDB1️ Klik op die prent om alle gevalle in die groep te kies / af te kies",
+      "howto_2": "\uD83D\uDD3D Klik op die item kop om die groep uit te vou / in te vou",
+      "howto_3": "\uD83D\uDFE2 Groen beteken alle gevalle in die groep is gekies; \uD83D\uDFE1 geel - sommige gevalle is gekies; ⚪ wit - geen gevalle gekies",
+      "howto_4": "✅ Wanneer gevalle gekies is, kliek \"begin\""
+    },
+    "zbll_select_card": {
+      "all": "Alles",
+      "none": "Geen",
+      "done": "Klaar"
+    },
+    "settings": {
+      "settings_title": "Instellings",
+      "reset_btn": "Herstel",
+      "done_btn": "Klaar",
+      "scramble_size": "Skramble grootte",
+      "timer_size": "Tydhouer grootte",
+      "timer_font": "Tydhouer lettertipe",
+      "zbll_pictures_view": "ZBLL prentjies sien",
+      "zbll_pictures_top": "Bo",
+      "zbll_pictures_side": "Sykant",
+      "timer_update": "Tydhouer opdateer",
+      "timer_update_on": "Aan",
+      "timer_update_off": "Af",
+      "timer_update_seconds": "Slegs sekondes",
+      "timer_precision": "Tydhouer presisie",
+      "dark_theme": "Donker tema",
+      "light_theme": "Ligte tema",
+      "show_lang_button": "Wys taalknoppie",
+      "are_you_sure_to_reset": "Is jy seker?"
+    },
+    "timer": {
+      "no_scramble": "geen skramble beskikbaar",
+      "scramble": "Skramble:",
+      "ready": "gereed",
+      "running": "besig"
+    },
+    "stats_card": {
+      "stats_title": "Statistiek:",
+      "n_solves": "geen oplossings | een oplossing | {count} oplossings",
+      "clear_btn": "Maak skoon",
+      "clear_btn_hint": "Maak sessie skoon",
+      "hold_spacebar_hint": "Hou spatiebalk vas om die tydhouer te begin",
+      "are_you_sure_to_clean": "Maak sessie skoon?"
+    },
+    "result_card": {
+      "result_no": "Resultaat #{count}",
+      "delete_btn": "Vee uit",
+      "case": "Geval:",
+      "scramble": "Skramble:",
+      "selected": "Gekies",
+      "add_to_starred": "Voeg by gunsteling voorafstelling",
+      "selected_title": "Kies / verwyder keuse van geval",
+      "are_you_sure_to_delete": "Vee hierdie resultaat uit?"
+    },
+    "hotkeys": {
+      "hotkeys": "Snelsleutels",
+      "or": "of",
+      "toggle_timer_select": "Wissel tussen Tydhouer / Kies aansig",
+      "delete_current_result": "Vee huidige resultaat uit",
+      "clear_session": "Maak sessie skoon",
+      "select_deselect": "Kies / verwyder keuse van huidige geval",
+      "recap": "Begin herhaling van alle gekose gevalle",
+      "add_to_starred": "Voeg gekose geval by gunsteling voorafstelling",
+      "navigate": "Navigeer na vorige / volgende / eerste / laaste resultaat in statistieke"
+    },
+    "contact": {
+      "contact": "Kontak",
+      "reach_out": "Kontak die ontwikkelingspersoon",
+      "get_the_code": "Kry die bronkode",
+      "support": "Ondersteun die projek"
+    }
+  }
+}

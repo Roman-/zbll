@@ -1,0 +1,103 @@
+{
+  "he": {
+    "nav": {
+      "zbll_trainer": "מאמן ZBLL",
+      "select_btn": "בחירה",
+      "n_cases": "לא נבחרות מקרים | מקרה אחד נבחר | {count} מקרים נבחרו",
+      "n_to_recap": "{count} לסיכום",
+      "language": "שפה",
+      "add_translation": "הוסף תרגום",
+      "settings": "הגדרות",
+      "toggle_night_mode": "החלף מצב לילה"
+    },
+    "select": {
+      "select_intro": "בחר מקרים לתרגול",
+      "practice_btn_title": "תרגול מקרים בצורה אקראית",
+      "recap_btn_title": "עבור על כל מקרה פעם אחת",
+      "practice": "התחל",
+      "recap": "עבור על כל מקרה פעם אחת"
+    },
+    "presets": {
+      "presets": "תבניות",
+      "new_preset": "תבנית חדשה",
+      "name_example": "ללמוד",
+      "save_btn": "שמור",
+      "apply_btn": "החל",
+      "delete_btn": "מחק"
+    },
+    "howto": {
+      "how_to_use": "איך להשתמש",
+      "dismiss_label": "הסתר קטע זה",
+      "howto_1": "\uD83D\uDDB1️ לחץ על התמונה כדי לבחור / להסיר בחירה מכל המקרים בקבוצה",
+      "howto_2": "\uD83D\uDD3D לחץ על כותרת הפריט כדי להרחיב / לכווץ את הקבוצה",
+      "howto_3": "\uD83D\uDFE2 הצבע הירוק מציין שכל המקרים בקבוצה נבחרו; \uD83D\uDFE1 הצהוב - כמה מקרים נבחרו; ⚪ הלבן - אף מקרה לא נבחר",
+      "howto_4": "✅ כאשר מקרים נבחרים, לחץ על \"התחל\""
+    },
+    "zbll_select_card": {
+      "all": "הכל",
+      "none": "כלום",
+      "done": "סיום"
+    },
+    "settings": {
+      "settings_title": "הגדרות",
+      "reset_btn": "איפוס",
+      "done_btn": "סיום",
+      "scramble_size": "גודל סקרמבל",
+      "timer_size": "גודל מונה",
+      "timer_font": "גופן מונה",
+      "zbll_pictures_view": "תצוגת תמונות ZBLL",
+      "zbll_pictures_top": "למעלה",
+      "zbll_pictures_side": "לצידי",
+      "timer_update": "עדכון מונה",
+      "timer_update_on": "פעיל",
+      "timer_update_off": "לא פעיל",
+      "timer_update_seconds": "רק שניות",
+      "timer_precision": "דיוק מונה",
+      "dark_theme": "ערכת נושא כהה",
+      "light_theme": "ערכת נושא בהירה",
+      "show_lang_button": "הצג כפתור שפה",
+      "are_you_sure_to_reset": "האם אתה בטוח?"
+    },
+    "timer": {
+      "no_scramble": "אין סקרמבל זמין",
+      "scramble": "סקרמבל:",
+      "ready": "מוכן",
+      "running": "רץ"
+    },
+    "stats_card": {
+      "stats_title": "סטטיסטיקות:",
+      "n_solves": "לא נעשו פתרונות | פתרון אחד | {count} פתרונות",
+      "clear_btn": "נקה",
+      "clear_btn_hint": "נקה סשן",
+      "hold_spacebar_hint": "לחץ והחזק על מקש הרווח כדי להתחיל את המונה",
+      "are_you_sure_to_clean": "האם אתה בטוח שברצונך לנקות את הסשן?"
+    },
+    "result_card": {
+      "result_no": "תוצאה #{count}",
+      "delete_btn": "מחק",
+      "case": "מקרה:",
+      "scramble": "סקרמבל:",
+      "selected": "נבחר",
+      "add_to_starred": "הוסף לתבנית מועדפת",
+      "selected_title": "בחר / בטל בחירה במקרה",
+      "are_you_sure_to_delete": "האם אתה בטוח שברצונך למחוק את התוצאה הזו?"
+    },
+    "hotkeys": {
+      "hotkeys": "מקשי חירום",
+      "or": "או",
+      "toggle_timer_select": "החלף תצוגה בין מונה / בחירה",
+      "delete_current_result": "מחק את התוצאה הנוכחית",
+      "clear_session": "נקה סשן",
+      "select_deselect": "בחר / בטל בחירה במקרה הנוכחי",
+      "recap": "התחל סיכום של כל המקרים הנבחרים",
+      "add_to_starred": "הוסף מקרה נבחר לתבנית מועדפת",
+      "navigate": "נווט לתוצאה הקודמת / הבאה / הראשונה / האחרונה בסטטיסטיקות"
+    },
+    "contact": {
+      "contact": "צור קשר",
+      "reach_out": "צור קשר עם המפתח",
+      "get_the_code": "קבל את קוד המקור",
+      "support": "תמוך בפרויקט"
+    }
+  }
+}

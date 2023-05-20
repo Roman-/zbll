@@ -1,0 +1,103 @@
+{
+  "pt": {
+    "nav": {
+      "zbll_trainer": "Treinador ZBLL",
+      "select_btn": "selecionar",
+      "n_cases": "nenhum caso selecionado | um caso selecionado | {count} casos selecionados",
+      "n_to_recap": "{count} para revisar",
+      "language": "Idioma",
+      "add_translation": "Adicionar tradução",
+      "settings": "Configurações",
+      "toggle_night_mode": "Alternar modo noturno"
+    },
+    "select": {
+      "select_intro": "Selecione os casos para praticar",
+      "practice_btn_title": "Praticar casos aleatoriamente",
+      "recap_btn_title": "Revisar cada caso uma vez",
+      "practice": "iniciar",
+      "recap": "revisar cada caso uma vez"
+    },
+    "presets": {
+      "presets": "Predefinições",
+      "new_preset": "Nova predefinição",
+      "name_example": "para aprender",
+      "save_btn": "Salvar",
+      "apply_btn": "Aplicar",
+      "delete_btn": "Excluir"
+    },
+    "howto": {
+      "how_to_use": "Como usar",
+      "dismiss_label": "fechar esta seção",
+      "howto_1": "\uD83D\uDDB1️ Clique na imagem para selecionar/deselecionar todos os casos do grupo",
+      "howto_2": "\uD83D\uDD3D Clique no cabeçalho do item para expandir/recolher o grupo",
+      "howto_3": "\uD83D\uDFE2 Cor verde significa que todos os casos do grupo estão selecionados; \uD83D\uDFE1 amarelo - alguns casos estão selecionados; ⚪ branco - nenhum caso selecionado",
+      "howto_4": "✅ Quando os casos estiverem selecionados, clique em \"iniciar\""
+    },
+    "zbll_select_card": {
+      "all": "Todos",
+      "none": "Nenhum",
+      "done": "Concluído"
+    },
+    "settings": {
+      "settings_title": "Configurações",
+      "reset_btn": "Redefinir",
+      "done_btn": "Concluído",
+      "scramble_size": "Tamanho do embaralhamento",
+      "timer_size": "Tamanho do cronômetro",
+      "timer_font": "Fonte do cronômetro",
+      "zbll_pictures_view": "Visualização de imagens ZBLL",
+      "zbll_pictures_top": "Superior",
+      "zbll_pictures_side": "Lateral",
+      "timer_update": "Atualização do cronômetro",
+      "timer_update_on": "Ligado",
+      "timer_update_off": "Desligado",
+      "timer_update_seconds": "Somente segundos",
+      "timer_precision": "Precisão do cronômetro",
+      "dark_theme": "Tema escuro",
+      "light_theme": "Tema claro",
+      "show_lang_button": "Mostrar botão de idioma",
+      "are_you_sure_to_reset": "Tem certeza?"
+    },
+    "timer": {
+      "no_scramble": "nenhum embaralhamento disponível",
+      "scramble": "Embaralhamento:",
+      "ready": "pronto",
+      "running": "em execução"
+    },
+    "stats_card": {
+      "stats_title": "Estatísticas:",
+      "n_solves": "nenhum resultado | um resultado | {count} resultados",
+      "clear_btn": "limpar",
+      "clear_btn_hint": "Limpar sessão",
+      "hold_spacebar_hint": "Segure a barra de espaço para iniciar o cronômetro",
+      "are_you_sure_to_clean": "Limpar sessão?"
+    },
+    "result_card": {
+      "result_no": "Resultado #{count}",
+      "delete_btn": "Excluir",
+      "case": "Caso:",
+      "scramble": "Embaralhamento:",
+      "selected": "Selecionado",
+      "add_to_starred": "Adicionar à predefinição favorita",
+      "selected_title": "Selecionar/deselecionar caso",
+      "are_you_sure_to_delete": "Excluir este resultado?"
+    },
+    "hotkeys": {
+      "hotkeys": "Atalhos",
+      "or": "ou",
+      "toggle_timer_select": "Alternar visualização Cronômetro/Seleção",
+      "delete_current_result": "Excluir resultado atual",
+      "clear_session": "Limpar sessão",
+      "select_deselect": "Selecionar/deselecionar caso atual",
+      "recap": "Iniciar revisão de todos os casos selecionados",
+      "add_to_starred": "Adicionar caso selecionado à predefinição favorita",
+      "navigate": "Navegar para resultado anterior/próximo/primeiro/último nas estatísticas"
+    },
+    "contact": {
+      "contact": "Contato",
+      "reach_out": "Entre em contato com o desenvolvedor",
+      "get_the_code": "Obter o código-fonte",
+      "support": "Apoiar o projeto"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "pl": {
+    "nav": {
+      "zbll_trainer": "Trener ZBLL",
+      "select_btn": "wybierz",
+      "n_cases": "brak wybranych przypadków | jeden wybrany przypadek | {count} wybranych przypadków",
+      "n_to_recap": "{count} do powtórzenia",
+      "language": "Język",
+      "add_translation": "Dodaj tłumaczenie",
+      "settings": "Ustawienia",
+      "toggle_night_mode": "Przełącz tryb nocny"
+    },
+    "select": {
+      "select_intro": "Wybierz przypadki do treningu",
+      "practice_btn_title": "Ćwicz przypadki losowo",
+      "recap_btn_title": "Przejrzyj każdy przypadek raz",
+      "practice": "start",
+      "recap": "przejrzyj każdy przypadek raz"
+    },
+    "presets": {
+      "presets": "Ustawienia wstępne",
+      "new_preset": "Nowe ustawienie wstępne",
+      "name_example": "do nauki",
+      "save_btn": "Zapisz",
+      "apply_btn": "Zastosuj",
+      "delete_btn": "Usuń"
+    },
+    "howto": {
+      "how_to_use": "Jak korzystać",
+      "dismiss_label": "ukryj tę sekcję",
+      "howto_1": "\uD83D\uDDB1️ Kliknij na obraz, aby zaznaczyć / odznaczyć wszystkie przypadki w grupie",
+      "howto_2": "\uD83D\uDD3D Kliknij na nagłówek elementu, aby rozwinąć / zwinąć grupę",
+      "howto_3": "\uD83D\uDFE2 Zielony kolor oznacza, że wszystkie przypadki w grupie są wybrane; \uD83D\uDFE1 żółty - wybrane są niektóre przypadki; ⚪ biały - żadne przypadki nie są wybrane",
+      "howto_4": "✅ Gdy wybrane są przypadki, kliknij \"start\""
+    },
+    "zbll_select_card": {
+      "all": "Wszystko",
+      "none": "Brak",
+      "done": "Gotowe"
+    },
+    "settings": {
+      "settings_title": "Ustawienia",
+      "reset_btn": "Resetuj",
+      "done_btn": "Gotowe",
+      "scramble_size": "Rozmiar scrambla",
+      "timer_size": "Rozmiar timera",
+      "timer_font": "Czcionka timera",
+      "zbll_pictures_view": "Widok obrazków ZBLL",
+      "zbll_pictures_top": "Góra",
+      "zbll_pictures_side": "Bok",
+      "timer_update": "Aktualizacja timera",
+      "timer_update_on": "Włączona",
+      "timer_update_off": "Wyłączona",
+      "timer_update_seconds": "Tylko sekundy",
+      "timer_precision": "Precyzja timera",
+      "dark_theme": "Ciemny motyw",
+      "light_theme": "Jasny motyw",
+      "show_lang_button": "Pokaż przycisk języka",
+      "are_you_sure_to_reset": "Czy na pewno?"
+    },
+    "timer": {
+      "no_scramble": "brak dostępnych scrambli",
+      "scramble": "Scramble:",
+      "ready": "gotowy",
+      "running": "uruchomiony"
+    },
+    "stats_card": {
+      "stats_title": "Statystyki:",
+      "n_solves": "brak rozwiązań | jedno rozwiązanie | {count} rozwiązań",
+      "clear_btn": "wyczyść",
+      "clear_btn_hint": "Wyczyść sesję",
+      "hold_spacebar_hint": "Przytrzymaj spację, aby uruchomić timer",
+      "are_you_sure_to_clean": "Wyczyścić sesję?"
+    },
+    "result_card": {
+      "result_no": "Wynik #{count}",
+      "delete_btn": "Usuń",
+      "case": "Przypadek:",
+      "scramble": "Scramble:",
+      "selected": "Wybrane",
+      "add_to_starred": "Dodaj do ulubionych ustawień wstępnych",
+      "selected_title": "Wybierz/odznacz przypadek",
+      "are_you_sure_to_delete": "Usunąć ten wynik?"
+    },
+    "hotkeys": {
+      "hotkeys": "Skróty klawiszowe",
+      "or": "lub",
+      "toggle_timer_select": "Przełącz widok Timer/Wybór",
+      "delete_current_result": "Usuń bieżący wynik",
+      "clear_session": "Wyczyść sesję",
+      "select_deselect": "Zaznacz/odznacz bieżący przypadek",
+      "recap": "Rozpocznij powtórkę wszystkich wybranych przypadków",
+      "add_to_starred": "Dodaj wybrany przypadek do ulubionych ustawień wstępnych",
+      "navigate": "Przejdź do poprzedniego/następnego/pierwszego/ostatniego wyniku w statystykach"
+    },
+    "contact": {
+      "contact": "Kontakt",
+      "reach_out": "Skontaktuj się z programistą",
+      "get_the_code": "Pobierz kod źródłowy",
+      "support": "Wesprzyj projekt"
+    }
+  }
+}

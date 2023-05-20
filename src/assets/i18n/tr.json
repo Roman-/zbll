@@ -1,0 +1,103 @@
+{
+  "tr": {
+    "nav": {
+      "zbll_trainer": "ZBLL Eğitmeni",
+      "select_btn": "seç",
+      "n_cases": "seçili durum yok | bir durum seçildi | {count} durum seçildi",
+      "n_to_recap": "{count} tekrar",
+      "language": "Dil",
+      "add_translation": "Çeviri ekle",
+      "settings": "Ayarlar",
+      "toggle_night_mode": "Gece modunu aç/kapat"
+    },
+    "select": {
+      "select_intro": "Çalışmak için durumları seçin",
+      "practice_btn_title": "Durumları rastgele çalış",
+      "recap_btn_title": "Her bir durumu bir kez gözden geçir",
+      "practice": "başlat",
+      "recap": "her bir durumu gözden geçir"
+    },
+    "presets": {
+      "presets": "Ön ayarlar",
+      "new_preset": "Yeni ön ayar",
+      "name_example": "öğrenmek için",
+      "save_btn": "Kaydet",
+      "apply_btn": "Uygula",
+      "delete_btn": "Sil"
+    },
+    "howto": {
+      "how_to_use": "Nasıl kullanılır",
+      "dismiss_label": "bu bölümü kapat",
+      "howto_1": "\uD83D\uDDB1️ Grubun tüm durumlarını seçmek / seçimi kaldırmak için resme tıklayın",
+      "howto_2": "\uD83D\uDD3D Grup başlığına tıklayarak grubu genişletin / daraltın",
+      "howto_3": "\uD83D\uDFE2 Yeşil renk, grubun tüm durumlarının seçildiğini gösterir; \uD83D\uDFE1 sarı - bazı durumlar seçildi; ⚪ beyaz - hiçbir durum seçilmedi",
+      "howto_4": "✅ Durumlar seçildiğinde \"başlat\" düğmesine tıklayın"
+    },
+    "zbll_select_card": {
+      "all": "Tümü",
+      "none": "Hiçbiri",
+      "done": "Tamam"
+    },
+    "settings": {
+      "settings_title": "Ayarlar",
+      "reset_btn": "Sıfırla",
+      "done_btn": "Tamam",
+      "scramble_size": "Karıştırma boyutu",
+      "timer_size": "Kronometre boyutu",
+      "timer_font": "Kronometre yazı tipi",
+      "zbll_pictures_view": "ZBLL resim görünümü",
+      "zbll_pictures_top": "Üst",
+      "zbll_pictures_side": "Yan",
+      "timer_update": "Kronometre güncellemesi",
+      "timer_update_on": "Açık",
+      "timer_update_off": "Kapalı",
+      "timer_update_seconds": "Sadece saniyeler",
+      "timer_precision": "Kronometre hassasiyeti",
+      "dark_theme": "Koyu tema",
+      "light_theme": "Açık tema",
+      "show_lang_button": "Dil düğmesini göster",
+      "are_you_sure_to_reset": "Emin misiniz?"
+    },
+    "timer": {
+      "no_scramble": "geçerli bir karıştırma yok",
+      "scramble": "Karıştırma:",
+      "ready": "hazır",
+      "running": "çalışıyor"
+    },
+    "stats_card": {
+      "stats_title": "İstatistikler:",
+      "n_solves": "çözüm yok | bir çözüm | {count} çözüm",
+      "clear_btn": "temizle",
+      "clear_btn_hint": "Oturumu temizle",
+      "hold_spacebar_hint": "Kronometreyi başlatmak için boşluk çubuğunu basılı tutun",
+      "are_you_sure_to_clean": "Oturumu temizlemek istediğinizden emin misiniz?"
+    },
+    "result_card": {
+      "result_no": "Sonuç #{count}",
+      "delete_btn": "Sil",
+      "case": "Durum:",
+      "scramble": "Karıştırma:",
+      "selected": "Seçildi",
+      "add_to_starred": "Yıldızlı ön ayara ekle",
+      "selected_title": "Durumu seçmek / seçimi kaldırmak",
+      "are_you_sure_to_delete": "Bu sonucu silmek istediğinizden emin misiniz?"
+    },
+    "hotkeys": {
+      "hotkeys": "Kısayol Tuşları",
+      "or": "veya",
+      "toggle_timer_select": "Kronometre / Seçim görünümünü değiştir",
+      "delete_current_result": "Geçerli sonucu sil",
+      "clear_session": "Oturumu temizle",
+      "select_deselect": "Geçerli durumu seç / seçimi kaldır",
+      "recap": "Seçilen tüm durumları tekrar gözden geçirmeye başlat",
+      "add_to_starred": "Seçilen durumu yıldızlı ön ayara ekle",
+      "navigate": "İstatistikte önceki/sonraki/ilk/son sonuca git"
+    },
+    "contact": {
+      "contact": "İletişim",
+      "reach_out": "Geliştiriciye ulaşın",
+      "get_the_code": "Kaynak kodunu edinin",
+      "support": "Projeyi destekleyin"
+    }
+  }
+}

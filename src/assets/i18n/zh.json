@@ -1,0 +1,103 @@
+{
+  "zh": {
+    "nav": {
+      "zbll_trainer": "ZBLL 训练器",
+      "select_btn": "选择",
+      "n_cases": "未选择情况 | 已选择一个情况 | 已选择 {count} 个情况",
+      "n_to_recap": "待复习: {count}",
+      "language": "语言",
+      "add_translation": "添加翻译",
+      "settings": "设置",
+      "toggle_night_mode": "切换夜间模式"
+    },
+    "select": {
+      "select_intro": "选择要练习的情况",
+      "practice_btn_title": "随机练习情况",
+      "recap_btn_title": "逐个复习每个情况",
+      "practice": "开始",
+      "recap": "逐个复习每个情况"
+    },
+    "presets": {
+      "presets": "预设",
+      "new_preset": "新预设",
+      "name_example": "以学习",
+      "save_btn": "保存",
+      "apply_btn": "应用",
+      "delete_btn": "删除"
+    },
+    "howto": {
+      "how_to_use": "使用说明",
+      "dismiss_label": "关闭本节",
+      "howto_1": "\uD83D\uDDB1️ 点击图片选择/取消选择该组中的所有情况",
+      "howto_2": "\uD83D\uDD3D 点击项目标题展开/折叠该组",
+      "howto_3": "\uD83D\uDFE2 绿色表示该组中的所有情况都已选择；\uD83D\uDFE1 黄色表示部分情况已选择；⚪ 白色表示未选择任何情况",
+      "howto_4": "✅ 当情况已选择时，点击“开始”"
+    },
+    "zbll_select_card": {
+      "all": "全部",
+      "none": "无",
+      "done": "完成"
+    },
+    "settings": {
+      "settings_title": "设置",
+      "reset_btn": "重置",
+      "done_btn": "完成",
+      "scramble_size": "打乱尺寸",
+      "timer_size": "计时器尺寸",
+      "timer_font": "计时器字体",
+      "zbll_pictures_view": "ZBLL 图片视图",
+      "zbll_pictures_top": "顶部",
+      "zbll_pictures_side": "侧面",
+      "timer_update": "计时器更新",
+      "timer_update_on": "开启",
+      "timer_update_off": "关闭",
+      "timer_update_seconds": "仅秒",
+      "timer_precision": "计时器精度",
+      "dark_theme": "深色主题",
+      "light_theme": "浅色主题",
+      "show_lang_button": "显示语言按钮",
+      "are_you_sure_to_reset": "确定重置？"
+    },
+    "timer": {
+      "no_scramble": "无可用打乱",
+      "scramble": "打乱：",
+      "ready": "准备",
+      "running": "进行中"
+    },
+    "stats_card": {
+      "stats_title": "统计信息：",
+      "n_solves": "无解决方案 | 一个解决方案 | {count} 个解决方案",
+      "clear_btn": "清除",
+      "clear_btn_hint": "清除会话",
+      "hold_spacebar_hint": "按住空格键启动计时器",
+      "are_you_sure_to_clean": "清除会话？"
+    },
+    "result_card": {
+      "result_no": "结果 #{count}",
+      "delete_btn": "删除",
+      "case": "情况：",
+      "scramble": "打乱：",
+      "selected": "已选择",
+      "add_to_starred": "添加到收藏预设",
+      "selected_title": "选择/取消选择情况",
+      "are_you_sure_to_delete": "删除此结果？"
+    },
+    "hotkeys": {
+      "hotkeys": "热键",
+      "or": "或",
+      "toggle_timer_select": "切换计时器/选择视图",
+      "delete_current_result": "删除当前结果",
+      "clear_session": "清除会话",
+      "select_deselect": "选择/取消选择当前情况",
+      "recap": "开始复习所有已选择的情况",
+      "add_to_starred": "将已选择的情况添加到收藏预设",
+      "navigate": "在统计信息中导航到上一个/下一个/第一个/最后一个结果"
+    },
+    "contact": {
+      "contact": "联系方式",
+      "reach_out": "联系开发者",
+      "get_the_code": "获取源代码",
+      "support": "支持该项目"
+    }
+  }
+}

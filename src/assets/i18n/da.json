@@ -1,0 +1,103 @@
+{
+  "da": {
+    "nav": {
+      "zbll_trainer": "ZBLL-træner",
+      "select_btn": "vælg",
+      "n_cases": "ingen valgte sager | en sag valgt | {count} sager valgt",
+      "n_to_recap": "{count} til genopfriskning",
+      "language": "Sprog",
+      "add_translation": "Tilføj oversættelse",
+      "settings": "Indstillinger",
+      "toggle_night_mode": "Skift til nat-tilstand"
+    },
+    "select": {
+      "select_intro": "Vælg sager at øve",
+      "practice_btn_title": "Øv sager tilfældigt",
+      "recap_btn_title": "Gennemgå hver sag én gang",
+      "practice": "start",
+      "recap": "genopfrisk hver sag én gang"
+    },
+    "presets": {
+      "presets": "Forudindstillinger",
+      "new_preset": "Ny forudindstilling",
+      "name_example": "at lære",
+      "save_btn": "Gem",
+      "apply_btn": "Anvend",
+      "delete_btn": "Slet"
+    },
+    "howto": {
+      "how_to_use": "Sådan bruges",
+      "dismiss_label": "luk dette afsnit",
+      "howto_1": "\uD83D\uDDB1️ Klik på billedet for at vælge/fravælge alle sager i gruppen",
+      "howto_2": "\uD83D\uDD3D Klik på elementets overskrift for at udvide/sammenfold gruppen",
+      "howto_3": "\uD83D\uDFE2 Grøn farve betyder, at alle sager i gruppen er valgt; \uD83D\uDFE1 gul - nogle sager er valgt; ⚪ hvid - ingen sager er valgt",
+      "howto_4": "✅ Når sager er valgt, klik på \"start\""
+    },
+    "zbll_select_card": {
+      "all": "Alle",
+      "none": "Ingen",
+      "done": "Færdig"
+    },
+    "settings": {
+      "settings_title": "Indstillinger",
+      "reset_btn": "Nulstil",
+      "done_btn": "Færdig",
+      "scramble_size": "Scramble-størrelse",
+      "timer_size": "Timer-størrelse",
+      "timer_font": "Timer-skrifttype",
+      "zbll_pictures_view": "ZBLL-billedvisning",
+      "zbll_pictures_top": "Øverst",
+      "zbll_pictures_side": "Side",
+      "timer_update": "Timer-opdatering",
+      "timer_update_on": "Til",
+      "timer_update_off": "Fra",
+      "timer_update_seconds": "Kun sekunder",
+      "timer_precision": "Timer-præcision",
+      "dark_theme": "Mørkt tema",
+      "light_theme": "Lyst tema",
+      "show_lang_button": "Vis sprogknappen",
+      "are_you_sure_to_reset": "Er du sikker?"
+    },
+    "timer": {
+      "no_scramble": "ingen scramble tilgængelig",
+      "scramble": "Scramble:",
+      "ready": "klar",
+      "running": "kører"
+    },
+    "stats_card": {
+      "stats_title": "Statistik:",
+      "n_solves": "ingen løsninger | en løsning | {count} løsninger",
+      "clear_btn": "ryd",
+      "clear_btn_hint": "Ryd session",
+      "hold_spacebar_hint": "Hold mellemrumstasten nede for at starte timeren",
+      "are_you_sure_to_clean": "Ryd session?"
+    },
+    "result_card": {
+      "result_no": "Resultat #{count}",
+      "delete_btn": "Slet",
+      "case": "Sag:",
+      "scramble": "Scramble:",
+      "selected": "Valgt",
+      "add_to_starred": "Tilføj til favorit forudindstilling",
+      "selected_title": "Vælg/fravælg sag",
+      "are_you_sure_to_delete": "Slet dette resultat?"
+    },
+    "hotkeys": {
+      "hotkeys": "Genvejstaster",
+      "or": "eller",
+      "toggle_timer_select": "Skift mellem Timer/Valg-visning",
+      "delete_current_result": "Slet aktuelt resultat",
+      "clear_session": "Ryd session",
+      "select_deselect": "Vælg/fravælg aktuel sag",
+      "recap": "Start genopfriskning af alle valgte sager",
+      "add_to_starred": "Tilføj valgt sag til favorit forudindstilling",
+      "navigate": "Naviger til forrige/næste/første/sidste resultat i statistik"
+    },
+    "contact": {
+      "contact": "Kontakt",
+      "reach_out": "Kontakt udvikleren",
+      "get_the_code": "Få kildekoden",
+      "support": "Støt projektet"
+    }
+  }
+}

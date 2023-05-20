@@ -1,0 +1,103 @@
+{
+  "ja": {
+    "nav": {
+      "zbll_trainer": "ZBLL トレーナー",
+      "select_btn": "選択",
+      "n_cases": "選択されているケースなし | 選択されているケース 1 つ | 選択されているケース {count} 個",
+      "n_to_recap": "復習: {count}",
+      "language": "言語",
+      "add_translation": "翻訳を追加",
+      "settings": "設定",
+      "toggle_night_mode": "ナイトモードの切り替え"
+    },
+    "select": {
+      "select_intro": "練習するケースを選択してください",
+      "practice_btn_title": "ランダムにケースを練習",
+      "recap_btn_title": "各ケースを一度ずつ復習",
+      "practice": "開始",
+      "recap": "各ケースを一度ずつ復習"
+    },
+    "presets": {
+      "presets": "プリセット",
+      "new_preset": "新しいプリセット",
+      "name_example": "学習用",
+      "save_btn": "保存",
+      "apply_btn": "適用",
+      "delete_btn": "削除"
+    },
+    "howto": {
+      "how_to_use": "使い方",
+      "dismiss_label": "このセクションを閉じる",
+      "howto_1": "\uD83D\uDDB1️ 画像をクリックしてグループ内のすべてのケースを選択 / 選択解除します",
+      "howto_2": "\uD83D\uDD3D 項目のヘッダーをクリックしてグループを展開 / 折りたたむ",
+      "howto_3": "\uD83D\uDFE2 緑色はグループ内のすべてのケースが選択されていることを意味します。 \uD83D\uDFE1 黄色は一部のケースが選択されていることを意味します。 ⚪ 白色は選択されているケースがないことを意味します",
+      "howto_4": "✅ ケースが選択されている場合、[開始] をクリックします"
+    },
+    "zbll_select_card": {
+      "all": "すべて",
+      "none": "なし",
+      "done": "完了"
+    },
+    "settings": {
+      "settings_title": "設定",
+      "reset_btn": "リセット",
+      "done_btn": "完了",
+      "scramble_size": "スクランブルのサイズ",
+      "timer_size": "タイマーのサイズ",
+      "timer_font": "タイマーのフォント",
+      "zbll_pictures_view": "ZBLL の画像表示",
+      "zbll_pictures_top": "上",
+      "zbll_pictures_side": "横",
+      "timer_update": "タイマーの更新",
+      "timer_update_on": "オン",
+      "timer_update_off": "オフ",
+      "timer_update_seconds": "秒のみ",
+      "timer_precision": "タイマーの精度",
+      "dark_theme": "ダークテーマ",
+      "light_theme": "ライトテーマ",
+      "show_lang_button": "言語ボタンを表示",
+      "are_you_sure_to_reset": "本当にリセットしますか？"
+    },
+    "timer": {
+      "no_scramble": "利用可能なスクランブルはありません",
+      "scramble": "スクランブル：",
+      "ready": "準備完了",
+      "running": "実行中"
+    },
+    "stats_card": {
+      "stats_title": "統計：",
+      "n_solves": "解法なし | 解法 1 つ | 解法 {count} 個",
+      "clear_btn": "クリア",
+      "clear_btn_hint": "セッションをクリア",
+      "hold_spacebar_hint": "タイマーを開始するにはスペースバーを押し続けます",
+      "are_you_sure_to_clean": "セッションをクリアしますか？"
+    },
+    "result_card": {
+      "result_no": "結果 #{count}",
+      "delete_btn": "削除",
+      "case": "ケース：",
+      "scramble": "スクランブル：",
+      "selected": "選択済み",
+      "add_to_starred": "お気に入りプリセットに追加",
+      "selected_title": "ケースの選択 / 選択解除",
+      "are_you_sure_to_delete": "この結果を削除しますか？"
+    },
+    "hotkeys": {
+      "hotkeys": "ホットキー",
+      "or": "または",
+      "toggle_timer_select": "タイマー / 選択ビューの切り替え",
+      "delete_current_result": "現在の結果を削除",
+      "clear_session": "セッションをクリア",
+      "select_deselect": "現在のケースを選択 / 選択解除",
+      "recap": "選択されたすべてのケースの復習を開始",
+      "add_to_starred": "選択したケースをお気に入りプリセットに追加",
+      "navigate": "統計情報で前/次/最初/最後の結果に移動"
+    },
+    "contact": {
+      "contact": "お問い合わせ",
+      "reach_out": "開発者に連絡する",
+      "get_the_code": "ソースコードを取得する",
+      "support": "プロジェクトをサポートする"
+    }
+  }
+}

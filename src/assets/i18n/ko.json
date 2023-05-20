@@ -1,0 +1,103 @@
+{
+  "ko": {
+    "nav": {
+      "zbll_trainer": "ZBLL 트레이너",
+      "select_btn": "선택",
+      "n_cases": "선택된 케이스 없음 | 선택된 케이스 1개 | 선택된 케이스 {count}개",
+      "n_to_recap": "복습할 케이스: {count}개",
+      "language": "언어",
+      "add_translation": "번역 추가",
+      "settings": "설정",
+      "toggle_night_mode": "야간 모드 전환"
+    },
+    "select": {
+      "select_intro": "연습할 케이스 선택",
+      "practice_btn_title": "랜덤하게 케이스 연습",
+      "recap_btn_title": "각 케이스 한 번씩 복습",
+      "practice": "시작",
+      "recap": "각 케이스 복습"
+    },
+    "presets": {
+      "presets": "프리셋",
+      "new_preset": "새 프리셋",
+      "name_example": "학습용",
+      "save_btn": "저장",
+      "apply_btn": "적용",
+      "delete_btn": "삭제"
+    },
+    "howto": {
+      "how_to_use": "사용 방법",
+      "dismiss_label": "이 섹션 닫기",
+      "howto_1": "\uD83D\uDDB1️ 그룹 내의 모든 케이스 선택 / 선택 해제하려면 이미지를 클릭",
+      "howto_2": "\uD83D\uDD3D 항목 헤더를 클릭하여 그룹 확장 / 축소",
+      "howto_3": "\uD83D\uDFE2 초록색은 그룹 내 모든 케이스가 선택된 상태를 의미합니다. \uD83D\uDFE1 노란색은 일부 케이스가 선택된 상태를 의미합니다. ⚪ 흰색은 선택된 케이스가 없음을 의미합니다.",
+      "howto_4": "✅ 케이스를 선택한 후 \"시작\"을 클릭하세요."
+    },
+    "zbll_select_card": {
+      "all": "전체",
+      "none": "없음",
+      "done": "완료"
+    },
+    "settings": {
+      "settings_title": "설정",
+      "reset_btn": "초기화",
+      "done_btn": "완료",
+      "scramble_size": "스크램블 크기",
+      "timer_size": "타이머 크기",
+      "timer_font": "타이머 글꼴",
+      "zbll_pictures_view": "ZBLL 이미지 보기",
+      "zbll_pictures_top": "위",
+      "zbll_pictures_side": "옆",
+      "timer_update": "타이머 업데이트",
+      "timer_update_on": "켜짐",
+      "timer_update_off": "꺼짐",
+      "timer_update_seconds": "초만",
+      "timer_precision": "타이머 정확도",
+      "dark_theme": "다크 테마",
+      "light_theme": "라이트 테마",
+      "show_lang_button": "언어 버튼 보이기",
+      "are_you_sure_to_reset": "확인하시겠습니까?"
+    },
+    "timer": {
+      "no_scramble": "사용 가능한 스크램블 없음",
+      "scramble": "스크램블:",
+      "ready": "준비됨",
+      "running": "진행 중"
+    },
+    "stats_card": {
+      "stats_title": "통계:",
+      "n_solves": "통계 없음 | 통계 1개 | 통계 {count}개",
+      "clear_btn": "지우기",
+      "clear_btn_hint": "세션 지우기",
+      "hold_spacebar_hint": "타이머를 시작하려면 스페이스바를 누르세요",
+      "are_you_sure_to_clean": "세션 지우시겠습니까?"
+    },
+    "result_card": {
+      "result_no": "결과 #{count}",
+      "delete_btn": "삭제",
+      "case": "케이스:",
+      "scramble": "스크램블:",
+      "selected": "선택됨",
+      "add_to_starred": "중요 프리셋에 추가",
+      "selected_title": "케이스 선택/해제",
+      "are_you_sure_to_delete": "이 결과를 삭제하시겠습니까?"
+    },
+    "hotkeys": {
+      "hotkeys": "단축키",
+      "or": "또는",
+      "toggle_timer_select": "타이머/선택 화면 전환",
+      "delete_current_result": "현재 결과 삭제",
+      "clear_session": "세션 지우기",
+      "select_deselect": "현재 케이스 선택/해제",
+      "recap": "선택된 모든 케이스 복습 시작",
+      "add_to_starred": "선택한 케이스를 중요 프리셋에 추가",
+      "navigate": "통계에서 이전/다음/첫 번째/마지막 결과로 이동"
+    },
+    "contact": {
+      "contact": "연락하기",
+      "reach_out": "개발자에게 연락하기",
+      "get_the_code": "소스 코드 가져오기",
+      "support": "프로젝트 지원"
+    }
+  }
+}

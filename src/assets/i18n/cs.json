@@ -1,0 +1,103 @@
+{
+  "cs": {
+    "nav": {
+      "zbll_trainer": "ZBLL Tréner",
+      "select_btn": "vybrat",
+      "n_cases": "žádné vybrané případy | jeden vybraný případ | {count} vybraných případů",
+      "n_to_recap": "{count} opakování",
+      "language": "Jazyk",
+      "add_translation": "Přidat překlad",
+      "settings": "Nastavení",
+      "toggle_night_mode": "Přepnout noční režim"
+    },
+    "select": {
+      "select_intro": "Vyberte případy pro trénink",
+      "practice_btn_title": "Trénovat případy náhodně",
+      "recap_btn_title": "Projít každý případ jednou",
+      "practice": "začít",
+      "recap": "opakovat každý případ"
+    },
+    "presets": {
+      "presets": "Předvolby",
+      "new_preset": "Nová předvolba",
+      "name_example": "pro naučení",
+      "save_btn": "Uložit",
+      "apply_btn": "Použít",
+      "delete_btn": "Smazat"
+    },
+    "howto": {
+      "how_to_use": "Jak používat",
+      "dismiss_label": "skrýt tuto sekci",
+      "howto_1": "\uD83D\uDDB1️ Klikněte na obrázek pro výběr / odvýběr všech případů ve skupině",
+      "howto_2": "\uD83D\uDD3D Klikněte na hlavičku položky pro rozbalení / sbalení skupiny",
+      "howto_3": "\uD83D\uDFE2 Zelená barva znamená, že všechny případy ve skupině jsou vybrané; \uD83D\uDFE1 žlutá - některé případy jsou vybrané; ⚪ bílá - žádný případ není vybraný",
+      "howto_4": "✅ Po vybrání případů klikněte na \"začít\""
+    },
+    "zbll_select_card": {
+      "all": "Vše",
+      "none": "Nic",
+      "done": "Hotovo"
+    },
+    "settings": {
+      "settings_title": "Nastavení",
+      "reset_btn": "Resetovat",
+      "done_btn": "Hotovo",
+      "scramble_size": "Velikost scarmble",
+      "timer_size": "Velikost časovače",
+      "timer_font": "Písmo časovače",
+      "zbll_pictures_view": "Zobrazení obrázků ZBLL",
+      "zbll_pictures_top": "Nahoře",
+      "zbll_pictures_side": "Zboku",
+      "timer_update": "Aktualizace časovače",
+      "timer_update_on": "Zapnuto",
+      "timer_update_off": "Vypnuto",
+      "timer_update_seconds": "Pouze sekundy",
+      "timer_precision": "Přesnost časovače",
+      "dark_theme": "Tmavý režim",
+      "light_theme": "Světlý režim",
+      "show_lang_button": "Zobrazit tlačítko jazyka",
+      "are_you_sure_to_reset": "Jste si jisti?"
+    },
+    "timer": {
+      "no_scramble": "žádný dostupný scarmble",
+      "scramble": "Scarmble:",
+      "ready": "připraven",
+      "running": "běží"
+    },
+    "stats_card": {
+      "stats_title": "Statistiky:",
+      "n_solves": "žádná řešení | jedno řešení | {count} řešení",
+      "clear_btn": "vymazat",
+      "clear_btn_hint": "Vymazat relaci",
+      "hold_spacebar_hint": "Podržte mezerník pro spuštění časovače",
+      "are_you_sure_to_clean": "Vymazat relaci?"
+    },
+    "result_card": {
+      "result_no": "Výsledek č. {count}",
+      "delete_btn": "Smazat",
+      "case": "Případ:",
+      "scramble": "Scarmble:",
+      "selected": "Vybráno",
+      "add_to_starred": "Přidat do oblíbených předvoleb",
+      "selected_title": "Vybrat / zrušit výběr případu",
+      "are_you_sure_to_delete": "Smazat tento výsledek?"
+    },
+    "hotkeys": {
+      "hotkeys": "Zkratky",
+      "or": "nebo",
+      "toggle_timer_select": "Přepnout zobrazení časovače / výběru",
+      "delete_current_result": "Smazat aktuální výsledek",
+      "clear_session": "Vymazat relaci",
+      "select_deselect": "Vybrat / zrušit výběr aktuálního případu",
+      "recap": "Začít opakovat všechny vybrané případy",
+      "add_to_starred": "Přidat vybraný případ do oblíbených předvoleb",
+      "navigate": "Přejít na předchozí / další / první / poslední výsledek v statistikách"
+    },
+    "contact": {
+      "contact": "Kontakt",
+      "reach_out": "Spojte se s vývojářem",
+      "get_the_code": "Získat zdrojový kód",
+      "support": "Podpořte projekt"
+    }
+  }
+}

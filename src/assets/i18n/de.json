@@ -1,0 +1,103 @@
+{
+  "de": {
+    "nav": {
+      "zbll_trainer": "ZBLL Trainer",
+      "select_btn": "auswählen",
+      "n_cases": "keine Fälle ausgewählt | ein Fall ausgewählt | {count} Fälle ausgewählt",
+      "n_to_recap": "{count} zum Wiederholen",
+      "language": "Sprache",
+      "add_translation": "Übersetzung hinzufügen",
+      "settings": "Einstellungen",
+      "toggle_night_mode": "Nachtmodus umschalten"
+    },
+    "select": {
+      "select_intro": "Wähle Fälle zum Üben aus",
+      "practice_btn_title": "Fälle zufällig üben",
+      "recap_btn_title": "Gehe jeden Fall einmal durch",
+      "practice": "starten",
+      "recap": "jeden Fall einmal durchgehen"
+    },
+    "presets": {
+      "presets": "Voreinstellungen",
+      "new_preset": "Neue Voreinstellung",
+      "name_example": "zum Lernen",
+      "save_btn": "Speichern",
+      "apply_btn": "Anwenden",
+      "delete_btn": "Löschen"
+    },
+    "howto": {
+      "how_to_use": "Anleitung",
+      "dismiss_label": "diesen Abschnitt ausblenden",
+      "howto_1": "\uD83D\uDDB1️ Klicke auf das Bild, um alle Fälle in der Gruppe auszuwählen / abzuwählen",
+      "howto_2": "\uD83D\uDD3D Klicke auf die Überschrift, um die Gruppe zu erweitern / zusammenzufalten",
+      "howto_3": "\uD83D\uDFE2 Grüne Farbe bedeutet, dass alle Fälle in der Gruppe ausgewählt sind; \uD83D\uDFE1 Gelb - einige Fälle sind ausgewählt; ⚪ Weiß - keine Fälle ausgewählt",
+      "howto_4": "✅ Wenn Fälle ausgewählt sind, klicke auf \"starten\""
+    },
+    "zbll_select_card": {
+      "all": "Alle",
+      "none": "Keine",
+      "done": "Fertig"
+    },
+    "settings": {
+      "settings_title": "Einstellungen",
+      "reset_btn": "Zurücksetzen",
+      "done_btn": "Fertig",
+      "scramble_size": "Mischgröße",
+      "timer_size": "Timergröße",
+      "timer_font": "Timer-Schriftart",
+      "zbll_pictures_view": "ZBLL-Bildansicht",
+      "zbll_pictures_top": "Oben",
+      "zbll_pictures_side": "Seite",
+      "timer_update": "Timer-Aktualisierung",
+      "timer_update_on": "Ein",
+      "timer_update_off": "Aus",
+      "timer_update_seconds": "Nur Sekunden",
+      "timer_precision": "Timer-Genauigkeit",
+      "dark_theme": "Dunkles Design",
+      "light_theme": "Helles Design",
+      "show_lang_button": "Sprachauswahl anzeigen",
+      "are_you_sure_to_reset": "Bist du sicher?"
+    },
+    "timer": {
+      "no_scramble": "kein Mischvorgang verfügbar",
+      "scramble": "Mischung:",
+      "ready": "bereit",
+      "running": "läuft"
+    },
+    "stats_card": {
+      "stats_title": "Statistiken:",
+      "n_solves": "keine Lösungen | eine Lösung | {count} Lösungen",
+      "clear_btn": "löschen",
+      "clear_btn_hint": "Sitzung löschen",
+      "hold_spacebar_hint": "Halte die Leertaste gedrückt, um den Timer zu starten",
+      "are_you_sure_to_clean": "Sitzung löschen?"
+    },
+    "result_card": {
+      "result_no": "Ergebnis Nr. {count}",
+      "delete_btn": "Löschen",
+      "case": "Fall:",
+      "scramble": "Mischung:",
+      "selected": "Ausgewählt",
+      "add_to_starred": "Zu favorisierten Voreinstellungen hinzufügen",
+      "selected_title": "Fall auswählen / abwählen",
+      "are_you_sure_to_delete": "Dieses Ergebnis löschen?"
+    },
+    "hotkeys": {
+      "hotkeys": "Tastenkombinationen",
+      "or": "oder",
+      "toggle_timer_select": "Timer-/Auswahlanzeige umschalten",
+      "delete_current_result": "Aktuelles Ergebnis löschen",
+      "clear_session": "Sitzung löschen",
+      "select_deselect": "Aktuellen Fall auswählen / abwählen",
+      "recap": "Wiederholung aller ausgewählten Fälle starten",
+      "add_to_starred": "Ausgewählten Fall zu favorisierten Voreinstellungen hinzufügen",
+      "navigate": "Zu vorherigem / nächstem / erstem / letztem Ergebnis in den Statistiken wechseln"
+    },
+    "contact": {
+      "contact": "Kontakt",
+      "reach_out": "Kontaktiere den Entwickler",
+      "get_the_code": "Quellcode herunterladen",
+      "support": "Unterstütze das Projekt"
+    }
+  }
+}

@@ -44,7 +44,7 @@ const statClicked = i => sessionStore.observingResult = i
                 @click="onClearBtnClick"
                 :title="t('stats_card.clear_btn_hint') + ' (Shift+Delete)'"
                 v-if="sessionStore.stats().length > 0">
-              clear
+              {{t("stats_card.clear_btn")}}
             </button>
           </div>
         </div>

@@ -1,0 +1,103 @@
+{
+  "fr": {
+    "nav": {
+      "zbll_trainer": "Entraîneur ZBLL",
+      "select_btn": "sélectionner",
+      "n_cases": "aucun cas sélectionné | un cas sélectionné | {count} cas sélectionnés",
+      "n_to_recap": "{count} à réviser",
+      "language": "Langue",
+      "add_translation": "Ajouter une traduction",
+      "settings": "Paramètres",
+      "toggle_night_mode": "Basculer en mode nuit"
+    },
+    "select": {
+      "select_intro": "Sélectionnez les cas à pratiquer",
+      "practice_btn_title": "Pratiquer les cas de manière aléatoire",
+      "recap_btn_title": "Parcourir chaque cas une fois",
+      "practice": "démarrer",
+      "recap": "revoir chaque cas une fois"
+    },
+    "presets": {
+      "presets": "Préréglages",
+      "new_preset": "Nouveau préréglage",
+      "name_example": "pour apprendre",
+      "save_btn": "Enregistrer",
+      "apply_btn": "Appliquer",
+      "delete_btn": "Supprimer"
+    },
+    "howto": {
+      "how_to_use": "Comment utiliser",
+      "dismiss_label": "fermer cette section",
+      "howto_1": "\uD83D\uDDB1️ Cliquez sur l'image pour sélectionner / désélectionner tous les cas du groupe",
+      "howto_2": "\uD83D\uDD3D Cliquez sur l'en-tête de l'élément pour développer / réduire le groupe",
+      "howto_3": "\uD83D\uDFE2 La couleur verte signifie que tous les cas du groupe sont sélectionnés ; \uD83D\uDFE1 jaune - certains cas sont sélectionnés ; ⚪ blanc - aucun cas sélectionné",
+      "howto_4": "✅ Lorsque des cas sont sélectionnés, cliquez sur \"démarrer\""
+    },
+    "zbll_select_card": {
+      "all": "Tout",
+      "none": "Aucun",
+      "done": "Terminé"
+    },
+    "settings": {
+      "settings_title": "Paramètres",
+      "reset_btn": "Réinitialiser",
+      "done_btn": "Terminé",
+      "scramble_size": "Taille du mélange",
+      "timer_size": "Taille du chronomètre",
+      "timer_font": "Police du chronomètre",
+      "zbll_pictures_view": "Vue des images ZBLL",
+      "zbll_pictures_top": "Haut",
+      "zbll_pictures_side": "Côté",
+      "timer_update": "Mise à jour du chronomètre",
+      "timer_update_on": "Activé",
+      "timer_update_off": "Désactivé",
+      "timer_update_seconds": "Secondes uniquement",
+      "timer_precision": "Précision du chronomètre",
+      "dark_theme": "Thème sombre",
+      "light_theme": "Thème clair",
+      "show_lang_button": "Afficher le bouton de langue",
+      "are_you_sure_to_reset": "Êtes-vous sûr ?"
+    },
+    "timer": {
+      "no_scramble": "aucun mélange disponible",
+      "scramble": "Mélange :",
+      "ready": "prêt",
+      "running": "en cours"
+    },
+    "stats_card": {
+      "stats_title": "Statistiques :",
+      "n_solves": "aucune résolution | une résolution | {count} résolutions",
+      "clear_btn": "effacer",
+      "clear_btn_hint": "Effacer la session",
+      "hold_spacebar_hint": "Maintenez la barre d'espace enfoncée pour démarrer le chronomètre",
+      "are_you_sure_to_clean": "Effacer la session ?"
+    },
+    "result_card": {
+      "result_no": "Résultat n°{count}",
+      "delete_btn": "Supprimer",
+      "case": "Cas :",
+      "scramble": "Mélange :",
+      "selected": "Sélectionné",
+      "add_to_starred": "Ajouter aux préréglages favoris",
+      "selected_title": "Sélectionner / désélectionner le cas",
+      "are_you_sure_to_delete": "Supprimer ce résultat ?"
+    },
+    "hotkeys": {
+      "hotkeys": "Raccourcis clavier",
+      "or": "ou",
+      "toggle_timer_select": "Basculer entre l'affichage du chronomètre et de la sélection",
+      "delete_current_result": "Supprimer le résultat actuel",
+      "clear_session": "Effacer la session",
+      "select_deselect": "Sélectionner / désélectionner le cas actuel",
+      "recap": "Commencer à revoir tous les cas sélectionnés",
+      "add_to_starred": "Ajouter le cas sélectionné aux préréglages favoris",
+      "navigate": "Accéder au résultat précédent / suivant / premier / dernier dans les statistiques"
+    },
+    "contact": {
+      "contact": "Contact",
+      "reach_out": "Contacter le développeur",
+      "get_the_code": "Obtenir le code source",
+      "support": "Soutenir le projet"
+    }
+  }
+}

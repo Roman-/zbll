@@ -1,0 +1,103 @@
+{
+  "it": {
+    "nav": {
+      "zbll_trainer": "Allenatore ZBLL",
+      "select_btn": "seleziona",
+      "n_cases": "nessun caso selezionato | un caso selezionato | {count} casi selezionati",
+      "n_to_recap": "{count} da ripassare",
+      "language": "Lingua",
+      "add_translation": "Aggiungi traduzione",
+      "settings": "Impostazioni",
+      "toggle_night_mode": "Attiva modalità notturna"
+    },
+    "select": {
+      "select_intro": "Seleziona i casi da praticare",
+      "practice_btn_title": "Pratica i casi in modo casuale",
+      "recap_btn_title": "Ripassa ogni caso una volta",
+      "practice": "inizia",
+      "recap": "ripassa ogni caso una volta"
+    },
+    "presets": {
+      "presets": "Preimpostazioni",
+      "new_preset": "Nuova preimpostazione",
+      "name_example": "per imparare",
+      "save_btn": "Salva",
+      "apply_btn": "Applica",
+      "delete_btn": "Elimina"
+    },
+    "howto": {
+      "how_to_use": "Come utilizzare",
+      "dismiss_label": "chiudi questa sezione",
+      "howto_1": "\uD83D\uDDB1️ Fai clic sull'immagine per selezionare / deselezionare tutti i casi nel gruppo",
+      "howto_2": "\uD83D\uDD3D Fai clic sull'intestazione dell'elemento per espandere / comprimere il gruppo",
+      "howto_3": "\uD83D\uDFE2 Il colore verde indica che tutti i casi del gruppo sono selezionati; \uD83D\uDFE1 giallo - alcuni casi sono selezionati; ⚪ bianco - nessun caso selezionato",
+      "howto_4": "✅ Quando i casi sono selezionati, fai clic su \"inizia\""
+    },
+    "zbll_select_card": {
+      "all": "Tutti",
+      "none": "Nessuno",
+      "done": "Fatto"
+    },
+    "settings": {
+      "settings_title": "Impostazioni",
+      "reset_btn": "Reset",
+      "done_btn": "Fatto",
+      "scramble_size": "Dimensione miscela",
+      "timer_size": "Dimensione timer",
+      "timer_font": "Carattere timer",
+      "zbll_pictures_view": "Visualizzazione immagini ZBLL",
+      "zbll_pictures_top": "Superiore",
+      "zbll_pictures_side": "Laterale",
+      "timer_update": "Aggiornamento timer",
+      "timer_update_on": "Attivo",
+      "timer_update_off": "Disattivo",
+      "timer_update_seconds": "Solo secondi",
+      "timer_precision": "Precisione timer",
+      "dark_theme": "Tema scuro",
+      "light_theme": "Tema chiaro",
+      "show_lang_button": "Mostra pulsante lingua",
+      "are_you_sure_to_reset": "Sei sicuro?"
+    },
+    "timer": {
+      "no_scramble": "nessuna miscela disponibile",
+      "scramble": "Miscela:",
+      "ready": "pronto",
+      "running": "in corso"
+    },
+    "stats_card": {
+      "stats_title": "Statistiche:",
+      "n_solves": "nessuna risoluzione | una risoluzione | {count} risoluzioni",
+      "clear_btn": "cancella",
+      "clear_btn_hint": "Cancella sessione",
+      "hold_spacebar_hint": "Tieni premuto il tasto spazio per avviare il timer",
+      "are_you_sure_to_clean": "Cancellare la sessione?"
+    },
+    "result_card": {
+      "result_no": "Risultato #{count}",
+      "delete_btn": "Elimina",
+      "case": "Caso:",
+      "scramble": "Miscela:",
+      "selected": "Selezionato",
+      "add_to_starred": "Aggiungi a preimpostazione preferita",
+      "selected_title": "Seleziona / deseleziona caso",
+      "are_you_sure_to_delete": "Eliminare questo risultato?"
+    },
+    "hotkeys": {
+      "hotkeys": "Scorciatoie da tastiera",
+      "or": "o",
+      "toggle_timer_select": "Passa alla vista Timer / Selezione",
+      "delete_current_result": "Elimina il risultato corrente",
+      "clear_session": "Cancella sessione",
+      "select_deselect": "Seleziona / deseleziona caso corrente",
+      "recap": "Inizia a ripassare tutti i casi selezionati",
+      "add_to_starred": "Aggiungi caso selezionato a preimpostazione preferita",
+      "navigate": "Passa al risultato precedente / successivo / primo / ultimo nelle statistiche"
+    },
+    "contact": {
+      "contact": "Contatto",
+      "reach_out": "Contatta il responsabile del progetto",
+      "get_the_code": "Ottieni il codice sorgente",
+      "support": "Supporta il progetto"
+    }
+  }
+}

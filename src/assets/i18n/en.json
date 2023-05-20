@@ -31,7 +31,7 @@
       "howto_1": "\uD83D\uDDB1️ Click on the picture to select / deselect all cases in the group",
       "howto_2": "\uD83D\uDD3D Click on the item header to expand / collapse the group",
       "howto_3": "\uD83D\uDFE2 Green color means all cases in the group are selected; \uD83D\uDFE1 yellow - some cases are selected; ⚪ white - no cases selected",
-      "howto_4": "✅ When you're ready, click \"Practice\""
+      "howto_4": "✅ When cases are selected, click \"start\""
     },
     "zbll_select_card": {
       "all": "All",
@@ -95,8 +95,8 @@
     },
     "contact": {
       "contact": "Contact",
-      "reach_out": "Reach out to me",
-      "get_the_code": "Get the code",
+      "reach_out": "Reach out to the dev guy",
+      "get_the_code": "Get the source code",
       "support": "Support the project"
     }
   }
