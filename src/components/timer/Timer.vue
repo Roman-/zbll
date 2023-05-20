@@ -56,7 +56,7 @@ const classByState = computed(() => {
 <template>
   <h3
       :style="{ fontSize: settings.timerFontSize + 'px', fontFamily : settings.timerFont + ', monospace' }"
-      class="timer text-center d-block p-4" :class="classByState">
+      class="timer text-center noselect d-block p-4" :class="classByState">
     {{timerLabel}}
   </h3>
 </template>

@@ -4,7 +4,6 @@ import Timer from "@/components/timer/Timer.vue";
 import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
 import {useI18n} from 'vue-i18n'
-
 const {t} = useI18n()
 
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
@@ -17,7 +16,7 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 const router = useRouter();
 const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
-const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" : "align-self-center")
+const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" : "h-100")
 const selectStore = useSelectedStore()
 
 // global key events listener
@@ -96,6 +95,24 @@ onUnmounted(() => {
   sessionStore.timerState = TimerState.NOT_RUNNING
 });
 
+const onTimerTouchStart = event => {
+  if (sessionStore.timerState === TimerState.RUNNING) {
+    sessionStore.stopTimer()
+  } else if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
+    sessionStore.timerState = TimerState.READY
+  }
+  event.preventDefault()
+}
+
+const onTimerTouchEnd = event => {
+  if (sessionStore.timerState === TimerState.STOPPING) {
+    sessionStore.timerState = TimerState.NOT_RUNNING
+  } else if (sessionStore.timerState === TimerState.READY) {
+    sessionStore.startTimer()
+  }
+  event.preventDefault()
+}
+
 </script>
 
 <template>
@@ -108,37 +125,33 @@ onUnmounted(() => {
       </div>
 
       <div class="row flex-grow-1">
-        <div class="col-8" :class="timerWrapClass">
-          <Timer/>
+
+        <div class="col-8 d-flex flex-column p-0" :class="timerWrapClass">
+          <div
+              class="flex-grow-1 d-flex align-items-center justify-content-center"
+              @touchstart="onTimerTouchStart"
+              @touchend="onTimerTouchEnd"
+          >
+            <Timer/>
+          </div>
           <Settings v-if="settingsStore.showSettings"/>
         </div>
 
         <div class="col-4 side_panel align-items-start">
-
-          <div class="row my-2">
-            <div class="col-12">
-              <StatsCard/>
-            </div>
-          </div>
           <div class="row my-2">
             <div class="col-12">
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
             </div>
           </div>
+          <div class="row my-2">
+            <div class="col-12">
+              <StatsCard/>
+            </div>
+          </div>
         </div>
       </div>
-
-<!--
-      <div class="row no-gutters">
-        <div class="col-12">
-          and this is footer
-        </div>
-      </div>
--->
     </div>
   </div>
-
-
 </template>
 
 <style scoped>
