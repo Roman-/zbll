@@ -9,17 +9,18 @@ const {t} = useI18n()
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {useRouter} from "vue-router";
 import Settings from "@/components/Settings.vue";
-import {useSettingsStore} from "@/stores/SettingsStore";
 import {computed, onMounted, onUnmounted} from "vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
+import {useDisplayStore} from "@/stores/DisplayStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
-const settingsStore = useSettingsStore()
-const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" : "h-100")
+const timerWrapClass = computed(() => displayStore.showSettings || displayStore.showStatistics
+    ? "align-self-start" : "h-100")
 const selectStore = useSelectedStore()
 const presets = usePresetsStore()
+const displayStore = useDisplayStore()
 
 // global key events listener
 const onGlobalKeyDown = event => {
@@ -131,7 +132,7 @@ const onTimerTouchEnd = event => {
 
       <div class="row flex-grow-1">
 
-        <div class="col-8 d-flex flex-column p-0" :class="timerWrapClass">
+        <div class="col-lg-8 col-6 d-flex flex-column p-0" :class="timerWrapClass">
           <div
               class="flex-grow-1 d-flex align-items-center justify-content-center"
               @touchstart="onTimerTouchStart"
@@ -139,16 +140,21 @@ const onTimerTouchEnd = event => {
           >
             <Timer/>
           </div>
-          <Settings v-if="settingsStore.showSettings"/>
+          <div v-if="displayStore.showSettings">
+            <Settings/>
+          </div>
+          <div v-if="displayStore.showStatistics" class="d-lg-none d-block">
+            <StatsCard/>
+          </div>
         </div>
 
-        <div class="col-4 side_panel align-items-start">
+        <div class="col-lg-4 col-6 side_panel align-items-start">
           <div class="row my-2">
             <div class="col-12">
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
             </div>
           </div>
-          <div class="row my-2">
+          <div class="row my-2 d-lg-block d-none">
             <div class="col-12">
               <StatsCard/>
             </div>
@@ -160,4 +166,7 @@ const onTimerTouchEnd = event => {
 </template>
 
 <style scoped>
+.side_panel {
+  /*min-width: 200px;*/
+}
 </style>

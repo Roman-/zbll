@@ -47,10 +47,7 @@ onMounted(() => {
       <div>
         <strong class="text-center">
           {{props.oll}}
-        </strong>
-        <span>
-          ({{num_cases_selected}}/{{total_zblls_in_oll}})
-        </span>
+        </strong>&nbsp;<span>({{num_cases_selected}}/{{total_zblls_in_oll}})</span>
       </div>
       <i class="bi bi-caret-down text-secondary caret" :class="isCollapsed ? '' : 'upside_down'"></i>
     </div>

@@ -58,7 +58,9 @@ const starClicked = () => {
       <h5 class="mb-0">
         <div class="row align-items-center">
           <div class="col">
-            {{$t("result_card.result_no", result["i"] + 1)}}
+            <span class="d-lg-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}}</span>
+            <span class="d-inline-block d-lg-none">{{'#' + (result["i"] + 1)}}</span>
+            &nbsp;
             <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
           </div>
           <div class="col-auto">
@@ -74,14 +76,18 @@ const starClicked = () => {
       </h5>
       <hr>
       <p class="card-text">
-        {{$t("result_card.case")}} {{ formatZbllKey(result["key"]) }}
+        <span class="d-lg-inline-block d-none">{{$t("result_card.case")}}</span>
+        {{ formatZbllKey(result["key"]) }}
         <i
             class="bi clickable px-1"
             :title="$t('result_card.add_to_starred') + ' (Alt+A)'"
             :class="bookmarkIconClass"
             @click="starClicked"/>
       </p>
-      <p class="card-text">{{$t("result_card.scramble")}} {{ result["scramble"] }}</p>
+      <p class="card-text">
+        <span class="d-lg-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
+
+        {{ result["scramble"] }}</p>
       <div>
         <img
             :src="currentImgSrc"

@@ -21,7 +21,6 @@ const initialTimerFontSize = () => parseInt(localStorage.getItem(timerFontSizeKe
 const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ?? true
 
 export const useSettingsStore = defineStore('settings', () => {
-  const showSettings = ref(false)
   const resetDefaults = () => {
     pictureView.value = "top"
     timerUpdate.value = "on"
@@ -48,6 +47,6 @@ export const useSettingsStore = defineStore('settings', () => {
   watch(timerFontSize, () => localStorage.setItem(timerFontSizeKey, `${timerFontSize.value}`))
   watch(showHowTo, () => localStorage.setItem(showHowToKey, showHowTo.value))
 
-  return {showSettings, resetDefaults, pictureView, timerUpdate, timerPrecision,
+  return {resetDefaults, pictureView, timerUpdate, timerPrecision,
     timerFont, scrambleFontSize, timerFontSize, showHowTo}
 });

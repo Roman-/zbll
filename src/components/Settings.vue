@@ -4,14 +4,16 @@ import ThemesSelect from "@/components/ThemesSelect.vue";
 import {defaultDarkName, defaultLightName, useThemeStore} from "@/stores/ThemeStore";
 const themeStore = useThemeStore();
 const settingsStore = useSettingsStore()
+const displayStore = useDisplayStore()
 
 import { useI18n } from 'vue-i18n'
+import {useDisplayStore} from "@/stores/DisplayStore";
 const { t } = useI18n()
 
 const onResetBtnClicked = () => {
   if (confirm(t("settings.are_you_sure_to_reset"))) {
     settingsStore.resetDefaults()
-    settingsStore.showSettings = false
+    displayStore.showSettings = false
     themeStore.setLightTheme(defaultLightName)
     themeStore.setDarkTheme(defaultDarkName)
   }
@@ -21,10 +23,11 @@ const onResetBtnClicked = () => {
 
 <template>
   <div class="container border border-2 border-primary rounded-3 p-3 mx-2">
-    <div class="d-flex align-items-center mb-3">
+    <div class="d-lg-flex d-block align-items-center mb-3">
       <span class="h2 flex-grow-1">{{$t("settings.settings_title")}}</span>
+      <div class="d-lg-none d-block"><br></div>
       <button class="mx-2 btn btn-warning" @click="onResetBtnClicked">{{$t("settings.reset_btn")}}</button>
-      <button class="mx-2 btn btn-success" @click="settingsStore.showSettings = false">{{$t("settings.done_btn")}}</button>
+      <button class="mx-2 btn btn-success" @click="displayStore.showSettings = false">{{$t("settings.done_btn")}}</button>
     </div>
     <hr>
     <form>
