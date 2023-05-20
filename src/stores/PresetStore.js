@@ -53,7 +53,14 @@ export const usePresetsStore = defineStore('presets', () => {
     map[presetName].delete(theCase)
   }
 
+  const toggleAddRemove = (presetName, theCase) => {
+    if (hasCase(presetName, theCase))
+      removeFromPreset(presetName, theCase)
+    else
+      addToPreset(presetName, theCase)
+  }
+
   watch(map, () => saveToLocalStorage(map))
 
-  return { map, setPreset, getCases, deletePreset, hasCase, addToPreset, removeFromPreset, starredName }
+  return { map, setPreset, getCases, deletePreset, hasCase, addToPreset, removeFromPreset, toggleAddRemove, starredName }
 });

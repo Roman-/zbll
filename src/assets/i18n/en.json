@@ -82,10 +82,12 @@
       "scramble": "Scramble:",
       "selected": "Selected",
       "add_to_starred": "Add to starred preset",
+      "selected_title": "Select/deselect case",
       "are_you_sure_to_delete": "Delete this result?"
     },
     "hotkeys": {
       "hotkeys": "Hotkeys",
+      "or": "or",
       "toggle_timer_select": "Toggle Timer/Select view",
       "delete_current_result": "Delete current result",
       "clear_session": "Clear session",

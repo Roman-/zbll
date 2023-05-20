@@ -84,7 +84,6 @@ export const useSelectedStore = defineStore('selected', () => {
       sum += numZbllsInOllSelected(oll);
     return sum;
   }
-
   const allSelectedCases = computed(() => {
     let arr = [];
     for (let oll in zbll_map) {
@@ -108,11 +107,20 @@ export const useSelectedStore = defineStore('selected', () => {
 
   const asKeySet = computed(() => new Set(allSelectedCases.value.map(item => item.key)))
 
+  const toggleSelected = result => {
+    if (!result) return
+    if (isZbllSelected(result.oll, result.coll, result.zbll)) {
+      removeZbll(result.oll, result.coll, result.zbll);
+    } else {
+      addZbll(result.oll, result.coll, result.zbll);
+    }
+  }
+
   watch(map, () => localStorage.setItem(localStoreKey, JSON.stringify(map)))
 
   return { map,
     addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected,
-    allSelectedCases, applyFromPreset, asKeySet }
+    allSelectedCases, applyFromPreset, toggleSelected, asKeySet }
 });

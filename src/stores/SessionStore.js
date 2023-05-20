@@ -74,6 +74,7 @@ export const useSessionStore = defineStore('session', () => {
         store.value.current = getRandomCase();
         timerState.value = TimerState.NOT_RUNNING; // prevent from changing cases while timer is running
     }
+
     const reset = allCasesSelected => {
         store.value.stats = [];
         setSelectedCases(allCasesSelected)
@@ -107,9 +108,15 @@ export const useSessionStore = defineStore('session', () => {
         localStorage.setItem(statsKey, JSON.stringify(store.value.stats))
     }
 
+    const restartRecap = () => {
+        store.value.allCases.forEach(c => c["count"] = 0)
+        recapMode.value = true
+        store.value.current = getRandomCase();
+    }
+
     // may be undefined
     const currentScramble = computed(() => store.value.current ? store.value.current["scramble"] : null);
 
     return {reset, setSelectedCases, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
-        recapMode, currentScramble, casesWithZeroCount}
+        recapMode, restartRecap, currentScramble, casesWithZeroCount}
 });

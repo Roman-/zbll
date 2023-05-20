@@ -78,7 +78,7 @@ const starClicked = () => {
         {{$t("result_card.case")}} {{ formatZbllKey(result["key"]) }}
         <i
             class="bi clickable px-1"
-            :title="$t('result_card.add_to_starred')"
+            :title="$t('result_card.add_to_starred') + ' (Alt+A)'"
             :class="bookmarkIconClass"
             @click="starClicked"/>
       </p>
@@ -91,6 +91,7 @@ const starClicked = () => {
       <div class="form-check">
         <label
             class="form-check-label"
+            :title="$t('result_card.selected_title') + ' (Alt+S)'"
             for="flexCheckDefault">
           <input
               tabindex="-1" @keydown.space.prevent=""

@@ -12,12 +12,14 @@ import Settings from "@/components/Settings.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import {computed, onMounted, onUnmounted} from "vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
+import {usePresetsStore, starredName} from "@/stores/PresetStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
 const settingsStore = useSettingsStore()
 const timerWrapClass = computed(() => settingsStore.showSettings ? "align-self-start" : "h-100")
 const selectStore = useSelectedStore()
+const presets = usePresetsStore()
 
 // global key events listener
 const onGlobalKeyDown = event => {
@@ -34,52 +36,55 @@ const onGlobalKeyDown = event => {
   }
 
   if (sessionStore.timerState === TimerState.RUNNING) {
+    event.preventDefault()
     sessionStore.stopTimer()
     return;
   }
+  // preventDefault() is done at the end
   if (event.key === "ArrowLeft") {
-    event.preventDefault()
     sessionStore.observingResult = Math.max(0, sessionStore.observingResult - 1)
   } else if (event.key === "ArrowRight") {
-    event.preventDefault()
     sessionStore.observingResult = Math.min(sessionStore.stats().length - 1, sessionStore.observingResult + 1)
   } else if (event.key === "Home") {
-    event.preventDefault()
     sessionStore.observingResult = 0
   } else if (event.key === "End") {
-    event.preventDefault()
     sessionStore.observingResult = sessionStore.stats().length - 1
   } else if (event.key === " ") {
     if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
       sessionStore.timerState = TimerState.READY
     }
   } else if (event.key === "Delete") {
-    event.preventDefault()
     if (event.shiftKey) {
       confirmClearSession();
     } else { // no shift key -  delete single result
       deleteSingleResult()
     }
   } else if (event.key === "t" && event.altKey) {
-    event.preventDefault()
     router.push('select')
+  } else if (event.key === "r" && event.altKey) {
+    sessionStore.restartRecap()
   } else if (event.key === "d" && event.altKey) {
     confirmClearSession();
   } else if (event.key === "z" && event.altKey) {
     deleteSingleResult()
+  } else if (event.key === "s" && event.altKey && sessionStore.observingResult < sessionStore.stats().length) {
+      selectStore.toggleSelected(sessionStore.stats()[sessionStore.observingResult])
+  } else if (event.key === "a" && event.altKey && sessionStore.observingResult < sessionStore.stats().length) {
+    presets.toggleAddRemove(starredName, sessionStore.stats()[sessionStore.observingResult].key)
+  } else {
+    return // do NOT prevent default
   }
+  event.preventDefault()
 }
 const onGlobalKeyUp = (event) => {
   if (sessionStore.timerState === TimerState.STOPPING) {
     sessionStore.timerState = TimerState.NOT_RUNNING
-    return;
-  }
-  if (event.key === " ") {
-    event.preventDefault()
-    if (sessionStore.timerState === TimerState.READY) {
+  } else if (event.key === " " && sessionStore.timerState === TimerState.READY) {
       sessionStore.startTimer()
-    }
+  } else {
+    return
   }
+  event.preventDefault()
 }
 
 onMounted(() => {

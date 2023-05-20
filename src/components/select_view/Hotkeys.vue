@@ -5,31 +5,31 @@
   <ul class="no_bullet">
     <li>
       <kbd>Alt</kbd>+<kbd>T</kbd>
-      <span class="expl">{{$t("hotkeys.toggle_timer_select")}}</span>
+      <span class="expl">{{ $t("hotkeys.toggle_timer_select") }}</span>
     </li>
     <li>
-      <kbd>Delete</kbd>, <kbd>Alt</kbd>+<kbd>Z</kbd>
-      <span class="expl">{{$t("hotkeys.delete_current_result")}}</span>
+      <kbd>Delete</kbd> {{ $t("hotkeys.or") }} <kbd>Alt</kbd>+<kbd>Z</kbd>
+      <span class="expl">{{ $t("hotkeys.delete_current_result") }}</span>
     </li>
     <li>
-      <kbd>Shift</kbd>+<kbd>Delete</kbd>, <kbd>Alt</kbd>+<kbd>D</kbd>
-      <span class="expl">{{$t("hotkeys.clear_session")}}</span>
+      <kbd>Shift</kbd>+<kbd>Delete</kbd> {{ $t("hotkeys.or") }} <kbd>Alt</kbd>+<kbd>D</kbd>
+      <span class="expl">{{ $t("hotkeys.clear_session") }}</span>
     </li>
     <li>
       <kbd>Alt</kbd>+<kbd>S</kbd>
-      <span class="expl">{{$t("hotkeys.select_deselect")}}</span>
+      <span class="expl">{{ $t("hotkeys.select_deselect") }}</span>
     </li>
     <li>
       <kbd>Alt</kbd>+<kbd>R</kbd>
-      <span class="expl">{{$t("hotkeys.recap")}}</span>
+      <span class="expl">{{ $t("hotkeys.recap") }}</span>
     </li>
     <li>
       <kbd>Alt</kbd>+<kbd>A</kbd>
-      <span class="expl">{{$t("hotkeys.add_to_starred")}}</span>
+      <span class="expl">{{ $t("hotkeys.add_to_starred") }}</span>
     </li>
     <li>
       <kbd>←</kbd> / <kbd>→</kbd> / <kbd>Home</kbd> / <kbd>End</kbd>
-      <span class="expl">{{$t("hotkeys.navigate")}}</span>
+      <span class="expl">{{ $t("hotkeys.navigate") }}</span>
     </li>
   </ul>
 </template>
