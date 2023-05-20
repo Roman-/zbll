@@ -18,12 +18,12 @@ const isValid = computed(() => sessionStore.stats().length > sessionStore.observ
 const result = computed(() => {
       return isValid.value
           ? sessionStore.stats()[sessionStore.observingResult]
-          : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", "scramble": "scramble", "ms": 0}
+          : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", key: "", "scramble": "scramble", "ms": 0}
     }
 )
 
 const onDeleteBtnClicked = () => {
-  if (confirm(t("result_card.are_you_sure_to_delete"))) {
+  if (isValid.value && confirm(t("result_card.are_you_sure_to_delete"))) {
     sessionStore.deleteResult(sessionStore.observingResult)
   }
 }
@@ -44,10 +44,9 @@ watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.curren
 const isBookmarked = computed(() => presets.hasCase(starredName, result.value.key))
 const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
 const starClicked = () => {
-  if (isBookmarked.value) {
-    presets.removeFromPreset(starredName, result.value.key)
-  } else {
-    presets.addToPreset(starredName, result.value.key)
+  if (isValid.value) {
+    const action = isBookmarked.value ? presets.removeFromPreset : presets.addToPreset
+    action(starredName, result.value.key)
   }
 }
 
