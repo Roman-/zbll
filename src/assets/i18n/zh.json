@@ -20,6 +20,7 @@
     "presets": {
       "presets": "预设",
       "new_preset": "新预设",
+      "edit_preset": "编辑预设",
       "name_example": "以学习",
       "save_btn": "保存",
       "apply_btn": "应用",

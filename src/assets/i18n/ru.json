@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Шаблоны",
       "new_preset": "Новый шаблон",
+      "edit_preset": "Редактировать шаблон",
       "name_example": "для изучения",
       "save_btn": "Сохранить",
       "apply_btn": "Применить",

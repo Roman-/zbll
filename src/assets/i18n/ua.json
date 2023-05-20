@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Пресети",
       "new_preset": "Новий пресет",
+      "edit_preset": "Редагувати пресет",
       "name_example": "для навчання",
       "save_btn": "Зберегти",
       "apply_btn": "Застосувати",

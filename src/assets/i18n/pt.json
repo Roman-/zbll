@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Predefinições",
       "new_preset": "Nova predefinição",
+      "edit_preset": "Editar predefinição",
       "name_example": "para aprender",
       "save_btn": "Salvar",
       "apply_btn": "Aplicar",

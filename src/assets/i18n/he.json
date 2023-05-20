@@ -20,6 +20,7 @@
     "presets": {
       "presets": "תבניות",
       "new_preset": "תבנית חדשה",
+      "edit_preset": "ערוך תבנית",
       "name_example": "ללמוד",
       "save_btn": "שמור",
       "apply_btn": "החל",

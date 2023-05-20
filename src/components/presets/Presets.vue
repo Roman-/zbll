@@ -15,12 +15,13 @@ const applyPreset = (name) => {
   currentPresetName.value = name
 }
 
-const prefixText = computed(() => presets.map.hasOwnProperty(currentPresetName.value) ? "Edit preset" : "New preset")
+const isEditing = computed(() => presets.map.hasOwnProperty(currentPresetName.value))
 </script>
 
 <template>
   <div class="input-group input-group mb-2">
-    <span class="input-group-text">{{ prefixText }}</span>
+    <span v-if="isEditing" class="input-group-text">{{$t("presets.edit_preset")}}</span>
+    <span v-else class="input-group-text">{{$t("presets.new_preset")}}</span>
     <input
         type="text"
         @keydown.self.enter="saveCurrentPreset"

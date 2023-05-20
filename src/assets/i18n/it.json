@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Preimpostazioni",
       "new_preset": "Nuova preimpostazione",
+      "edit_preset": "Modifica preimpostazione",
       "name_example": "per imparare",
       "save_btn": "Salva",
       "apply_btn": "Applica",

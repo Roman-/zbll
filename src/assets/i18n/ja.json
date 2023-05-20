@@ -20,6 +20,7 @@
     "presets": {
       "presets": "プリセット",
       "new_preset": "新しいプリセット",
+      "edit_preset": "プリセットを編集",
       "name_example": "学習用",
       "save_btn": "保存",
       "apply_btn": "適用",

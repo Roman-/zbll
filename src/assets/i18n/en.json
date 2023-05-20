@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Presets",
       "new_preset": "New preset",
+      "edit_preset": "Edit preset",
       "name_example": "to learn",
       "save_btn": "Save",
       "apply_btn": "Apply",

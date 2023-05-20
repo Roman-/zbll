@@ -47,9 +47,9 @@ onMounted(() => {
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="selectStore.addColl(oll, coll);">All</button>
-          <button type="button" class="btn btn-secondary" @click="selectStore.removeColl(oll, coll);">None</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+          <button type="button" class="btn btn-secondary" @click="selectStore.addColl(oll, coll);">{{$t("zbll_select_card.all")}}</button>
+          <button type="button" class="btn btn-secondary" @click="selectStore.removeColl(oll, coll);">{{$t("zbll_select_card.none")}}</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">{{$t("zbll_select_card.done")}}</button>
         </div>
       </div>
     </div>

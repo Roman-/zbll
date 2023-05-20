@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Ustawienia wstępne",
       "new_preset": "Nowe ustawienie wstępne",
+      "edit_preset": "Edytuj ustawienie wstępne",
       "name_example": "do nauki",
       "save_btn": "Zapisz",
       "apply_btn": "Zastosuj",

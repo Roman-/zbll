@@ -20,6 +20,7 @@
     "presets": {
       "presets": "Ön ayarlar",
       "new_preset": "Yeni ön ayar",
+      "edit_preset": "Ön ayarı düzenle",
       "name_example": "öğrenmek için",
       "save_btn": "Kaydet",
       "apply_btn": "Uygula",
