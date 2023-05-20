@@ -20,8 +20,14 @@ const isEditing = computed(() => presets.map.hasOwnProperty(currentPresetName.va
 
 <template>
   <div class="input-group input-group mb-2">
-    <span v-if="isEditing" class="input-group-text">{{$t("presets.edit_preset")}}</span>
-    <span v-else class="input-group-text">{{$t("presets.new_preset")}}</span>
+    <span v-if="isEditing" class="input-group-text">
+      <span class="d-lg-inline-block d-none">{{$t("presets.edit_preset")}}</span>
+      <i class="bi bi-pencil d-lg-none d-inline-block"></i>
+    </span>
+    <span v-else class="input-group-text">
+      <span class="d-lg-inline-block d-none">{{$t("presets.new_preset")}}</span>
+      <i class="bi bi-plus-circle-fill d-lg-none d-inline-block"></i>
+    </span>
     <input
         type="text"
         @keydown.self.enter="saveCurrentPreset"
