@@ -12,7 +12,7 @@
     <h5>{{ $t("contact.get_the_code") }}</h5>
     <p>
       <i class="bi bi-github"></i>
-      <a href="https://github.com/Roman-/zbll_next" class="px-2" target="_blank">github.com/Roman-/zbll_next</a>
+      <a href="https://github.com/Roman-/zbll" class="px-2" target="_blank">github.com/Roman-/zbll</a>
     </p>
 
     <h5>{{ $t("contact.support") }}</h5>
