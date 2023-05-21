@@ -139,7 +139,7 @@ const onTimerTouchEnd = event => {
       <div class="row flex-grow-1">
 
         <div
-            class="d-flex flex-column p-0"
+            class="d-flex flex-column p-0 timer_wrap"
             :class="timerWrapClass">
           <div
               class="flex-grow-1 d-flex align-items-center justify-content-center"
@@ -175,4 +175,7 @@ const onTimerTouchEnd = event => {
 </template>
 
 <style scoped>
+.timer_wrap {
+  transition: width 0.1s ease-in-out;
+}
 </style>
