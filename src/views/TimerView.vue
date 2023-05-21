@@ -39,7 +39,9 @@ const onGlobalKeyDown = event => {
   if (sessionStore.timerState === TimerState.RUNNING) {
     event.preventDefault()
     sessionStore.stopTimer()
-    return;
+    return
+  } else if (sessionStore.timerState !== TimerState.NOT_RUNNING) {
+    return // don't allow actions like "delete time", "list times" etc. when timer's running
   }
   // preventDefault() is done at the end
   if (event.key === "ArrowLeft") {
@@ -143,7 +145,7 @@ const onTimerTouchEnd = event => {
           <div v-if="displayStore.showSettings">
             <Settings/>
           </div>
-          <div v-if="displayStore.showStatistics" class="d-md-none d-block">
+          <div v-if="displayStore.showStatistics" class="d-sm-none d-block">
             <StatsCard/>
           </div>
         </div>
@@ -154,7 +156,7 @@ const onTimerTouchEnd = event => {
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
             </div>
           </div>
-          <div class="row my-2 d-md-block d-none">
+          <div class="row my-2 d-sm-block d-none">
             <div class="col-12">
               <StatsCard/>
             </div>

@@ -22,7 +22,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
 </script>
 
 <template>
-  <nav class="navbar bg-secondary bg-opacity-25 py-lg-3 py-1">
+  <nav class="navbar bg-secondary bg-opacity-25 py-lg-3 py-sm-1 py-0">
     <div class="row w-100 align-items-center">
       <div class="col-auto me-auto">
         <button
@@ -43,7 +43,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             v-if="isTimerView()"
             @click="displayStore.showStatistics = !displayStore.showStatistics"
             :class="displayStore.showStatistics ? 'btn-primary' : 'btn-outline-primary'"
-            class="mx-2 btn d-inline-block d-md-none m-0">
+            class="mx-2 btn d-inline-block d-sm-none m-0">
           <i class="bi bi-list-columns"></i>
         </button>
         <span v-else class="mx-3 logoText">
@@ -59,7 +59,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
       <div class="col d-flex justify-content-end p-0">
         <LangDropdown/>
         <button
-            class="btn btn-link"
+            class="btn btn-link px-1 px-md-3"
             tabindex="-1" @keydown.space.prevent=""
             :class="settingsBtnClass"
             @click="displayStore.showSettings = !displayStore.showSettings"

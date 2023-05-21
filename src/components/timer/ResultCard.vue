@@ -1,6 +1,6 @@
 <script setup>
 import {computed, ref, watch} from "vue";
-import {useSessionStore} from "@/stores/SessionStore";
+import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSettingsStore} from "@/stores/SettingsStore";
@@ -44,7 +44,7 @@ watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.curren
 const isBookmarked = computed(() => presets.hasCase(starredName, result.value.key))
 const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
 const starClicked = () => {
-  if (isValid.value) {
+  if (isValid.value && sessionStore.timerState === TimerState.NOT_RUNNING) {
     const action = isBookmarked.value ? presets.removeFromPreset : presets.addToPreset
     action(starredName, result.value.key)
   }
@@ -66,6 +66,7 @@ const starClicked = () => {
                 tabindex="-1" @keydown.space.prevent=""
                 class="btn btn-sm btn-outline-danger mx-1"
                 :title="$t('result_card.delete_btn')"
+                :disabled="sessionStore.timerState !== TimerState.NOT_RUNNING"
                 @click="onDeleteBtnClicked">
               <i class="bi bi-trash"></i>
             </button>
@@ -101,6 +102,7 @@ const starClicked = () => {
               class="form-check-input styled"
               type="checkbox"
               id="flexCheckDefault"
+              :disabled="sessionStore.timerState !== TimerState.NOT_RUNNING"
               v-model="isSelectedCheckboxValue">
           {{$t("result_card.selected")}}
         </label>
