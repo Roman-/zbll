@@ -8,18 +8,14 @@ import CollCard from "@/components/select_view/CollCard.vue";
 
 const props = defineProps(['oll', 'oll_map'])
 const {oll, oll_map} = props;
-const selectStore = useSelectedStore();
+const selected = useSelectedStore();
 const zbllStore = useZbllStore();
-
-const num_cases_selected = computed(() => selectStore.numZbllsInOllSelected(oll));
+const num_cases_selected = computed(() => selected.numZbllsInOllSelected(oll));
 
 const total_zblls_in_oll = zbllStore.countZbllsInOll(oll);
 const onCardClicked = () => {
-  if (num_cases_selected.value === 0) {
-    selectStore.addOll(oll);
-  } else {
-    selectStore.removeOll(oll);
-  }
+  const action = num_cases_selected.value === 0 ? selected.addOll : selected.removeOll
+  action(oll)
 }
 
 const card_bg_class = computed(() => {
@@ -46,10 +42,10 @@ onMounted(() => {
         :data-bs-target="`#collapsed-colls-${oll}`">
       <div>
         <strong class="text-center">
-          {{props.oll}}
-        </strong>&nbsp;<span>({{num_cases_selected}}/{{total_zblls_in_oll}})</span>
+          {{ props.oll }}
+        </strong>&nbsp;<span>({{ num_cases_selected }}/{{ total_zblls_in_oll }})</span>
       </div>
-      <i class="bi bi-caret-down text-secondary caret" :class="isCollapsed ? '' : 'upside_down'"></i>
+      <i class="bi bi-caret-down opacity-75 caret" :class="isCollapsed ? '' : 'upside_down'"></i>
     </div>
     <div class="clickable m-1 text-center" @click="onCardClicked">
       <img class="cube_card_img" :src="getOllImg(oll)" :alt="oll">
@@ -68,10 +64,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.caret{
+.caret {
   transition: transform 0.2s
 }
-.upside_down{
+
+.upside_down {
   transform: rotate(180deg);
 }
 </style>

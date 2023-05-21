@@ -5,7 +5,6 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {useDisplayStore} from "@/stores/DisplayStore";
 import {useRouter, useRoute} from "vue-router";
 import {computed} from "vue";
-import "animate.css"
 import {useSessionStore} from "@/stores/SessionStore";
 
 const selectedStore = useSelectedStore();
@@ -15,10 +14,7 @@ const route = useRoute()
 const displayStore = useDisplayStore()
 
 const isTimerView = () => route.fullPath.endsWith("timer")
-const settingsBtnClass = computed(() => displayStore.showSettings
-    ? 'animate__animated animate__pulse animate__infinite text-primary'
-    : 'text-info')
-
+const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info text-white' : 'text-info')
 </script>
 
 <template>
@@ -31,12 +27,11 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             @keydown.space.prevent=""
             @click="router.push('select')"
             class="mx-2 btn btn-primary">
-          <span class="d-none d-sm-inline-block">{{$t("nav.select_btn")}}</span>
+          <span class="d-none d-sm-inline-block">{{ $t("nav.select_btn") }}</span>
           <i class="bi bi-card-checklist d-inline-block d-sm-none">
-            &nbsp;
-            {{sessionStore.recapMode
-              ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
-              : selectedStore.totalZbllsSelected()}}
+            {{ sessionStore.recapMode
+                  ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
+                  : selectedStore.totalZbllsSelected() }}
           </i>
         </button>
         <button

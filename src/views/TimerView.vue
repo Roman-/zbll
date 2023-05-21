@@ -134,7 +134,9 @@ const onTimerTouchEnd = event => {
 
       <div class="row flex-grow-1">
 
-        <div class="col-lg-8 col-6 d-flex flex-column p-0" :class="timerWrapClass">
+        <div
+            class="col-lg-8 col-6 d-flex flex-column p-0"
+            :class="timerWrapClass">
           <div
               class="flex-grow-1 d-flex align-items-center justify-content-center"
               @touchstart="onTimerTouchStart"

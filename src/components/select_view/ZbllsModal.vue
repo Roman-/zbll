@@ -1,6 +1,6 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
-import { Modal } from 'bootstrap'
+import {Modal} from 'bootstrap'
 import {useSelectedStore} from "@/stores/SelectedStore";
 import ZbllCard from "@/components/select_view/ZbllCard.vue";
 import zbll_map from "@/assets/zbll_map.json"
@@ -32,24 +32,26 @@ onMounted(() => {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{modalTitle}}</h5>
+          <h5 class="modal-title">{{ modalTitle }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="row gx-0">
-            <div v-for="(algs, zbll) in zbll_map[oll][coll]" class="col-3">
-              <ZbllCard
-                  :oll="oll"
-                  :coll="coll"
-                  :zbll="zbll"
-              />
+            <div v-for="(algs, zbll) in zbll_map[oll][coll]" :key="zbll" class="col-3">
+              <ZbllCard :oll="oll" :coll="coll" :zbll="zbll"/>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="selectStore.addColl(oll, coll);">{{$t("zbll_select_card.all")}}</button>
-          <button type="button" class="btn btn-secondary" @click="selectStore.removeColl(oll, coll);">{{$t("zbll_select_card.none")}}</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">{{$t("zbll_select_card.done")}}</button>
+          <button type="button" class="btn btn-secondary" @click="selectStore.addColl(oll, coll);">
+            {{ $t("zbll_select_card.all") }}
+          </button>
+          <button type="button" class="btn btn-secondary" @click="selectStore.removeColl(oll, coll);">
+            {{ $t("zbll_select_card.none") }}
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            {{ $t("zbll_select_card.done") }}
+          </button>
         </div>
       </div>
     </div>

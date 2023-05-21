@@ -4,6 +4,7 @@ import BasicInfo from "@/components/select_view/BasicInfo.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
 import Hotkeys from "@/components/select_view/Hotkeys.vue";
 import Contact from "@/components/select_view/Contact.vue";
+
 const settings = useSettingsStore()
 </script>
 
@@ -12,7 +13,7 @@ const settings = useSettingsStore()
     <div v-if="settings.showHowTo" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-          {{$t("howto.how_to_use")}}
+          {{ $t("howto.how_to_use") }}
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#sideMenu">
@@ -24,11 +25,18 @@ const settings = useSettingsStore()
 
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button :class="settings.showHowTo ? 'collapsed' : ''" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true">
+        <button
+            :class="settings.showHowTo ? 'collapsed' : ''"
+            class="accordion-button" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true">
           {{ $t("presets.presets") }}
         </button>
       </h2>
-      <div id="collapseTwo" :class="settings.showHowTo ? '' : 'show'" class="accordion-collapse collapse" data-bs-parent="#sideMenu">
+      <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          :class="settings.showHowTo ? '' : 'show'"
+          data-bs-parent="#sideMenu">
         <div class="accordion-body">
           <Presets/>
         </div>
@@ -37,7 +45,8 @@ const settings = useSettingsStore()
 
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree">
           {{ $t("hotkeys.hotkeys") }}
         </button>
       </h2>
@@ -50,7 +59,11 @@ const settings = useSettingsStore()
 
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+        <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour">
           {{ $t("contact.contact") }}
         </button>
       </h2>

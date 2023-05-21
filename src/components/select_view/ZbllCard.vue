@@ -7,17 +7,14 @@ import {useSettingsStore} from "@/stores/SettingsStore";
 
 const props = defineProps(['oll', 'coll', 'zbll']);
 const {oll, coll, zbll} = props
-const selectStore = useSelectedStore();
-const settingsStore = useSettingsStore()
+const selected = useSelectedStore();
+const settings = useSettingsStore()
 
-const is_selected = computed(() => selectStore.isZbllSelected(oll, coll, zbll));
+const is_selected = computed(() => selected.isZbllSelected(oll, coll, zbll));
 
 const onCardClicked = () => {
-  if (is_selected.value) {
-    selectStore.removeZbll(oll, coll, zbll);
-  } else {
-    selectStore.addZbll(oll, coll, zbll);
-  }
+  const action = is_selected.value ? "removeZbll" : "addZbll";
+  selected[action](oll, coll, zbll);
 }
 
 const card_bg_class = computed(() => {
@@ -34,7 +31,7 @@ const card_bg_class = computed(() => {
       </strong>
     </div>
     <div class="m-1 text-center">
-      <img class="cube_card_img" :src="getZbllImg(oll, coll, zbll, settingsStore.pictureView)" :alt="zbll">
+      <img class="cube_card_img" :src="getZbllImg(oll, coll, zbll, settings.pictureView)" :alt="zbll">
     </div>
   </div>
 </template>

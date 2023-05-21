@@ -1,8 +1,8 @@
 import {ref, watch} from 'vue'
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
-export const fontsList = ["Roboto Mono", "Courier New", "Lucida Console", "Monaco", "Consolas", "Andale Mono",
-  "Ubuntu Mono", "Menlo", "Source Code Pro", "Arial", "Helvetica", "sans-serif", "Times New Roman", "Times", "serif",]
+export const fontsList = ["Roboto Mono", "Courier New", "Ubuntu Mono", "Arial", "Helvetica",
+    "sans-serif", "Times", "serif",]
 
 const pictureViewKey = 'zbll_picture_view';
 const timerUpdateKey = 'zbll_timerUpdate';
@@ -21,32 +21,34 @@ const initialTimerFontSize = () => parseInt(localStorage.getItem(timerFontSizeKe
 const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ?? true
 
 export const useSettingsStore = defineStore('settings', () => {
-  const resetDefaults = () => {
-    pictureView.value = "top"
-    timerUpdate.value = "on"
-    timerPrecision.value = 2
-    timerFont.value = "Roboto Mono"
-    scrambleFontSize.value = 28
-    timerFontSize.value = 64
-    showHowTo.value = true
-  }
+    const resetDefaults = () => {
+        pictureView.value = "top"
+        timerUpdate.value = "on"
+        timerPrecision.value = 2
+        timerFont.value = "Roboto Mono"
+        scrambleFontSize.value = 28
+        timerFontSize.value = 64
+        showHowTo.value = true
+    }
 
-  const pictureView = ref(initialPictureView())
-  const timerUpdate = ref(initialTimerUpdate())
-  const timerPrecision = ref(initialTimerPrecision())
-  const timerFont = ref(initialTimerFont())
-  const scrambleFontSize = ref(initialScrambleFontSize())
-  const timerFontSize = ref(initialTimerFontSize())
-  const showHowTo = ref(initialShowHowTo())
+    const pictureView = ref(initialPictureView())
+    const timerUpdate = ref(initialTimerUpdate())
+    const timerPrecision = ref(initialTimerPrecision())
+    const timerFont = ref(initialTimerFont())
+    const scrambleFontSize = ref(initialScrambleFontSize())
+    const timerFontSize = ref(initialTimerFontSize())
+    const showHowTo = ref(initialShowHowTo())
 
-  watch(pictureView, () => localStorage.setItem(pictureViewKey, pictureView.value))
-  watch(timerUpdate, () => localStorage.setItem(timerUpdateKey, timerUpdate.value))
-  watch(timerPrecision, () => localStorage.setItem(timerPrecisionKey, `${timerPrecision.value}`))
-  watch(timerFont, () => localStorage.setItem(timerFontKey, timerFont.value))
-  watch(scrambleFontSize, () => localStorage.setItem(scrambleFonSizeKey, `${scrambleFontSize.value}`))
-  watch(timerFontSize, () => localStorage.setItem(timerFontSizeKey, `${timerFontSize.value}`))
-  watch(showHowTo, () => localStorage.setItem(showHowToKey, showHowTo.value))
+    watch(pictureView, () => localStorage.setItem(pictureViewKey, pictureView.value))
+    watch(timerUpdate, () => localStorage.setItem(timerUpdateKey, timerUpdate.value))
+    watch(timerPrecision, () => localStorage.setItem(timerPrecisionKey, `${timerPrecision.value}`))
+    watch(timerFont, () => localStorage.setItem(timerFontKey, timerFont.value))
+    watch(scrambleFontSize, () => localStorage.setItem(scrambleFonSizeKey, `${scrambleFontSize.value}`))
+    watch(timerFontSize, () => localStorage.setItem(timerFontSizeKey, `${timerFontSize.value}`))
+    watch(showHowTo, () => localStorage.setItem(showHowToKey, showHowTo.value))
 
-  return {resetDefaults, pictureView, timerUpdate, timerPrecision,
-    timerFont, scrambleFontSize, timerFontSize, showHowTo}
+    return {
+        resetDefaults, pictureView, timerUpdate, timerPrecision,
+        timerFont, scrambleFontSize, timerFontSize, showHowTo
+    }
 });

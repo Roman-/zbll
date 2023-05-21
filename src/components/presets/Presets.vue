@@ -6,7 +6,6 @@ import {areSetsEqual} from "@/helpers/helpers";
 
 const presets = usePresetsStore()
 const selected = useSelectedStore()
-
 const currentPresetName = ref("")
 
 const saveCurrentPreset = () => presets.setPreset(currentPresetName.value, selected.asKeySet)
@@ -14,19 +13,18 @@ const applyPreset = (name) => {
   selected.applyFromPreset(presets.getCases(name))
   currentPresetName.value = name
 }
-
 const isEditing = computed(() => presets.map.hasOwnProperty(currentPresetName.value))
 </script>
 
 <template>
   <div class="input-group input-group mb-2">
     <span v-if="isEditing" class="input-group-text">
-      <span class="d-sm-inline-block d-none">{{$t("presets.edit_preset")}}</span>
-      <i class="bi bi-pencil d-sm-none d-inline-block"></i>
+      <span class="d-lg-inline-block d-none">{{ $t("presets.edit_preset") }}</span>
+      <i class="bi bi-pencil d-lg-none d-inline-block"></i>
     </span>
     <span v-else class="input-group-text">
-      <span class="d-sm-inline-block d-none">{{$t("presets.new_preset")}}</span>
-      <i class="bi bi-plus-circle-fill d-sm-none d-inline-block"></i>
+      <span class="d-lg-inline-block d-none">{{ $t("presets.new_preset") }}</span>
+      <i class="bi bi-plus-circle-fill d-lg-none d-inline-block"></i>
     </span>
     <input
         type="text"
