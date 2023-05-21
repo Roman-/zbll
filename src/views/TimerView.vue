@@ -143,7 +143,7 @@ const onTimerTouchEnd = event => {
           <div v-if="displayStore.showSettings">
             <Settings/>
           </div>
-          <div v-if="displayStore.showStatistics" class="d-lg-none d-block">
+          <div v-if="displayStore.showStatistics" class="d-md-none d-block">
             <StatsCard/>
           </div>
         </div>
@@ -154,7 +154,7 @@ const onTimerTouchEnd = event => {
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>
             </div>
           </div>
-          <div class="row my-2 d-lg-block d-none">
+          <div class="row my-2 d-md-block d-none">
             <div class="col-12">
               <StatsCard/>
             </div>

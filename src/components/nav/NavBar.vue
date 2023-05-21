@@ -43,7 +43,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings
             v-if="isTimerView()"
             @click="displayStore.showStatistics = !displayStore.showStatistics"
             :class="displayStore.showStatistics ? 'btn-primary' : 'btn-outline-primary'"
-            class="mx-2 btn d-inline-block d-sm-none m-0">
+            class="mx-2 btn d-inline-block d-md-none m-0">
           <i class="bi bi-list-columns"></i>
         </button>
         <span v-else class="mx-3 logoText">
