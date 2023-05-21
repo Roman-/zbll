@@ -4,6 +4,7 @@ import Timer from "@/components/timer/Timer.vue";
 import ResultCard from "@/components/timer/ResultCard.vue";
 import StatsCard from "@/components/timer/StatsCard.vue";
 import {useI18n} from 'vue-i18n'
+
 const {t} = useI18n()
 
 import {TimerState, useSessionStore} from "@/stores/SessionStore";
@@ -16,8 +17,11 @@ import {useDisplayStore} from "@/stores/DisplayStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
-const timerWrapClass = computed(() => displayStore.showSettings || displayStore.showStatistics
-    ? "align-self-start" : "h-100")
+const timerNotRunning = computed(() => sessionStore.timerState === TimerState.NOT_RUNNING)
+const timerWrapClass = computed(() => timerNotRunning.value
+        ? ("col-lg-8 col-6 " + ((displayStore.showSettings || displayStore.showStatistics) ? "align-self-start" : "h-100"))
+        : "col-12")
+const rightColumnClass = computed(() => timerNotRunning.value ? "col-lg-4 col-6 align-items-start" : "d-none")
 const selectStore = useSelectedStore()
 const presets = usePresetsStore()
 const displayStore = useDisplayStore()
@@ -71,7 +75,7 @@ const onGlobalKeyDown = event => {
   } else if (event.key === "z" && event.altKey) {
     deleteSingleResult()
   } else if (event.key === "s" && event.altKey && sessionStore.observingResult < sessionStore.stats().length) {
-      selectStore.toggleSelected(sessionStore.stats()[sessionStore.observingResult])
+    selectStore.toggleSelected(sessionStore.stats()[sessionStore.observingResult])
   } else if (event.key === "a" && event.altKey && sessionStore.observingResult < sessionStore.stats().length) {
     presets.toggleAddRemove(starredName, sessionStore.stats()[sessionStore.observingResult].key)
   } else {
@@ -83,7 +87,7 @@ const onGlobalKeyUp = (event) => {
   if (sessionStore.timerState === TimerState.STOPPING) {
     sessionStore.timerState = TimerState.NOT_RUNNING
   } else if (event.key === " " && sessionStore.timerState === TimerState.READY) {
-      sessionStore.startTimer()
+    sessionStore.startTimer()
   } else {
     return
   }
@@ -135,7 +139,7 @@ const onTimerTouchEnd = event => {
       <div class="row flex-grow-1">
 
         <div
-            class="col-lg-8 col-6 d-flex flex-column p-0"
+            class="d-flex flex-column p-0"
             :class="timerWrapClass">
           <div
               class="flex-grow-1 d-flex align-items-center justify-content-center"
@@ -152,7 +156,8 @@ const onTimerTouchEnd = event => {
           </div>
         </div>
 
-        <div class="col-lg-4 col-6 align-items-start">
+        <div
+            :class="rightColumnClass">
           <div class="row my-2">
             <div class="col-12">
               <ResultCard v-if="sessionStore.stats().length > sessionStore.observingResult"/>

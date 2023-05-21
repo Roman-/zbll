@@ -13,7 +13,7 @@ const timerFontSizeKey = 'zbll_timerFontSize';
 const showHowToKey = 'zbll_showHowTo';
 
 const initialPictureView = () => localStorage.getItem(pictureViewKey) ?? "top"
-const initialTimerUpdate = () => localStorage.getItem(timerUpdateKey) ?? "on"
+const initialTimerUpdate = () => localStorage.getItem(timerUpdateKey) ?? "seconds"
 const initialTimerPrecision = () => parseInt(localStorage.getItem(timerPrecisionKey) ?? "2")
 const initialTimerFont = () => localStorage.getItem(timerFontKey) ?? "Roboto Mono"
 const initialScrambleFontSize = () => parseInt(localStorage.getItem(scrambleFonSizeKey) ?? "28")
@@ -23,7 +23,7 @@ const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ??
 export const useSettingsStore = defineStore('settings', () => {
     const resetDefaults = () => {
         pictureView.value = "top"
-        timerUpdate.value = "on"
+        timerUpdate.value = "seconds"
         timerPrecision.value = 2
         timerFont.value = "Roboto Mono"
         scrambleFontSize.value = 28

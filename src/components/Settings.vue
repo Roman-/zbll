@@ -18,7 +18,6 @@ const onResetBtnClicked = () => {
     themes.setDarkTheme(defaultDarkName)
   }
 }
-
 </script>
 
 <template>
