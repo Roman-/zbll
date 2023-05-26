@@ -4,10 +4,10 @@ import {TimerState, useSessionStore} from "@/stores/SessionStore";
 import {msToHumanReadable} from "@/helpers/time_formatter";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {useSettingsStore} from "@/stores/SettingsStore";
-import {scrambleToVcUrl, preloadImage} from "@/helpers/cube_images";
 import {formatZbllKey} from "@/helpers/helpers";
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import { useI18n } from 'vue-i18n'
+import CubePicture from "@/components/timer/CubePicture.vue";
 const { t } = useI18n()
 
 const sessionStore = useSessionStore()
@@ -18,7 +18,7 @@ const isValid = computed(() => sessionStore.stats().length > sessionStore.observ
 const result = computed(() => {
       return isValid.value
           ? sessionStore.stats()[sessionStore.observingResult]
-          : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", key: "", "scramble": "scramble", "ms": 0}
+          : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", key: "", "scramble": "", "ms": 0}
     }
 )
 
@@ -37,9 +37,6 @@ watch(isSelectedCheckboxValue, (doSelect) => {
   }
 })
 watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)
-
-const currentImgSrc = computed(() => scrambleToVcUrl(result.value["scramble"], settings.pictureView))
-watch(() => sessionStore.currentScramble, () => preloadImage(sessionStore.currentScramble, settings.pictureView))
 
 const isBookmarked = computed(() => presets.hasCase(starredName, result.value.key))
 const bookmarkIconClass = computed(() => isBookmarked.value ? "bi-star-fill text-info" : "bi-star text-primary")
@@ -87,11 +84,7 @@ const starClicked = () => {
         <span class="d-sm-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
 
         {{ result["scramble"] }}</p>
-      <div>
-        <img
-            :src="currentImgSrc"
-            :alt="result['key']"/>
-      </div>
+      <CubePicture :scramble="result['scramble']"/>
       <div class="form-check">
         <label
             class="form-check-label"

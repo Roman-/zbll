@@ -16,6 +16,7 @@
     "bootstrap-select": "^1.13.18",
     "pinia": "^2.0.28",
     "roboto-fontface": "*",
+    "sr-puzzlegen": "^1.0.4",
     "vue": "^3.2.46",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
