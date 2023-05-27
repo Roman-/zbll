@@ -23,8 +23,9 @@ const defaultIsDark = false;
 export const defaultLightName = "flatly";
 export const defaultDarkName = "darkly";
 
-export const lightThemesSet = ["cerulean", "cosmo", "flatly", "litera", "lux", "materia", "minty", "morph", "quartz", "sandstone", "sketchy", "zephyr"];
-export const darkThemesSet = ["cyborg", "darkly", "slate", "solar", "superhero"];
+export const lightThemesSet = ["bootstrap", "cerulean", "cosmo", "flatly", "journal", "litera", "lumen", "lux", "materia", "minty",
+  "morph", "quartz", "sandstone", "simplex", "sketchy", "yeti", "zephyr"];
+export const darkThemesSet = ["cyborg", "darkly", "slate", "solar", "superhero", "vapor"];
 const isAvailable = (themeName, isDark) => {
   return (isDark ? darkThemesSet : lightThemesSet).includes(themeName);
 }
