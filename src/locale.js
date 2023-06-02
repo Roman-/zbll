@@ -15,7 +15,7 @@ import ko from '@/assets/i18n/ko.json'
 import pl from '@/assets/i18n/pl.json'
 import pt from '@/assets/i18n/pt.json'
 import tr from '@/assets/i18n/tr.json'
-import ua from '@/assets/i18n/ua.json'
+import uk from '@/assets/i18n/uk.json'
 import zh from '@/assets/i18n/zh.json'
 
 export const supportedLocales = [
@@ -34,30 +34,22 @@ export const supportedLocales = [
   { code: "pt", messages: pt,  name: "Português", emoji: "🇵🇹" },
   { code: "ru", messages: ru,  name: "Русский",   emoji: "🇷🇺" },
   { code: "tr", messages: tr,  name: "Türkçe",    emoji: "🇹🇷" },
-  { code: "ua", messages: ua,  name: "Українська",   emoji: "🇺🇦" },
+  { code: "uk", messages: uk,  name: "Українська",   emoji: "🇺🇦" },
   { code: "zh", messages: zh,  name: "中文",      emoji: "🇨🇳" },
 ]
 const localStorageKey = "zbll_locale"
 const defaultLocale = 'en';
 export const addTranslationUrl = "https://docs.google.com/forms/d/1rhjD0q8zQRkH6i7QiAmNGEd5W-8tyJoOK-Q2UFQx5Jc/";
 
-const getUserLocale = ()=>{
-  if (localStorage) {
-    // try to get from local storage
-    const loadedData = localStorage.getItem(localStorageKey);
-    if (typeof loadedData === "string" && loadedData.length === 2) {
-      return loadedData;
-    }
+const getUserLocale = () => {
+  const localeExists = localeCode => Boolean(supportedLocales.find(o => o.code === localeCode))
+  const loadedData = localStorage.getItem(localStorageKey);
+  if (typeof loadedData === "string" && localeExists(loadedData)) {
+    return loadedData;
   }
-  const secondGuess = window.navigator.language || window.navigator.userLanguage;
-  if (typeof secondGuess === "string" && secondGuess.length >= 2) {
-    const lang = secondGuess.split('-')[0].toLowerCase()
-    if (supportedLocales.find(o => o.code === lang)) {
-      return lang
-    }
-  }
-  console.log("using default locale " + defaultLocale);
-  return defaultLocale;
+  const secondGuess = window.navigator.language || window.navigator.userLanguage || defaultLocale
+  const lang = secondGuess.split('-')[0].toLowerCase()
+  return localeExists(lang) ? lang : defaultLocale
 }
 
 const userLocale = getUserLocale();
