@@ -51,9 +51,12 @@ const getUserLocale = ()=>{
   }
   const secondGuess = window.navigator.language || window.navigator.userLanguage;
   if (typeof secondGuess === "string" && secondGuess.length >= 2) {
-    return secondGuess.split('-')[0].toLowerCase();
+    const lang = secondGuess.split('-')[0].toLowerCase()
+    if (supportedLocales.find(o => o.code === lang)) {
+      return lang
+    }
   }
-  console.log("default");
+  console.log("using default locale " + defaultLocale);
   return defaultLocale;
 }
 
