@@ -1,7 +1,7 @@
 <script setup>
 
 // generate zbll_map_next.json
-import zbll_map from "@/assets/zbll_map.json"
+import zbll_map_old from "@/assets/zbll_map_old.json"
 import {zbll_good_algs_str} from "@/assets/algs_classification"
 import {scrambles} from "@/assets/zbll_scrambles"
 import {ref} from "vue";
@@ -11,9 +11,9 @@ const text = ref("")
 const finalZbllMap = {} // "key" => {key:string, algs: array, scrambles: ...}
 // load keys
 
-for (let oll in zbll_map) {
-  for (let coll in zbll_map[oll]) {
-    for (let zbll in zbll_map[oll][coll]) {
+for (let oll in zbll_map_old) {
+  for (let coll in zbll_map_old[oll]) {
+    for (let zbll in zbll_map_old[oll][coll]) {
       const key = `${oll} ${coll} ${zbll}`
       if (finalZbllMap[key]) {
         console.error("duplicate key: ", key, finalZbllMap[key]);

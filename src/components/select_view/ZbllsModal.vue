@@ -3,18 +3,18 @@ import {computed, onMounted, ref} from "vue";
 import {Modal} from 'bootstrap'
 import {useSelectedStore} from "@/stores/SelectedStore";
 import ZbllCard from "@/components/select_view/ZbllCard.vue";
-import zbll_map from "@/assets/zbll_map.json"
-import {useZbllStore} from "@/stores/ZbllStore";
 
 const props = defineProps(['oll', 'coll', 'closeCallback']);
 const {oll, coll, closeCallback} = props;
-const selectStore = useSelectedStore();
-const zbllStore = useZbllStore()
+const selected = useSelectedStore();
+const zbllKeys = selected.allZbllKeysArray.filter(k => k.startsWith(`${oll} ${coll}`))
 const modalTitle = computed(() => {
   return oll + " • " + coll
-      + " (" + selectStore.numZbllsInCollSelected(oll, coll)
-      + "/" + zbllStore.countZbllsInColl(oll, coll) + ")";
+      + " (" + selected.numZbllsInCollSelected(oll, coll)
+      + "/" + zbllKeys.length + ")";
 });
+
+const zbllNames = zbllKeys.map(key => key.split(' ')[2])
 
 const zbllsModal = ref(null)
 
@@ -37,16 +37,16 @@ onMounted(() => {
         </div>
         <div class="modal-body">
           <div class="row gx-0">
-            <div v-for="(algs, zbll) in zbll_map[oll][coll]" :key="zbll" class="col-3">
+            <div v-for="zbll in zbllNames" :key="zbll" class="col-3">
               <ZbllCard :oll="oll" :coll="coll" :zbll="zbll"/>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="selectStore.addColl(oll, coll);">
+          <button type="button" class="btn btn-secondary" @click="selected.addColl(oll, coll);">
             {{ $t("zbll_select_card.all") }}
           </button>
-          <button type="button" class="btn btn-secondary" @click="selectStore.removeColl(oll, coll);">
+          <button type="button" class="btn btn-secondary" @click="selected.removeColl(oll, coll);">
             {{ $t("zbll_select_card.none") }}
           </button>
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">

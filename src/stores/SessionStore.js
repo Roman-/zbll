@@ -22,22 +22,32 @@ export const useSessionStore = defineStore('session', () => {
     const observingResult = ref(0)
 
     const store = ref({
-    // contains result from SelectedStore.allSelectedCases().
-    "allCases": [],
+        // array of keys selected
+        "allKeysArray": [],
 
-    // contains object from allCases: {oll, coll, zbll, algs: [array of strings], scramble: "…", recapped: false, count: num}
-    "current": null,
+        // map key => count
+        "keysCount": {},
 
-    // array of objects: {i=index, oll, coll, zbll, scramble, ms}
-    "stats": initialStats,
-})
+        // currently (to be solved) object from allCases: {key: string, scramble: string, count: num}
+        "currentKey": null,
+
+        "currentScramble": null,
+
+        // array of objects: {i=index, key, scramble, ms}
+        "stats": initialStats,
+    })
 
     const stats = () => store.value.stats
+
+    const resetKeysCount = () => {
+        store.value.keysCount = {}
+        store.value.allKeysArray.forEach(k => store.value.keysCount[k] = 0)
+    }
 
     const deleteResult = i => {
         store.value.stats.splice(i, 1)
         // rebuild indexes
-        for (let j = Math.max(i-1, 0); j < store.value.stats.length; j++) {
+        for (let j = Math.max(i - 1, 0); j < store.value.stats.length; j++) {
             store.value.stats[j].i = j
         }
         observingResult.value = Math.max(0, stats().length - 1)
@@ -47,38 +57,38 @@ export const useSessionStore = defineStore('session', () => {
     const timerStarted = ref(0)
 
     const casesWithZeroCount = computed(() => {
-        return store.value.allCases.filter(c => c["count"] === 0);
+        return Object.keys(store.value.keysCount).filter(key => store.value.keysCount[key] === 0)
     });
 
-    const getRandomCase = () => {
-        if (store.value.allCases.length === 0) {
+    // returns key
+    const setRandomCase = () => {
+        if (store.value.allKeysArray.length === 0) {
             return null;
         }
-        let c = {};
         if (recapMode.value) {
             if (casesWithZeroCount.value.length === 0) {
                 recapMode.value = false
-                return getRandomCase() // recursively return random case with no recap mode
+                return setRandomCase() // recursively return random case with no recap mode
             }
-            c = random_element(casesWithZeroCount.value)
+            store.value.currentKey = random_element(casesWithZeroCount.value)
         } else {
-            c = random_element(store.value.allCases) // TODO 0.2 probability, return least counted case
+            store.value.currentKey = random_element(store.value.allKeysArray) // TODO 0.2 probability, return least counted case
         }
-        c["scramble"] = makeScramble(random_element(c.algs));
-        return c;
+        store.value.currentScramble = "scramble TODO"
     }
 
-    const setSelectedCases = allCasesSelected => {
-        recapMode.value = false // unfortunately, resetting store.value.allCases will reset cases count
-        store.value.allCases = allCasesSelected;
-        store.value.current = getRandomCase();
+    const setSelectedKeySet = keySet => {
+        resetKeysCount() // TODO maybe in case of setSelectedKeySet in recap mode you can just erase one thing
+        recapMode.value = false
+        store.value.allKeysArray = [...keySet]
+        setRandomCase()
         timerState.value = TimerState.NOT_RUNNING; // prevent from changing cases while timer is running
     }
 
-    const reset = allCasesSelected => {
+    const reset = keySet => {
         store.value.stats = [];
-        setSelectedCases(allCasesSelected)
-        store.value.current = getRandomCase();
+        setSelectedKeySet(keySet)
+        setRandomCase()
         observingResult.value = 0
     }
 
@@ -89,34 +99,33 @@ export const useSessionStore = defineStore('session', () => {
 
     const stopTimer = () => {
         const index = store.value.stats.length
-        if (store.value.current !== null) {
-            const key = store.value.current["key"]
+        if (store.value.currentKey !== null) {
+            const key = store.value.currentKey
             store.value.stats.push({
                 "i": index,
-                "oll": store.value.current["oll"],
-                "coll": store.value.current["coll"],
-                "zbll": store.value.current["zbll"],
                 "key": key,
-                "scramble": store.value.current["scramble"],
+                "scramble": currentScramble.value,
                 "ms": Date.now() - timerStarted.value
             })
-            store.value.current["count"]++;
+            store.value.keysCount[key]++;
         }
-        store.value.current = getRandomCase();
+        setRandomCase()
         timerState.value = TimerState.STOPPING;
         observingResult.value = index
         localStorage.setItem(statsKey, JSON.stringify(store.value.stats))
     }
 
     const restartRecap = () => {
-        store.value.allCases.forEach(c => c["count"] = 0)
+        resetKeysCount()
         recapMode.value = true
-        store.value.current = getRandomCase();
+        setRandomCase()
     }
 
     // may be undefined
-    const currentScramble = computed(() => store.value.current ? store.value.current["scramble"] : null);
+    const currentScramble = computed(() => store.value.currentScramble)
 
-    return {reset, setSelectedCases, stats, deleteResult, observingResult, timerStarted, timerState, startTimer, stopTimer,
-        recapMode, restartRecap, currentScramble, casesWithZeroCount}
+    return { reset, setSelectedKeySet, stats, deleteResult,
+        observingResult, timerStarted, timerState, startTimer, stopTimer,
+        recapMode, restartRecap, currentScramble, casesWithZeroCount
+    }
 });

@@ -1,22 +1,25 @@
 <script setup>
 
-import {useZbllStore} from "@/stores/ZbllStore";
 import {useSelectedStore} from "@/stores/SelectedStore";
 import {computed, onMounted, ref} from "vue";
 import {getOllImg} from "@/helpers/cube_images";
 import CollCard from "@/components/select_view/CollCard.vue";
 
-const props = defineProps(['oll', 'oll_map'])
-const {oll, oll_map} = props;
+const props = defineProps(['oll'])
+const {oll} = props;
 const selected = useSelectedStore();
-const zbllStore = useZbllStore();
 const num_cases_selected = computed(() => selected.numZbllsInOllSelected(oll));
 
-const total_zblls_in_oll = zbllStore.countZbllsInOll(oll);
+const total_zblls_in_oll = selected.allZbllKeysArray.filter(key => key.startsWith(oll)).length
 const onCardClicked = () => {
   const action = num_cases_selected.value === 0 ? selected.addOll : selected.removeOll
   action(oll)
 }
+
+const colls = selected.allZbllKeysArray
+    .filter(key => key.startsWith(oll))
+    .map(key => key.split(' ')[1])
+    .filter((item, index, self) => self.indexOf(item) === index);
 
 const card_bg_class = computed(() => {
   return (num_cases_selected.value === 0) ? "no_cases_selected" :
@@ -55,8 +58,8 @@ onMounted(() => {
       class="text-center collapse multi-collapse"
       ref="ollCardRef"
       :id="`collapsed-colls-${oll}`">
-    <CollCard v-for="(zbll_map, coll) in oll_map"
-              :key="oll"
+    <CollCard v-for="coll in colls"
+              :key="oll+coll"
               :oll="oll"
               :coll="coll"
     />

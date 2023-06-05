@@ -1,7 +1,6 @@
 <script setup>
 
 import {useSelectedStore} from "@/stores/SelectedStore";
-import {useZbllStore} from "@/stores/ZbllStore";
 import {computed, ref} from "vue";
 import {getCollImg} from "@/helpers/cube_images";
 import ZbllsModal from "@/components/select_view/ZbllsModal.vue";
@@ -9,19 +8,15 @@ import {useSettingsStore} from "@/stores/SettingsStore";
 
 const props = defineProps(['oll', 'coll'])
 const {oll, coll}  = props; // H, L, Pi etc
-const selectStore = useSelectedStore();
-const zbllStore = useZbllStore();
+const selected = useSelectedStore();
 const settingsStore = useSettingsStore();
 
-const num_cases_selected = computed(() => selectStore.numZbllsInCollSelected(oll, coll));
-const total_zblls_in_coll = zbllStore.countZbllsInColl(oll, coll);
+const num_cases_selected = computed(() => selected.numZbllsInCollSelected(oll, coll));
+const total_zblls_in_coll = selected.allZbllKeysArray.filter(key => key.startsWith(`${oll} ${coll}`)).length
 
 const onCardClicked = () => {
-  if (num_cases_selected.value === 0) {
-    selectStore.addColl(oll, coll);
-  } else {
-    selectStore.removeColl(oll, coll);
-  }
+  const action = num_cases_selected.value === 0 ? selected.addColl : selected.removeColl
+  action(oll, coll)
 }
 
 const modalCloseCallback = () => { modalShown.value=false }

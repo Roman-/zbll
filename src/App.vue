@@ -12,8 +12,8 @@ const selectStore = useSelectedStore()
 const sessionStore = useSessionStore()
 
 // bind selectStore and sessionStore
-watch(() => selectStore.allSelectedCases, () => sessionStore.setSelectedCases(selectStore.allSelectedCases))
-sessionStore.setSelectedCases(selectStore.allSelectedCases)
+watch(() => selectStore.keySet, () => sessionStore.setSelectedKeySet(selectStore.keySet))
+sessionStore.setSelectedKeySet(selectStore.keySet)
 
 </script>
 
