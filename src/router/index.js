@@ -2,7 +2,7 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 import SelectView from "@/views/SelectView.vue";
 import TimerView from "@/views/TimerView.vue";
 import AboutView from "@/views/AboutView.vue";
-import TestView from "@/views/TestView.vue";
+// import TestView from "@/views/TestView.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -26,11 +26,13 @@ const router = createRouter({
       name: 'about',
       component: AboutView
     },
+/*
     {
       path: '/test',
       name: 'test',
       component: TestView
     }
+*/
   ]
 })
 
