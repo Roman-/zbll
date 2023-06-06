@@ -26,9 +26,9 @@ export const usePresetsStore = defineStore('presets', () => {
     // {name: [array of cases], name: [other array], …}
     const map = reactive(loadFromLocalStorage())
 
-    // set (save) preset. Use selectedStore.allSelectedCases() as second argument
-    const setPreset = (name, keySet) => {
-        map[name] = keySet
+    // set (save) preset
+    const setPreset = (name, keys) => {
+        map[name] = new Set(keys)
     }
 
     // returns set of keys by preset name

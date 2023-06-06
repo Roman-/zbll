@@ -21,7 +21,7 @@ export const useSelectedStore = defineStore('selected', () => {
     return result
   })
 
-  const applyFromPreset = presetKeys => store.keys = presetKeys
+  const applyFromPreset = presetKeysSet => store.keys = [...presetKeysSet]
 
   const removeOll = oll => {
     store.keys = store.keys.filter(key => !key.startsWith(`${oll} `))

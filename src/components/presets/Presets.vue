@@ -8,7 +8,7 @@ const presets = usePresetsStore()
 const selected = useSelectedStore()
 const currentPresetName = ref("")
 
-const saveCurrentPreset = () => presets.setPreset(currentPresetName.value, selected.asKeySet)
+const saveCurrentPreset = () => presets.setPreset(currentPresetName.value, selected.store.keys)
 const applyPreset = (name) => {
   selected.applyFromPreset(presets.getCases(name))
   currentPresetName.value = name
@@ -37,7 +37,7 @@ const isEditing = computed(() => presets.map.hasOwnProperty(currentPresetName.va
         class="btn btn-primary"
         type="button"
         @click="saveCurrentPreset"
-        :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), selected.asKeySet)">
+        :disabled="currentPresetName.length === 0 || areSetsEqual(presets.getCases(currentPresetName), new Set(selected.store.keys))">
       {{ $t("presets.save_btn") }}
     </button>
   </div>
@@ -49,13 +49,13 @@ const isEditing = computed(() => presets.map.hasOwnProperty(currentPresetName.va
   >
       <span
           class="me-2 rounded-1 presetName px-1"
-          :class="areSetsEqual(presets.getCases(name), selected.asKeySet) ? 'is_current' : ''"
+          :class="areSetsEqual(presets.getCases(name), new Set(selected.store.keys)) ? 'is_current' : ''"
       >
         {{ name }} ({{ presets.getCases(name).size }})</span>
     <button
         type="button"
         class="btn btn-sm btn-outline-success me-1"
-        :disabled="areSetsEqual(presets.getCases(name), selected.asKeySet)"
+        :disabled="areSetsEqual(presets.getCases(name), new Set(selected.store.keys))"
         :title="$t('presets.apply_btn')"
         @click="applyPreset(name)">
       <i class="bi bi-download"></i>
