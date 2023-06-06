@@ -13,7 +13,7 @@ const router = useRouter();
 const route = useRoute()
 const displayStore = useDisplayStore()
 
-const isTimerView = () => route.fullPath.endsWith("timer")
+const isTimerView = computed(() => route.fullPath.endsWith("timer"))
 const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info text-white' : 'text-info')
 </script>
 
@@ -22,20 +22,20 @@ const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info tex
     <div class="row w-100 align-items-center">
       <div class="col-auto me-auto">
         <button
-            v-if="isTimerView()"
+            v-if="isTimerView"
             tabindex="-1"
             @keydown.space.prevent=""
             @click="router.push('select')"
             class="mx-2 btn btn-primary">
           <span class="d-none d-sm-inline-block">{{ $t("nav.select_btn") }}</span>
           <i class="bi bi-card-checklist d-inline-block d-sm-none">
-            {{ sessionStore.recapMode
+            {{ isTimerView && sessionStore.recapMode
                   ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
                   : selectedStore.totalZbllsSelected() }}
           </i>
         </button>
         <button
-            v-if="isTimerView()"
+            v-if="isTimerView"
             @click="displayStore.showStatistics = !displayStore.showStatistics"
             :class="displayStore.showStatistics ? 'btn-primary' : 'btn-outline-primary'"
             class="mx-2 btn d-inline-block d-sm-none m-0">
@@ -47,7 +47,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info tex
         <span class="mx-2 d-none d-sm-inline-block">
           {{ $t("nav.n_cases", selectedStore.totalZbllsSelected()) }}
         </span>
-        <span class="mx-2 d-none d-sm-inline-block" v-if="sessionStore.recapMode">
+        <span class="mx-2 d-none d-sm-inline-block" v-if="isTimerView && sessionStore.recapMode">
           {{ $t("nav.n_to_recap", sessionStore.casesWithZeroCount.length) }}
         </span>
       </div>

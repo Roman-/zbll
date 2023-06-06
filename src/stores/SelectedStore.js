@@ -9,60 +9,53 @@ export const useSelectedStore = defineStore('selected', () => {
   const allZbllKeysArray = Object.keys(zbll_map_next)
 
   const store = reactive({
-    keySet: new Set(loadedArray)
+    keys: loadedArray
   })
 
-  const keySet = computed(() => store.keySet)
-
-  const applyFromPreset = presetKeySet => store.keySet = presetKeySet
-
-  const removeAllCases = () => store.keySet.clear()
+  const applyFromPreset = presetKeys => store.keys = presetKeys
 
   const removeOll = oll => {
-    store.keySet = new Set([...store.keySet].filter(key => !key.startsWith(`${oll} `)))
+    store.keys = store.keys.filter(key => !key.startsWith(`${oll} `))
   }
 
   const addOll = oll => {
-    allZbllKeysArray.filter(key => key.startsWith(`${oll} `)).forEach(key => store.keySet.add(key))
+    // TODO ensule unique
+    store.keys = [...store.keys, ...allZbllKeysArray.filter(key => key.startsWith(`${oll} `))]
   }
 
   const addColl = (oll, coll) => {
-    allZbllKeysArray.filter(key => key.startsWith(`${oll} ${coll} `)).forEach(key => store.keySet.add(key))
+    // TODO ensule unique
+    store.keys = [...store.keys, ...allZbllKeysArray.filter(key => key.startsWith(`${oll} ${coll} `))]
   }
 
-  const addZbll = (oll, coll, zbll) => store.keySet.add(`${oll} ${coll} ${zbll}`)
+  const addZbll = key => store.keys.push(key)
 
   // remove all coll cases
   const removeColl = (oll, coll) => {
-    store.keySet = new Set([...store.keySet].filter(key => !key.startsWith(`${oll} ${coll} `)))
+    store.keys = store.keys.filter(key => !key.startsWith(`${oll} ${coll} `))
   }
 
-  const removeZbll = (oll, coll, zbll) => store.keySet.delete(`${oll} ${coll} ${zbll}`)
+  const removeZbll = key => store.keys = store.keys.filter(k => k !== key)
 
-  const isZbllSelected = (oll, coll, zbll) => store.keySet.has(`${oll} ${coll} ${zbll}`)
+  const isZbllSelected = key => store.keys.includes(key)
 
-  const numZbllsInCollSelected = (oll, coll) => {
-    return [...store.keySet].filter(key => key.startsWith(`${oll} ${coll} `)).length
-  }
+  const numZbllsInCollSelected = (oll, coll) => store.keys.filter(key => key.startsWith(`${oll} ${coll} `)).length
 
-  const numZbllsInOllSelected = (oll) => {
-    return [...store.keySet].filter(key => key.startsWith(`${oll} `)).length
-  }
+  const numZbllsInOllSelected = (oll) => store.keys.filter(key => key.startsWith(`${oll} `)).length
 
-  const totalZbllsSelected = () => store.keySet.size
+  const totalZbllsSelected = () => store.keys.length
 
   const toggleSelected = result => {
     if (!result) return
-    if (isZbllSelected(result.oll, result.coll, result.zbll)) {
-      removeZbll(result.oll, result.coll, result.zbll);
-    } else {
-      addZbll(result.oll, result.coll, result.zbll);
-    }
+    const action = isZbllSelected(result.oll, result.coll, result.zbll) ? removeZbll : addZbll
+    action(result.oll, result.coll, result.zbll)
   }
 
-  watch(store.keySet, () => localStorage.setItem(localStoreKey, JSON.stringify([...store.keySet])))
+  watch(() => store.keys, () => {
+    localStorage.setItem(localStoreKey, JSON.stringify(store.keys))
+  })
 
-  return {keySet, allZbllKeysArray, addOll, addColl, addZbll,
+  return {store, allZbllKeysArray, addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll, toggleSelected,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected, applyFromPreset}
 });

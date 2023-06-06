@@ -16,8 +16,7 @@ const startPractice = () => {
 }
 
 const startRecap = () => {
-  session.setSelectedKeySet(selected.keySet)
-  session.recapMode = true
+  session.startRecap()
   router.push('timer')
 }
 

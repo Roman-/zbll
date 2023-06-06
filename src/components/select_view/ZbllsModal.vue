@@ -38,7 +38,7 @@ onMounted(() => {
         <div class="modal-body">
           <div class="row gx-0">
             <div v-for="zbll in zbllNames" :key="zbll" class="col-3">
-              <ZbllCard :oll="oll" :coll="coll" :zbll="zbll"/>
+              <ZbllCard :zbllKey="`${oll} ${coll} ${zbll}`"/>
             </div>
           </div>
         </div>

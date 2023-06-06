@@ -18,7 +18,7 @@ const isValid = computed(() => sessionStore.stats().length > sessionStore.observ
 const result = computed(() => {
       return isValid.value
           ? sessionStore.stats()[sessionStore.observingResult]
-          : {"i": 0, "oll": "oll", "coll": "coll", "zbll": "zbll", key: "", "scramble": "", "ms": 0}
+          : {"i": 0, key: "", "scramble": "", "ms": 0}
     }
 )
 
@@ -28,12 +28,12 @@ const onDeleteBtnClicked = () => {
   }
 }
 
-const isSelected = computed(() => selectedStore.isZbllSelected(result.value["oll"], result.value["coll"], result.value["zbll"]))
+const isSelected = computed(() => selectedStore.isZbllSelected(result.value["key"]))
 const isSelectedCheckboxValue = ref(isSelected.value);
 watch(isSelectedCheckboxValue, (doSelect) => {
   if (isValid.value && doSelect !== isSelected.value) {
     const action = doSelect ? selectedStore.addZbll : selectedStore.removeZbll;
-    action(result.value["oll"], result.value["coll"], result.value["zbll"]);
+    action(result.value["key"]);
   }
 })
 watch(isSelected, () => isSelectedCheckboxValue.value = isSelected.value)

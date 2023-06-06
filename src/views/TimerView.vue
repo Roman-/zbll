@@ -30,7 +30,7 @@ const displayStore = useDisplayStore()
 const onGlobalKeyDown = event => {
   const confirmClearSession = () => {
     if (confirm(t("stats_card.are_you_sure_to_clean"))) {
-      sessionStore.reset(selectStore.allSelectedCases)
+      sessionStore.clearSession()
     }
   }
   const deleteSingleResult = () => {
@@ -69,7 +69,7 @@ const onGlobalKeyDown = event => {
   } else if (event.key === "t" && event.altKey) {
     router.push('select')
   } else if (event.key === "r" && event.altKey) {
-    sessionStore.restartRecap()
+    sessionStore.startRecap()
   } else if (event.key === "d" && event.altKey) {
     confirmClearSession();
   } else if (event.key === "z" && event.altKey) {

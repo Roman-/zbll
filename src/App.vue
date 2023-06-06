@@ -8,12 +8,15 @@ import {useSelectedStore} from "@/stores/SelectedStore";
 import {watch} from "vue";
 
 useThemeStore().applyCurrentTheme();
-const selectStore = useSelectedStore()
-const sessionStore = useSessionStore()
+const selected = useSelectedStore()
+const session = useSessionStore()
 
 // bind selectStore and sessionStore
-watch(() => selectStore.keySet, () => sessionStore.setSelectedKeySet(selectStore.keySet))
-sessionStore.setSelectedKeySet(selectStore.keySet)
+watch(() => selected.store.keys, () => {
+  console.log("App.vue: selected.store.keys, changed to size = " + selected.store.keys.length);
+  session.setSelectedKeys(selected.store.keys)
+})
+session.setSelectedKeys(selected.store.keys)
 
 </script>
 

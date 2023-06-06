@@ -13,7 +13,7 @@ const selectStore = useSelectedStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm(t("stats_card.are_you_sure_to_clean"))) {
-    sessionStore.reset(selectStore.allSelectedCases)
+    sessionStore.clearSession()
   }
 }
 

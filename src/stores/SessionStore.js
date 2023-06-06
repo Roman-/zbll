@@ -23,7 +23,7 @@ export const useSessionStore = defineStore('session', () => {
 
     const store = ref({
         // array of keys selected
-        "allKeysArray": [],
+        "keys": [],
 
         // map key => count
         "keysCount": {},
@@ -41,7 +41,7 @@ export const useSessionStore = defineStore('session', () => {
 
     const resetKeysCount = () => {
         store.value.keysCount = {}
-        store.value.allKeysArray.forEach(k => store.value.keysCount[k] = 0)
+        store.value.keys.forEach(k => store.value.keysCount[k] = 0)
     }
 
     const deleteResult = i => {
@@ -62,7 +62,7 @@ export const useSessionStore = defineStore('session', () => {
 
     // returns key
     const setRandomCase = () => {
-        if (store.value.allKeysArray.length === 0) {
+        if (store.value.keys.length === 0) {
             return null;
         }
         if (recapMode.value) {
@@ -72,23 +72,21 @@ export const useSessionStore = defineStore('session', () => {
             }
             store.value.currentKey = random_element(casesWithZeroCount.value)
         } else {
-            store.value.currentKey = random_element(store.value.allKeysArray) // TODO 0.2 probability, return least counted case
+            store.value.currentKey = random_element(store.value.keys) // TODO 0.2 probability, return least counted case
         }
         store.value.currentScramble = "scramble TODO"
     }
 
-    const setSelectedKeySet = keySet => {
-        resetKeysCount() // TODO maybe in case of setSelectedKeySet in recap mode you can just erase one thing
+    const setSelectedKeys = keys => {
+        timerState.value = TimerState.NOT_RUNNING
         recapMode.value = false
-        store.value.allKeysArray = [...keySet]
+        store.value.keys = keys
+        resetKeysCount() // TODO maybe don't reset every time
         setRandomCase()
-        timerState.value = TimerState.NOT_RUNNING; // prevent from changing cases while timer is running
     }
 
-    const reset = keySet => {
+    const clearSession = () => {
         store.value.stats = [];
-        setSelectedKeySet(keySet)
-        setRandomCase()
         observingResult.value = 0
     }
 
@@ -115,7 +113,7 @@ export const useSessionStore = defineStore('session', () => {
         localStorage.setItem(statsKey, JSON.stringify(store.value.stats))
     }
 
-    const restartRecap = () => {
+    const startRecap = () => {
         resetKeysCount()
         recapMode.value = true
         setRandomCase()
@@ -124,8 +122,8 @@ export const useSessionStore = defineStore('session', () => {
     // may be undefined
     const currentScramble = computed(() => store.value.currentScramble)
 
-    return { reset, setSelectedKeySet, stats, deleteResult,
+    return { clearSession, setSelectedKeys, stats, deleteResult,
         observingResult, timerStarted, timerState, startTimer, stopTimer,
-        recapMode, restartRecap, currentScramble, casesWithZeroCount
+        recapMode, startRecap, currentScramble, casesWithZeroCount
     }
 });
