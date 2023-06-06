@@ -8,6 +8,7 @@ import {formatZbllKey} from "@/helpers/helpers";
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import { useI18n } from 'vue-i18n'
 import CubePicture from "@/components/timer/CubePicture.vue";
+import SuggestedAlgs from "@/components/timer/SuggestedAlgs.vue";
 const { t } = useI18n()
 
 const sessionStore = useSessionStore()
@@ -82,8 +83,8 @@ const starClicked = () => {
       </p>
       <p class="card-text my-0 my-sm-1">
         <span class="d-sm-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
-
-        {{ result["scramble"] }}</p>
+        {{ result["scramble"] }}
+      </p>
       <CubePicture :scramble="result['scramble']"/>
       <div class="form-check">
         <label
@@ -100,6 +101,10 @@ const starClicked = () => {
           {{$t("result_card.selected")}}
         </label>
       </div>
+      <p class="card-text my-0 my-sm-1">
+        <span class="d-sm-inline-block d-none mt-2">Suggested algs:</span>
+        <SuggestedAlgs :zbllKey="result['key']"/>
+      </p>
     </div>
   </div>
 </template>
