@@ -75,7 +75,14 @@ export const useSessionStore = defineStore('session', () => {
             }
             store.value.currentKey = random_element(casesWithZeroCount.value)
         } else {
-            store.value.currentKey = random_element(store.value.keys) // TODO 0.2 probability, return least counted case
+            if (Math.random() < 0.2) {
+                // set current key to the least counted one (random if multiple)
+                const minCount = Math.min(...Object.values(store.value.keysCount))
+                const leastCountedKeys = Object.keys(store.value.keysCount).filter(key => store.value.keysCount[key] === minCount)
+                store.value.currentKey = random_element(leastCountedKeys)
+            } else {
+                store.value.currentKey = random_element(store.value.keys)
+            }
         }
         store.value.currentScramble = makeScramble(store.value.currentKey, store.value.scrambleLength)
     }
