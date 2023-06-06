@@ -77,7 +77,7 @@ export const useSessionStore = defineStore('session', () => {
         } else {
             store.value.currentKey = random_element(store.value.keys) // TODO 0.2 probability, return least counted case
         }
-        store.value.currentScramble = "scramble TODO"
+        store.value.currentScramble = makeScramble(store.value.currentKey, store.value.scrambleLength)
     }
 
     const setSelectedKeys = (keys, scrambleLength) => {

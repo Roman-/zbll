@@ -1,7 +1,12 @@
-import {shuffle} from "@/helpers/helpers";
+import {random_element, shuffle} from "@/helpers/helpers";
+import zbll_map_next from "@/assets/zbll_map_next.json"
 
-export const makeScramble = alg => {
-  return applyRotationButLessB(inverseScramble(alg));
+export const makeScramble = (zbllKey, preferredLength) => {
+  const scramblesMap = zbll_map_next[zbllKey]["scrambles"] // {"13": [scrambles], "14": [scrambles], …}
+  const lengthVariations = Object.keys(scramblesMap)
+  preferredLength = `${preferredLength}` // to string
+  const choosenLength = lengthVariations.includes(preferredLength) ? preferredLength : lengthVariations[0]
+  return applyRotationButLessB(random_element(scramblesMap[choosenLength]));
 }
 
 const inverseScramble = (s) => {
