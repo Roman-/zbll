@@ -25,6 +25,9 @@ export const useSessionStore = defineStore('session', () => {
         // array of keys selected
         "keys": [],
 
+        // Shortest common scramble length
+        "scrambleLength": 0,
+
         // map key => count
         "keysCount": {},
 
@@ -77,10 +80,11 @@ export const useSessionStore = defineStore('session', () => {
         store.value.currentScramble = "scramble TODO"
     }
 
-    const setSelectedKeys = keys => {
+    const setSelectedKeys = (keys, scrambleLength) => {
         timerState.value = TimerState.NOT_RUNNING
         recapMode.value = false
         store.value.keys = keys
+        store.value.scrambleLength = scrambleLength
         resetKeysCount() // TODO maybe don't reset every time
         setRandomCase()
     }

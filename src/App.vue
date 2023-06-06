@@ -13,10 +13,9 @@ const session = useSessionStore()
 
 // bind selectStore and sessionStore
 watch(() => selected.store.keys, () => {
-  console.log("App.vue: selected.store.keys, changed to size = " + selected.store.keys.length);
-  session.setSelectedKeys(selected.store.keys)
+  session.setSelectedKeys(selected.store.keys, selected.commonScrambleLength)
 })
-session.setSelectedKeys(selected.store.keys)
+session.setSelectedKeys(selected.store.keys, selected.commonScrambleLength)
 
 </script>
 

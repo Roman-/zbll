@@ -1,4 +1,4 @@
-import {computed, reactive, watch} from 'vue'
+import {ref, computed, reactive, watch} from 'vue'
 import { defineStore } from 'pinia'
 import zbll_map_next from "@/assets/zbll_map_next.json"
 
@@ -9,7 +9,16 @@ export const useSelectedStore = defineStore('selected', () => {
   const allZbllKeysArray = Object.keys(zbll_map_next)
 
   const store = reactive({
-    keys: loadedArray
+    keys: loadedArray,
+  });
+
+  const commonScrambleLength = computed(() => {
+    let result = 0
+    store.keys.forEach(key => {
+      const minLength = parseInt(Object.keys(zbll_map_next[key].scrambles)[0]) // shortest always comes first in map
+      result = Math.max(result, minLength)
+    })
+    return result
   })
 
   const applyFromPreset = presetKeys => store.keys = presetKeys
@@ -18,17 +27,19 @@ export const useSelectedStore = defineStore('selected', () => {
     store.keys = store.keys.filter(key => !key.startsWith(`${oll} `))
   }
 
+  // this may lead to duplicate store.keys, use with caution
   const addOll = oll => {
-    // TODO ensule unique
     store.keys = [...store.keys, ...allZbllKeysArray.filter(key => key.startsWith(`${oll} `))]
   }
 
+  // this may lead to duplicate store.keys, use with caution
   const addColl = (oll, coll) => {
-    // TODO ensule unique
     store.keys = [...store.keys, ...allZbllKeysArray.filter(key => key.startsWith(`${oll} ${coll} `))]
   }
 
-  const addZbll = key => store.keys.push(key)
+  const addZbll = key => {
+    store.keys = [...store.keys, key] // if you just .push(), then freakin' VueJS won't track it
+  }
 
   // remove all coll cases
   const removeColl = (oll, coll) => {
@@ -55,7 +66,7 @@ export const useSelectedStore = defineStore('selected', () => {
     localStorage.setItem(localStoreKey, JSON.stringify(store.keys))
   })
 
-  return {store, allZbllKeysArray, addOll, addColl, addZbll,
+  return {store, commonScrambleLength, allZbllKeysArray, addOll, addColl, addZbll,
     removeOll, removeColl, removeZbll, toggleSelected,
     isZbllSelected, numZbllsInCollSelected, numZbllsInOllSelected, totalZbllsSelected, applyFromPreset}
 });

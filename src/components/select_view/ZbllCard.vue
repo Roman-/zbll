@@ -13,8 +13,8 @@ const settings = useSettingsStore()
 const is_selected = computed(() => selected.isZbllSelected(key));
 
 const onCardClicked = () => {
-  const action = is_selected.value ? "removeZbll" : "addZbll";
-  selected[action](key);
+  const action = is_selected.value ? selected.removeZbll : selected.addZbll
+  action(key);
 }
 
 const card_bg_class = computed(() => {
