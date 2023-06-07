@@ -2,7 +2,6 @@
     "theme_color": "#35abf6",
     "background_color": "#489dd4",
     "display": "standalone",
-    "orientation": "landscape",
     "name": "ZBLL trainer",
     "short_name": "ZBLL trainer",
     "description": "A timer-like tool to learn and practise ZBLL algs",

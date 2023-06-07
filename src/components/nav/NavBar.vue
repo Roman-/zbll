@@ -15,6 +15,11 @@ const displayStore = useDisplayStore()
 
 const isTimerView = computed(() => route.fullPath.endsWith("timer"))
 const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info text-white' : 'text-info')
+const tinySelectBtnText = computed(() => {
+  return isTimerView && sessionStore.recapMode
+      ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
+      : selectedStore.totalZbllsSelected()
+})
 </script>
 
 <template>
@@ -29,9 +34,7 @@ const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info tex
             class="mx-2 btn btn-primary">
           <span class="d-none d-sm-inline-block">{{ $t("nav.select_btn") }}</span>
           <i class="bi bi-card-checklist d-inline-block d-sm-none">
-            {{ isTimerView && sessionStore.recapMode
-                  ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
-                  : selectedStore.totalZbllsSelected() }}
+            {{ ` ${tinySelectBtnText}` }}
           </i>
         </button>
         <button
