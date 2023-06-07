@@ -3,7 +3,7 @@ import zbll_map_next from "@/assets/zbll_map_next.json"
 import {computed} from "vue";
 const props = defineProps(['zbllKey']);
 
-const suggestedAlgs = computed(() => zbll_map_next[props.zbllKey].algs.splice(0, 3))
+const suggestedAlgs = computed(() => zbll_map_next[props.zbllKey].algs.slice(0, 3))
 
 </script>
 
