@@ -28,11 +28,12 @@ const timerLabel = computed(() => {
   }
   if (sessionStore.timerState === TimerState.NOT_RUNNING || sessionStore.timerState === TimerState.STOPPING) {
     const n = sessionStore.stats().length
-    return n === 0 ? t("timer.ready") : msToHumanReadable(sessionStore.stats()[n-1]["ms"], settings.timerPrecision, true)
+    const ms = n === 0 ? 0 : sessionStore.stats()[n-1]["ms"]
+    return msToHumanReadable(ms, settings.timerPrecision, true)
   }
   // running
   if (settings.timerUpdate === "off") {
-    return t("timer.running")
+    return "⏱️"
   }
   const showMs = (settings.timerUpdate === "on")
   return msToHumanReadable(currentTime.value - sessionStore.timerStarted, settings.timerPrecision, showMs)

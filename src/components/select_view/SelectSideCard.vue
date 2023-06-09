@@ -11,7 +11,7 @@ const session = useSessionStore()
 const btnDisabled = computed(() => selected.totalZbllsSelected() === 0)
 
 const startPractice = () => {
-  session.recapMode = false
+  session.store.recapMode = false
   router.push('timer')
 }
 

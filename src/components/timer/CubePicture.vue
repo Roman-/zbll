@@ -33,23 +33,27 @@ const cubePictureSize = computed(() => {
 })
 
 const insertSvg = () => {
+  const isTopView = settings.pictureView === "top"
   cubeImgDiv.value.innerHTML = ''
 
   const opts = {
     "puzzle": {
       "alg": props.scramble,
-      "mask": {
-        "F": [3,4,5,6,7,8],
-        "B": [3,4,5,6,7,8],
-        "R": [3,4,5,6,7,8],
-        "L": [3,4,5,6,7,8],
-        "D": [0,1,2,3,4,5,6,7,8]
-      }
     },
     "width": cubePictureSize.value,
     "height": cubePictureSize.value,
   }
-  const visualizerType = settings.pictureView === "top" ? "cube-top" : "cube"
+  if (!isTopView) {
+    opts.puzzle.rotations = [{"x":38,"y":45,"z":29}]
+    opts.puzzle.mask = {
+      "F": [3,4,5,6,7,8],
+      "B": [3,4,5,6,7,8],
+      "R": [3,4,5,6,7,8],
+      "L": [3,4,5,6,7,8],
+      "D": [0,1,2,3,4,5,6,7,8]
+    }
+  }
+  const visualizerType = isTopView ? "cube-top" : "cube"
   SVG(cubeImgDiv.value, visualizerType, opts)
 }
 

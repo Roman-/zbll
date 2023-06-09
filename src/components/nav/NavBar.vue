@@ -7,8 +7,8 @@ import {useRouter, useRoute} from "vue-router";
 import {computed} from "vue";
 import {useSessionStore} from "@/stores/SessionStore";
 
-const selectedStore = useSelectedStore();
-const sessionStore = useSessionStore()
+const selected = useSelectedStore();
+const session = useSessionStore()
 const router = useRouter();
 const route = useRoute()
 const displayStore = useDisplayStore()
@@ -16,9 +16,9 @@ const displayStore = useDisplayStore()
 const isTimerView = computed(() => route.fullPath.endsWith("timer"))
 const settingsBtnClass = computed(() => displayStore.showSettings ? 'bg-info text-white' : 'text-info')
 const tinySelectBtnText = computed(() => {
-  return isTimerView && sessionStore.recapMode
-      ? (sessionStore.casesWithZeroCount.length + '/' + selectedStore.totalZbllsSelected())
-      : selectedStore.totalZbllsSelected()
+  return isTimerView && session.store.recapMode
+      ? (session.casesWithZeroCount.length + '/' + selected.totalZbllsSelected())
+      : selected.totalZbllsSelected()
 })
 </script>
 
@@ -48,10 +48,10 @@ const tinySelectBtnText = computed(() => {
           {{ $t("nav.zbll_trainer") }}
         </span>
         <span class="mx-2 d-none d-sm-inline-block">
-          {{ $t("nav.n_cases", selectedStore.totalZbllsSelected()) }}
+          {{ $t("nav.n_cases", selected.totalZbllsSelected()) }}
         </span>
-        <span class="mx-2 d-none d-sm-inline-block" v-if="isTimerView && sessionStore.recapMode">
-          {{ $t("nav.n_to_recap", sessionStore.casesWithZeroCount.length) }}
+        <span class="mx-2 d-none d-sm-inline-block" v-if="isTimerView && session.store.recapMode">
+          {{ $t("nav.n_to_recap", session.casesWithZeroCount.length) }}
         </span>
       </div>
       <div class="col d-flex justify-content-end p-0">
