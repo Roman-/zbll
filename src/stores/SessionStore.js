@@ -48,6 +48,11 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     const deleteResult = i => {
+        // "undo" the result, recovering its recap in case of misscramble
+        const key = store.value.stats[i].key
+        if (store.value.keysCount[key] > 0) {
+            store.value.keysCount[key]--
+        }
         store.value.stats.splice(i, 1)
         // rebuild indexes
         for (let j = Math.max(i - 1, 0); j < store.value.stats.length; j++) {

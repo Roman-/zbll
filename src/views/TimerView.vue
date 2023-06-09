@@ -72,7 +72,7 @@ const onGlobalKeyDown = event => {
     sessionStore.startRecap()
   } else if (event.key === "d" && event.altKey) {
     confirmClearSession();
-  } else if (event.key === "z" && event.altKey) {
+  } else if (event.key === "z" && (event.altKey || event.ctrlKey)) {
     deleteSingleResult()
   } else if (event.key === "s" && event.altKey && sessionStore.observingResult < sessionStore.stats().length) {
     selectStore.toggleSelected(sessionStore.stats()[sessionStore.observingResult])
