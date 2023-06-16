@@ -19,9 +19,9 @@ const router = useRouter();
 const sessionStore = useSessionStore()
 const timerNotRunning = computed(() => sessionStore.timerState === TimerState.NOT_RUNNING)
 const timerWrapClass = computed(() => timerNotRunning.value
-        ? ("col-lg-8 col-6 " + ((displayStore.showSettings || displayStore.showStatistics) ? "align-self-start" : "h-100"))
+        ? ("col-lg-8 col-5 " + ((displayStore.showSettings || displayStore.showStatistics) ? "align-self-start" : "h-100"))
         : "col-12")
-const rightColumnClass = computed(() => timerNotRunning.value ? "col-lg-4 col-6 align-items-start" : "d-none")
+const rightColumnClass = computed(() => timerNotRunning.value ? "col-lg-4 col-7 align-items-start" : "d-none")
 const selectStore = useSelectedStore()
 const presets = usePresetsStore()
 const displayStore = useDisplayStore()

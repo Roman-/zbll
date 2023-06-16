@@ -17,24 +17,25 @@ const onCardClicked = () => {
   action(key);
 }
 
-const card_bg_class = computed(() => {
+const cardBgClass = computed(() => {
   return is_selected.value ? "all_cases_selected" : "no_cases_selected";
 })
 
 </script>
 
 <template>
-  <div class="border border-dark clickable" @click="onCardClicked" :class="card_bg_class">
-    <div class="header p-1 border-bottom border-secondary text-center" @click="onCardClicked">
-      <strong>
-        {{ key.replace('s', '/') }}
-      </strong>
+  <div class="border border-secondary" :class="cardBgClass">
+    <div class="header p-1 border-bottom border-secondary border-opacity-75 text-center">
+        {{ key.split(' ')[2].replace('s', '/') }}
     </div>
-    <div class="m-1 text-center">
+    <div class="m-1 text-center clickable" @click="onCardClicked">
       <img class="cube_card_img" :src="getZbllImg(key, settings.pictureView)" :alt="key">
     </div>
   </div>
 </template>
 
 <style scoped>
+.header {
+  cursor: default;
+}
 </style>

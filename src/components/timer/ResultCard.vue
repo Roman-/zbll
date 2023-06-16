@@ -8,7 +8,7 @@ import {formatZbllKey} from "@/helpers/helpers";
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import { useI18n } from 'vue-i18n'
 import CubePicture from "@/components/timer/CubePicture.vue";
-import SuggestedAlgs from "@/components/timer/SuggestedAlgs.vue";
+import SetupAndAlgs from "@/components/timer/SetupAndAlgs.vue";
 const { t } = useI18n()
 
 const sessionStore = useSessionStore()
@@ -81,12 +81,7 @@ const starClicked = () => {
             :class="bookmarkIconClass"
             @click="starClicked"/>
       </p>
-      <p class="card-text my-0 my-sm-1">
-        <span class="d-sm-inline-block d-none">{{$t("result_card.scramble")}}&nbsp;</span>
-        {{ result["scramble"] }}
-      </p>
-      <CubePicture :scramble="result['scramble']"/>
-      <div class="form-check">
+      <div class="form-check mt-1">
         <label
             class="form-check-label"
             :title="$t('result_card.selected_title') + ' (Alt+S)'"
@@ -101,9 +96,13 @@ const starClicked = () => {
           {{$t("result_card.selected")}}
         </label>
       </div>
+      <CubePicture :scramble="result['scramble']"/>
       <p class="card-text my-0 my-sm-1">
-        <span class="d-sm-inline-block d-none mt-2">Suggested algs:</span>
-        <SuggestedAlgs :zbllKey="result['key']"/>
+        <SetupAndAlgs :zbllKey="result['key']" :maxAmount="3"/>
+      </p>
+      <p class="d-sm-block d-none card-text my-0 my-sm-1">
+        <span class="">{{$t("result_card.scramble")}}&nbsp;</span>
+        {{ result["scramble"] }}
       </p>
     </div>
   </div>

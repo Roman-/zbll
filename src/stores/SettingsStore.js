@@ -22,7 +22,7 @@ const initialShowHowTo = () => localStorage.getItem(showHowToKey) !== 'false' ??
 
 export const useSettingsStore = defineStore('settings', () => {
     const resetDefaults = () => {
-        pictureView.value = "top"
+        pictureView.value = "top" // "top" / "3D"
         timerUpdate.value = "seconds"
         timerPrecision.value = 2
         timerFont.value = "Roboto Mono"

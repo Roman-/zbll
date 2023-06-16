@@ -3,6 +3,7 @@ import {computed, onMounted, ref} from "vue";
 import {Modal} from 'bootstrap'
 import {useSelectedStore} from "@/stores/SelectedStore";
 import ZbllCard from "@/components/select_view/ZbllCard.vue";
+import ZbllCaseInfo from "@/components/select_view/ZbllCaseInfo.vue";
 
 const props = defineProps(['oll', 'coll', 'closeCallback']);
 const {oll, coll, closeCallback} = props;
@@ -25,6 +26,7 @@ onMounted(() => {
   zbllsModal.value.addEventListener('hidden.bs.modal', closeCallback)
 })
 
+const inspectingKey = ref(null)
 </script>
 
 <template>
@@ -37,7 +39,10 @@ onMounted(() => {
         </div>
         <div class="modal-body">
           <div class="row gx-0">
-            <div v-for="zbll in zbllNames" :key="zbll" class="col-3">
+            <div
+                v-for="zbll in zbllNames" :key="zbll" class="col-3"
+                @mouseenter="inspectingKey=`${oll} ${coll} ${zbll}`"
+            >
               <ZbllCard :zbllKey="`${oll} ${coll} ${zbll}`"/>
             </div>
           </div>
@@ -53,6 +58,7 @@ onMounted(() => {
             {{ $t("zbll_select_card.done") }}
           </button>
         </div>
+        <ZbllCaseInfo v-if="inspectingKey" :zbllKey="inspectingKey"/>
       </div>
     </div>
   </div>
