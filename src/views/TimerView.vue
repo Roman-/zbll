@@ -12,11 +12,13 @@ import {useRouter} from "vue-router";
 import Settings from "@/components/Settings.vue";
 import {computed, onMounted, onUnmounted} from "vue";
 import {useSelectedStore} from "@/stores/SelectedStore";
+import {useSettingsStore} from "@/stores/SettingsStore"
 import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import {useDisplayStore} from "@/stores/DisplayStore";
 
 const router = useRouter();
 const sessionStore = useSessionStore()
+const settings = useSettingsStore()
 const timerNotRunning = computed(() => sessionStore.timerState === TimerState.NOT_RUNNING)
 const timerWrapClass = computed(() => timerNotRunning.value
         ? ("col-lg-8 col-5 " + ((displayStore.showSettings || displayStore.showStatistics) ? "align-self-start" : "h-100"))
@@ -58,7 +60,7 @@ const onGlobalKeyDown = event => {
     sessionStore.observingResult = sessionStore.stats().length - 1
   } else if (event.key === " ") {
     if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
-      sessionStore.timerState = TimerState.READY
+      sessionStore.getTimerReady(settings.timerStartDelayMs)
     }
   } else if (event.key === "Delete") {
     if (event.shiftKey) {
@@ -86,8 +88,12 @@ const onGlobalKeyDown = event => {
 const onGlobalKeyUp = (event) => {
   if (sessionStore.timerState === TimerState.STOPPING) {
     sessionStore.timerState = TimerState.NOT_RUNNING
-  } else if (event.key === " " && sessionStore.timerState === TimerState.READY) {
-    sessionStore.startTimer()
+  } else if (event.key === " ") {
+    if (sessionStore.timerState === TimerState.READY) {
+      sessionStore.startTimer()
+    } else if (sessionStore.timerState === TimerState.AWAITING_READY) {
+      sessionStore.timerState = TimerState.NOT_RUNNING // reset
+    }
   } else {
     return
   }
@@ -111,7 +117,7 @@ const onTimerTouchStart = event => {
   if (sessionStore.timerState === TimerState.RUNNING) {
     sessionStore.stopTimer()
   } else if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
-    sessionStore.timerState = TimerState.READY
+    sessionStore.getTimerReady(settings.timerStartDelayMs)
   }
   event.preventDefault()
 }
@@ -121,6 +127,8 @@ const onTimerTouchEnd = event => {
     sessionStore.timerState = TimerState.NOT_RUNNING
   } else if (sessionStore.timerState === TimerState.READY) {
     sessionStore.startTimer()
+  } else if (sessionStore.timerState === TimerState.AWAITING_READY) {
+    sessionStore.timerState = TimerState.NOT_RUNNING // reset
   }
   event.preventDefault()
 }

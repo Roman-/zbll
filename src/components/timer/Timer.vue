@@ -23,7 +23,8 @@ watchEffect(() => {
 })
 
 const timerLabel = computed(() => {
-  if (sessionStore.timerState === TimerState.READY) {
+  if (sessionStore.timerState === TimerState.READY
+      || sessionStore.timerState === TimerState.AWAITING_READY) {
     return msToHumanReadable(0, settings.timerPrecision, true)
   }
   if (sessionStore.timerState === TimerState.NOT_RUNNING || sessionStore.timerState === TimerState.STOPPING) {
@@ -43,6 +44,8 @@ const classByState = computed(() => {
   switch (sessionStore.timerState) {
     case TimerState.NOT_RUNNING:
       return "not_running"
+    case TimerState.AWAITING_READY:
+      return "awaiting_ready"
     case TimerState.READY:
       return "ready"
     case TimerState.RUNNING:
@@ -75,6 +78,9 @@ const classByState = computed(() => {
 }
 .running {
   color: var(--bs-body-color)
+}
+.awaiting_ready {
+  color: var(--bs-warning)
 }
 .ready {
   color: var(--bs-success)

@@ -30,9 +30,10 @@ const initialStore = JSON.parse(localStorage.getItem(storeKey)) || {
 
 export const TimerState = Object.freeze({
     NOT_RUNNING: 0,
-    READY: 1, // space button held down to start
-    RUNNING: 2,
-    STOPPING: 3, // space button held down after timer stopped
+    AWAITING_READY: 1, // user just started to hold space but there is the gap still
+    READY: 2, // space button held down to start
+    RUNNING: 3,
+    STOPPING: 4, // space button held down after timer stopped
 });
 
 // store for current case/scramble and stats
@@ -109,6 +110,25 @@ export const useSessionStore = defineStore('session', () => {
         observingResult.value = 0
     }
 
+    // when the competitor places his hands on the timer (aka holds spacebar)
+    const getTimerReady = (timerStartDelayMs) => {
+        if (timerState.value !== TimerState.NOT_RUNNING) {
+            return // do nothing if timer is already running / waiting
+        }
+        if (timerStartDelayMs > 0) {
+            console.log(">0 = ", timerStartDelayMs);
+            timerState.value = TimerState.AWAITING_READY
+            setTimeout(() => {
+                if (timerState.value === TimerState.AWAITING_READY) {
+                    timerState.value = TimerState.READY
+                }
+            }, timerStartDelayMs)
+        } else {
+            console.log("not >0 = ", timerStartDelayMs);
+            timerState.value = TimerState.READY
+        }
+    }
+
     const startTimer = () => {
         timerStarted.value = Date.now();
         timerState.value = TimerState.RUNNING;
@@ -143,7 +163,7 @@ export const useSessionStore = defineStore('session', () => {
     const currentScramble = computed(() => store.currentScramble)
 
     return { store, clearSession, setSelectedKeys, stats, deleteResult,
-        observingResult, timerStarted, timerState, startTimer, stopTimer,
+        observingResult, timerStarted, timerState, getTimerReady, startTimer, stopTimer,
         startRecap, currentScramble, casesWithZeroCount
     }
 });

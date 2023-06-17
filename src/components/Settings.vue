@@ -102,6 +102,34 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
+        <label for="timerStartDelayMs" class="form-label">Timer start delay (ms)</label>
+        <select
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            v-model.number="settings.timerStartDelayMs" id="timerStartDelayMs">
+          <option value="0">0</option>
+          <option value="100">100</option>
+          <option value="300">300</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+        </select>
+      </div>
+
+      <div class="mb-2">
+        <label for="scrambleEnding" class="form-label">Scramble appendix</label>
+        <select
+            class="mx-2" tabindex="-1" @keydown.space.prevent=""
+            v-model.number="settings.scrambleAppendix" id="scrambleAppendix" disabled>
+          <option value="None">None</option>
+          <option value="R U' R'">R U' R'</option>
+          <option value="R U R'">R U R'</option>
+          <option value="L U L'">L U L'</option>
+          <option value="L U' L'">L U' L'</option>
+          <option value="RandomR">Random (R)</option>
+          <option value="Random">Random (Any)</option>
+        </select>
+      </div>
+
+      <div class="mb-2">
         <label for="DarkTheme" class="form-label">{{ $t("settings.dark_theme") }}</label>
         <ThemesSelect selectId="DarkTheme" is-dark="true"/>
       </div>
