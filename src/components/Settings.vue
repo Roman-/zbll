@@ -118,14 +118,13 @@ const onResetBtnClicked = () => {
         <label for="scrambleEnding" class="form-label">Scramble appendix</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.scrambleAppendix" id="scrambleAppendix" disabled>
+            v-model.number="settings.scrambleAppendix" id="scrambleAppendix">
           <option value="None">None</option>
           <option value="R U' R'">R U' R'</option>
           <option value="R U R'">R U R'</option>
           <option value="L U L'">L U L'</option>
           <option value="L U' L'">L U' L'</option>
-          <option value="RandomR">Random (R)</option>
-          <option value="Random">Random (Any)</option>
+<!--          TODO add "R' U R", "R' U' R'", "Random R" and "Random/ALL"-->
         </select>
       </div>
 

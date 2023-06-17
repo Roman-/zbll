@@ -44,7 +44,7 @@ export const useSettingsStore = defineStore('settings', () => {
         timerFontSize.value = 64
         showHowTo.value = true
         timerStartDelayMs.value = 100
-        scrambleAppendix.value = ""
+        scrambleAppendix.value = "None"
     }
 
     // TODO instead of these watchers, add one deep watcher to the store

@@ -116,7 +116,6 @@ export const useSessionStore = defineStore('session', () => {
             return // do nothing if timer is already running / waiting
         }
         if (timerStartDelayMs > 0) {
-            console.log(">0 = ", timerStartDelayMs);
             timerState.value = TimerState.AWAITING_READY
             setTimeout(() => {
                 if (timerState.value === TimerState.AWAITING_READY) {
@@ -124,7 +123,6 @@ export const useSessionStore = defineStore('session', () => {
                 }
             }, timerStartDelayMs)
         } else {
-            console.log("not >0 = ", timerStartDelayMs);
             timerState.value = TimerState.READY
         }
     }
