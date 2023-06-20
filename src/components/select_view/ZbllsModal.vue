@@ -26,6 +26,11 @@ onMounted(() => {
   zbllsModal.value.addEventListener('hidden.bs.modal', closeCallback)
 })
 
+const allBtnClicked = () => {
+  selected.removeColl(oll, coll) // remove all cases in case some were selected already
+  selected.addColl(oll, coll)
+}
+
 const inspectingKey = ref(null)
 </script>
 
@@ -48,7 +53,7 @@ const inspectingKey = ref(null)
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="selected.addColl(oll, coll);">
+          <button type="button" class="btn btn-secondary" @click="allBtnClicked">
             {{ $t("zbll_select_card.all") }}
           </button>
           <button type="button" class="btn btn-secondary" @click="selected.removeColl(oll, coll);">
