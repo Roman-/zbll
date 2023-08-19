@@ -2,6 +2,7 @@
 import {getZbllImg} from "@/helpers/cube_images";
 import SetupAndAlgs from "@/components/timer/SetupAndAlgs.vue";
 import {useSettingsStore} from "@/stores/SettingsStore";
+import ZbllNote from "@/components/ZbllNote.vue";
 const settings = useSettingsStore()
 
 const props = defineProps(['zbllKey']);
@@ -17,6 +18,7 @@ const alternativePictureView = settings.store.pictureView === "top" ? "3D" : "to
       <img class="cube_card_img" :src="getZbllImg(props.zbllKey, alternativePictureView)">
     </div>
     <div class="col text-start">
+      <ZbllNote :zbllKey="props.zbllKey"/>
       <SetupAndAlgs :zbllKey="props.zbllKey" :maxAmount="8"/>
     </div>
   </div>
