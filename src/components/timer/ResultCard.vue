@@ -57,7 +57,7 @@ const starClicked = () => {
         <div class="row align-items-center">
           <div class="col">
             <span class="d-sm-inline-block d-none">{{$t("result_card.result_no", result["i"] + 1)}} &nbsp;</span>
-            <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.timerPrecision) }}</span>
+            <span class="badge bg-primary">{{ msToHumanReadable(result["ms"], settings.store.timerPrecision) }}</span>
           </div>
           <div class="col-auto">
             <button

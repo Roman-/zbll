@@ -10,7 +10,7 @@ export const makeScramble = (zbllKey, preferredLength) => {
   return applyRotationButLessB(random_element(scramblesMap[choosenLength]));
 }
 
-export const inverseScramble = (s) => {
+export const inverseScramble = s => {
   const arr = s.split(" ");
 
   return arr.map((it) => {

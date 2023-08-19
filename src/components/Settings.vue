@@ -38,7 +38,7 @@ const onResetBtnClicked = () => {
             type="number"
             min="1" max="999" maxlength="3" size="5"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.scrambleFontSize" id="scrambleFontSize"/>
+            v-model.number="settings.store.scrambleFontSize" id="scrambleFontSize"/>
       </div>
 
       <div class="mb-2">
@@ -47,13 +47,13 @@ const onResetBtnClicked = () => {
             type="number"
             min="1" max="999" maxlength="3" size="5"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.timerFontSize" id="timerFontSize"/>
+            v-model.number="settings.store.timerFontSize" id="timerFontSize"/>
       </div>
 
       <div class="mb-2">
         <label for="timerFont" class="form-label">{{ $t("settings.timer_font") }}</label>
         <select
-            v-model="settings.timerFont"
+            v-model="settings.store.timerFont"
             class="mx-2"
             tabindex="-1" @keydown.space.prevent=""
             id="timerFont">
@@ -68,7 +68,7 @@ const onResetBtnClicked = () => {
       <div class="mb-2">
         <label for="pictureView" class="form-label">{{ $t("settings.zbll_pictures_view") }}</label>
         <select
-            v-model="settings.pictureView"
+            v-model="settings.store.pictureView"
             class="mx-2"
             tabindex="-1" @keydown.space.prevent=""
             id="pictureView">
@@ -81,7 +81,7 @@ const onResetBtnClicked = () => {
       <div class="mb-2">
         <label for="timerUpdate" class="form-label">{{ $t("settings.timer_update") }}</label>
         <select
-            v-model="settings.timerUpdate"
+            v-model="settings.store.timerUpdate"
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             id="timerUpdate">
           <option value="on">{{ $t("settings.timer_update_on") }}</option>
@@ -94,7 +94,7 @@ const onResetBtnClicked = () => {
         <label for="timerPrecision" class="form-label">{{ $t("settings.timer_precision") }}</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.timerPrecision" id="timerPrecision">
+            v-model.number="settings.store.timerPrecision" id="timerPrecision">
           <option value="1">1/10</option>
           <option value="2">1/100</option>
           <option value="3">1/1000</option>
@@ -105,7 +105,7 @@ const onResetBtnClicked = () => {
         <label for="timerStartDelayMs" class="form-label">Timer start delay (ms)</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.timerStartDelayMs" id="timerStartDelayMs">
+            v-model.number="settings.store.timerStartDelayMs" id="timerStartDelayMs">
           <option value="0">0</option>
           <option value="100">100</option>
           <option value="300">300</option>
@@ -118,7 +118,7 @@ const onResetBtnClicked = () => {
         <label for="scrambleEnding" class="form-label">Scramble appendix</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
-            v-model.number="settings.scrambleAppendix" id="scrambleAppendix">
+            v-model.number="settings.store.scrambleAppendix" id="scrambleAppendix">
           <option value="None">None</option>
           <option value="R U' R'">R U' R'</option>
           <option value="R U R'">R U R'</option>

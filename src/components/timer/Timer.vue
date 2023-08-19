@@ -25,19 +25,19 @@ watchEffect(() => {
 const timerLabel = computed(() => {
   if (sessionStore.timerState === TimerState.READY
       || sessionStore.timerState === TimerState.AWAITING_READY) {
-    return msToHumanReadable(0, settings.timerPrecision, true)
+    return msToHumanReadable(0, settings.store.timerPrecision, true)
   }
   if (sessionStore.timerState === TimerState.NOT_RUNNING || sessionStore.timerState === TimerState.STOPPING) {
     const n = sessionStore.stats().length
     const ms = n === 0 ? 0 : sessionStore.stats()[n-1]["ms"]
-    return msToHumanReadable(ms, settings.timerPrecision, true)
+    return msToHumanReadable(ms, settings.store.timerPrecision, true)
   }
   // running
-  if (settings.timerUpdate === "off") {
+  if (settings.store.timerUpdate === "off") {
     return "⏱️"
   }
-  const showMs = (settings.timerUpdate === "on")
-  return msToHumanReadable(currentTime.value - sessionStore.timerStarted, settings.timerPrecision, showMs)
+  const showMs = (settings.store.timerUpdate === "on")
+  return msToHumanReadable(currentTime.value - sessionStore.timerStarted, settings.store.timerPrecision, showMs)
 })
 
 const classByState = computed(() => {
@@ -59,7 +59,7 @@ const classByState = computed(() => {
 
 <template>
   <h3
-      :style="{ fontSize: settings.timerFontSize + 'px', fontFamily : settings.timerFont + ', monospace' }"
+      :style="{ fontSize: settings.store.timerFontSize + 'px', fontFamily : settings.store.timerFont + ', monospace' }"
       class="timer text-center noselect d-block p-4" :class="classByState">
     {{timerLabel}}
   </h3>

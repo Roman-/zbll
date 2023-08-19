@@ -60,7 +60,7 @@ const onGlobalKeyDown = event => {
     sessionStore.observingResult = sessionStore.stats().length - 1
   } else if (event.key === " ") {
     if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
-      sessionStore.getTimerReady(settings.timerStartDelayMs)
+      sessionStore.getTimerReady(settings.store.timerStartDelayMs)
     }
   } else if (event.key === "Delete") {
     if (event.shiftKey) {
@@ -117,7 +117,7 @@ const onTimerTouchStart = event => {
   if (sessionStore.timerState === TimerState.RUNNING) {
     sessionStore.stopTimer()
   } else if (sessionStore.timerState === TimerState.NOT_RUNNING && sessionStore.currentScramble) {
-    sessionStore.getTimerReady(settings.timerStartDelayMs)
+    sessionStore.getTimerReady(settings.store.timerStartDelayMs)
   }
   event.preventDefault()
 }

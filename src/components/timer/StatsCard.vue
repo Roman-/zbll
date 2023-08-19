@@ -9,7 +9,6 @@ const {t} = useI18n()
 
 const sessionStore = useSessionStore()
 const settings = useSettingsStore()
-const selectStore = useSelectedStore()
 const numResults = computed(() => sessionStore.stats().length)
 const onClearBtnClick = () => {
   if (confirm(t("stats_card.are_you_sure_to_clean"))) {
@@ -55,7 +54,7 @@ const statClicked = i => sessionStore.observingResult = i
           <span
               @click="statClicked(stat['i'])" class="clickable stat"
               :class="sessionStore.observingResult === stat['i'] ? 'text-info' : ''">
-            {{ msToHumanReadable(stat["ms"], settings.timerPrecision) }}
+            {{ msToHumanReadable(stat["ms"], settings.store.timerPrecision) }}
           </span>{{ stat["i"] === sessionStore.stats().length - 1 ? "" : ", " }}
         </span>
         <div v-if="sessionStore.stats().length === 0 && sessionStore.timerState !== TimerState.RUNNING">
