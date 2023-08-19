@@ -29,7 +29,7 @@ const cardBgClass = computed(() => {
         {{ key.split(' ')[2].replace('s', '/') }}
     </div>
     <div class="m-1 text-center clickable" @click="onCardClicked">
-      <img class="cube_card_img" :src="getZbllImg(key, settings.pictureView)" :alt="key">
+      <img class="cube_card_img" :src="getZbllImg(key, settings.store.pictureView)" :alt="key">
     </div>
   </div>
 </template>

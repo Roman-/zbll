@@ -5,7 +5,7 @@ import {useSettingsStore} from "@/stores/SettingsStore";
 const settings = useSettingsStore()
 
 const props = defineProps(['zbllKey']);
-const alternativePictureView = settings.pictureView === "top" ? "3D" : "top"
+const alternativePictureView = settings.store.pictureView === "top" ? "3D" : "top"
 
 </script>
 

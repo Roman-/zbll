@@ -33,7 +33,7 @@ const cubePictureSize = computed(() => {
 })
 
 const insertSvg = () => {
-  const isTopView = settings.pictureView === "top"
+  const isTopView = settings.store.pictureView === "top"
   cubeImgDiv.value.innerHTML = ''
 
   const opts = {
@@ -58,7 +58,7 @@ const insertSvg = () => {
 }
 
 watch(() => props.scramble, insertSvg)
-watch(() => settings.pictureView, insertSvg)
+watch(() => settings.store.pictureView, insertSvg)
 watch(() => cubePictureSize.value, insertSvg)
 onMounted(() => {
   window.addEventListener('resize', updateDimensions);
