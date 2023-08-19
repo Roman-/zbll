@@ -16,11 +16,11 @@ const defaultSettings = {
     scrambleAppendix: "None",
 }
 
-const settingsLocalStorageKey = "zbllTrainerSettings"
+const localStorageKey = "zbllTrainerSettings"
 
 export const useSettingsStore = defineStore('settings', () => {
     const store = reactive(
-        JSON.parse(localStorage.getItem(settingsLocalStorageKey)) || defaultSettings
+        JSON.parse(localStorage.getItem(localStorageKey)) || defaultSettings
     )
 
     const resetDefaults = () => {
@@ -30,7 +30,7 @@ export const useSettingsStore = defineStore('settings', () => {
     }
 
     watch(() => store, () => {
-        localStorage.setItem(settingsLocalStorageKey, JSON.stringify(store))
+        localStorage.setItem(localStorageKey, JSON.stringify(store))
     }, {deep: true})
 
     return { resetDefaults, store }

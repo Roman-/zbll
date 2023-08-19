@@ -9,6 +9,7 @@ import {usePresetsStore, starredName} from "@/stores/PresetStore";
 import { useI18n } from 'vue-i18n'
 import CubePicture from "@/components/timer/CubePicture.vue";
 import SetupAndAlgs from "@/components/timer/SetupAndAlgs.vue";
+import ZbllNote from "@/components/ZbllNote.vue";
 const { t } = useI18n()
 
 const sessionStore = useSessionStore()
@@ -81,6 +82,7 @@ const starClicked = () => {
             :class="bookmarkIconClass"
             @click="starClicked"/>
       </p>
+      <ZbllNote :zbllKey="result['key']"/>
       <div class="form-check mt-1">
         <label
             class="form-check-label"
