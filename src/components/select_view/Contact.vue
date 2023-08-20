@@ -18,7 +18,7 @@
     <h5>{{ $t("contact.support") }}</h5>
     <p>
       <i class="bi bi-heart-fill"></i>
-      <a href="https://bestsiteever.ru/me" class="px-2" target="_blank"> bestsiteever.ru/me</a>
+      <a href="https://bestsiteever.ru#me" class="px-2" target="_blank"> bestsiteever.ru/me</a>
     </p>
   </div>
 </template>

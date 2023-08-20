@@ -57,7 +57,9 @@
       "dark_theme": "Dark theme",
       "light_theme": "Light theme",
       "show_lang_button": "Show language button",
-      "are_you_sure_to_reset": "Are you sure?"
+      "are_you_sure_to_reset": "Are you sure?",
+      "scramble_appendix": "Scramble appendix",
+      "timer_start_delay_ms": "Timer start delay (ms)"
     },
     "timer": {
       "no_scramble": "no scramble available",
@@ -81,7 +83,12 @@
       "selected": "Selected",
       "add_to_starred": "Add to starred preset",
       "selected_title": "Select/deselect case",
-      "are_you_sure_to_delete": "Delete this result?"
+      "are_you_sure_to_delete": "Delete this result?",
+      "your_note": "Your note",
+      "add_your_note": "Add your note",
+      "edit_note": "Edit note",
+      "setup_moves": "Setup",
+      "algorithms_collection": "Algs"
     },
     "hotkeys": {
       "hotkeys": "Hotkeys",
