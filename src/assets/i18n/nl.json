@@ -1,0 +1,111 @@
+{
+  "nl": {
+    "nav": {
+      "zbll_trainer": "ZBLL Trainer",
+      "select_btn": "selecteer",
+      "n_cases": "geen geselecteerde situaties | één situatie geselecteerd | {count} situaties geselecteerd",
+      "n_to_recap": "{count} om te herhalen",
+      "language": "Taal",
+      "add_translation": "Vertaling toevoegen",
+      "settings": "Instellingen",
+      "toggle_night_mode": "Wissel tussen nachtmodus"
+    },
+    "select": {
+      "select_intro": "Selecteer situaties om te oefenen",
+      "practice_btn_title": "Oefen situaties willekeurig",
+      "recap_btn_title": "Ga door elke situatie één keer",
+      "practice": "start",
+      "recap": "herhaal elke situatie één keer"
+    },
+    "presets": {
+      "presets": "Voorinstellingen",
+      "new_preset": "Nieuwe voorinstelling",
+      "edit_preset": "Bewerk voorinstelling",
+      "name_example": "om te leren",
+      "save_btn": "Opslaan",
+      "apply_btn": "Toepassen",
+      "delete_btn": "Verwijderen"
+    },
+    "howto": {
+      "how_to_use": "Hoe te gebruiken",
+      "dismiss_label": "sluit dit gedeelte",
+      "howto_1": "\uD83D\uDDB1️ Klik op de afbeelding om alle situaties in de groep te selecteren / deselecteren",
+      "howto_2": "\uD83D\uDD3D Klik op de kop van het item om de groep uit te vouwen / in te klappen",
+      "howto_3": "\uD83D\uDFE2 Groene kleur betekent dat alle situaties in de groep zijn geselecteerd; \uD83D\uDFE1 geel - sommige situaties zijn geselecteerd; ⚪ wit - geen situaties geselecteerd",
+      "howto_4": "✅ Wanneer situaties zijn geselecteerd, klik op \"start\""
+    },
+    "zbll_select_card": {
+      "all": "Alles",
+      "none": "Geen",
+      "done": "Klaar"
+    },
+    "settings": {
+      "settings_title": "Instellingen",
+      "reset_btn": "Herstellen",
+      "done_btn": "Klaar",
+      "scramble_size": "Scramble grootte",
+      "timer_size": "Timer grootte",
+      "timer_font": "Timer lettertype",
+      "zbll_pictures_view": "ZBLL afbeeldingenweergave",
+      "zbll_pictures_top": "Boven",
+      "zbll_pictures_side": "Zijkant",
+      "timer_update": "Timer update",
+      "timer_update_on": "Aan",
+      "timer_update_off": "Uit",
+      "timer_update_seconds": "Alleen seconden",
+      "timer_precision": "Timer precisie",
+      "dark_theme": "Donker thema",
+      "light_theme": "Licht thema",
+      "show_lang_button": "Toon taalknop",
+      "are_you_sure_to_reset": "Weet je het zeker?",
+      "scramble_appendix": "Scramble toevoeging",
+      "timer_start_delay_ms": "Timer start vertraging (ms)"
+    },
+    "timer": {
+      "no_scramble": "geen scramble beschikbaar",
+      "scramble": "Scramble:",
+      "ready": "klaar",
+      "running": "loopt"
+    },
+    "stats_card": {
+      "stats_title": "Statistieken:",
+      "n_solves": "geen oplossingen | één oplossing | {count} oplossingen",
+      "clear_btn": "wissen",
+      "clear_btn_hint": "Sessie wissen",
+      "hold_spacebar_hint": "Houd spatiebalk ingedrukt om de timer te starten",
+      "are_you_sure_to_clean": "Sessie wissen?"
+    },
+    "result_card": {
+      "result_no": "Resultaat #{count}",
+      "delete_btn": "Verwijderen",
+      "case": "Situatie:",
+      "scramble": "Scramble:",
+      "selected": "Geselecteerd",
+      "add_to_starred": "Toevoegen aan favoriete voorinstelling",
+      "selected_title": "Situatie selecteren/deselecteren",
+      "are_you_sure_to_delete": "Dit resultaat verwijderen?",
+      "your_note": "Jouw opmerking",
+      "add_your_note": "Voeg jouw opmerking toe",
+      "edit_note": "Opmerking bewerken",
+      "setup_moves": "Opstelling",
+      "algorithms_collection": "Algoritmes"
+    },
+    "hotkeys": {
+      "hotkeys": "Sneltoetsen",
+      "or": "of",
+      "toggle_timer_select": "Schakel tussen Timer/Select weergave",
+      "delete_current_result": "Huidig resultaat verwijderen",
+      "clear_session": "Sessie wissen",
+      "select_deselect": "Huidige situatie selecteren/deselecteren",
+      "recap": "Begin met herhalen van alle geselecteerde situaties",
+      "add_to_starred": "Geselecteerde situatie toevoegen aan favoriete voorinstelling",
+      "navigate": "Navigeer naar vorig/volgend/eerste/laatste resultaat in statistieken"
+    },
+    "contact": {
+      "contact": "Contact",
+      "reach_out": "Neem contact op met de ontwikkelaar",
+      "get_the_code": "Bekijk de broncode",
+      "support": "Ondersteun het project"
+    }
+  }
+}
