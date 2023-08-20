@@ -57,7 +57,9 @@
       "dark_theme": "Koyu tema",
       "light_theme": "Açık tema",
       "show_lang_button": "Dil düğmesini göster",
-      "are_you_sure_to_reset": "Emin misiniz?"
+      "are_you_sure_to_reset": "Emin misiniz?",
+      "scramble_appendix": "Karıştırma eki",
+      "timer_start_delay_ms": "Zamanlayıcı başlangıç gecikmesi (ms)"
     },
     "timer": {
       "no_scramble": "geçerli bir karıştırma yok",
@@ -81,7 +83,12 @@
       "selected": "Seçildi",
       "add_to_starred": "Yıldızlı ön ayara ekle",
       "selected_title": "Durumu seçmek / seçimi kaldırmak",
-      "are_you_sure_to_delete": "Bu sonucu silmek istediğinizden emin misiniz?"
+      "are_you_sure_to_delete": "Bu sonucu silmek istediğinizden emin misiniz?",
+      "your_note": "Notunuz",
+      "add_your_note": "Notunuzu ekleyin",
+      "edit_note": "Notu düzenle",
+      "setup_moves": "Kurulum",
+      "algorithms_collection": "Algoritmalar"
     },
     "hotkeys": {
       "hotkeys": "Kısayol Tuşları",

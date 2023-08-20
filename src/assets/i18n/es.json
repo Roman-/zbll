@@ -56,7 +56,9 @@
       "dark_theme": "Tema oscuro",
       "light_theme": "Tema claro",
       "show_lang_button": "Mostrar botón de idioma",
-      "are_you_sure_to_reset": "¿Estás seguro?"
+      "are_you_sure_to_reset": "¿Estás seguro?",
+      "scramble_appendix": "Apéndice del scramble",
+      "timer_start_delay_ms": "Retraso en el inicio del temporizador (ms)"
     },
     "timer": {
       "no_scramble": "no hay mezcla disponible",
@@ -80,7 +82,12 @@
       "selected": "Seleccionado",
       "add_to_starred": "Agregar a preajuste favorito",
       "selected_title": "Seleccionar / deseleccionar caso",
-      "are_you_sure_to_delete": "¿Eliminar este resultado?"
+      "are_you_sure_to_delete": "¿Eliminar este resultado?",
+      "your_note": "Tu nota",
+      "add_your_note": "Añadir tu nota",
+      "edit_note": "Editar nota",
+      "setup_moves": "Configuración",
+      "algorithms_collection": "Algoritmos"
     },
     "hotkeys": {
       "hotkeys": "Atajos de teclado",

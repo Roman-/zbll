@@ -56,7 +56,9 @@
       "dark_theme": "Donker tema",
       "light_theme": "Ligte tema",
       "show_lang_button": "Wys taalknoppie",
-      "are_you_sure_to_reset": "Is jy seker?"
+      "are_you_sure_to_reset": "Is jy seker?",
+      "scramble_appendix": "Scramble aanhangsel",
+      "timer_start_delay_ms": "Tydopnemer begin vertraging (ms)"
     },
     "timer": {
       "no_scramble": "geen skramble beskikbaar",
@@ -80,7 +82,12 @@
       "selected": "Gekies",
       "add_to_starred": "Voeg by gunsteling voorafstelling",
       "selected_title": "Kies / verwyder keuse van geval",
-      "are_you_sure_to_delete": "Vee hierdie resultaat uit?"
+      "are_you_sure_to_delete": "Vee hierdie resultaat uit?",
+      "your_note": "Jou nota",
+      "add_your_note": "Voeg jou nota by",
+      "edit_note": "Wysig nota",
+      "setup_moves": "Opstel",
+      "algorithms_collection": "Algoritmes"
     },
     "hotkeys": {
       "hotkeys": "Snelsleutels",

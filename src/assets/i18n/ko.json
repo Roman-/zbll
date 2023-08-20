@@ -57,7 +57,9 @@
       "dark_theme": "다크 테마",
       "light_theme": "라이트 테마",
       "show_lang_button": "언어 버튼 보이기",
-      "are_you_sure_to_reset": "확인하시겠습니까?"
+      "are_you_sure_to_reset": "확인하시겠습니까?",
+      "scramble_appendix": "스크램블 부록",
+      "timer_start_delay_ms": "타이머 시작 지연 (ms)"
     },
     "timer": {
       "no_scramble": "사용 가능한 스크램블 없음",
@@ -81,7 +83,12 @@
       "selected": "선택됨",
       "add_to_starred": "중요 프리셋에 추가",
       "selected_title": "케이스 선택/해제",
-      "are_you_sure_to_delete": "이 결과를 삭제하시겠습니까?"
+      "are_you_sure_to_delete": "이 결과를 삭제하시겠습니까?",
+      "your_note": "당신의 노트",
+      "add_your_note": "노트 추가",
+      "edit_note": "노트 편집",
+      "setup_moves": "설정",
+      "algorithms_collection": "알고리즘"
     },
     "hotkeys": {
       "hotkeys": "단축키",

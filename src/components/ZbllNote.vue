@@ -51,13 +51,13 @@ const placeholder = `e.g. "odd regrip", "two sunes", "Feleks' fav alg" etc`
         class="text-secondary d-flex flex-column justify-content-center"
     >
       <div>
-        Add your note
+        {{ $t("result_card.add_your_note") }}
       </div>
     </div>
-    <div v-else title="Your note">
+    <div v-else :title="$t('result_card.your_note') ">
       {{notes.store[key]}}
     </div>
-    <button class="btn btn-sm btn-link" @click="beginEditing()" title="edit note">
+    <button class="btn btn-sm btn-link" @click="beginEditing()" :title="$t('result_card.edit_note')">
       <i class="bi bi-pencil"></i>
     </button>
   </div>

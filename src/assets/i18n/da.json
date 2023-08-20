@@ -56,7 +56,9 @@
       "dark_theme": "Mørkt tema",
       "light_theme": "Lyst tema",
       "show_lang_button": "Vis sprogknappen",
-      "are_you_sure_to_reset": "Er du sikker?"
+      "are_you_sure_to_reset": "Er du sikker?",
+      "scramble_appendix": "Scramble bilag",
+      "timer_start_delay_ms": "Timer start forsinkelse (ms)"
     },
     "timer": {
       "no_scramble": "ingen scramble tilgængelig",
@@ -80,7 +82,12 @@
       "selected": "Valgt",
       "add_to_starred": "Tilføj til favorit forudindstilling",
       "selected_title": "Vælg/fravælg sag",
-      "are_you_sure_to_delete": "Slet dette resultat?"
+      "are_you_sure_to_delete": "Slet dette resultat?",
+      "your_note": "Din note",
+      "add_your_note": "Tilføj din note",
+      "edit_note": "Rediger note",
+      "setup_moves": "Opsætning",
+      "algorithms_collection": "Algoritmer"
     },
     "hotkeys": {
       "hotkeys": "Genvejstaster",

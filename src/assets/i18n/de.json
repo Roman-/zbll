@@ -56,7 +56,9 @@
       "dark_theme": "Dunkles Design",
       "light_theme": "Helles Design",
       "show_lang_button": "Sprachauswahl anzeigen",
-      "are_you_sure_to_reset": "Bist du sicher?"
+      "are_you_sure_to_reset": "Bist du sicher?",
+      "scramble_appendix": "Scramble-Anhang",
+      "timer_start_delay_ms": "Timer-Startverzögerung (ms)"
     },
     "timer": {
       "no_scramble": "kein Mischvorgang verfügbar",
@@ -80,7 +82,12 @@
       "selected": "Ausgewählt",
       "add_to_starred": "Zu favorisierten Voreinstellungen hinzufügen",
       "selected_title": "Fall auswählen / abwählen",
-      "are_you_sure_to_delete": "Dieses Ergebnis löschen?"
+      "are_you_sure_to_delete": "Dieses Ergebnis löschen?",
+      "your_note": "Deine Notiz",
+      "add_your_note": "Füge deine Notiz hinzu",
+      "edit_note": "Notiz bearbeiten",
+      "setup_moves": "Einrichten",
+      "algorithms_collection": "Algorithmen"
     },
     "hotkeys": {
       "hotkeys": "Tastenkombinationen",

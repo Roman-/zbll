@@ -57,7 +57,9 @@
       "dark_theme": "Ciemny motyw",
       "light_theme": "Jasny motyw",
       "show_lang_button": "Pokaż przycisk języka",
-      "are_you_sure_to_reset": "Czy na pewno?"
+      "are_you_sure_to_reset": "Czy na pewno?",
+      "scramble_appendix": "Dodatek do scramble",
+      "timer_start_delay_ms": "Opóźnienie startu timera (ms)"
     },
     "timer": {
       "no_scramble": "brak dostępnych scrambli",
@@ -81,7 +83,12 @@
       "selected": "Wybrane",
       "add_to_starred": "Dodaj do ulubionych ustawień wstępnych",
       "selected_title": "Wybierz/odznacz przypadek",
-      "are_you_sure_to_delete": "Usunąć ten wynik?"
+      "are_you_sure_to_delete": "Usunąć ten wynik?",
+      "your_note": "Twoja notatka",
+      "add_your_note": "Dodaj swoją notatkę",
+      "edit_note": "Edytuj notatkę",
+      "setup_moves": "Ustawienia",
+      "algorithms_collection": "Algorytmy"
     },
     "hotkeys": {
       "hotkeys": "Skróty klawiszowe",

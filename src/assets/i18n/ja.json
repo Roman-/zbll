@@ -57,7 +57,9 @@
       "dark_theme": "ダークテーマ",
       "light_theme": "ライトテーマ",
       "show_lang_button": "言語ボタンを表示",
-      "are_you_sure_to_reset": "本当にリセットしますか？"
+      "are_you_sure_to_reset": "本当にリセットしますか？",
+      "scramble_appendix": "スクランブルの付録",
+      "timer_start_delay_ms": "タイマー開始遅延（ms）"
     },
     "timer": {
       "no_scramble": "利用可能なスクランブルはありません",
@@ -81,7 +83,12 @@
       "selected": "選択済み",
       "add_to_starred": "お気に入りプリセットに追加",
       "selected_title": "ケースの選択 / 選択解除",
-      "are_you_sure_to_delete": "この結果を削除しますか？"
+      "are_you_sure_to_delete": "この結果を削除しますか？",
+      "your_note": "あなたのメモ",
+      "add_your_note": "メモを追加",
+      "edit_note": "メモを編集",
+      "setup_moves": "セットアップ",
+      "algorithms_collection": "アルゴリズム"
     },
     "hotkeys": {
       "hotkeys": "ホットキー",

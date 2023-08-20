@@ -56,7 +56,9 @@
       "dark_theme": "Tmavý režim",
       "light_theme": "Světlý režim",
       "show_lang_button": "Zobrazit tlačítko jazyka",
-      "are_you_sure_to_reset": "Jste si jisti?"
+      "are_you_sure_to_reset": "Jste si jisti?",
+      "scramble_appendix": "Příloha ke scramble",
+      "timer_start_delay_ms": "Prodleva startu časovače (ms)"
     },
     "timer": {
       "no_scramble": "žádný dostupný scarmble",
@@ -80,7 +82,12 @@
       "selected": "Vybráno",
       "add_to_starred": "Přidat do oblíbených předvoleb",
       "selected_title": "Vybrat / zrušit výběr případu",
-      "are_you_sure_to_delete": "Smazat tento výsledek?"
+      "are_you_sure_to_delete": "Smazat tento výsledek?",
+      "your_note": "Vaše poznámka",
+      "add_your_note": "Přidejte svou poznámku",
+      "edit_note": "Upravit poznámku",
+      "setup_moves": "Nastavení",
+      "algorithms_collection": "Algoritmy"
     },
     "hotkeys": {
       "hotkeys": "Zkratky",

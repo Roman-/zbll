@@ -57,7 +57,9 @@
       "dark_theme": "深色主题",
       "light_theme": "浅色主题",
       "show_lang_button": "显示语言按钮",
-      "are_you_sure_to_reset": "确定重置？"
+      "are_you_sure_to_reset": "确定重置？",
+      "scramble_appendix": "打乱附录",
+      "timer_start_delay_ms": "计时器启动延迟（毫秒）"
     },
     "timer": {
       "no_scramble": "无可用打乱",
@@ -81,7 +83,12 @@
       "selected": "已选择",
       "add_to_starred": "添加到收藏预设",
       "selected_title": "选择/取消选择情况",
-      "are_you_sure_to_delete": "删除此结果？"
+      "are_you_sure_to_delete": "删除此结果？",
+      "your_note": "您的笔记",
+      "add_your_note": "添加您的笔记",
+      "edit_note": "编辑笔记",
+      "setup_moves": "设置",
+      "algorithms_collection": "算法"
     },
     "hotkeys": {
       "hotkeys": "热键",

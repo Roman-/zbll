@@ -57,7 +57,9 @@
       "dark_theme": "Темна тема",
       "light_theme": "Світла тема",
       "show_lang_button": "Показати кнопку мови",
-      "are_you_sure_to_reset": "Ви впевнені?"
+      "are_you_sure_to_reset": "Ви впевнені?",
+      "scramble_appendix": "Додаток до скрамблу",
+      "timer_start_delay_ms": "Затримка початку таймера (мс)"
     },
     "timer": {
       "no_scramble": "немає доступного скрамбла",
@@ -81,7 +83,12 @@
       "selected": "Обрано",
       "add_to_starred": "Додати до обраного пресету",
       "selected_title": "Вибрати / скасувати вибір ситуації",
-      "are_you_sure_to_delete": "Видалити цей результат?"
+      "are_you_sure_to_delete": "Видалити цей результат?",
+      "your_note": "Ваша нотатка",
+      "add_your_note": "Додати свою нотатку",
+      "edit_note": "Редагувати нотатку",
+      "setup_moves": "Налаштування",
+      "algorithms_collection": "Алгоритми"
     },
     "hotkeys": {
       "hotkeys": "Гарячі клавіші",

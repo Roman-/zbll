@@ -102,7 +102,7 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="timerStartDelayMs" class="form-label">Timer start delay (ms)</label>
+        <label for="timerStartDelayMs" class="form-label">{{ $t("settings.timer_start_delay_ms") }}</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settings.store.timerStartDelayMs" id="timerStartDelayMs">
@@ -115,7 +115,7 @@ const onResetBtnClicked = () => {
       </div>
 
       <div class="mb-2">
-        <label for="scrambleEnding" class="form-label">Scramble appendix</label>
+        <label for="scrambleEnding" class="form-label">{{ $t("settings.scramble_appendix") }}</label>
         <select
             class="mx-2" tabindex="-1" @keydown.space.prevent=""
             v-model.number="settings.store.scrambleAppendix" id="scrambleAppendix">

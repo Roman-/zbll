@@ -57,7 +57,9 @@
       "dark_theme": "Темная тема",
       "light_theme": "Светлая тема",
       "show_lang_button": "Показать кнопку языка",
-      "are_you_sure_to_reset": "Вы уверены?"
+      "are_you_sure_to_reset": "Вы уверены?",
+      "scramble_appendix": "Окончание скрамбла",
+      "timer_start_delay_ms": "Задержка старта таймера (мс)"
     },
     "timer": {
       "no_scramble": "нет доступного скрамбла",
@@ -81,7 +83,12 @@
       "selected": "Выбрано",
       "add_to_starred": "Добавить в избранное",
       "selected_title": "Выбрать/снять выбор с ситуации",
-      "are_you_sure_to_delete": "Удалить результат?"
+      "are_you_sure_to_delete": "Удалить результат?",
+      "your_note": "Ваша заметка",
+      "add_your_note": "Добавить свою заметку",
+      "edit_note": "Редактировать заметку",
+      "setup_moves": "Выставление",
+      "algorithms_collection": "Алгоритмы"
     },
     "hotkeys": {
       "hotkeys": "Горячие клавиши",

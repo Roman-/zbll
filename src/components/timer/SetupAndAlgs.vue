@@ -10,8 +10,8 @@ const setup = computed(() => inverseScramble(zbll_map_next[props.zbllKey].algs[0
 </script>
 
 <template>
-  <div>Setup: <strong>{{setup}}</strong></div>
-  <div class="mt-2">Algs:</div>
+  <div>{{ $t("result_card.setup_moves") }}: <strong>{{setup}}</strong></div>
+  <div class="mt-2">{{ $t("result_card.algorithms_collection") }}:</div>
   <div>
     <ul>
       <li

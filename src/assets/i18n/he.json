@@ -57,7 +57,9 @@
       "dark_theme": "ערכת נושא כהה",
       "light_theme": "ערכת נושא בהירה",
       "show_lang_button": "הצג כפתור שפה",
-      "are_you_sure_to_reset": "האם אתה בטוח?"
+      "are_you_sure_to_reset": "האם אתה בטוח?",
+      "scramble_appendix": "נספח ערבוב",
+      "timer_start_delay_ms": "השהיית הפעלת הטיימר (מ\"ש)"
     },
     "timer": {
       "no_scramble": "אין סקרמבל זמין",
@@ -81,7 +83,12 @@
       "selected": "נבחר",
       "add_to_starred": "הוסף לתבנית מועדפת",
       "selected_title": "בחר / בטל בחירה במקרה",
-      "are_you_sure_to_delete": "האם אתה בטוח שברצונך למחוק את התוצאה הזו?"
+      "are_you_sure_to_delete": "האם אתה בטוח שברצונך למחוק את התוצאה הזו?",
+      "your_note": "ההערה שלך",
+      "add_your_note": "הוסף הערה שלך",
+      "edit_note": "ערוך הערה",
+      "setup_moves": "הגדרה",
+      "algorithms_collection": "אלגוריתמים"
     },
     "hotkeys": {
       "hotkeys": "מקשי חירום",
