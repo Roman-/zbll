@@ -1,0 +1,111 @@
+{
+  "in": {
+    "nav": {
+      "zbll_trainer": "Pelatih ZBLL",
+      "select_btn": "pilih",
+      "n_cases": "tidak ada kasus yang dipilih | satu kasus dipilih | {count} kasus dipilih",
+      "n_to_recap": "{count} untuk rekap",
+      "language": "Bahasa",
+      "add_translation": "Tambahkan terjemahan",
+      "settings": "Pengaturan",
+      "toggle_night_mode": "Alihkan mode malam"
+    },
+    "select": {
+      "select_intro": "Pilih kasus untuk dilatih",
+      "practice_btn_title": "Latihan kasus secara acak",
+      "recap_btn_title": "Periksa setiap kasus satu kali",
+      "practice": "mulai",
+      "recap": "rekap setiap kasus satu kali"
+    },
+    "presets": {
+      "presets": "Preset",
+      "new_preset": "Preset baru",
+      "edit_preset": "Edit preset",
+      "name_example": "untuk mempelajari",
+      "save_btn": "Simpan",
+      "apply_btn": "Terapkan",
+      "delete_btn": "Hapus"
+    },
+    "howto": {
+      "how_to_use": "Cara menggunakan",
+      "dismiss_label": "tutup bagian ini",
+      "howto_1": "\uD83D\uDDB1️ Klik pada gambar untuk memilih / membatalkan pilihan semua kasus di grup",
+      "howto_2": "\uD83D\uDD3D Klik pada header item untuk memperluas / menutup grup",
+      "howto_3": "\uD83D\uDFE2 Warna hijau berarti semua kasus dalam grup dipilih; \uD83D\uDFE1 kuning - beberapa kasus dipilih; ⚪ putih - tidak ada kasus yang dipilih",
+      "howto_4": "✅ Saat kasus dipilih, klik \"mulai\""
+    },
+    "zbll_select_card": {
+      "all": "Semua",
+      "none": "Tidak ada",
+      "done": "Selesai"
+    },
+    "settings": {
+      "settings_title": "Pengaturan",
+      "reset_btn": "Setel ulang",
+      "done_btn": "Selesai",
+      "scramble_size": "Ukuran acakan",
+      "timer_size": "Ukuran timer",
+      "timer_font": "timer font",
+      "zbll_pictures_view": "tampilan gambar ZBLL",
+      "zbll_pictures_top": "Atas",
+      "zbll_pictures_side": "Samping",
+      "timer_update": "Pembaruan timer",
+      "timer_update_on": "Aktif",
+      "timer_update_off": "Mati",
+      "timer_update_seconds": "Hanya dalam hitungan detik",
+      "timer_precision": "Tresisi timer",
+      "dark_theme": "Tema gelap",
+      "light_theme": "Tema terang",
+      "show_lang_button": "Tampilkan tombol bahasa",
+      "are_you_sure_to_reset": "Apakah anda yakin?",
+      "scramble_appendix": "Lampiran acakan",
+      "timer_start_delay_ms": "Delay mulai timer (ms)"
+    },
+    "timer": {
+      "no_scramble": "Tidak tersedia acakan",
+      "scramble": "Acakan:",
+      "ready": "Siap",
+      "running": "Berjalan"
+    },
+    "stats_card": {
+      "stats_title": "Statistik:",
+      "n_solves": "tidak ada penyelesaian | satu penyelesaian | {count} penyelesaian",
+      "clear_btn": "bersihkan",
+      "clear_btn_hint": "Hapus sesi",
+      "hold_spacebar_hint": "Tahan spasi untuk memulai timer",
+      "are_you_sure_to_clean": "Hapus sesi?"
+    },
+    "result_card": {
+      "result_no": "Hasil #{count}",
+      "delete_btn": "Hapus",
+      "case": "Kasus:",
+      "scramble": "Acakan:",
+      "selected": "Dipilih",
+      "add_to_starred": "Tambahkan ke preset berbintang",
+      "selected_title": "Pilih/batalkan pilihan kasus",
+      "are_you_sure_to_delete": "Hapus hasil ini?",
+      "your_note": "Catatan anda",
+      "add_your_note": "Tambahkan catatan anda",
+      "edit_note": "Edit catatan",
+      "setup_moves": "Atur",
+      "algorithms_collection": "Alg"
+    },
+    "hotkeys": {
+      "hotkeys": "Tombol pintas",
+      "or": "atau",
+      "toggle_timer_select": "Alihkan Timer/Pilih tampilan",
+      "delete_current_result": "Hapus hasil saat ini",
+      "clear_session": "Hapus sesi",
+      "select_deselect": "Pilih/batalkan pilihan ksus saat ini",
+      "recap": "Mulai rekap semua kasus yang dipilih",
+      "add_to_starred": "Tambahkan kasus yang dipilih ke preset berbintang",
+      "navigate": "Navigasi ke hasil statistik sebelumnya/berikutnya/pertama/terakhir"
+    },
+    "contact": {
+      "contact": "Kontak",
+      "reach_out": "Hubungi orang pengembang",
+      "get_the_code": "Dapatkan kode sumbernya",
+      "support": "Dukung projek ini"
+    }
+  }
+}

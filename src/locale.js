@@ -8,6 +8,7 @@ import en from '@/assets/i18n/en.json'
 import es from '@/assets/i18n/es.json'
 import fr from '@/assets/i18n/fr.json'
 import he from '@/assets/i18n/he.json'
+import in_ from '@/assets/i18n/in.json'
 import it from '@/assets/i18n/it.json'
 import ja from '@/assets/i18n/ja.json'
 import ko from '@/assets/i18n/ko.json'
@@ -28,6 +29,7 @@ export const supportedLocales = [
     {code: "es", messages: es, name: "Español", emoji: "🇪🇸"},
     {code: "fr", messages: fr, name: "Français", emoji: "🇫🇷"},
     {code: "he", messages: he, name: "עברית", emoji: "🇮🇱"},
+    {code: "in", messages: in_, name: "Bahasa Indonesia", emoji: "🇮🇩"},
     {code: "it", messages: it, name: "Italiano", emoji: "🇮🇹"},
     {code: "ja", messages: ja, name: "日本語", emoji: "🇯🇵"},
     {code: "ko", messages: ko, name: "한국어", emoji: "🇰🇷"},
