@@ -1,5 +1,5 @@
 # zbll trainer
-## [bestsiteever.ru/zbll](https://www.bestsiteever.ru/zbll) - web application for speedcubers for practicing ZBLL recognition and execution.
+## [bestsiteever.net/zbll](https://www.bestsiteever.net/zbll) - web application for speedcubers for practicing ZBLL recognition and execution.
 
 ## Project Setup
 
